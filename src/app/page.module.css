@@ -1,0 +1,840 @@
+.page {
+  --home-deep-ink: #17111f;
+  --home-plum: #251525;
+  --home-rose: #d7839d;
+  --home-blush: #f3bdca;
+  --home-pearl: #fff7fa;
+  --home-mauve: #b98ca2;
+  --home-teal: #75aeb4;
+  width: min(1380px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1.5rem 0 4rem;
+}
+
+.heroSection,
+.section {
+  width: 100%;
+}
+
+.visitorMapSection {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.heroSection {
+  position: relative;
+  overflow: visible;
+  padding: 0;
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: -2.5rem -2rem;
+  border-radius: 48px;
+  background: linear-gradient(
+      90deg,
+      rgba(23, 17, 31, 0.72) 0%,
+      rgba(23, 17, 31, 0.34) 46%,
+      rgba(23, 17, 31, 0.12) 100%
+    ), radial-gradient(circle at 20% 20%, rgba(255, 247, 250, 0.1), transparent 22%),
+    radial-gradient(circle at top left, rgba(215, 131, 157, 0.26), transparent 30%),
+    radial-gradient(
+      circle at bottom right,
+      color-mix(in srgb, var(--home-teal) 24%, transparent),
+      transparent 35%
+    ), linear-gradient(135deg, var(--home-deep-ink) 0%, var(--home-plum) 46%, #18343a 100%);
+  box-shadow: 0 28px 90px rgba(25, 12, 23, 0.16);
+  filter: saturate(0.98);
+  pointer-events: none;
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.32fr) minmax(340px, 0.9fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.heroCopy,
+.profileCard,
+.storyCard,
+.timelineCard,
+.ctaCard,
+.capabilityCard {
+  border: 1px solid rgba(243, 189, 202, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)),
+    radial-gradient(circle at top left, rgba(215, 131, 157, 0.16), transparent 45%);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 80px rgba(25, 12, 23, 0.18);
+}
+
+.heroCopy {
+  border-radius: 32px;
+  padding: 3.25rem;
+  position: relative;
+  overflow: hidden;
+  color: var(--home-pearl);
+}
+
+.heroCopy::before {
+  content: "";
+  position: absolute;
+  inset: auto -2rem -2rem auto;
+  width: 16rem;
+  height: 16rem;
+  background: radial-gradient(circle, rgba(243, 189, 202, 0.2), transparent 68%);
+  pointer-events: none;
+}
+
+.eyebrow,
+.sectionEyebrow,
+.profileLabel,
+.cardKicker {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.eyebrow,
+.profileLabel,
+.cardKicker {
+  color: #efc3d0;
+}
+
+.sectionEyebrow {
+  color: color-mix(in srgb, var(--home-plum) 35%, var(--home-mauve));
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: clamp(2.8rem, 4.35vw, 5.15rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+  max-width: 17ch;
+}
+
+.heroText {
+  margin-top: 1.4rem;
+  max-width: 48rem;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: rgba(255, 247, 250, 0.86);
+}
+
+.roleFitPanel {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border-radius: 22px;
+  border: 1px solid rgba(243, 189, 202, 0.16);
+  background: linear-gradient(180deg, rgba(255, 247, 250, 0.1), rgba(255, 247, 250, 0.04));
+}
+
+.roleFitChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.roleFitChips span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.2rem;
+  padding: 0.38rem 0.82rem;
+  border-radius: 999px;
+  border: 1px solid rgba(243, 189, 202, 0.18);
+  color: #fff3f7;
+  background: rgba(255, 247, 250, 0.09);
+  font-size: 0.88rem;
+}
+
+.roleFitMeta {
+  margin: 0.7rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 247, 250, 0.72);
+}
+
+.proofChip,
+.skillCloud span,
+.ctaList span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(243, 189, 202, 0.14);
+}
+
+.proofChip {
+  background: rgba(255, 247, 250, 0.08);
+  color: #fff3f7;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.impactPanel {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  border-radius: 28px;
+  border: 1px solid rgba(243, 189, 202, 0.14);
+  background: linear-gradient(180deg, rgba(255, 247, 250, 0.09), rgba(255, 247, 250, 0.04)),
+    radial-gradient(circle at top left, rgba(215, 131, 157, 0.16), transparent 45%);
+}
+
+.impactHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+}
+
+.impactHeader span {
+  color: rgba(255, 247, 250, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.impactGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.impactCard {
+  border-radius: 22px;
+  padding: 1rem;
+  background: rgba(30, 17, 30, 0.28);
+  border: 1px solid rgba(243, 189, 202, 0.12);
+}
+
+.impactCard strong {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--home-pearl);
+}
+
+.impactCard h3 {
+  margin: 0.7rem 0 0;
+  font-size: 1rem;
+  color: #fff3f7;
+}
+
+.impactCard p {
+  margin: 0.55rem 0 0;
+  color: rgba(255, 247, 250, 0.76);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.primaryButton,
+.secondaryButton,
+.socialLink,
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 3.3rem;
+  padding: 0 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #d7839d, #f3bdca);
+  color: #24111c;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(243, 189, 202, 0.24);
+  color: #fff3f7;
+  background: rgba(255, 247, 250, 0.08);
+}
+
+.workButton {
+  box-shadow: 0 14px 30px rgba(215, 131, 157, 0.26);
+}
+
+.cvButton {
+  background: rgba(243, 189, 202, 0.14);
+  border-color: rgba(243, 189, 202, 0.3);
+  color: #ffe5ec;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.socialLink:hover,
+.inlineLink:hover {
+  transform: translateY(-2px);
+}
+
+.workButton:hover {
+  background: linear-gradient(135deg, #e191a9, #f7cbd4);
+}
+
+.cvButton:hover {
+  background: rgba(243, 189, 202, 0.22);
+  border-color: rgba(243, 189, 202, 0.42);
+}
+
+.profilePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profileCard {
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.imageWrap {
+  position: relative;
+  min-height: 470px;
+}
+
+.profileImage {
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 17, 31, 0.02) 0%, rgba(23, 17, 31, 0.45) 100%),
+    linear-gradient(90deg, rgba(23, 17, 31, 0.2) 0%, rgba(23, 17, 31, 0) 55%);
+}
+
+.profileBody {
+  padding: 1.5rem;
+  color: var(--home-pearl);
+}
+
+.profileBody h2 {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.15;
+}
+
+.profileSummary {
+  margin: 0.95rem 0 0;
+  color: #e3ced7;
+  line-height: 1.7;
+}
+
+.profileContactRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.contactRevealWrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.skillCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skillCloud span,
+.ctaList span {
+  background: color-mix(in srgb, var(--home-blush) 12%, var(--surface-background));
+  border-color: color-mix(in srgb, var(--home-rose) 30%, var(--neutral-alpha-medium));
+  color: color-mix(in srgb, var(--home-plum) 22%, var(--neutral-on-background));
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.logoSection {
+  gap: 1rem;
+}
+
+.logoIntro {
+  max-width: 48rem;
+  padding: 0 1rem;
+}
+
+.logoIntro h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.6vw, 2.8rem);
+  line-height: 1.06;
+  letter-spacing: 0;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.logoCard {
+  min-width: 0;
+  min-height: 9.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--home-rose) 22%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--home-blush) 10%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ),
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--home-rose) 16%, transparent),
+      transparent 42%
+    );
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--home-plum) 10%, transparent);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.logoCard:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--home-rose) 42%, transparent);
+  box-shadow: 0 24px 58px color-mix(in srgb, var(--home-plum) 14%, transparent);
+}
+
+.logoMark {
+  height: 5.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  border: 1px solid color-mix(in srgb, white 70%, var(--home-blush));
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 96%, var(--home-blush)),
+    color-mix(in srgb, white 90%, var(--home-blush))
+  );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, white 64%, transparent);
+}
+
+.institutionLogo {
+  width: 100%;
+  max-width: 8.5rem;
+  height: 3.2rem;
+  object-fit: contain;
+  filter: saturate(0.74) contrast(0.96) brightness(0.98);
+  opacity: 0.88;
+}
+
+.logoMeta {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.logoMeta strong {
+  color: var(--neutral-on-background);
+  font-size: 0.86rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.logoMeta span {
+  color: color-mix(in srgb, var(--home-rose) 46%, var(--neutral-on-background-weak));
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.signalStrip,
+.snapshotGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.signalCard,
+.snapshotCard {
+  border-radius: 28px;
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--home-rose) 22%, var(--neutral-alpha-medium));
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--home-blush) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ),
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--home-rose) 18%, transparent),
+      transparent 45%
+    );
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--home-plum) 12%, transparent);
+}
+
+.signalCard {
+  display: flex;
+  align-items: stretch;
+}
+
+.signalCard p,
+.snapshotCard p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--neutral-on-background-weak);
+}
+
+.sectionIntro,
+.sectionHeader {
+  padding: 0 1rem;
+}
+
+.sectionIntro {
+  max-width: 44rem;
+}
+
+.sectionIntro h2,
+.sectionHeader h2,
+.timelineCard h2,
+.ctaCard h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.sectionIntro p:last-child,
+.ctaCard p,
+.timelineItem p {
+  margin-top: 1rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--neutral-on-background-weak);
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.capabilityCard {
+  border-radius: 28px;
+  padding: 1.6rem;
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--home-blush) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ),
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--home-rose) 18%, transparent),
+      transparent 45%
+    );
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--home-plum) 12%, transparent);
+}
+
+.capabilityCard h3,
+.timelineItem h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.capabilityCard p {
+  margin: 0.85rem 0 0;
+  line-height: 1.7;
+  color: var(--neutral-on-background-weak);
+}
+
+.splitSection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.timelineCard,
+.ctaCard,
+.storyCard {
+  border-radius: 32px;
+  padding: 2rem;
+  border: 1px solid color-mix(in srgb, var(--home-rose) 22%, var(--neutral-alpha-medium));
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--home-blush) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ),
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--home-rose) 18%, transparent),
+      transparent 45%
+    );
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--home-plum) 12%, transparent);
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.timelineItem {
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--home-rose) 20%, var(--neutral-alpha-medium));
+}
+
+.timelineItem:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.timelineItem span {
+  display: inline-block;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--home-rose) 38%, var(--neutral-on-background-weak));
+  margin-bottom: 0.65rem;
+}
+
+.timelineItem p {
+  margin-bottom: 0;
+}
+
+.ctaList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.caseStudyList {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.caseStudyList p {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.7;
+}
+
+.sectionHeader {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.inlineLink {
+  min-height: 2.8rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--home-rose) 28%, var(--neutral-alpha-medium));
+  color: color-mix(in srgb, var(--home-plum) 22%, var(--neutral-on-background));
+  background: color-mix(in srgb, var(--home-blush) 12%, var(--surface-background));
+  white-space: nowrap;
+}
+
+.testimonialMarquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.testimonialTrack {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  width: max-content;
+  animation: testimonialScroll 44s linear infinite;
+}
+
+.testimonialCard {
+  width: min(26rem, 84vw);
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.25rem;
+  border-radius: 24px;
+  border: 1px solid color-mix(in srgb, var(--home-rose) 22%, var(--neutral-alpha-medium));
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--home-blush) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ),
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--home-rose) 16%, transparent),
+      transparent 48%
+    );
+}
+
+.testimonialCard p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--neutral-on-background-weak);
+}
+
+.testimonialCard strong {
+  font-size: 0.96rem;
+  line-height: 1.2;
+}
+
+.testimonialCard span {
+  font-size: 0.86rem;
+  color: var(--neutral-on-background-weak);
+}
+
+.testimonialLink {
+  width: fit-content;
+  font-size: 0.86rem;
+  color: color-mix(in srgb, var(--home-rose) 68%, var(--neutral-on-background));
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--home-rose) 38%, transparent);
+  padding-bottom: 0.1rem;
+}
+
+.testimonialLink:hover {
+  color: var(--neutral-on-background);
+  border-bottom-color: color-mix(in srgb, var(--neutral-on-background) 55%, transparent);
+}
+
+@keyframes testimonialScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+@media (max-width: 960px) {
+  .heroGrid,
+  .splitSection,
+  .capabilityGrid,
+  .signalStrip,
+  .snapshotGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .profilePanel {
+    order: 1;
+  }
+
+  .heroCopy {
+    order: 2;
+  }
+
+  .impactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .roleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    padding: 2rem;
+  }
+
+  .heroBackdrop {
+    inset: -1.25rem -0.5rem;
+    border-radius: 36px;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .impactHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rolePanelHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .testimonialTrack {
+    animation-duration: 54s;
+  }
+
+  .testimonialMarquee {
+    mask-image: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    gap: 1.5rem;
+    padding: 1rem 0 3rem;
+  }
+
+  .heroSection {
+    padding: 0;
+  }
+
+  .heroBackdrop {
+    inset: -0.75rem 0;
+    border-radius: 28px;
+  }
+
+  .heroCopy,
+  .profileCard,
+  .timelineCard,
+  .ctaCard,
+  .storyCard,
+  .capabilityCard {
+    border-radius: 24px;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.4rem, 14vw, 4rem);
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrap {
+    min-height: 360px;
+  }
+
+  .sectionIntro,
+  .sectionHeader,
+  .logoIntro {
+    padding: 0 0.25rem;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

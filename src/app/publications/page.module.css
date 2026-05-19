@@ -1,0 +1,1325 @@
+.publicationsPage {
+  --group-accent: #167d9c;
+  --group-accent-deep: #0f5369;
+  --group-accent-contrast: #eef9ff;
+
+  width: min(1180px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 0 4rem;
+}
+
+.heroSection {
+  display: block;
+}
+
+.heroCopy {
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 74%, transparent);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(9, 25, 33, 0.95), rgba(22, 63, 72, 0.84)),
+    linear-gradient(90deg, rgba(218, 155, 70, 0.24), rgba(95, 167, 181, 0.16));
+  color: #f4fbfd;
+  box-shadow: 0 24px 70px color-mix(in srgb, black 16%, transparent);
+}
+
+.heroCopy h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: 4.4rem;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.heroIntro {
+  max-width: 48rem;
+  margin: 1.25rem 0 0;
+  color: rgba(244, 251, 253, 0.78);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+.heroThemeFigure {
+  margin: 1.75rem 0 0;
+}
+
+.heroThemeScroller {
+  overflow-x: auto;
+  border: 1px solid rgba(244, 251, 253, 0.22);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(4, 19, 30, 0.24);
+}
+
+.heroThemeScroller img {
+  display: block;
+  width: 100%;
+  min-width: 780px;
+  height: auto;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: color-mix(in srgb, var(--brand-on-background-weak) 70%, #d9a55b);
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.groupCard,
+.publicationCard {
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 70%, transparent);
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-background) 96%, transparent),
+    color-mix(in srgb, var(--page-background) 98%, transparent)
+  );
+  box-shadow: 0 18px 56px color-mix(in srgb, black 8%, transparent);
+}
+
+.groupOverview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.groupCard {
+  --group-accent: #167d9c;
+  --group-accent-deep: #0f5369;
+  --group-accent-contrast: #eef9ff;
+
+  appearance: none;
+  position: relative;
+  overflow: hidden;
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.25rem;
+  color: var(--neutral-on-background);
+  text-align: left;
+  cursor: pointer;
+  border-color: color-mix(in srgb, var(--group-accent) 34%, var(--neutral-alpha-medium));
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--group-accent) 22%, var(--surface-background)),
+      color-mix(in srgb, var(--group-accent-deep) 10%, var(--page-background))
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-background) 96%, transparent),
+      color-mix(in srgb, var(--page-background) 98%, transparent)
+    );
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms
+    ease;
+}
+
+.groupCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0.35rem;
+  background: linear-gradient(90deg, var(--group-accent), var(--group-accent-deep));
+}
+
+.groupCard:hover,
+.groupCard:focus-visible,
+.activeGroupCard {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--group-accent) 66%, transparent);
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--group-accent) 32%, var(--surface-background)),
+      color-mix(in srgb, var(--group-accent-deep) 18%, var(--page-background))
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-background) 94%, transparent),
+      color-mix(in srgb, var(--page-background) 98%, transparent)
+    );
+  box-shadow: 0 22px 64px color-mix(in srgb, var(--group-accent) 18%, transparent);
+}
+
+.groupCard span {
+  color: color-mix(in srgb, var(--group-accent) 72%, var(--neutral-on-background));
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.groupCard strong {
+  display: block;
+  margin: 1.15rem 0 0.7rem;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.groupCard small {
+  color: color-mix(in srgb, var(--group-accent) 62%, var(--neutral-on-background));
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.groupColorRotational {
+  --group-accent: #2b78d0;
+  --group-accent-deep: #174d8e;
+  --group-accent-contrast: #eef6ff;
+}
+
+.groupColorSimulation {
+  --group-accent: #c78321;
+  --group-accent-deep: #85520f;
+  --group-accent-contrast: #fff8ea;
+}
+
+.groupColorStructural {
+  --group-accent: #1e9568;
+  --group-accent-deep: #0f6548;
+  --group-accent-contrast: #effbf4;
+}
+
+.groupColorPlanetary {
+  --group-accent: #9a5fd0;
+  --group-accent-deep: #61358c;
+  --group-accent-contrast: #f7f0ff;
+}
+
+.collaborationSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 70%, transparent);
+  border-radius: 8px;
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, #167d9c 16%, var(--surface-background)),
+      color-mix(in srgb, #c78321 10%, var(--page-background))
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-background) 96%, transparent),
+      color-mix(in srgb, var(--page-background) 98%, transparent)
+    );
+  box-shadow: 0 18px 56px color-mix(in srgb, black 8%, transparent);
+}
+
+.collaborationHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, auto);
+  gap: 1rem;
+  align-items: end;
+}
+
+.collaborationHeader h2 {
+  max-width: 16ch;
+  margin: 0;
+  color: var(--neutral-on-background);
+  font-size: 2.35rem;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.collaborationHeader p:last-child {
+  max-width: 52rem;
+  margin: 0.9rem 0 0;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.65;
+}
+
+.networkStats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.networkStats span {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: center;
+  min-height: 5.25rem;
+  padding: 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 62%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-background) 78%, transparent);
+  color: var(--neutral-on-background-weak);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.networkStats strong {
+  color: color-mix(in srgb, #167d9c 66%, var(--neutral-on-background));
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.featuredCollaborationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.featuredCollaborationCard {
+  appearance: none;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 0.65rem 0.75rem;
+  align-items: center;
+  padding: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--theme-color, #167d9c) 28%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--theme-color, #167d9c) 12%, var(--surface-background)),
+      color-mix(in srgb, var(--theme-deep-color, #0f5369) 6%, var(--page-background))
+    ), color-mix(in srgb, var(--surface-background) 86%, transparent);
+  color: var(--neutral-on-background);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 14px 38px color-mix(in srgb, black 7%, transparent);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms
+    ease;
+}
+
+.featuredCollaborationCard:hover,
+.featuredCollaborationCard:focus-visible,
+.activeFeaturedCollaborationCard {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--theme-color, #167d9c) 58%, transparent);
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--theme-color, #167d9c) 20%, var(--surface-background)),
+      color-mix(in srgb, var(--theme-deep-color, #0f5369) 10%, var(--page-background))
+    ), color-mix(in srgb, var(--surface-background) 84%, transparent);
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--theme-color, #167d9c) 16%, transparent);
+}
+
+.featuredLogoPlate {
+  grid-row: 1 / span 2;
+  width: 4.6rem;
+  height: 3.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 1px solid color-mix(in srgb, white 72%, var(--theme-color, #167d9c));
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 96%, var(--surface-background)),
+    color-mix(in srgb, white 90%, var(--surface-background))
+  );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, white 64%, transparent);
+}
+
+.featuredLogoPlate img {
+  width: 100%;
+  height: 2.3rem;
+  object-fit: contain;
+  filter: saturate(0.74) contrast(0.96) brightness(0.98);
+  opacity: 0.9;
+}
+
+.featuredCollaborationBody {
+  min-width: 0;
+  display: grid;
+  gap: 0.18rem;
+}
+
+.featuredCollaborationBody strong {
+  min-width: 0;
+  color: var(--neutral-on-background);
+  font-size: 0.96rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.featuredCollaborationBody span,
+.featuredCollaborationMeta small {
+  color: var(--neutral-on-background-weak);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.featuredCollaborationMeta {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.featuredCollaborationMeta small {
+  min-height: 1.55rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--theme-color, #167d9c) 12%, var(--surface-background));
+  color: color-mix(in srgb, var(--theme-color, #167d9c) 58%, var(--neutral-on-background));
+}
+
+.networkToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 58%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--page-background) 76%, transparent);
+}
+
+.modeTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.modeTab {
+  appearance: none;
+  min-height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 70%, transparent);
+  background: color-mix(in srgb, var(--surface-background) 88%, transparent);
+  color: var(--neutral-on-background);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.modeTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.85rem;
+}
+
+.modeTab strong {
+  min-width: 1.7rem;
+  min-height: 1.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, #167d9c 18%, var(--page-background));
+  color: color-mix(in srgb, #167d9c 76%, var(--neutral-on-background));
+  font-size: 0.8rem;
+}
+
+.citationCacheNote {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 1rem;
+  border: 1px solid color-mix(in srgb, #c78321 42%, var(--neutral-alpha-medium));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-background) 88%, transparent);
+  color: color-mix(in srgb, #c78321 72%, var(--neutral-on-background));
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.modeTab:hover,
+.modeTab:focus-visible,
+.activeModeTab {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, #167d9c 58%, transparent);
+  background: color-mix(in srgb, #167d9c 16%, var(--surface-background));
+}
+
+.themeLegend {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.themeLegendItem {
+  appearance: none;
+  min-width: 0;
+  min-height: 4.75rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 0.65rem;
+  row-gap: 0.25rem;
+  align-items: center;
+  padding: 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--theme-color) 38%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--theme-color) 18%, var(--surface-background)),
+      color-mix(in srgb, var(--theme-deep-color) 8%, var(--page-background))
+    ), color-mix(in srgb, var(--surface-background) 84%, transparent);
+  color: var(--neutral-on-background);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.themeLegendItem span {
+  grid-row: 1 / span 2;
+  width: 0.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--theme-color), var(--theme-deep-color));
+}
+
+.themeLegendItem strong {
+  min-width: 0;
+  font-size: 0.88rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.themeLegendItem small {
+  color: color-mix(in srgb, var(--theme-color) 68%, var(--neutral-on-background-weak));
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.themeLegendItem:hover,
+.themeLegendItem:focus-visible,
+.activeThemeLegendItem {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--theme-color) 68%, transparent);
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--theme-color) 26%, var(--surface-background)),
+      color-mix(in srgb, var(--theme-deep-color) 13%, var(--page-background))
+    ), color-mix(in srgb, var(--surface-background) 84%, transparent);
+}
+
+.networkShell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.34fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.networkCanvas,
+.networkDetails {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 62%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--page-background) 82%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, white 8%, transparent);
+}
+
+.networkCanvas {
+  position: relative;
+  overflow: hidden;
+  min-height: 27rem;
+}
+
+.networkSvg {
+  display: block;
+  width: 100%;
+  height: 27rem;
+}
+
+.networkGrid circle,
+.networkGrid line {
+  fill: none;
+  stroke: color-mix(in srgb, var(--neutral-alpha-medium) 54%, transparent);
+  stroke-width: 1;
+}
+
+.networkLinks line,
+.networkLinks path {
+  fill: none;
+  stroke: color-mix(in srgb, #167d9c 42%, var(--neutral-alpha-medium));
+  stroke-linecap: round;
+  opacity: 0.76;
+}
+
+.networkLinks .activeNetworkLink,
+.activeNetworkLink {
+  stroke: color-mix(in srgb, #c78321 74%, #167d9c);
+  opacity: 1;
+}
+
+.networkLinks .themeNetworkLink {
+  stroke: var(--theme-color);
+  stroke-linecap: round;
+  opacity: 0.38;
+}
+
+.networkLinks .activeThemeNetworkLink,
+.activeThemeNetworkLink {
+  stroke: var(--theme-color);
+  opacity: 0.92;
+}
+
+.networkLinks .mutedNetworkLink {
+  opacity: 0.05;
+}
+
+.coreNode circle {
+  fill: color-mix(in srgb, #167d9c 72%, var(--surface-background));
+  stroke: color-mix(in srgb, white 42%, transparent);
+  stroke-width: 1.5;
+}
+
+.coreNode text {
+  fill: #f4fbfd;
+  font-size: 0.74rem;
+  font-weight: 850;
+  pointer-events: none;
+}
+
+.networkNode {
+  cursor: pointer;
+  outline: none;
+}
+
+.networkNode circle {
+  fill: color-mix(in srgb, #f2b15f 76%, var(--surface-background));
+  stroke: color-mix(in srgb, #85520f 62%, var(--neutral-on-background));
+  stroke-width: 1.5;
+  transition: fill 180ms ease, stroke 180ms ease, transform 180ms ease;
+}
+
+.networkNode text {
+  fill: var(--neutral-on-background);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  paint-order: stroke;
+  pointer-events: none;
+  stroke: color-mix(in srgb, var(--page-background) 88%, transparent);
+  stroke-linejoin: round;
+  stroke-width: 4px;
+}
+
+.networkNode:hover circle,
+.networkNode:focus-visible circle,
+.activeNetworkNode circle {
+  fill: color-mix(in srgb, #1e9568 72%, var(--surface-background));
+  stroke: color-mix(in srgb, #0f6548 84%, var(--neutral-on-background));
+  transform: scale(1.08);
+}
+
+.coauthorNode {
+  transition: opacity 180ms ease;
+}
+
+.coauthorNode circle {
+  fill: color-mix(in srgb, var(--theme-color, #f2b15f) 68%, var(--surface-background));
+  stroke: color-mix(in srgb, var(--theme-deep-color, #85520f) 78%, var(--neutral-on-background));
+}
+
+.coauthorNode:hover circle,
+.coauthorNode:focus-visible circle,
+.coauthorNode.activeNetworkNode circle {
+  fill: color-mix(in srgb, var(--theme-color, #1e9568) 82%, var(--surface-background));
+  stroke: color-mix(in srgb, var(--theme-deep-color, #0f6548) 88%, var(--neutral-on-background));
+}
+
+.mutedNetworkNode {
+  opacity: 0.18;
+}
+
+.themeNode circle {
+  fill: color-mix(in srgb, var(--theme-color) 72%, var(--surface-background));
+  stroke: color-mix(in srgb, var(--theme-deep-color) 84%, var(--neutral-on-background));
+}
+
+.themeNode.activeNetworkNode circle {
+  fill: color-mix(in srgb, var(--theme-color) 90%, var(--surface-background));
+  stroke: color-mix(in srgb, white 46%, var(--theme-deep-color));
+  transform: scale(1.08);
+}
+
+.themeNode text {
+  fill: #f4fbfd;
+  stroke: color-mix(in srgb, var(--theme-deep-color) 74%, transparent);
+  stroke-width: 3px;
+}
+
+.sourceNode circle {
+  fill: color-mix(in srgb, var(--theme-color, #2b78d0) 64%, var(--surface-background));
+  stroke: color-mix(in srgb, var(--theme-deep-color, #174d8e) 72%, var(--neutral-on-background));
+}
+
+.citingNode circle {
+  fill: color-mix(in srgb, #9a5fd0 62%, var(--surface-background));
+}
+
+.institutionNetworkSvg {
+  background: radial-gradient(
+      circle at 50% 50%,
+      color-mix(in srgb, #167d9c 12%, transparent),
+      transparent 46%
+    ), color-mix(in srgb, var(--page-background) 84%, transparent);
+}
+
+.institutionHomeLinks line {
+  fill: none;
+  stroke: color-mix(in srgb, var(--neutral-alpha-medium) 58%, transparent);
+  stroke-dasharray: 5 7;
+  stroke-linecap: round;
+  stroke-width: 1.3;
+}
+
+.institutionNetworkLink {
+  stroke: var(--theme-color, color-mix(in srgb, #167d9c 52%, var(--neutral-alpha-medium)));
+  stroke-linecap: round;
+  opacity: 0.44;
+}
+
+.institutionHubNode circle {
+  fill: color-mix(in srgb, #167d9c 72%, var(--surface-background));
+  stroke: color-mix(in srgb, #0f5369 84%, var(--neutral-on-background));
+}
+
+.institutionPartnerNode circle {
+  fill: color-mix(in srgb, var(--theme-color, #c78321) 62%, var(--surface-background));
+  stroke: color-mix(in srgb, var(--theme-deep-color, #85520f) 78%, var(--neutral-on-background));
+}
+
+.institutionLogoPlate {
+  fill: color-mix(in srgb, white 96%, var(--surface-background));
+  stroke: color-mix(in srgb, white 76%, var(--theme-color, #167d9c));
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.institutionNodeLogo {
+  filter: saturate(0.72) contrast(0.96) brightness(0.98);
+  opacity: 0.88;
+  pointer-events: none;
+}
+
+.institutionHubNode:hover circle,
+.institutionHubNode:focus-visible circle,
+.institutionHubNode.activeNetworkNode circle,
+.institutionPartnerNode:hover circle,
+.institutionPartnerNode:focus-visible circle,
+.institutionPartnerNode.activeNetworkNode circle {
+  fill: color-mix(in srgb, var(--theme-color, #1e9568) 82%, var(--surface-background));
+  stroke: color-mix(in srgb, white 38%, var(--theme-deep-color, #0f6548));
+  transform: scale(1.08);
+}
+
+.institutionHubNode text,
+.institutionPartnerNode text {
+  fill: #f4fbfd;
+  font-size: 0.58rem;
+  line-height: 1;
+  stroke: color-mix(in srgb, var(--theme-deep-color, #0f5369) 78%, transparent);
+  stroke-width: 3px;
+}
+
+.institutionHubNode text {
+  font-size: 0.64rem;
+}
+
+.citationEmptyText {
+  fill: var(--neutral-on-background-weak);
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.networkDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.institutionDetailHeader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.detailLogoPlate {
+  width: 4.8rem;
+  height: 3.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem;
+  border: 1px solid color-mix(in srgb, #167d9c 20%, color-mix(in srgb, white 70%, transparent));
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 96%, var(--surface-background)),
+    color-mix(in srgb, white 90%, var(--surface-background))
+  );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, white 64%, transparent);
+}
+
+.detailLogoPlate img {
+  width: 100%;
+  height: 2.35rem;
+  object-fit: contain;
+  filter: saturate(0.74) contrast(0.96) brightness(0.98);
+  opacity: 0.9;
+}
+
+.detailLabel {
+  margin: 0;
+  color: color-mix(in srgb, #167d9c 74%, var(--neutral-on-background));
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.networkDetails h3 {
+  margin: 0;
+  color: var(--neutral-on-background);
+  font-size: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.networkDetails p:not(.detailLabel) {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.detailMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.detailBlock {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.detailBlockHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.detailBlockHeader span,
+.detailBlockHeader small {
+  color: color-mix(in srgb, #167d9c 68%, var(--neutral-on-background));
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.detailBlockHeader small {
+  color: var(--neutral-on-background-weak);
+}
+
+.detailMeta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.85rem;
+  padding: 0 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 64%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-background) 74%, transparent);
+  color: var(--neutral-on-background-weak);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.detailList {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detailList li {
+  padding: 0.65rem;
+  border-left: 0.2rem solid color-mix(in srgb, #167d9c 56%, #c78321);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--surface-background) 62%, transparent);
+  color: var(--neutral-on-background-weak);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.detailPublicationLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.detailPublicationLink:hover,
+.detailPublicationLink:focus-visible {
+  color: color-mix(in srgb, #167d9c 70%, var(--neutral-on-background));
+}
+
+.detailLink {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  padding: 0 0.8rem;
+  border: 1px solid color-mix(in srgb, #167d9c 48%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, #167d9c 16%, var(--surface-background));
+  color: color-mix(in srgb, #167d9c 72%, var(--neutral-on-background));
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.groupStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.groupSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scroll-margin-top: 8rem;
+}
+
+.groupHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--group-accent) 34%, var(--neutral-alpha-medium));
+  border-left: 0.42rem solid var(--group-accent);
+  border-radius: 8px;
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--group-accent) 18%, var(--surface-background)),
+      color-mix(in srgb, var(--group-accent-deep) 8%, var(--page-background))
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-background) 96%, transparent),
+      color-mix(in srgb, var(--page-background) 98%, transparent)
+    );
+}
+
+.groupHeader h2 {
+  margin: 0;
+  color: color-mix(in srgb, var(--group-accent) 34%, var(--neutral-on-background));
+  font-size: 2.25rem;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.groupHeader .eyebrow {
+  color: color-mix(in srgb, var(--group-accent) 76%, var(--neutral-on-background));
+}
+
+.groupHeader p:last-child {
+  max-width: 52rem;
+  margin: 0.9rem 0 0;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.7;
+}
+
+.groupHeader > span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  padding: 0 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--group-accent) 42%, transparent);
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--group-accent) 68%, var(--neutral-on-background));
+  background: color-mix(in srgb, var(--group-accent) 14%, var(--surface-background));
+  font-size: 0.9rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.publicationList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.publicationCard {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr) minmax(9rem, 12rem);
+  gap: 1rem;
+  padding: 1.25rem;
+  border-color: color-mix(in srgb, var(--group-accent) 18%, var(--neutral-alpha-medium));
+}
+
+.publicationIndex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.15rem;
+  color: color-mix(in srgb, var(--group-accent) 68%, var(--neutral-on-background-weak));
+  font-size: 1.35rem;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.publicationBody {
+  min-width: 0;
+}
+
+.publicationMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.88rem;
+}
+
+.publicationMeta > span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.9rem;
+  padding: 0 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent);
+}
+
+.publicationMeta > span:nth-child(2) {
+  color: color-mix(in srgb, var(--group-accent) 72%, var(--neutral-on-background));
+  font-weight: 750;
+}
+
+.typeBadge {
+  font-weight: 750;
+}
+
+.typeJournal {
+  color: #effbf4;
+  background: color-mix(in srgb, #178a4f 68%, var(--surface-background)) !important;
+}
+
+.typePreprint,
+.typeManuscript {
+  color: #fff8ea;
+  background: color-mix(in srgb, #b76b16 64%, var(--surface-background)) !important;
+}
+
+.typeConference {
+  color: #eef9ff;
+  background: color-mix(in srgb, #167d9c 66%, var(--surface-background)) !important;
+}
+
+.typeTalk {
+  color: #fff0f2;
+  background: color-mix(in srgb, #a94d63 64%, var(--surface-background)) !important;
+}
+
+.publicationCard h3 {
+  margin: 0.85rem 0 0;
+  color: var(--neutral-on-background);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.authors,
+.venue {
+  margin: 0.65rem 0 0;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.65;
+}
+
+.venue strong {
+  color: var(--neutral-on-background);
+}
+
+.publicationInsightGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--group-accent) 20%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--group-accent) 10%, var(--surface-background)),
+      color-mix(in srgb, var(--group-accent-deep) 5%, var(--page-background))
+    ), color-mix(in srgb, var(--surface-background) 82%, transparent);
+}
+
+.publicationInsightGrid div {
+  min-width: 0;
+  padding: 0.7rem;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--page-background) 60%, transparent);
+}
+
+.publicationInsightGrid span {
+  display: block;
+  color: color-mix(in srgb, var(--group-accent) 72%, var(--neutral-on-background));
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.publicationInsightGrid p {
+  margin: 0.35rem 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.tagRow,
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tagRow span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 64%, transparent);
+  border-radius: 999px;
+  color: var(--neutral-on-background-weak);
+  background: color-mix(in srgb, var(--page-background) 86%, transparent);
+  font-size: 0.84rem;
+}
+
+.linkRow a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent-background-strong) 42%, transparent);
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--accent-background-strong) 64%, var(--neutral-on-background));
+  background: color-mix(in srgb, var(--accent-background-weak) 22%, transparent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.linkRow a:hover,
+.linkRow a:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent-background-strong) 68%, transparent);
+  background: color-mix(in srgb, var(--accent-background-weak) 36%, transparent);
+}
+
+.coverPage {
+  position: relative;
+  overflow: hidden;
+  align-self: stretch;
+  min-height: 13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--group-accent) 38%, transparent);
+  border-radius: 8px;
+  background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--group-accent) 30%, var(--surface-background)),
+      color-mix(in srgb, var(--group-accent-deep) 18%, var(--page-background))
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-background) 95%, transparent),
+      color-mix(in srgb, var(--page-background) 98%, transparent)
+    );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, white 12%, transparent);
+}
+
+.coverMetrics {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.coverPage span {
+  width: fit-content;
+  min-height: 1.7rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+  color: var(--group-accent-contrast);
+  background: color-mix(in srgb, var(--group-accent-deep) 72%, transparent);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.coverPage strong {
+  color: color-mix(in srgb, var(--group-accent) 38%, var(--neutral-on-background));
+  font-size: 1rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.coverPage small {
+  color: color-mix(in srgb, var(--group-accent) 76%, var(--neutral-on-background));
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.coverPage em {
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  color: var(--group-accent-contrast);
+  background: color-mix(in srgb, var(--group-accent) 72%, var(--group-accent-deep));
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 850;
+}
+
+.coverLines {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.coverLines i {
+  display: block;
+  height: 0.34rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--group-accent) 28%, var(--surface-background));
+}
+
+.coverLines i:nth-child(2) {
+  width: 72%;
+}
+
+.coverLines i:nth-child(3) {
+  width: 48%;
+}
+
+@media (max-width: 1080px) {
+  .groupOverview,
+  .collaborationHeader,
+  .networkShell {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heroCopy h1 {
+    font-size: 3.6rem;
+  }
+
+  .networkShell {
+    grid-template-columns: 1fr;
+  }
+
+  .themeLegend,
+  .networkStats,
+  .featuredCollaborationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .publicationsPage {
+    gap: 1.4rem;
+    padding: 1rem 0 3rem;
+  }
+
+  .groupOverview,
+  .groupHeader,
+  .publicationCard,
+  .publicationInsightGrid,
+  .collaborationHeader,
+  .networkStats,
+  .featuredCollaborationGrid,
+  .themeLegend {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .heroCopy h1 {
+    max-width: none;
+    font-size: 2.6rem;
+  }
+
+  .groupHeader h2 {
+    font-size: 1.8rem;
+  }
+
+  .groupHeader > span {
+    width: fit-content;
+  }
+
+  .publicationIndex {
+    justify-content: flex-start;
+  }
+
+  .coverPage {
+    min-height: 10.5rem;
+  }
+
+  .collaborationSection {
+    padding: 1rem;
+  }
+
+  .collaborationHeader h2 {
+    max-width: none;
+    font-size: 1.8rem;
+  }
+
+  .networkToolbar {
+    align-items: stretch;
+  }
+
+  .modeTabs,
+  .citationCacheNote {
+    width: 100%;
+  }
+
+  .modeTab {
+    flex: 1 1 9rem;
+    justify-content: center;
+  }
+
+  .networkCanvas {
+    min-height: 22rem;
+  }
+
+  .networkSvg {
+    height: 22rem;
+  }
+}

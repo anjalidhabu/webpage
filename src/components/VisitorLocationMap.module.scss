@@ -1,0 +1,165 @@
+.locationMap {
+    width: 100%;
+    padding: var(--static-space-12);
+    border: 1px solid var(--neutral-alpha-medium);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--surface-background) 94%, transparent);
+}
+
+.locationHeader {
+    min-height: var(--static-space-48);
+}
+
+.locationMapFrame {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--page-background) 86%, var(--neutral-alpha-weak));
+}
+
+.locationTileMap {
+    position: absolute;
+    inset: 0;
+}
+
+.locationMapFallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--brand-alpha-weak) 28%, transparent), transparent 58%),
+        color-mix(in srgb, var(--page-background) 86%, var(--neutral-alpha-weak));
+}
+
+.zoomControls {
+    position: absolute;
+    top: var(--static-space-8);
+    right: var(--static-space-8);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    z-index: 2;
+    overflow: hidden;
+    border: 1px solid var(--neutral-alpha-medium);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--neutral-alpha-medium) 20%, transparent);
+}
+
+.zoomButton {
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    background: color-mix(in srgb, var(--surface-background) 92%, transparent);
+    color: var(--neutral-on-background-strong);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.zoomButton:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--brand-background-weak) 40%, var(--surface-background));
+}
+
+.zoomButton:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.visitorMarkerWrapper {
+    background: transparent;
+    border: 0;
+}
+
+.visitorMarkerCount {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    min-width: 1.35rem;
+    height: 1.35rem;
+    padding: 0 var(--static-space-4);
+    border: 2px solid var(--surface-background);
+    border-radius: 999px;
+    background: var(--brand-background-strong);
+    color: var(--page-background);
+    box-shadow:
+        0 0 0 1px var(--brand-alpha-medium),
+        0 8px 22px color-mix(in srgb, var(--brand-background-strong) 30%, transparent);
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.visitorMarkerCount::before {
+    content: "";
+    position: absolute;
+    inset: -0.45rem;
+    border: 1px solid var(--brand-alpha-medium);
+    border-radius: 999px;
+}
+
+.locationList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--static-space-8);
+}
+
+.locationItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--static-space-2);
+    min-width: 0;
+    padding: var(--static-space-8);
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--surface-background) 82%, transparent);
+}
+
+@media (max-width: 768px) {
+    .locationMap {
+        padding: var(--static-space-8);
+    }
+
+    .locationMapFrame {
+        height: 10rem;
+    }
+
+    .locationList {
+        grid-template-columns: 1fr;
+    }
+}
+
+.locationMapFrame :global(.leaflet-container) {
+    width: 100%;
+    height: 100%;
+    font: inherit;
+}
+
+.locationMapFrame :global(.leaflet-control-attribution) {
+    background: color-mix(in srgb, var(--surface-background) 90%, transparent);
+    color: var(--neutral-on-background-weak);
+}
+
+.locationMapFrame :global(.leaflet-control-attribution a) {
+    color: inherit;
+}
+
+.locationMapFrame :global(.leaflet-control-zoom a) {
+    color: var(--neutral-on-background-strong);
+}
+
+.locationMapFrame :global(.leaflet-popup-content-wrapper) {
+    border-radius: 8px;
+    background: var(--surface-background);
+    color: var(--neutral-on-background-strong);
+}
+
+.locationMapFrame :global(.leaflet-popup-tip) {
+    background: var(--surface-background);
+}

@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" role="img" aria-labelledby="title desc">
+  <title id="title">Dr. Anjali Dhabu research programme diagram</title>
+  <desc id="desc">A research workflow connecting complex Earth media, earthquake sources, six-component observations, rotational ground-motion simulation, and structural resilience applications.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbfc"/>
+      <stop offset="0.55" stop-color="#eef7f8"/>
+      <stop offset="1" stop-color="#fff5f1"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f6f78"/>
+      <stop offset="1" stop-color="#153d66"/>
+    </linearGradient>
+    <linearGradient id="output" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d85f4f"/>
+      <stop offset="1" stop-color="#a64c79"/>
+    </linearGradient>
+    <filter id="softShadow" x="-16%" y="-16%" width="132%" height="132%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#153d66" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="13" markerHeight="13" refX="10" refY="6.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L11,6.5 L1,12 Z" fill="#286f80"/>
+    </marker>
+    <marker id="arrowCoral" markerWidth="13" markerHeight="13" refX="10" refY="6.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L11,6.5 L1,12 Z" fill="#c75b55"/>
+    </marker>
+    <style>
+      .label { font: 700 25px Arial, Helvetica, sans-serif; fill: #17313a; }
+      .small { font: 500 18px Arial, Helvetica, sans-serif; fill: #4c5f66; }
+      .tiny { font: 700 15px Arial, Helvetica, sans-serif; fill: #557076; text-transform: uppercase; letter-spacing: 1.6px; }
+      .whiteLabel { font: 700 27px Arial, Helvetica, sans-serif; fill: #ffffff; }
+      .whiteSmall { font: 500 18px Arial, Helvetica, sans-serif; fill: rgba(255,255,255,0.86); }
+      .node { fill: #ffffff; stroke: #d2e5e8; stroke-width: 2; }
+      .inputNode { fill: #f7fcfc; stroke: #9fcbd1; stroke-width: 2; }
+      .outputNode { fill: #fff8f5; stroke: #efb9ad; stroke-width: 2; }
+      .track { fill: none; stroke: #286f80; stroke-width: 4; stroke-linecap: round; marker-end: url(#arrowBlue); }
+      .feedback { fill: none; stroke: #c75b55; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 10 11; marker-end: url(#arrowCoral); }
+      .thin { fill: none; stroke: #87bfc7; stroke-width: 2.4; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="860" rx="34" fill="url(#bg)"/>
+  <rect x="34" y="34" width="1332" height="792" rx="28" fill="none" stroke="#cfe2e7" stroke-width="2"/>
+
+  <text x="84" y="92" class="tiny">Research programme map</text>
+  <text x="84" y="132" class="label" style="font-size:36px;">From earthquake wave physics to structural resilience</text>
+  <text x="84" y="166" class="small">Rotational seismology, 6C sensing, numerical simulation, and earthquake engineering as one connected workflow.</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="520" y="238" width="360" height="220" rx="28" fill="url(#core)"/>
+    <text x="700" y="292" text-anchor="middle" class="whiteLabel">Modeling Core</text>
+    <text x="700" y="330" text-anchor="middle" class="whiteSmall">reduced micropolar theory</text>
+    <text x="700" y="360" text-anchor="middle" class="whiteSmall">finite and spectral elements</text>
+    <text x="700" y="390" text-anchor="middle" class="whiteSmall">parametric heterogeneity studies</text>
+    <text x="700" y="420" text-anchor="middle" class="whiteSmall">coupled wave-field simulation</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="84" y="236" width="314" height="86" rx="18" class="inputNode"/>
+    <text x="112" y="270" class="label">Earthquake Source</text>
+    <text x="112" y="298" class="small">loading, slip, teleseismic waves</text>
+
+    <rect x="84" y="362" width="314" height="86" rx="18" class="inputNode"/>
+    <text x="112" y="396" class="label">Complex Earth Media</text>
+    <text x="112" y="424" class="small">layers, heterogeneities, topography</text>
+
+    <rect x="84" y="488" width="314" height="86" rx="18" class="inputNode"/>
+    <text x="112" y="522" class="label">Civil Structures</text>
+    <text x="112" y="550" class="small">bridges, buildings, wind turbines</text>
+  </g>
+
+  <path d="M398 279 C452 279 456 296 506 313" class="track"/>
+  <path d="M398 405 C454 405 464 379 506 365" class="track"/>
+  <path d="M398 531 C455 531 462 429 506 414" class="track"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="1002" y="216" width="314" height="86" rx="18" class="node"/>
+    <text x="1030" y="250" class="label">6C Motion Fields</text>
+    <text x="1030" y="278" class="small">translations, rotations, strains</text>
+
+    <rect x="1002" y="342" width="314" height="86" rx="18" class="node"/>
+    <text x="1030" y="376" class="label">Observation Link</text>
+    <text x="1030" y="404" class="small">sensors, modal analysis, validation</text>
+
+    <rect x="1002" y="468" width="314" height="86" rx="18" class="node"/>
+    <text x="1030" y="502" class="label">Engineering Meaning</text>
+    <text x="1030" y="530" class="small">response, demand, monitoring value</text>
+  </g>
+
+  <path d="M880 298 C928 278 946 259 988 259" class="track"/>
+  <path d="M880 354 C926 358 944 385 988 385" class="track"/>
+  <path d="M880 414 C930 430 948 511 988 511" class="track"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="178" y="662" width="242" height="112" rx="20" class="outputNode"/>
+    <text x="299" y="704" text-anchor="middle" class="label">HERS Project</text>
+    <text x="299" y="734" text-anchor="middle" class="small">heterogeneities and</text>
+    <text x="299" y="760" text-anchor="middle" class="small">rotational seismology</text>
+
+    <rect x="462" y="662" width="242" height="112" rx="20" class="outputNode"/>
+    <text x="583" y="704" text-anchor="middle" class="label">Publications</text>
+    <text x="583" y="734" text-anchor="middle" class="small">theory, simulations,</text>
+    <text x="583" y="760" text-anchor="middle" class="small">topography, 6C work</text>
+
+    <rect x="746" y="662" width="242" height="112" rx="20" class="outputNode"/>
+    <text x="867" y="704" text-anchor="middle" class="label">Infrastructure</text>
+    <text x="867" y="734" text-anchor="middle" class="small">bridge design and</text>
+    <text x="867" y="760" text-anchor="middle" class="small">structural monitoring</text>
+
+    <rect x="1030" y="662" width="242" height="112" rx="20" fill="url(#output)"/>
+    <text x="1151" y="704" text-anchor="middle" class="whiteLabel" style="font-size:25px;">Outcome</text>
+    <text x="1151" y="734" text-anchor="middle" class="whiteSmall">safer structures and</text>
+    <text x="1151" y="760" text-anchor="middle" class="whiteSmall">clearer ground-motion physics</text>
+  </g>
+
+  <path d="M667 458 C640 532 496 603 336 653" class="track"/>
+  <path d="M700 458 C684 548 635 604 591 650" class="track"/>
+  <path d="M736 458 C768 548 819 604 858 650" class="track"/>
+  <path d="M1136 554 C1144 587 1148 616 1150 648" class="track"/>
+
+  <path d="M1151 662 C1204 615 1228 594 1236 556" class="feedback"/>
+  <path d="M1002 385 C928 582 540 612 398 531" class="feedback"/>
+  <text x="798" y="610" class="tiny" fill="#a64c79">feedback calibrates models and sensor strategy</text>
+
+  <g transform="translate(548 508)">
+    <circle cx="0" cy="0" r="8" fill="#286f80"/>
+    <path d="M0 0 C36 -18 72 -18 108 0" class="thin"/>
+    <path d="M0 24 C44 4 88 4 132 24" class="thin"/>
+    <path d="M0 48 C52 26 104 26 156 48" class="thin"/>
+    <circle cx="174" cy="49" r="8" fill="#d85f4f"/>
+    <text x="86" y="88" text-anchor="middle" class="tiny">six-component interpretation</text>
+  </g>
+</svg>

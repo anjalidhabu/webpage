@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Dr. Anjali Dhabu research portfolio social preview</title>
+  <desc id="desc">Custom social preview image for Dr. Anjali Dhabu, Rotational Seismology and Earthquake Engineering, University of Hamburg.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f1d2c"/>
+      <stop offset="0.42" stop-color="#4a2437"/>
+      <stop offset="1" stop-color="#0f5f72"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7fa" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#d4f3f4" stop-opacity="0.08"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="28%" cy="18%" r="56%">
+      <stop offset="0" stop-color="#f3bdca" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#f3bdca" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tealGlow" cx="88%" cy="68%" r="52%">
+      <stop offset="0" stop-color="#74d6d0" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#74d6d0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-12%" y="-18%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#1b1020" flood-opacity="0.32"/>
+    </filter>
+    <pattern id="dotGrid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.4" fill="#fff7fa" opacity="0.16"/>
+    </pattern>
+    <style>
+      .eyebrow { font: 700 28px "DejaVu Sans", Arial, sans-serif; letter-spacing: 0; }
+      .name { font: 800 76px "DejaVu Sans", Arial, sans-serif; letter-spacing: 0; }
+      .field { font: 700 34px "DejaVu Sans", Arial, sans-serif; letter-spacing: 0; }
+      .institution { font: 600 29px "DejaVu Sans", Arial, sans-serif; letter-spacing: 0; }
+      .label { font: 700 22px "DejaVu Sans", Arial, sans-serif; letter-spacing: 0; }
+      .small { font: 600 20px "DejaVu Sans", Arial, sans-serif; letter-spacing: 0; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#roseGlow)"/>
+  <rect width="1200" height="630" fill="url(#tealGlow)"/>
+  <rect width="1200" height="630" fill="url(#dotGrid)" opacity="0.66"/>
+
+  <g opacity="0.17" fill="none" stroke="#fff7fa" stroke-width="2">
+    <path d="M-40 512 C 120 406, 248 575, 392 476 S 641 381, 790 455 1016 553, 1244 394"/>
+    <path d="M-42 468 C 111 369, 264 511, 417 422 S 650 348, 804 417 1019 500, 1245 358"/>
+    <path d="M-44 424 C 115 326, 279 454, 436 382 S 661 315, 817 378 1034 451, 1248 318"/>
+    <path d="M-46 380 C 128 283, 294 405, 452 341 S 679 279, 832 338 1045 400, 1250 279"/>
+  </g>
+
+  <g opacity="0.25" fill="none" stroke="#f3bdca" stroke-width="3">
+    <path d="M733 155 C 780 87, 883 92, 924 168 S 905 335, 812 342 674 236, 733 155Z"/>
+    <path d="M776 177 C 807 134, 872 136, 898 184 S 883 290, 826 294 739 232, 776 177Z"/>
+  </g>
+
+  <g opacity="0.34">
+    <line x1="850" y1="155" x2="1030" y2="258" stroke="#d4f3f4" stroke-width="2"/>
+    <line x1="1030" y1="258" x2="963" y2="438" stroke="#d4f3f4" stroke-width="2"/>
+    <line x1="850" y1="155" x2="963" y2="438" stroke="#d4f3f4" stroke-width="2"/>
+    <circle cx="850" cy="155" r="9" fill="#f3bdca"/>
+    <circle cx="1030" cy="258" r="9" fill="#d4f3f4"/>
+    <circle cx="963" cy="438" r="9" fill="#f3bdca"/>
+  </g>
+
+  <rect x="70" y="70" width="760" height="488" rx="26" fill="#1b1020" opacity="0.18"/>
+  <g transform="translate(70 70)">
+    <rect width="760" height="488" rx="26" fill="#fff7fa" opacity="0.94"/>
+    <rect x="22" y="22" width="716" height="444" rx="18" fill="url(#surface)" stroke="#a94d63" stroke-opacity="0.18"/>
+
+    <text x="56" y="84" class="eyebrow" fill="#a94d63">Research Portfolio</text>
+    <text x="56" y="188" class="name" fill="#2f1d2c">Dr. Anjali Dhabu</text>
+    <text x="56" y="256" class="field" fill="#167d9c">Rotational Seismology</text>
+    <text x="56" y="302" class="field" fill="#167d9c">Earthquake Engineering</text>
+    <text x="56" y="360" class="institution" fill="#4a2437">University of Hamburg</text>
+
+    <g transform="translate(56 404)">
+      <rect width="182" height="44" rx="22" fill="#f3bdca" opacity="0.62"/>
+      <text x="24" y="29" class="small" fill="#4a2437">6C motion</text>
+      <rect x="202" width="248" height="44" rx="22" fill="#d4f3f4" opacity="0.72"/>
+      <text x="226" y="29" class="small" fill="#0f5f72">Wave propagation</text>
+      <rect x="470" width="174" height="44" rx="22" fill="#f7dc9a" opacity="0.72"/>
+      <text x="494" y="29" class="small" fill="#6a3e10">Resilience</text>
+    </g>
+  </g>
+
+  <g transform="translate(902 86)">
+    <circle cx="112" cy="112" r="112" fill="#fff7fa" opacity="0.12"/>
+    <circle cx="112" cy="112" r="74" fill="none" stroke="#fff7fa" stroke-width="2" opacity="0.5"/>
+    <path d="M52 112 H172 M112 52 V172 M70 72 C105 104, 120 122, 154 153 M155 72 C125 103, 105 122, 70 153" stroke="#fff7fa" stroke-width="4" stroke-linecap="round" opacity="0.62"/>
+    <text x="112" y="246" text-anchor="middle" class="label" fill="#fff7fa" opacity="0.82">seismology + structures</text>
+  </g>
+</svg>

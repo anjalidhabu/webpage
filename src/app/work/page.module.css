@@ -1,0 +1,332 @@
+.page {
+  width: min(1380px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.introSection,
+.centeredSection {
+  width: min(960px, 100%);
+  margin: 0 auto;
+}
+
+.lookForSection {
+  display: grid;
+  gap: 1.15rem;
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--neutral-alpha-medium);
+  border-bottom: 1px solid var(--neutral-alpha-medium);
+}
+
+.lookForIntro {
+  max-width: 38rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading {
+  max-width: 24rem;
+}
+
+.introText {
+  max-width: 34rem;
+  line-height: 1.7;
+}
+
+.visionSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(20rem, 0.82fr);
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px solid
+    color-mix(in srgb, var(--brand-background-medium) 24%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-background-weak) 28%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 92%, transparent)
+    ), color-mix(in srgb, var(--surface-background) 88%, var(--page-background) 12%);
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--brand-background-strong) 8%, transparent);
+}
+
+.visionLead,
+.centralQuestion,
+.visionCard,
+.independencePanel {
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 72%, transparent);
+  background: color-mix(in srgb, var(--surface-background) 82%, transparent);
+}
+
+.visionLead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.35rem;
+}
+
+.visionLead h2 {
+  max-width: 13ch;
+  letter-spacing: 0;
+}
+
+.visionText {
+  max-width: 44rem;
+  line-height: 1.72;
+}
+
+.visionActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.centralQuestion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 1.25rem;
+  border-color: color-mix(in srgb, var(--brand-background-medium) 36%, var(--neutral-alpha-medium));
+}
+
+.centralQuestion h3 {
+  letter-spacing: 0;
+}
+
+.centralQuestion p {
+  line-height: 1.62;
+}
+
+.visionGrid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.visionCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem;
+}
+
+.visionCard h3 {
+  letter-spacing: 0;
+}
+
+.visionCard p {
+  line-height: 1.58;
+}
+
+.independencePanel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.34fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+.independencePanel ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.independencePanel li {
+  min-height: 100%;
+  padding-left: 0.8rem;
+  border-left: 0.2rem solid color-mix(in srgb, var(--brand-background-medium) 54%, transparent);
+  color: var(--neutral-on-background-weak);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.signalGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.signalCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.72rem 0.82rem;
+  border-radius: 8px;
+  border: 1px solid
+    color-mix(in srgb, var(--brand-background-medium) 24%, var(--neutral-alpha-medium));
+  background: color-mix(in srgb, var(--surface-background) 88%, var(--page-background) 12%);
+}
+
+.signalLabel {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.28rem 0.58rem;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--brand-background-weak) 56%, transparent);
+}
+
+.signalDetail {
+  line-height: 1.45;
+}
+
+.diagramSection {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid
+    color-mix(in srgb, var(--brand-background-medium) 22%, var(--neutral-alpha-medium));
+  background: color-mix(in srgb, var(--surface-background) 86%, var(--page-background) 14%);
+}
+
+.diagramIntro {
+  max-width: 42rem;
+}
+
+.diagramFigure {
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.diagramScroller {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-alpha-medium);
+  background: #f8fbfc;
+  box-shadow: 0 18px 44px color-mix(in srgb, var(--brand-background-strong) 8%, transparent);
+}
+
+.diagramScroller img {
+  display: block;
+  width: 100%;
+  min-width: 820px;
+  height: auto;
+}
+
+.diagramFigure figcaption {
+  color: var(--neutral-on-background-weak);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.framingSection {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--neutral-alpha-medium);
+}
+
+.compactGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.compactCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.75rem 0.82rem;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-alpha-medium);
+  background: color-mix(in srgb, var(--surface-background) 82%, var(--page-background) 18%);
+}
+
+.contactSection {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-alpha-medium);
+  background: color-mix(in srgb, var(--surface-background) 84%, var(--page-background) 16%);
+}
+
+.contactIntro {
+  max-width: 40rem;
+}
+
+@media (max-width: 768px) {
+  .visionSection {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .visionLead {
+    padding: 1rem;
+  }
+
+  .visionLead h2 {
+    max-width: none;
+  }
+
+  .centralQuestion {
+    padding: 1rem;
+  }
+
+  .visionGrid,
+  .independencePanel,
+  .independencePanel ul {
+    grid-template-columns: 1fr;
+  }
+
+  .lookForSection {
+    padding: 1.1rem;
+  }
+
+  .diagramSection {
+    padding: 1rem;
+  }
+
+  .contactSection {
+    padding: 1rem;
+  }
+
+  .signalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .compactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .signalCard {
+    min-height: unset;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1080px) {
+  .visionSection {
+    grid-template-columns: 1fr;
+  }
+
+  .visionLead h2 {
+    max-width: 18ch;
+  }
+
+  .visionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .independencePanel,
+  .independencePanel ul {
+    grid-template-columns: 1fr;
+  }
+
+  .compactGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

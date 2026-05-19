@@ -1,0 +1,367 @@
+.awardsPage {
+  --award-blue: #167d9c;
+  --award-gold: #c78321;
+  --award-rose: #a94d63;
+  --award-plum: #4a2437;
+
+  width: min(1120px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 1.25rem 0 4rem;
+}
+
+.heroSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.heroCopy,
+.statCard,
+.groupPanel,
+.timelinePanel {
+  border: 1px solid color-mix(in srgb, var(--award-rose) 20%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, #f5c4cf 8%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ), color-mix(in srgb, var(--surface-background) 92%, transparent);
+  box-shadow: 0 16px 42px color-mix(in srgb, var(--award-plum) 8%, transparent);
+}
+
+.heroCopy {
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.25rem;
+  background: linear-gradient(135deg, rgba(31, 20, 34, 0.97), rgba(83, 43, 61, 0.9)),
+    radial-gradient(circle at top right, rgba(245, 196, 207, 0.22), transparent 36%),
+    radial-gradient(circle at bottom left, rgba(22, 125, 156, 0.2), transparent 38%);
+  color: #fff7fa;
+}
+
+.eyebrow {
+  margin: 0 0 0.65rem;
+  color: color-mix(in srgb, var(--award-rose) 72%, var(--neutral-on-background));
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.heroCopy .eyebrow {
+  color: #efc3d0;
+}
+
+.heroCopy h1 {
+  max-width: 15ch;
+  margin: 0;
+  font-size: 3.85rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.heroCopy p:last-child {
+  max-width: 44rem;
+  margin: 1.1rem 0 0;
+  color: rgba(255, 247, 250, 0.78);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.statCard {
+  min-height: 9.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.15rem;
+}
+
+.statCard strong {
+  color: color-mix(in srgb, var(--award-rose) 62%, var(--neutral-on-background));
+  font-size: 2.15rem;
+  line-height: 1;
+}
+
+.statCard h2 {
+  margin: 0.9rem 0 0;
+  font-size: 0.98rem;
+  letter-spacing: 0;
+}
+
+.statCard p {
+  margin: 0.45rem 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.sectionIntro {
+  max-width: 46rem;
+  padding: 0 0.25rem;
+}
+
+.sectionIntro h2 {
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.sectionIntro p {
+  margin: 0.85rem 0 0;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.7;
+}
+
+.groupStack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.15rem;
+  align-items: stretch;
+}
+
+.groupPanel {
+  --award-accent: var(--award-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.35rem;
+  border-color: color-mix(in srgb, var(--award-accent) 28%, var(--neutral-alpha-medium));
+  background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--award-accent) 12%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ), color-mix(in srgb, var(--surface-background) 92%, transparent);
+}
+
+.groupHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.groupHeader h3 {
+  margin: 0;
+  color: color-mix(in srgb, var(--award-accent) 44%, var(--neutral-on-background));
+  font-size: 1.55rem;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.groupHeader p:last-child {
+  margin: 0.75rem 0 0;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.62;
+}
+
+.awardList {
+  display: grid;
+  gap: 0;
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--award-accent) 24%, var(--neutral-alpha-medium));
+}
+
+.awardItem {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 48%, transparent);
+}
+
+.awardItem:first-child {
+  padding-top: 0.2rem;
+}
+
+.awardItem:last-child {
+  padding-bottom: 0.2rem;
+  border-bottom: 0;
+}
+
+.awardYear {
+  width: fit-content;
+  height: fit-content;
+  padding: 0.38rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--award-accent) 13%, var(--surface-background));
+  color: color-mix(in srgb, var(--award-accent) 70%, var(--neutral-on-background));
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.awardBody h4 {
+  margin: 0;
+  color: var(--neutral-on-background);
+  font-size: 1.08rem;
+  line-height: 1.28;
+  letter-spacing: 0;
+}
+
+.institution {
+  margin: 0.35rem 0 0;
+  color: color-mix(in srgb, var(--award-accent) 64%, var(--neutral-on-background));
+  font-size: 0.92rem;
+  font-weight: 760;
+  line-height: 1.45;
+}
+
+.awardBody p:last-child {
+  margin: 0.45rem 0 0;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.58;
+}
+
+.timelinePanel {
+  padding: 1.25rem;
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 62%, transparent);
+}
+
+.timelineHeader h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.timelineHeader span {
+  color: color-mix(in srgb, var(--award-rose) 68%, var(--neutral-on-background));
+  font-weight: 800;
+}
+
+.timelineList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 38%, transparent);
+}
+
+.timelineItem span {
+  color: color-mix(in srgb, var(--award-gold) 68%, var(--neutral-on-background));
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.timelineItem strong {
+  color: var(--neutral-on-background);
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.leadershipCta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.2rem;
+  border: 1px solid color-mix(in srgb, var(--award-rose) 22%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-background) 88%, var(--page-background) 12%);
+}
+
+.leadershipCta h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.leadershipCta a {
+  min-height: 2.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--award-rose) 18%, var(--surface-background));
+  color: color-mix(in srgb, var(--award-rose) 72%, var(--neutral-on-background));
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .heroSection,
+  .groupStack {
+    grid-template-columns: 1fr;
+  }
+
+  .timelineList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .awardsPage {
+    gap: 1.35rem;
+    padding: 1rem 0 3rem;
+  }
+
+  .heroCopy {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .heroCopy h1 {
+    max-width: none;
+    font-size: 2.45rem;
+  }
+
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionIntro h2 {
+    font-size: 2rem;
+  }
+
+  .groupPanel {
+    padding: 1.1rem;
+  }
+
+  .awardItem,
+  .timelineItem {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .timelineHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .leadershipCta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

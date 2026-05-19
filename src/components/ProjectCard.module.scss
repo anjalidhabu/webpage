@@ -1,0 +1,68 @@
+.projectCard {
+  display: grid;
+  grid-template-areas:
+    "title info"
+    "figure figure";
+  grid-template-columns: minmax(14rem, 0.65fr) minmax(0, 1fr);
+  gap: var(--static-space-24);
+  align-items: start;
+  width: 100%;
+}
+
+.titleBlock {
+  align-items: flex-start;
+}
+
+.titleColumn,
+.figureColumn,
+.infoColumn {
+  min-width: 0;
+}
+
+.titleColumn {
+  grid-area: title;
+}
+
+.figureColumn {
+  grid-area: figure;
+  width: 100%;
+}
+
+.infoColumn {
+  grid-area: info;
+}
+
+.titleLink {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.titleHeading {
+  transition: color 180ms ease;
+}
+
+.titleHint {
+  margin: 0;
+}
+
+.titleLink:hover,
+.titleLink:focus-visible {
+  transform: translateY(-1px);
+}
+
+.titleLink:hover .titleHeading,
+.titleLink:focus-visible .titleHeading {
+  color: #17363d;
+}
+
+@media (max-width: 1080px) {
+  .projectCard {
+    grid-template-areas:
+      "title"
+      "figure"
+      "info";
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
