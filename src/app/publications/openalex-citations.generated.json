@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-25T12:22:07.636Z",
+  "generatedAt": "2026-10-01T22:53:35.444Z",
   "source": "OpenAlex",
   "sourceUrl": "https://openalex.org",
-  "candidateCount": 16,
-  "readyCount": 11,
+  "candidateCount": 19,
+  "readyCount": 15,
   "results": {
     "layered-reduced-micropolar-medium": {
       "publicationId": "layered-reduced-micropolar-medium",
@@ -18,7 +18,7 @@
           "id": "https://openalex.org/W7169874976",
           "title": "Rotational Ground Motion Model and Design Spectrum for the Himalayan Region",
           "year": "2026",
-          "authors": "Narsiram Gurjar, Ravi Kanth Sriwastav, STG Raghukanth",
+          "authors": "Narsiram Gurjar, Ravi Kanth Sriwastav, S. T. G. Raghukanth",
           "venue": "Bulletin of Earthquake Engineering",
           "url": "https://doi.org/10.1007/s10518-026-02592-9"
         },
@@ -34,7 +34,7 @@
           "id": "https://openalex.org/W7162070553",
           "title": "An analytical model for subsurface ground motions due to kinematic shear dislocation sources in layered media",
           "year": "2026",
-          "authors": "Jahnabi Basu, B Shree Rashmi, S T G Raghukanth +1",
+          "authors": "Jahnabi Basu, B Shree Rashmi, S. T. G. Raghukanth +1",
           "venue": "Soil Dynamics and Earthquake Engineering",
           "url": "https://doi.org/10.1016/j.soildyn.2026.110319"
         },
@@ -152,7 +152,7 @@
           "id": "https://openalex.org/W4399766414",
           "title": "Application of the fractional-order theory of micropolar thermoelasticity in the solid cylinder",
           "year": "2024",
-          "authors": "Shaaban E. Khader, Ayman A. Marrouf, Mennatallah A. Khedr",
+          "authors": "Shaaban E. Khader, Ayman A. Marrouf, M. Khedr",
           "venue": "Journal of the Brazilian Society of Mechanical Sciences and Engineering",
           "url": "https://doi.org/10.1007/s40430-024-04941-8"
         },
@@ -198,6 +198,79 @@
       "citingWorks": [],
       "message": "No OpenAlex match found."
     },
+    "basin-topography-rotational-ground-motions-esc-2026": {
+      "publicationId": "basin-topography-rotational-ground-motions-esc-2026",
+      "status": "not-found",
+      "sourceTitle": "Effect of basin structure and topography on rotational ground motions",
+      "citedByCount": 0,
+      "citingWorks": [],
+      "message": "No OpenAlex match found."
+    },
+    "strong-motion-generation-extreme-value": {
+      "publicationId": "strong-motion-generation-extreme-value",
+      "status": "ready",
+      "sourceTitle": "Characterization of Strong Motion Generation Regions of Earthquake Slip Using Extreme Value Theory",
+      "openAlexId": "W2938887213",
+      "openAlexUrl": "https://openalex.org/W2938887213",
+      "matchedBy": "openalex-id",
+      "citedByCount": 3,
+      "citingWorks": [
+        {
+          "id": "https://openalex.org/W4319659033",
+          "title": "Statistical kinematic source models for seismic hazard estimations",
+          "year": "2023",
+          "authors": "Jaya Dhanya, S. T. G. Raghukanth",
+          "venue": "International Journal of Advances in Engineering Sciences and Applied Mathematics",
+          "url": "https://doi.org/10.1007/s12572-023-00328-5"
+        },
+        {
+          "id": "https://openalex.org/W3198599964",
+          "title": "Influence of Himalayan topography on earthquake ground motions",
+          "year": "2021",
+          "authors": "Anjali C. Dhabu, S. T. G. Raghukanth",
+          "venue": "Arabian Journal of Geosciences",
+          "url": "https://doi.org/10.1007/s12517-021-08111-1"
+        },
+        {
+          "id": "https://openalex.org/W2950037023",
+          "title": "A non-Gaussian random field model for earthquake slip",
+          "year": "2019",
+          "authors": "Jaya Dhanya, S. T. G. Raghukanth",
+          "venue": "Journal of Seismology",
+          "url": "https://doi.org/10.1007/s10950-019-09840-3"
+        }
+      ]
+    },
+    "layered-earth-rotational-ground-motions-egu-2026": {
+      "publicationId": "layered-earth-rotational-ground-motions-egu-2026",
+      "status": "ready",
+      "sourceTitle": "Propagation Characteristics of Rotational Ground Motions in Layered Earth Media",
+      "openAlexId": "W7135203891",
+      "openAlexUrl": "https://openalex.org/W7135203891",
+      "matchedBy": "title",
+      "citedByCount": 0,
+      "citingWorks": []
+    },
+    "coupled-numerical-teleseismic-simulation-egu-2026": {
+      "publicationId": "coupled-numerical-teleseismic-simulation-egu-2026",
+      "status": "ready",
+      "sourceTitle": "Coupled Numerical Simulation of Teleseismic Wave Propagation Incorporating Local Structural Features",
+      "openAlexId": "W7135244592",
+      "openAlexUrl": "https://openalex.org/W7135244592",
+      "matchedBy": "title",
+      "citedByCount": 0,
+      "citingWorks": []
+    },
+    "hamburg-subsurface-teleseismic-simulation": {
+      "publicationId": "hamburg-subsurface-teleseismic-simulation",
+      "status": "ready",
+      "sourceTitle": "Developing a High-Resolution Subsurface Model through Teleseismic Wave Simulation in Hamburg",
+      "openAlexId": "W4408467426",
+      "openAlexUrl": "https://openalex.org/W4408467426",
+      "matchedBy": "openalex-id",
+      "citedByCount": 0,
+      "citingWorks": []
+    },
     "himalayan-topography-ground-motions": {
       "publicationId": "himalayan-topography-ground-motions",
       "status": "ready",
@@ -240,51 +313,6 @@
           "url": "https://doi.org/10.1007/s00024-023-03261-7"
         }
       ]
-    },
-    "strong-motion-generation-extreme-value": {
-      "publicationId": "strong-motion-generation-extreme-value",
-      "status": "ready",
-      "sourceTitle": "Characterization of Strong Motion Generation Regions of Earthquake Slip Using Extreme Value Theory",
-      "openAlexId": "W2938887213",
-      "openAlexUrl": "https://openalex.org/W2938887213",
-      "matchedBy": "openalex-id",
-      "citedByCount": 3,
-      "citingWorks": [
-        {
-          "id": "https://openalex.org/W4319659033",
-          "title": "Statistical kinematic source models for seismic hazard estimations",
-          "year": "2023",
-          "authors": "Jaya Dhanya, S. T. G. Raghukanth",
-          "venue": "International Journal of Advances in Engineering Sciences and Applied Mathematics",
-          "url": "https://doi.org/10.1007/s12572-023-00328-5"
-        },
-        {
-          "id": "https://openalex.org/W3198599964",
-          "title": "Influence of Himalayan topography on earthquake ground motions",
-          "year": "2021",
-          "authors": "Anjali C. Dhabu, Raghukanth Srimath Tirumala Gudimella",
-          "venue": "Arabian Journal of Geosciences",
-          "url": "https://doi.org/10.1007/s12517-021-08111-1"
-        },
-        {
-          "id": "https://openalex.org/W2950037023",
-          "title": "A non-Gaussian random field model for earthquake slip",
-          "year": "2019",
-          "authors": "Jaya Dhanya, S. T. G. Raghukanth",
-          "venue": "Journal of Seismology",
-          "url": "https://doi.org/10.1007/s10950-019-09840-3"
-        }
-      ]
-    },
-    "hamburg-subsurface-teleseismic-simulation": {
-      "publicationId": "hamburg-subsurface-teleseismic-simulation",
-      "status": "ready",
-      "sourceTitle": "Developing a High-Resolution Subsurface Model through Teleseismic Wave Simulation in Hamburg",
-      "openAlexId": "W4408467426",
-      "openAlexUrl": "https://openalex.org/W4408467426",
-      "matchedBy": "openalex-id",
-      "citedByCount": 0,
-      "citingWorks": []
     },
     "himalayan-topography-ajg-conference": {
       "publicationId": "himalayan-topography-ajg-conference",
@@ -342,53 +370,11 @@
           "id": "https://openalex.org/W3198599964",
           "title": "Influence of Himalayan topography on earthquake ground motions",
           "year": "2021",
-          "authors": "Anjali C. Dhabu, Raghukanth Srimath Tirumala Gudimella",
+          "authors": "Anjali C. Dhabu, S. T. G. Raghukanth",
           "venue": "Arabian Journal of Geosciences",
           "url": "https://doi.org/10.1007/s12517-021-08111-1"
         }
       ]
-    },
-    "rotational-ground-motions-bridge-design": {
-      "publicationId": "rotational-ground-motions-bridge-design",
-      "status": "not-found",
-      "sourceTitle": "Characterizing rotational ground motions: Implications for earthquake-resistant design of bridge structures",
-      "citedByCount": 0,
-      "citingWorks": [],
-      "message": "No OpenAlex match found."
-    },
-    "wind-turbine-6c-modal-analysis": {
-      "publicationId": "wind-turbine-6c-modal-analysis",
-      "status": "ready",
-      "sourceTitle": "6-Component Operational Modal Analysis of wind turbines for damage detection",
-      "openAlexId": "W7077908950",
-      "openAlexUrl": "https://openalex.org/W7077908950",
-      "matchedBy": "openalex-id",
-      "citedByCount": 0,
-      "citingWorks": []
-    },
-    "rotational-sensing-structural-vibrations-keynote": {
-      "publicationId": "rotational-sensing-structural-vibrations-keynote",
-      "status": "not-found",
-      "sourceTitle": "Applications of rotational sensing in analyzing structural vibrations and their modal analyses",
-      "citedByCount": 0,
-      "citingWorks": [],
-      "message": "No OpenAlex match found."
-    },
-    "civil-structures-6c-monitoring-agu": {
-      "publicationId": "civil-structures-6c-monitoring-agu",
-      "status": "not-found",
-      "sourceTitle": "Seismic monitoring of civil engineering structures with 6C measurements",
-      "citedByCount": 0,
-      "citingWorks": [],
-      "message": "No OpenAlex match found."
-    },
-    "rotations-material-damage-egu": {
-      "publicationId": "rotations-material-damage-egu",
-      "status": "not-found",
-      "sourceTitle": "Using rotational motions to understand material damage in civil engineering structure",
-      "citedByCount": 0,
-      "citingWorks": [],
-      "message": "No OpenAlex match found."
     },
     "lunar-boulder-avalanches-moonquake": {
       "publicationId": "lunar-boulder-avalanches-moonquake",
@@ -467,7 +453,7 @@
           "id": "https://openalex.org/W7139065949",
           "title": "Fourier Neural Operator for Moonquake Detection",
           "year": "2026",
-          "authors": "Basem Al‐Qadasi, Umair Bin Waheed",
+          "authors": "Basem Al‐Qadasi, Umair bin Waheed",
           "venue": "Earth and Space Science",
           "url": "https://doi.org/10.1029/2025ea004792"
         },
@@ -566,7 +552,7 @@
           "id": "https://openalex.org/W4401116355",
           "title": "The bearing capacity of asteroid (65803) Didymos estimated from boulder tracks",
           "year": "2024",
-          "authors": "Julien Bigot, P. Lombardo, Naomi Murdoch +15",
+          "authors": "J. Bigot, P. Lombardo, Naomi Murdoch +15",
           "venue": "Nature Communications",
           "url": "https://doi.org/10.1038/s41467-024-50149-8"
         },
@@ -603,6 +589,69 @@
           "url": "https://doi.org/10.1016/j.powtec.2024.119604"
         }
       ]
+    },
+    "rotational-ground-motions-bridge-design": {
+      "publicationId": "rotational-ground-motions-bridge-design",
+      "status": "ready",
+      "sourceTitle": "Characterizing Rotational Ground Motions: Implications for Earthquake-Resistant Design of Bridge Structures",
+      "openAlexId": "W4404354938",
+      "openAlexUrl": "https://openalex.org/W4404354938",
+      "matchedBy": "title",
+      "citedByCount": 2,
+      "citingWorks": [
+        {
+          "id": "https://openalex.org/W7166836825",
+          "title": "Rotation measurements in structural health monitoring of civil engineering structures: a review",
+          "year": "2026",
+          "authors": "Piotr Adam Bońkowski, Anna T. Kurzych, Leszek Roman Jaroszewicz",
+          "venue": "Archives of Civil and Mechanical Engineering",
+          "url": "https://doi.org/10.1007/s43452-026-01577-4"
+        },
+        {
+          "id": "https://openalex.org/W4407265846",
+          "title": "Scaling P and S wave translational to array-derived rocking motions: An empirical estimation of local wave propagation direction and velocity in rock site conditions",
+          "year": "2025",
+          "authors": "Amir Sadeghi‐Bagherabadi, Gregor Hillers",
+          "venue": "Soil Dynamics and Earthquake Engineering",
+          "url": "https://doi.org/10.1016/j.soildyn.2025.109257"
+        }
+      ]
+    },
+    "wind-turbine-6c-modal-analysis": {
+      "publicationId": "wind-turbine-6c-modal-analysis",
+      "status": "ready",
+      "sourceTitle": "6-Component Operational Modal Analysis of wind turbines for damage detection",
+      "openAlexId": "W7077908950",
+      "openAlexUrl": "https://openalex.org/W7077908950",
+      "matchedBy": "openalex-id",
+      "citedByCount": 0,
+      "citingWorks": []
+    },
+    "rotational-sensing-structural-vibrations-keynote": {
+      "publicationId": "rotational-sensing-structural-vibrations-keynote",
+      "status": "not-found",
+      "sourceTitle": "Applications of rotational sensing in analyzing structural vibrations and their modal analyses",
+      "citedByCount": 0,
+      "citingWorks": [],
+      "message": "No OpenAlex match found."
+    },
+    "civil-structures-6c-monitoring-agu": {
+      "publicationId": "civil-structures-6c-monitoring-agu",
+      "status": "not-found",
+      "sourceTitle": "Seismic monitoring of civil engineering structures with 6C measurements",
+      "citedByCount": 0,
+      "citingWorks": [],
+      "message": "No OpenAlex match found."
+    },
+    "rotations-material-damage-egu": {
+      "publicationId": "rotations-material-damage-egu",
+      "status": "ready",
+      "sourceTitle": "Using Rotational Motions to understand material damage in Civil Engineering structure",
+      "openAlexId": "W4322009825",
+      "openAlexUrl": "https://openalex.org/W4322009825",
+      "matchedBy": "title",
+      "citedByCount": 0,
+      "citingWorks": []
     }
   }
 }

@@ -231,12 +231,12 @@ async function fetchTitleWork(publication) {
   }
 
   const searchUrl = new URL("https://api.openalex.org/works");
-  searchUrl.searchParams.set("search", publication.title);
+  searchUrl.searchParams.set("search", normalizeText(publication.title));
   searchUrl.searchParams.set("per-page", "3");
   searchUrl.searchParams.set("select", sourceSelectFields);
   searchUrl.searchParams.set(
     "filter",
-    `from_publication_year:${publicationYear - 1},to_publication_year:${publicationYear + 1}`,
+    `publication_year:${publicationYear - 1}-${publicationYear + 1}`,
   );
 
   const response = await fetchJson(searchUrl);
