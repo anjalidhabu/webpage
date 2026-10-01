@@ -68,7 +68,7 @@ const ecosystemLinks = [
     description:
       "A technical modeling workflow for computing rotational motions alongside translations in layered and heterogeneous media.",
     href: "/work/extending_specfem_rotational_ground_motions?theme=layered-earth-rotational-ground-motions",
-    image: "/images/projects/Extending_SPECFEM.png",
+    image: "/images/projects/research_themes/Extending_SPECFEM.png",
   },
   {
     type: "Connected model direction",
@@ -76,7 +76,7 @@ const ecosystemLinks = [
     description:
       "A related simulation direction linking teleseismic wavefields, local structure, and observation-driven interpretation.",
     href: "/work/themes/teleseismic-subsurface-modeling",
-    image: "/images/projects/reghym.png",
+    image: "/images/projects/research_themes/reghym.png",
   },
 ];
 
@@ -418,7 +418,7 @@ export function HersFlagshipPage({
           </Heading>
           <div className={styles.questionLogoWrap}>
             <img
-              src={withBasePath("/images/projects/hers_logo.png")}
+              src={withBasePath("/images/projects/research_themes/hers_logo.png")}
               alt="HERS logo"
               className={styles.questionLogo}
             />

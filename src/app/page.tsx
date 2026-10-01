@@ -356,7 +356,7 @@ export default function Home() {
                 aria-label="Open HERS project page"
               >
                 <Image
-                  src={withBasePath("/images/projects/hers_logo.png")}
+                  src={withBasePath("/images/projects/research_themes/hers_logo.png")}
                   alt="HERS logo"
                   width={576}
                   height={325}

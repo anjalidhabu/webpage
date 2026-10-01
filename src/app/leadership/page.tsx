@@ -226,7 +226,7 @@ export default function LeadershipPage() {
         <figure className={styles.heroFigure}>
           <div className={styles.heroImageFrame}>
             <Image
-              src={withBasePath("/images/projects/hetro.png")}
+              src={withBasePath("/images/projects/research_themes/hetro.png")}
               alt="Overview of the HERS research work connecting heterogeneous Earth structure with rotational-seismology simulation outputs."
               width={1254}
               height={1254}
@@ -245,7 +245,7 @@ export default function LeadershipPage() {
                 <h2>{stat.label}</h2>
                 {stat.value === "DFG" && (
                   <Image
-                    src={withBasePath("/images/projects/hers_logo.png")}
+                    src={withBasePath("/images/projects/research_themes/hers_logo.png")}
                     alt="HERS logo"
                     width={576}
                     height={325}

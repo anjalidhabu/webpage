@@ -82,7 +82,7 @@ export default function Work() {
         <figure className={styles.visionFigure}>
           <div className={styles.visionImageScroller}>
             <img
-              src={withBasePath("/images/projects/research_vision.png")}
+              src={withBasePath("/images/projects/research_themes/research_vision.png")}
               alt="Research vision diagram connecting complex Earth media, six-component ground motion, and engineering interpretation for structural resilience."
             />
           </div>

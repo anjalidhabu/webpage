@@ -43,7 +43,7 @@ export const Footer = () => {
             )}
           </Row>
           <span className={styles.creatorMark} title="Crafted by RA" role="img" aria-label="Website by RBD">
-            <img src={withBasePath("/images/projects/RBD.png")} alt="" />
+            <img src={withBasePath("/images/projects/research_themes/RBD.png")} alt="" />
           </span>
         </div>
       </Row>

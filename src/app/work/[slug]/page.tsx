@@ -64,7 +64,7 @@ export async function generateMetadata({
       description:
         "Planetary seismology project on recent seismicity in Valles Marineris, Mars.",
       baseURL: baseURL,
-      image: "/images/projects/Planetory_Seismology02.png",
+      image: "/images/projects/research_themes/Planetory_Seismology02.png",
       path: `${work.path}/mars_seismicity`,
     });
   }

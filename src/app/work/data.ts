@@ -68,13 +68,13 @@ export const researchThemes: ResearchTheme[] = [
     label: "Analytical Modeling of the Medium of Wave Propagation",
     id: "analytical-medium-modeling",
     group: "wavefield-physics-theory",
-    image: "/images/projects/Analytical_Modeling.png",
+    image: "/images/projects/research_themes/Analytical_Modeling.png",
     detail: "Develop reduced micropolar formulations, fundamental solutions, and benchmark theory.",
   },
   {
     label: "Effect of Heterogeneities on Rotational Seismology",
     id: "heterogeneities-rotational-seismology",
-    image: "/images/projects/hetro.png",
+    image: "/images/projects/research_themes/hetro.png",
     group: "earth-sources",
     detail:
       "Model how layered and irregular Earth structures change translational, rotational, and strain fields.",
@@ -83,14 +83,14 @@ export const researchThemes: ResearchTheme[] = [
     label: "Influence of Topography on Earthquake Ground Motions",
     id: "topography-ground-motions",
     group: "observables-data",
-    image: "/images/projects/Topography.png",
+    image: "/images/projects/research_themes/Topography.png",
     detail: "Study how terrain and regional structure reshape simulated earthquake ground motions.",
   },
   {
     label: "Planetary Seismology",
     id: "planetary-seismology",
     group: "observables-data",
-    image: "/images/projects/Planetory_Seismology02.png",
+    image: "/images/projects/research_themes/Planetory_Seismology02.png",
     detail:
       "Interpret lunar and Martian scarps, faults, landslides, boulder falls, and ground-motion models as evidence of recent planetary seismicity.",
   },
@@ -105,7 +105,7 @@ export const researchThemes: ResearchTheme[] = [
   {
     label: "Developing a High-Resolution Subsurface Model through Teleseismic Wave Simulation",
     id: "teleseismic-subsurface-modeling",
-    image: "/images/projects/reghym.png",
+    image: "/images/projects/research_themes/reghym.png",
     group: "computational-modeling-tools",
     detail:
       "Build simulation workflows that connect teleseismic wavefields with local subsurface response.",
@@ -114,7 +114,7 @@ export const researchThemes: ResearchTheme[] = [
     label: "Propagation Characteristics of Rotational Ground Motions in Layered Earth Media",
     id: "layered-earth-rotational-ground-motions",
     group: "computational-modeling-tools",
-    image: "/images/projects/Extending_SPECFEM.png",
+    image: "/images/projects/research_themes/Extending_SPECFEM.png",
     detail:
       "Extend SPECFEM3D workflows to compute rotations alongside translations and validate them against layered-Earth benchmarks.",
   },
@@ -122,7 +122,7 @@ export const researchThemes: ResearchTheme[] = [
     label: "Structural Health Monitoring",
     id: "structural-monitoring",
     group: "structural-health-monitoring",
-    image: "/images/projects/Structural_Monitoring.png",
+    image: "/images/projects/research_themes/Structural_Monitoring.png",
     detail:
       "Use 6C sensing, operational modal analysis, and structural-response data to support infrastructure health assessment.",
   },

@@ -84,7 +84,7 @@ export function PublicationsView({ publications }: PublicationsViewProps) {
         <figure className={styles.publicationThemesFigure}>
           <div className={styles.publicationThemesScroller}>
             <img
-              src={withBasePath("/images/projects/research_vision.png")}
+              src={withBasePath("/images/projects/research_themes/research_vision.png")}
               alt="Visual overview of research themes: wavefield physics and theory, Earth and sources, computational modeling tools, observables and data, and structural health monitoring."
             />
           </div>
