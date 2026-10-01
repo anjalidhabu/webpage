@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 
 const sitemap = await readFile("out/sitemap.xml", "utf8");
@@ -22,6 +22,16 @@ for (const url of urls) {
   assert(!/<meta name="robots" content="[^"]*noindex/.test(html), `Noindex: ${url}`);
   const rendered = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
   assert(/<h1\b/.test(rendered), `Missing server-rendered heading: ${url}`);
+  for (const match of rendered.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
+    const target = new URL(match[1].replace(/&amp;/g, "&"), url);
+    if (target.origin !== parsed.origin) continue;
+    assert(target.pathname.startsWith(basePath), `Internal link outside site: ${match[1]} on ${url}`);
+    const destination = decodeURIComponent(target.pathname.slice(basePath.length));
+    const exportedFile = path.extname(destination) ? destination : path.join(destination, "index.html");
+    await access(path.join("out", exportedFile)).catch(() => {
+      assert.fail(`Internal link has no exported destination: ${match[1]} on ${url}`);
+    });
+  }
 }
 
 function structuredData(html) {

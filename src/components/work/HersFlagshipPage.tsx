@@ -282,7 +282,7 @@ export function HersFlagshipPage({
             Funding & Leadership
           </Button>
           <Button
-            href={withBasePath("/documents/cv.pdf")}
+            href="/documents/cv.pdf"
             download
             variant="secondary"
             prefixIcon="download"
@@ -494,7 +494,7 @@ export function HersFlagshipPage({
 
         <div className={styles.ecosystemGrid}>
           {ecosystemLinks.map((item) => (
-            <a key={item.href} href={item.href} className={styles.ecosystemCard}>
+            <a key={item.href} href={withBasePath(item.href)} className={styles.ecosystemCard}>
               <span className={styles.ecosystemImageWrap}>
                 <img src={withBasePath(item.image)} alt="" aria-hidden="true" />
               </span>

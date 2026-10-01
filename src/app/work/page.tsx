@@ -147,11 +147,11 @@ export default function Work() {
                   {groupThemes.map((theme) => (
                     <a
                       key={theme.label}
-                      href={
+                      href={withBasePath(
                         theme.id === "heterogeneities-rotational-seismology"
                           ? "/hers"
                           : "/work/themes/" + theme.id
-                      }
+                      )}
                       className={styles.signalCard}
                     >
                       <Heading as="h4" variant="heading-strong-m" className={styles.signalLabel}>
@@ -201,7 +201,7 @@ export default function Work() {
             Contact
           </Button>
           <Button
-            href={withBasePath("/documents/cv.pdf")}
+            href="/documents/cv.pdf"
             download
             variant="secondary"
             prefixIcon="download"
