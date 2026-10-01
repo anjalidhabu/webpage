@@ -29,6 +29,7 @@ jobs:
       - run: npm ci
       - uses: actions/configure-pages@v5
       - run: npm run build:github
+      - run: node scripts/audit-export.mjs
       - uses: actions/upload-pages-artifact@v4
         with:
           path: out
