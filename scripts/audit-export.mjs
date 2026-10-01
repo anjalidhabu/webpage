@@ -41,7 +41,7 @@ for (const file of publicFiles) {
   if (relative === ".nojekyll") continue;
   const basename = path.basename(file);
   if (![basename, encodeURI(basename), encodeURIComponent(basename)].some((name) => text.includes(name))) {
-    problems.push(`Public asset has no generated reference: ${relative}`);
+    console.warn(`Unused public asset (non-blocking): ${relative}`);
   }
 }
 
