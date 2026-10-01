@@ -2,6 +2,8 @@ import { baseURL, routes as routesConfig } from "@/resources";
 import { getPosts } from "@/utils/utils";
 
 export const dynamic = "force-static";
+const hersProjectSlug = "hers_heterogeneities_rotational_seismology";
+const legacyProjectSlugs = new Set(["Planetory_Seismology1"]);
 
 export default async function sitemap() {
   const blogs = routesConfig["/blog"]
@@ -11,10 +13,12 @@ export default async function sitemap() {
       }))
     : [];
 
-  const works = getPosts(["src", "app", "work", "projects"]).map((post) => ({
-    url: `${baseURL}/work/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
-  }));
+  const works = getPosts(["src", "app", "work", "projects"])
+    .filter((post) => post.slug !== hersProjectSlug && !legacyProjectSlugs.has(post.slug))
+    .map((post) => ({
+      url: `${baseURL}/work/${post.slug}`,
+      lastModified: post.metadata.publishedAt,
+    }));
 
   const activeRoutes = Object.keys(routesConfig).filter(
     (route) => routesConfig[route as keyof typeof routesConfig],

@@ -1,4 +1,5 @@
 import { person, social } from "@/resources";
+import { withBasePath } from "@/utils/paths";
 import { IconButton, Row, Text } from "@once-ui-system/core";
 import styles from "./Footer.module.scss";
 
@@ -25,21 +26,26 @@ export const Footer = () => {
           <Text onBackground="neutral-weak">© {currentYear} /</Text>
           <Text paddingX="4">{person.name}</Text>
         </Text>
-        <Row gap="16">
-          {social.map(
-            (item) =>
-              item.link && (
-                <IconButton
-                  key={item.name}
-                  href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                />
-              ),
-          )}
-        </Row>
+        <div className={styles.footerActions}>
+          <Row gap="16">
+            {social.map(
+              (item) =>
+                item.link && (
+                  <IconButton
+                    key={item.name}
+                    href={item.link}
+                    icon={item.icon}
+                    tooltip={item.name}
+                    size="s"
+                    variant="ghost"
+                  />
+                ),
+            )}
+          </Row>
+          <span className={styles.creatorMark} title="Crafted by RA" role="img" aria-label="Website by RBD">
+            <img src={withBasePath("/images/projects/RBD.png")} alt="" />
+          </span>
+        </div>
       </Row>
       <Row height="80" hide s={{ hide: false }} />
     </Row>

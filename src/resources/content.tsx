@@ -5,24 +5,18 @@ const person: Person = {
   firstName: "Anjali",
   lastName: "Dhabu",
   name: "Dr. Anjali Dhabu",
-  role: "Postdoctoral Researcher in Rotational Seismology and Earthquake Engineering",
-  avatar: "/images/anjali_avtar.jpeg",
+  role: "Postdoctoral Researcher and Principal Investigator in Rotational Seismology and Earthquake Engineering",
+  avatar: "/images/AD1.jpg",
   email: "anjali.dhabu@uni-hamburg.de",
   location: "Europe/Berlin",
+  displayLocation: "Hamburg, Germany",
   hardSkills: [
-    "Rotational Seismology",
-    "Earthquake Engineering",
-    "Structural Dynamics",
+    "Computational Seismology",
     "Seismic Wave Propagation",
-    "Ground Motion Simulation",
-    "Structural Health Monitoring",
-    "6C Ground-Motion Data",
-    "Reduced Micropolar Theory",
+    "Earthquake Engineering",
+    "Rotational Seismology",
+    "Structural Dynamics",
     "Finite Element Modeling",
-    "Spectral Element Methods",
-    "SPECFEM",
-    "MATLAB",
-    "LaTeX",
   ],
 };
 
@@ -35,19 +29,19 @@ const newsletter: Newsletter = {
 const social: Social = [
   {
     name: "University Profile",
-    icon: "openLink",
+    icon: "university",
     link: "https://www.geo.uni-hamburg.de/en/geophysik/personen/dhabu-anjali.html",
     essential: true,
   },
   {
     name: "ORCID",
-    icon: "openLink",
+    icon: "orcid",
     link: "https://orcid.org/0000-0002-2913-3013",
     essential: true,
   },
   {
     name: "Google Scholar",
-    icon: "openLink",
+    icon: "googleScholar",
     link: "https://scholar.google.com/citations?user=JlXHkJoAAAAJ&hl=en",
     essential: true,
   },
@@ -63,17 +57,17 @@ const home: Home = {
   path: "/",
   image: "/images/og/anjali-research-preview.png",
   label: "Home",
-  title: `${person.name} - Research Portfolio`,
+  title: `${person.name} - Research Profile`,
   description: `Research profile of ${person.name}, ${person.role} at the University of Hamburg`,
-  headline:
-    "I am building an independent research programme on 6C earthquake ground motion and structural resilience.",
+  headline: "Advancing engineering seismology with next-generation computational modeling.",
   featured: {
     display: false,
     title: "Featured research",
     href: "/publications",
   },
   subline:
-    "I combine rotational seismology, numerical wave simulation, and structural dynamics to turn six-component earthquake observations into models for safer bridges, wind turbines, and other critical structures.",
+    <>I am a civil engineer working at the intersection of seismology and structural engineering. I use <strong style={{ color: "rgb(224, 220, 23)" }}>analytical modeling and numerical simulations</strong> to reveal how complex Earth structure shapes rotations, strains, and translations in seismic wavefields. My work bridges earthquake physics with structural resilience and six-component ground-motion analysis.</>
+    ,
 };
 
 const about: About = {
@@ -98,28 +92,28 @@ const about: About = {
     description: (
       <>
         <Text as="p">
-          I am a civil engineer and postdoctoral researcher specializing in structural dynamics,
-          earthquake engineering, seismic wave propagation, and rotational seismology. My work
-          connects theoretical seismology with civil engineering applications, especially where
-          earthquake ground motions and structural response need to be understood together.
+          I am a civil engineer and postdoctoral researcher exploring earthquake motion beyond
+          translation. My work brings together structural dynamics, earthquake engineering, seismic
+          wave propagation, and rotational seismology to understand how complex ground motions
+          interact with the built environment.
         </Text>
         <Text as="p">
           At the University of Hamburg, I lead the DFG-funded HERS project, Heterogeneities and
-          their Effect on Rotational Seismology. The project develops analytical and numerical
-          approaches for simulating rotational ground motions in heterogeneous media and studies
-          what these motions mean for earthquake-resistant design and structural health monitoring.
+          their Effect on Rotational Seismology. HERS develops analytical and numerical approaches
+          for studying rotations, strains, and translations in heterogeneous Earth media, with
+          applications in earthquake-resistant design and structural health monitoring.
         </Text>
         <Text as="p">
           My research background includes reduced micropolar theory, translational and rotational
-          ground-motion simulation, 6-component sensing, modal analysis of civil engineering
-          structures, and seismic applications for both Earth and planetary settings.
+          ground-motion simulation, six-component sensing, operational modal analysis of civil
+          engineering structures, and seismic applications in both Earth and planetary contexts.
         </Text>
       </>
     ),
   },
   strengths: {
     display: true,
-    title: "Research Strengths",
+    title: "Research Interests",
     items: [
       "Rotational Seismology",
       "Earthquake Engineering",
@@ -137,7 +131,7 @@ const about: About = {
   },
   references: {
     display: true,
-    note: "Full CV and references available on request.",
+    note: "References available on request.",
   },
   work: {
     display: true,
@@ -145,8 +139,9 @@ const about: About = {
     experiences: [
       {
         company: "University of Hamburg, Institute of Geophysics",
+        logo: "/images/logos/UHH.svg",
         timeframe: "04/2024 - 03/2027",
-        role: "Postdoctoral Researcher, DFG Individual Research Grant - HERS",
+        role: "Principal Investigator (PI), DFG Individual Research Grant - HERS",
         achievements: [
           "Leads the DFG-funded project Heterogeneities and their Effect on Rotational Seismology (HERS), focused on how complex subsurface media influence simulated rotational ground motions and strains.",
           "Develops heterogeneous finite-element and numerical simulation approaches for regional rotational ground-motion modeling, connecting seismology with earthquake engineering design questions.",
@@ -156,17 +151,19 @@ const about: About = {
       },
       {
         company: "University of Hamburg, Institute of Geophysics",
+        logo: "/images/logos/UHH.svg",
         timeframe: "07/2023 - 03/2024",
         role: "Postdoctoral Researcher, ErUM-WAVE Project",
         achievements: [
-          "Contributed to the ErUM-WAVE project on anticipation of 3-dimensional wave-fields under the supervision of Prof. Dr. Celine Hadziioannou.",
-          "Worked at the interface of computational seismology, wave-field simulation, and observation-driven understanding of complex seismic motion.",
+          "Contributed to the ErUM-WAVE project on anticipation of three-dimensional wavefields under the supervision of Prof. Dr. Céline Hadziioannou.",
+          "Worked at the interface of computational seismology, wavefield simulation, and observation-driven understanding of complex seismic motion.",
           "Extended research on rotational and translational ground motions toward coupled simulation methods for teleseismic and regional seismic applications.",
         ],
         images: [],
       },
       {
         company: "University of Hamburg, Institute of Geophysics",
+        logo: "/images/logos/UHH.svg",
         timeframe: "11/2021 - 08/2023",
         role: "Postdoctoral Researcher, GIOTTO Project",
         achievements: [
@@ -178,6 +175,7 @@ const about: About = {
       },
       {
         company: "Indian Institute of Technology Madras",
+        logo: "/images/logos/IIT_Madras_Logo.svg",
         timeframe: "2014 - 2020",
         role: "Doctoral Researcher, Civil Engineering",
         achievements: [
@@ -238,17 +236,40 @@ const about: About = {
     institutions: [
       {
         name: "Indian Institute of Technology Madras, India",
-        description:
-          "Ph.D. in Civil Engineering, Division of Structural Engineering, 2014 - 2020. Advisor: Prof. Dr. S.T.G. Raghukanth.",
+        logo: "/images/logos/IIT_Madras_Logo.svg",
+        description: (
+          <>
+            Ph.D. in Civil Engineering
+            <br />
+            Division of Structural Engineering
+            <br />
+            2014 - 2020
+          </>
+        ),
       },
       {
         name: "Visvesvaraya National Institute of Technology Nagpur, India",
-        description:
-          "M.Tech. in Structural Dynamics and Earthquake Engineering, Department of Applied Mechanics, 2012 - 2014. Advisor: Prof. Dr. O.R. Jaiswal.",
+        logo: "/images/logos/VNIT_logo.jpeg",
+        description: (
+          <>
+            M.Tech. in Structural Dynamics and Earthquake Engineering
+            <br />
+            Department of Applied Mechanics
+            <br />
+            2012 - 2014
+          </>
+        ),
       },
       {
         name: "Shri G.S. Institute of Technology and Science, Indore, India",
-        description: "B.E. in Civil Engineering, 2007 - 2011.",
+        logo: "/images/logos/SGSITS_Indore.png",
+        description: (
+          <>
+            B.E. in Civil Engineering
+            <br />
+            2007 - 2011
+          </>
+        ),
       },
     ],
   },
@@ -322,18 +343,85 @@ const about: About = {
       },
       {
         title: "Teaching and Student Supervision",
-        timeframe: "University of Hamburg / IIT Madras / VNIT",
+        timeframe: "University of Hamburg / IIT Madras",
         points: [
-          "Co-supervises M.Sc. and B.Sc. thesis work at the University of Hamburg on 6C ground-motion data, wind-turbine structural monitoring, and seismic-gradient simulation.",
-          "Taught SPECFEM in a SPIN-ITN short course on computational seismology and supported tutorials, assignments, examinations, and project supervision across civil engineering subjects.",
+          // Duplicate a <li> below for each student, then replace the bracketed fields.
+          <div key="supervision-hamburg">
+            <strong>University of Hamburg</strong>
+            <ul>
+              <li> Ann Joseph [M.Sc.] — ‘Development of a 3D model for Europe to simulate rotational ground motion’ — [2026]</li>
+              <li> Nicolas Matthießen [B.Sc.] — ‘Numerical simulation of seismic gradients and their response to heterogeneity in the
+Earth medium’ — [2025]</li>
+              <li> Laurin Müller [B.Sc.] — ‘Structural Health Monitoring of wind turbines using 6C ground motion data’ — [2024]</li>
+            </ul>
+          </div>,
+          <div key="supervision-iit-madras">
+            <strong>IIT Madras</strong>
+            <ul>
+              <li>Kandarp Pathak [Dual-degree M.Tech.] — [Co-supervised with Dr. S. T. G. Raghukanth] — [2019]</li>
+              <li>Akhil Manikala [Dual-degree M.Tech.] — [Co-supervised with Dr. S. T. G. Raghukanth] — [2018]</li>
+              <li>Jaifer Muhammed [M.Tech.] — [Co-supervised with Dr. S. T. G. Raghukanth] — [2017]</li>
+              <li>Rakesh Borase [M.Tech.] — [Co-supervised with Dr. S. T. G. Raghukanth] — [2016]</li>
+            </ul>
+          </div>,
+        ],
+      },
+      {
+        title: "Invited Talks and Workshop Lectures",
+        points: [
+          // Duplicate a <li> for each talk or lecture and replace the bracketed fields.
+          <div key="invited-talks">
+            <strong>Invited Talks</strong>
+            <ul>
+              <li>
+                ‘Seismic monitoring of infrastructures’ — [15th Munich Earth Skience School] — [2025]
+              </li>
+              <li>
+                ‘Applications of Rotational Sensing in Analyzing Structural Vibrations and
+                their Modal Analyses’ — [Keynote speech at the 18th World Conference in Earthquake
+                Engineering (WCEE), Milan, Italy] — [2024] — Co-authors: F. Bernauer,
+                P. Bonkowski, A. Dhabu, Z. Zembaty.
+              </li>
+              <li>‘Simulation of Translational and Rotational Ground Motions’ — [SPIN-ITN
+                workshop: Physics and Dynamic Processes, Carcans, France] — [2022]</li>
+            </ul>
+          </div>,
+          <div key="workshop-lectures">
+            <strong>Workshop Lectures</strong>
+            <ul>
+              <li>‘SPECFEM’ — [SPIN-ITN short course on computational seismology] — [2021]</li>
+            </ul>
+          </div>,
         ],
       },
       {
         title: "Scientific Service and Community Building",
         timeframe: "2024 - 2026",
         points: [
-          "Serves as a reviewer for Geophysical Journal International and Seismica, and as a reviewer on the University of Hamburg Ideas and Venture Fund panel.",
-          "Co-organized the AG-Seismologie 2024 Conference at the University of Hamburg and contributed to SPIN-ITN short courses and workshops for Ph.D. researchers and external candidates.",
+          // Add or edit a <li> below for each journal, panel, or community activity.
+          <div key="journal-reviewing">
+            <strong>Journal Reviewing</strong>
+            <ul>
+              <li>Geophysical Journal International — Peer reviewer.</li>
+              <li>Seismica — Peer reviewer.</li>
+            </ul>
+          </div>,
+          <div key="funding-panel-reviewing">
+            <strong>Funding Panel Reviewing</strong>
+            <ul>
+              <li>University of Hamburg Ideas and Venture Fund — Panel reviewer.</li>
+            </ul>
+          </div>,
+          <div key="community-building">
+            <strong>Conference Organization and Community Building</strong>
+            <ul>
+              <li>AG-Seismologie 2024 Conference — Co-organizer, University of Hamburg.</li>
+              <li>
+                SPIN-ITN short courses and workshops — Contributed to training for Ph.D.
+                researchers and external candidates.
+              </li>
+            </ul>
+          </div>,
         ],
       },
     ],

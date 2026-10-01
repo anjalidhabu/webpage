@@ -1,0 +1,87 @@
+UPDATE — USER-CONFIRMED CORRECTIONS, 1 OCTOBER 2026
+The items below supersede the corresponding open findings in the original review:
+- Laurin Müller: B.Sc.; corrected on Teaching and HERS, consistent with Leadership/About.
+- Homepage: 157 citations are from Google Scholar. Attribution corrected; OpenAlex data remains separate.
+- SPECFEM/SPIN short course: 2021, added on Teaching and Leadership/About.
+- Added the three missing 2026 HERS conference contributions to Publications, which also feeds Publication List. Author lists copied from HERS; no DOI or destination journal invented.
+- Homepage publication count now derives from the publication records: 21 entries (7 journal articles, 10 conference contributions, 2 manuscripts, 1 preprint, 1 invited talk).
+- Other open details in the original review remain, including co-author name/initial discrepancies and missing award photographs.
+
+ORIGINAL REVIEW (historical findings follow)
+
+WEBSITE CONTENT REVIEW — 1 OCTOBER 2026
+
+Scope
+Source-level review of all enabled pages: Home, About, Work/research themes and project descriptions, HERS, Leadership, Awards, Teaching, Publications, and Publication List; shared navigation/contact text; local image and CV references. Disabled blog, gallery, and travel content was checked for template remnants and missing assets, not rewritten. This was not a browser visual review, a full external-link crawl, or a scientific fact-check of every publication or numerical result. Published citation titles and author lists were not broadly rewritten.
+
+Completed
+- Corrected spelling, grammar, punctuation, capitalization, and research-project headings.
+- Corrected Ph.D. supervisor, European Seismological Commission, malformed coaching descriptions, and incomplete HERS sentences.
+- Used Ann Joseph per your confirmation; harmonized Müller and Matthießen in supervision summaries.
+- Standardized Agathe Lasch Coaching Program + Diversity and dynaMENT advanced Mentoring Program across Awards and Leadership, preserving 2025/2026 and University of Hamburg.
+- Kept the official spelling Skience and added the 2025 year from the event organizer's listing.
+- Removed the visible [Year] placeholder without inventing the missing SPECFEM year.
+- Fixed the broken slip_model_03 image reference from .png to the existing .jpg.
+- Removed internal website-editing commentary from research descriptions.
+- Changed homepage location from the time zone Europe/Berlin to Hamburg, Germany.
+- Corrected the homepage publication description: the list includes manuscripts, preprints, and conference contributions, not only peer-reviewed articles.
+- Relabeled the reference section Academic Network because it contains relationships, not testimonial quotations.
+- Relabeled the award-photo placeholder section Recognition Milestones and stopped its accessible labels from describing photographs that are absent.
+- Corrected the recognition timeline to begin in 2010, matching the listed 2010 medal.
+- Corrected the CV note to References available on request, since CV downloads already exist.
+- Corrected Céline Hadziioannou's institute to Institute of Geophysics using her official profile.
+- Corrected singular/plural project-card labels.
+
+Remaining details to confirm or supply
+1. Laurin Müller: Leadership/About says B.Sc. (2024); Teaching and HERS say M.Sc. thesis co-supervision. Degree and completion status were left unchanged pending confirmation.
+2. Nicolas Matthießen: Teaching says co-supervised, HERS says supervision. Confirm the precise role. Formal author lists retain their original spellings; do not normalize bibliographic names without checking the publications.
+3. Ann Joseph is on Leadership/About and HERS but absent from Teaching. Her thesis focus is specific on Leadership (a 3D Europe model) and broader on HERS. Confirm whether these describe the same thesis and whether to include it on Teaching.
+4. Homepage citations: 157 with a May 2026 cache description; the local OpenAlex cache is dated 25 September 2026 and sums to 122. These may represent different sources/coverage. The count was NOT changed. Specify the intended source and date before synchronizing it.
+5. SPECFEM/SPIN short-course year is missing. The placeholder was removed; the year still needs to be supplied.
+6. All four Award Moments/Recognition Milestones entries have no photographs. Current cards display initials and years. Supply authentic images if a photo gallery is desired.
+7. HERS contains 2026 conference outputs absent from the main Publications list (ESC basin/topography, EGU layered-Earth propagation, and coupled simulation). Confirm final citations/links before adding them. Main publication and HERS records also differ on planned target journals and a co-author's surname/initials (Montellier, V. versus Monteiller, M.).
+8. Manuscripts/preprints have statuses that may now be stale. Confirm whether the bridge preprint or in-preparation papers have since been published. Journal quartiles lack a source/year.
+9. GIOTTO (November 2021–August 2023) and ErUM-WAVE (July 2023–March 2024) overlap in July–August 2023. Confirm that this is intentional.
+10. The simulation-code link in rotational_ground_motion_theory.mdx points to a Mendeley draft URL. Confirm a public, stable dataset URL before replacing it.
+11. Disabled Blog contains template/tutorial posts; Gallery and Travel have missing images and old content. Keep them disabled until curated. Legacy Planetory_Seismology1 contains duplicate topography content but its route already redirects and is excluded from the sitemap.
+12. Theme landing pages are missing from sitemap.ts. Review sitemap coverage before the next deployment. Production metadata also depends on NEXT_PUBLIC_SITE_URL; its default is localhost. No private environment values were inspected.
+
+Verification
+- TypeScript check passed before and after the main edit batch.
+- All 14 project MDX files compiled successfully.
+- Literal local image/document references used by enabled content resolve after the image fix (disabled Gallery/Travel references excluded).
+- CV file exists; PDF contents and text embedded inside images were not proofread.
+- No deployment performed.
+
+Sources used for targeted name/year checks
+Agathe Lasch: https://www.uni-hamburg.de/en/chancengerechtigkeit/foerderungen/agathe-lasch-coaching.html
+DynaMENT: https://pier-hamburg.de/posts/events/2024/call_for_applications_dynament___mentoring_for_women_in_natural_sciences/
+Skience 2025 organizer listing: https://www.skience.de/2026/03/14/2025-2/ (search-indexed text; direct fetch unavailable)
+Céline Hadziioannou: https://www.geo.uni-hamburg.de/en/geophysik/personen/hadziioannou-celine.html
+
+Publication record breakdown: 7 Journal, 7 Conference, 2 Manuscript, 1 Preprint, 1 Invited Talk.
+
+Original file backups: /tmp/anjali-proofreading-20261001-100323
+
+Edited source files (21):
+src/app/about/page.tsx
+src/app/awards/page.tsx
+src/app/leadership/page.tsx
+src/app/page.tsx
+src/app/publications/content.tsx
+src/app/teaching/content.tsx
+src/app/teaching/page.tsx
+src/app/work/page.tsx
+src/app/work/projects/bridge_rotational_ground_motions.mdx
+src/app/work/projects/extending_specfem_rotational_ground_motions.mdx
+src/app/work/projects/fundamental_solutions_reduced_micropolar_half_space.mdx
+src/app/work/projects/hers_heterogeneities_rotational_seismology.mdx
+src/app/work/projects/himalayan_topography_ground_motions.mdx
+src/app/work/projects/homogeneous reduced micropolar half-space.mdx
+src/app/work/projects/lunar_boulder_avalanches_moonquake.mdx
+src/app/work/projects/mars_seismicity.mdx
+src/app/work/projects/rotational_ground_motion_theory.mdx
+src/app/work/projects/strong_motion_generation_extreme_value.mdx
+src/app/work/projects/topography_simple.mdx
+src/components/work/HersFlagshipPage.tsx
+src/resources/content.tsx

@@ -2,18 +2,25 @@
 title: "Reduced Micropolar Theory for Rotational Ground-Motion Simulation"
 publishedAt: "2021-01-01"
 link: "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020JB020931"
-summary: "Developed analytical and numerical approaches for modeling translational and rotational ground motions in reduced micropolar media, including half-space, layered media, wave propagation, and fundamental-solution studies."
+summary: "Rotational ground motions are increasingly measurable, but conventional elastic models can underestimate them because they represent the Earth medium primarily through translation-focused continuum mechanics. This work explored reduced micropolar theory as an alternative medium model that can represent micro-rotational effects while remaining simpler than full micropolar elasticity."
 domain: "Ground-Motion Theory"
-focus: "Reduced Micropolar Media"
-scale: "Ph.D. Research and Journal Publications"
+focus: "Layered Reduced Micropolar Media"
+scale: "JGR: Solid Earth Publication and Ph.D. Research"
 techStack:
   - "Reduced Micropolar Theory"
-  - "Analytical Modeling"
-  - "MATLAB"
-  - "Wave Propagation"
-heroImage: "/images/projects/anjali/rotational-theory.png"
+  - "Frequency-Wavenumber Green's Functions"
+  - "P-SV and SH Wave Propagation"
+  - "Numerical Ground-Motion Simulation"
+heroImage: "/images/projects/reduced_micropolar_jgr/rmp_jgr.png"
 images:
-  - "/images/projects/anjali/rotational-theory.png"
+  - "/images/projects/reduced_micropolar_jgr/rmp_jgr.png"
+  - "/images/projects/reduced_micropolar_jgr/RMP_JGR01.png"
+  - "/images/projects/reduced_micropolar_jgr/RMP_JGR02.png"
+  - "/images/projects/reduced_micropolar_jgr/RMP_JGR03.png"
+  - "/images/projects/reduced_micropolar_jgr/RMP_JGR05.png"
+  - "/images/projects/reduced_micropolar_jgr/RMP_JGR06.png"
+  - "/images/projects/reduced_micropolar_jgr/RMP_JGR07.png"
+  
 team:
   - name: "Dr. Anjali Dhabu"
     role: "Doctoral Researcher"
@@ -21,25 +28,68 @@ team:
     linkedIn: "https://www.geo.uni-hamburg.de/en/geophysik/personen/dhabu-anjali.html"
 ---
 
-## Research Question
+## Project Summary
+This research develops a generalized framework for seismic wave propagation in layered reduced micropolar media, enabling simultaneous simulation of translational and rotational earthquake ground motions. By extending classical elastic formulations to incorporate micro-rotational effects, the work advances the theoretical and computational foundations of rotational seismology and next-generation earthquake ground-motion modeling.
 
-Classical elastic models are often built around translational motion, but rotational effects and strain can be important for earthquake ground-motion interpretation. This work asks whether reduced micropolar theory can provide a useful framework for modeling Earth media and simulating translational and rotational ground motions together.
+The study combines analytical wave-propagation theory, layered-medium recursion, Green’s-function formulation, and numerical simulation within a unified framework capable of modeling complex seismic behavior in horizontally layered Earth structures. The formulation was validated against limiting classical elastic cases and applied to the 2012 Mw 5.9 Wutai, Taiwan earthquake.
+## Research Problem
 
-## Method
+Rotational ground motions are increasingly measurable, but conventional elastic models can underestimate them because they represent the Earth medium primarily through translation-focused continuum mechanics. This work explored reduced micropolar theory as an alternative medium model that can represent micro-rotational effects while remaining simpler than full micropolar elasticity.
 
-The research developed mathematical formulations for reduced micropolar half-spaces and layered media. It included fundamental solutions for static and dynamic loading, simulation of translational and rotational ground motion, and wave-propagation studies that connect theory with earthquake-source and medium-response questions.
+The central research question was whether a layered reduced micropolar representation of the Earth medium could simulate translational and rotational ground motions more realistically than a classical elastic layered half-space, especially for near-field rotations.
 
-## Contribution
+## Methods and Technical Expertise
 
-This body of work established a theoretical foundation that carries into Dr. Dhabu's current research. It shows the analytical depth behind the later simulation and structural-response projects: rotations are treated as part of the physical model, not as an afterthought added after translation-only analysis.
+- **Reduced Micropolar Continuum Modeling:** Formulated layered Earth media using reduced micropolar material behavior with translations and rotations represented together.
+- **Analytical Wave Propagation:** Derived Green's functions for layered reduced micropolar half-space response under earthquake loading.
+- **P-SV and SH Wave Decomposition:** Separated the coupled wave-propagation problem into independent P-SV and SH systems for tractable computation.
+- **Layered-Medium Recursion:** Used generalized reflection and transmission coefficients to propagate wavefields through multiple horizontal layers.
+- **Numerical Simulation:** Evaluated frequency-wavenumber integrals to compute surface translations and rotations in the time-space domain.
+- **Validation and Benchmarking:** Checked limiting cases against classical elastic layered media and compared simulated motions for the 2012 Wutai earthquake.
+- **Research Programming:** Implemented computational routines for simulated translational velocities, rotational rates, and source-to-site response analysis.
 
-## Outputs
+## Research Contributions
 
-- Journal article on seismic wave propagation through layered reduced micropolar media in JGR: Solid Earth.
-- Journal article on translational and rotational ground-motion simulation in homogeneous reduced micropolar half-space.
-- Journal article on fundamental solutions for homogeneous reduced micropolar half-space.
-- Conference contribution asking whether reduced micropolar theory can model Earth media and simulate earthquake ground motions.
+- **Layered reduced micropolar Earth model:** Built a theoretical representation of the Earth as a horizontally layered reduced micropolar half-space, with each layer described through elastic, density, rotational inertia, and additional reduced micropolar material parameters.
+- **Green's-function formulation:** Derived analytical Green's functions for the response of layered reduced micropolar media subjected to earthquake force, enabling surface translations and rotations to be computed from the same framework.
+- **Wave-propagation solver structure:** Reduced the propagation problem into P-SV and SH components and used reflection/transmission recursions at layer interfaces to model energy transfer through layered media.
+- **Classical-elastic validation workflow:** Tested the formulation by choosing reduced micropolar parameters that converge toward the classical elastic case, then comparing simulated translational and rotational responses.
+- **Earthquake simulation case study:** Simulated ground motions for the 2012 Mw 5.9 Wutai, Taiwan earthquake and compared reduced micropolar results with classical elastic layered-medium simulations.
+- **Reusable simulation codebase:** Produced code for generating simulated ground motions, later made available through the paper's data repository.
 
-## Why It Matters
+## Key Findings
 
-The theory gives a bridge between seismology and earthquake engineering. It supports richer descriptions of ground motion and helps explain when rotational components and strains may matter for structures, sensors, and simulation workflows.
+- Translational velocities from the layered reduced micropolar model remained close to those from the layered classical elastic model.
+- Rotational rates were substantially more sensitive to the reduced micropolar material representation than translational motions.
+- For magnitude-distance simulations, rotational rates from the reduced micropolar half-space were higher than those from the classical elastic half-space.
+- For the 2012 Wutai earthquake, the simulated vertical-axis peak rotational motion agreed well with the value reported in the literature.
+- The results indicate that reduced micropolar theory can help explain large rotational amplitudes observed in near-field earthquake records.
+
+## My Role
+
+I led the formal analysis, numerical implementation, validation, visualization, and original manuscript preparation for this study. I developed the layered reduced micropolar formulation with co-authors, implemented the simulation workflow, compared the reduced micropolar response with classical elastic results, and interpreted the implications for rotational ground-motion modeling.
+
+## Challenges and Lessons Learned
+
+A central challenge was making a richer continuum model computationally usable for earthquake ground-motion simulation. Reduced micropolar theory introduces additional material parameters and rotational degrees of freedom, but experimental values for those parameters are still limited. The project therefore required a careful validation strategy: first showing convergence to classical elasticity under limiting parameter choices, then exploring how rotations respond when reduced micropolar effects are retained.
+
+Another challenge was keeping the formulation general enough for arbitrary earthquake loading while still practical for numerical evaluation. Working in the frequency-wavenumber domain made the analytical expressions compact, but the final surface translations and rotations required stable numerical integration over wavenumber and frequency.
+
+## Outcome and Research Continuity
+
+The work established a layered reduced micropolar framework for simulating translational and rotational earthquake ground motions. It showed that rotations are more sensitive than translations to reduced micropolar material behavior, and that the model can better capture large rotational amplitudes reported in near-field earthquake observations.
+
+The project became a theoretical foundation for later research on rotational seismology, heterogeneous media, 6C ground-motion simulation, and structural interpretation of rotations and strains.
+
+## Data and Code Availability
+
+No previously published dataset was used in this study. The simulation codes developed for the paper were made available through Mendeley Data and can be used to reproduce the simulated ground-motion examples reported in the article.
+
+## Citation
+
+Dhabu, A. C., Singla, V. K., & Raghukanth, S. T. G. (2021). Seismic wave propagation through layered reduced micropolar medium. *Journal of Geophysical Research: Solid Earth*, 126, e2020JB020931. https://doi.org/10.1029/2020JB020931
+
+## For More Information
+
+- [Published article in JGR: Solid Earth](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020JB020931)
+- [Simulation code repository on Mendeley Data](https://data.mendeley.com/datasets/pfckx7xwj4/draft?a=39ccc0de-fc7e-4d78-b941-e6521f275bfa)

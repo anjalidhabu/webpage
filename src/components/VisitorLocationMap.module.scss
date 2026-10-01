@@ -1,70 +1,164 @@
 .locationMap {
     width: 100%;
-    padding: var(--static-space-12);
-    border: 1px solid var(--neutral-alpha-medium);
+    padding: clamp(var(--static-space-12), 2.2vw, var(--static-space-24));
+    border: 1px solid color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 24%, var(--neutral-alpha-medium));
     border-radius: 8px;
-    background: color-mix(in srgb, var(--surface-background) 94%, transparent);
+    background:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--home-mist, var(--surface-background)) 28%, var(--surface-background)),
+            color-mix(in srgb, var(--page-background) 96%, transparent)
+        ),
+        linear-gradient(135deg, color-mix(in srgb, var(--home-amber, var(--brand-background-weak)) 10%, transparent), transparent 62%);
+    box-shadow: 0 24px 70px color-mix(in srgb, var(--home-ink, var(--neutral-on-background)) 11%, transparent);
 }
 
 .locationHeader {
-    min-height: var(--static-space-48);
+    min-height: var(--static-space-64);
+    align-items: end;
+}
+
+.locationIntro {
+    max-width: 34rem;
+}
+
+.locationStats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(5.8rem, 1fr));
+    gap: var(--static-space-6);
+    min-width: min(100%, 29rem);
+}
+
+.locationStat {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--static-space-8);
+    min-height: 2.55rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 16%, var(--neutral-alpha-medium));
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface-background) 86%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, white 54%, transparent);
+}
+
+.locationStat span {
+    min-width: 0;
+    color: var(--neutral-on-background-weak);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.locationStat strong {
+    min-width: 1.4rem;
+    color: color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 72%, var(--neutral-on-background-strong));
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1;
+    text-align: right;
+    overflow-wrap: anywhere;
 }
 
 .locationMapFrame {
     position: relative;
-    height: 12rem;
+    height: clamp(18rem, 34vw, 25rem);
     overflow: hidden;
-    border: 1px solid var(--neutral-alpha-weak);
+    border: 1px solid color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 18%, var(--neutral-alpha-weak));
     border-radius: 8px;
-    background: color-mix(in srgb, var(--page-background) 86%, var(--neutral-alpha-weak));
+    background:
+        repeating-linear-gradient(0deg, transparent 0 3.2rem, color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 8%, transparent) 3.25rem),
+        repeating-linear-gradient(90deg, transparent 0 4.2rem, color-mix(in srgb, var(--home-copper, var(--brand-background-weak)) 8%, transparent) 4.25rem),
+        color-mix(in srgb, var(--page-background) 90%, var(--neutral-alpha-weak));
+    box-shadow: inset 0 1px 0 color-mix(in srgb, white 56%, transparent);
+    isolation: isolate;
+}
+
+.locationMapFrame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: inset 0 0 70px color-mix(in srgb, var(--home-ink, var(--neutral-on-background)) 16%, transparent);
 }
 
 .locationTileMap {
     position: absolute;
     inset: 0;
+    z-index: 0;
 }
 
 .locationMapFallback {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
     background:
-        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--brand-alpha-weak) 28%, transparent), transparent 58%),
-        color-mix(in srgb, var(--page-background) 86%, var(--neutral-alpha-weak));
+        linear-gradient(120deg, color-mix(in srgb, var(--home-seafoam, var(--brand-background-weak)) 16%, transparent), transparent 42%),
+        repeating-linear-gradient(25deg, transparent 0 2.8rem, color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 10%, transparent) 2.85rem 2.9rem),
+        color-mix(in srgb, var(--page-background) 88%, var(--neutral-alpha-weak));
+}
+
+.locationMapFallback::before {
+    content: "";
+    position: absolute;
+    width: min(34rem, 78%);
+    aspect-ratio: 1.9;
+    border: 1px solid color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 18%, transparent);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 2rem color-mix(in srgb, var(--home-seafoam, var(--brand-background-weak)) 5%, transparent),
+        0 0 0 4.6rem color-mix(in srgb, var(--home-amber, var(--brand-background-weak)) 4%, transparent);
+}
+
+.locationMapFallback span {
+    position: relative;
+    z-index: 1;
+    padding: var(--static-space-8) var(--static-space-12);
+    border: 1px solid color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 20%, var(--neutral-alpha-medium));
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface-background) 86%, transparent);
+    color: var(--neutral-on-background-weak);
+    font-size: 0.82rem;
+    font-weight: 700;
 }
 
 .zoomControls {
     position: absolute;
-    top: var(--static-space-8);
-    right: var(--static-space-8);
+    top: var(--static-space-12);
+    right: var(--static-space-12);
     display: flex;
     flex-direction: column;
     gap: 1px;
-    z-index: 2;
+    z-index: 3;
     overflow: hidden;
-    border: 1px solid var(--neutral-alpha-medium);
-    border-radius: 8px;
-    box-shadow: 0 8px 20px color-mix(in srgb, var(--neutral-alpha-medium) 20%, transparent);
+    border: 1px solid color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 24%, var(--neutral-alpha-medium));
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface-background) 88%, transparent);
+    box-shadow: 0 12px 26px color-mix(in srgb, var(--neutral-alpha-medium) 22%, transparent);
 }
 
 .zoomButton {
-    width: 2rem;
-    height: 2rem;
+    width: 2.05rem;
+    height: 2.05rem;
     border: 0;
-    background: color-mix(in srgb, var(--surface-background) 92%, transparent);
+    background: transparent;
     color: var(--neutral-on-background-strong);
     font: inherit;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 750;
     line-height: 1;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .zoomButton:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--brand-background-weak) 40%, var(--surface-background));
+    background: color-mix(in srgb, var(--home-seafoam, var(--brand-background-weak)) 34%, var(--surface-background));
 }
 
 .zoomButton:disabled {
@@ -81,26 +175,30 @@
     position: absolute;
     display: grid;
     place-items: center;
-    min-width: 1.35rem;
-    height: 1.35rem;
+    min-width: 1.55rem;
+    height: 1.55rem;
     padding: 0 var(--static-space-4);
     border: 2px solid var(--surface-background);
     border-radius: 999px;
-    background: var(--brand-background-strong);
+    background: linear-gradient(
+        135deg,
+        var(--home-copper, var(--brand-background-strong)),
+        var(--home-lagoon, var(--brand-background-strong))
+    );
     color: var(--page-background);
     box-shadow:
-        0 0 0 1px var(--brand-alpha-medium),
-        0 8px 22px color-mix(in srgb, var(--brand-background-strong) 30%, transparent);
-    font-size: 0.68rem;
-    font-weight: 700;
+        0 0 0 1px color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 34%, transparent),
+        0 10px 24px color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 28%, transparent);
+    font-size: 0.7rem;
+    font-weight: 800;
     line-height: 1;
 }
 
 .visitorMarkerCount::before {
     content: "";
     position: absolute;
-    inset: -0.45rem;
-    border: 1px solid var(--brand-alpha-medium);
+    inset: -0.5rem;
+    border: 1px solid color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 34%, transparent);
     border-radius: 999px;
 }
 
@@ -115,19 +213,34 @@
     flex-direction: column;
     gap: var(--static-space-2);
     min-width: 0;
-    padding: var(--static-space-8);
-    border: 1px solid var(--neutral-alpha-weak);
+    padding: var(--static-space-10) var(--static-space-12);
+    border: 1px solid color-mix(in srgb, var(--home-lagoon, var(--brand-background-strong)) 16%, var(--neutral-alpha-weak));
     border-radius: 8px;
-    background: color-mix(in srgb, var(--surface-background) 82%, transparent);
+    background: color-mix(in srgb, var(--surface-background) 84%, transparent);
+}
+
+.locationEmpty {
+    grid-column: 1 / -1;
+    align-items: center;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
     .locationMap {
-        padding: var(--static-space-8);
+        padding: var(--static-space-10);
+    }
+
+    .locationHeader {
+        min-height: auto;
+    }
+
+    .locationStats {
+        width: 100%;
+        grid-template-columns: 1fr;
     }
 
     .locationMapFrame {
-        height: 10rem;
+        height: 16rem;
     }
 
     .locationList {
@@ -139,9 +252,15 @@
     width: 100%;
     height: 100%;
     font: inherit;
+    background: transparent;
+}
+
+.locationMapFrame :global(.leaflet-tile-pane) {
+    filter: saturate(0.78) contrast(0.94) brightness(1.02);
 }
 
 .locationMapFrame :global(.leaflet-control-attribution) {
+    z-index: 4;
     background: color-mix(in srgb, var(--surface-background) 90%, transparent);
     color: var(--neutral-on-background-weak);
 }
@@ -158,6 +277,7 @@
     border-radius: 8px;
     background: var(--surface-background);
     color: var(--neutral-on-background-strong);
+    box-shadow: 0 16px 36px color-mix(in srgb, var(--neutral-on-background) 18%, transparent);
 }
 
 .locationMapFrame :global(.leaflet-popup-tip) {

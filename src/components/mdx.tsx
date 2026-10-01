@@ -1,6 +1,7 @@
-import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
+import { evaluate } from "@mdx-js/mdx";
 import type React from "react";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
+import { jsx, jsxs } from "react/jsx-runtime";
 import { slugify as transliterate } from "transliteration";
 
 import {
@@ -210,16 +211,18 @@ const components = {
   SmartLink,
 };
 
-type CustomMDXProps = MDXRemoteProps & {
-  components?: typeof components;
+type CustomMDXProps = {
+  source: string;
+  components?: Partial<typeof components>;
 };
 
-export function CustomMDX(props: CustomMDXProps) {
-  return (
-    <MDXRemote
-      options={{ blockJS: false }}
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-    />
-  );
+export async function CustomMDX({ source, components: customComponents }: CustomMDXProps) {
+  const { default: MDXContent } = await evaluate(source, {
+    Fragment,
+    jsx,
+    jsxs,
+    baseUrl: import.meta.url,
+  });
+
+  return <MDXContent components={{ ...components, ...(customComponents || {}) }} />;
 }

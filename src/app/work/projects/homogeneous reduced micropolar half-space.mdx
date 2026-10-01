@@ -1,0 +1,90 @@
+---
+title: "Translational and Rotational Ground-Motion Simulation in Reduced Micropolar Half-Space"
+publishedAt: "2021-03-25"
+link: "https://doi.org/10.1007/s10950-021-09983-2"
+summary: "Derived analytical Green's functions and built a numerical simulation workflow for translational and rotational ground motions in a homogeneous reduced micropolar half-space under impulse and double-couple earthquake loading."
+domain: "Rotational Seismology"
+focus: "Analytical Ground-Motion Modeling"
+scale: "Homogeneous Half-Space, Impulse Loads, Mw 5 Benchmark, 2012 Wutai Earthquake"
+techStack:
+  - "Reduced Micropolar Theory"
+  - "Green's Functions"
+  - "Discrete Wavenumber Method"
+  - "MATLAB"
+  - "Double-Couple Earthquake Source Modeling"
+heroImage: "/images/projects/reduced_micropolar_jose/rmp_jose.png"
+images:
+  - "/images/projects/reduced_micropolar_jose/rmp_jose.png"
+  - "/images/projects/reduced_micropolar_jose/rmp_jose_06.png"
+  - "/images/projects/reduced_micropolar_jose/rmp_jose_05.png"
+  - "/images/projects/reduced_micropolar_jose/rmp_jose_04.png"
+  - "/images/projects/reduced_micropolar_jose/rmp_jose_03.png"
+  - "/images/projects/reduced_micropolar_jose/rmp_jose_02.png"
+  - "/images/projects/reduced_micropolar_jose/rmp_jose_01.png"
+team:
+  - name: "Dr. Anjali Dhabu"
+    role: "Doctoral Researcher"
+    avatar: "/images/anjali_avtar.jpeg"
+    linkedIn: "https://www.geo.uni-hamburg.de/en/geophysik/personen/dhabu-anjali.html"
+---
+
+## Project Summary
+
+I developed an analytical and numerical workflow to simulate both translational and rotational ground motions in a homogeneous reduced micropolar half-space. The work focused on deriving closed-form frequency-wavenumber expressions for a reduced micropolar medium, evaluating them numerically, and using the resulting Green's functions to model impulse loads and earthquake sources.
+
+The project addressed a key limitation in classical elastic ground-motion simulation: rotations are often obtained indirectly from translational displacement fields. Reduced micropolar theory allows translations and rotations to be treated as coupled fields, making it better suited for studying rotational ground motions observed during earthquakes.
+
+## Research Impact
+
+This work helped connect rotational seismology with earthquake engineering by providing a physics-based way to simulate surface translations and rotations together. The workflow showed how additional reduced micropolar material parameters influence rotational velocities while leaving translational velocities comparatively less affected.
+
+The study also provided a route for testing whether reduced micropolar media can explain recorded rotational motions, including simulations for the 2012 Wutai, Taiwan earthquake. The results highlighted both the promise of the theory and the need for better experimental constraints on reduced micropolar material parameters for rock and Earth media.
+
+## Skills and Technologies
+
+- **Analytical Modeling:** Derived displacement and rotation expressions for a homogeneous reduced micropolar half-space under arbitrary buried loading.
+- **Green's Function Development:** Formulated impulse-response solutions for horizontal and vertical buried impulses.
+- **Earthquake Source Modeling:** Converted impulse responses into double-couple earthquake-force simulations using moment tensor components.
+- **Numerical Simulation:** Implemented frequency-wavenumber integration and inverse transforms to obtain surface velocity time histories.
+- **Parametric Analysis:** Studied the influence of the reduced micropolar parameters `kappa`, `j`, and `w0` on translational and rotational velocities.
+- **Validation and Benchmarking:** Compared reduced micropolar simulations with classical elastic half-space results for limiting parameter cases.
+- **MATLAB:** Developed numerical codes for simulation, integration, parametric studies, and ground-motion visualization.
+
+## Workflow Explanation
+
+The workflow started by defining the governing equations for a homogeneous reduced micropolar half-space. Unlike classical elasticity, the translational displacement field and rotational displacement field are coupled through the reduced micropolar material parameters. This coupling made it possible to simulate rotations as part of the medium response rather than calculating them only as a post-processing quantity.
+
+Next, I decomposed the displacement field using scalar and vector potentials in cylindrical coordinates. This reduced the complexity of the half-space problem and made the formulation efficient for axisymmetric and buried-source loading. Boundary conditions were applied at the free surface and across the source plane, including zero surface stress, displacement continuity, and stress discontinuity caused by the applied load.
+
+After deriving the general expressions, I specialized the formulation for horizontal and vertical buried impulses. These impulse solutions acted as Green's functions for the reduced micropolar half-space. I then evaluated the expressions numerically to simulate translational and rotational velocity time histories at different epicentral distances.
+
+The final stage extended the impulse-response framework to earthquake loading. I modeled the earthquake source as a double couple, used moment tensor components to combine the Green's function derivatives, and simulated surface translations and rotations for benchmark and real-earthquake scenarios.
+
+## What I Built
+
+- **Reduced micropolar half-space formulation:** Built the mathematical setup for a half-space where translations and rotations are coupled through reduced micropolar theory.
+- **Impulse-response Green's functions:** Derived analytical response expressions for buried horizontal and vertical impulses.
+- **Frequency-wavenumber simulation pipeline:** Implemented numerical integration over wavenumber and frequency domains to obtain time-domain translational and rotational velocities.
+- **Double-couple earthquake module:** Used moment tensor representation to simulate earthquake-induced surface motions from the derived Green's functions.
+- **Classical-elastic validation case:** Verified the workflow by showing convergence with classical elastic half-space simulations when reduced micropolar parameters approach the classical limit.
+- **Parameter-sensitivity experiments:** Tested multiple combinations of `kappa` and `j` to understand how reduced micropolar properties affect rotational ground motions.
+- **Wutai earthquake case study:** Simulated the 2012 Mw 5.9 Wutai, Taiwan earthquake at multiple epicentral distances using rock-like half-space properties.
+
+## Challenges and Lessons Learned
+
+The main challenge was transforming a mathematically dense continuum theory into a practical simulation workflow. The analytical solution required careful handling of coupled translation-rotation equations, boundary conditions, Hankel transforms, Fourier transforms, and numerical integration in the frequency-wavenumber domain.
+
+Another challenge was uncertainty in the additional reduced micropolar parameters for real Earth materials. Since `kappa` and `j` are not routinely measured for rock, the study required parametric analysis to understand how these values control rotational response. This became one of the most important learnings from the work: translational velocities remain relatively stable across many parameter choices, but rotational velocities can change significantly.
+
+## Outcome
+
+The project produced a complete analytical and computational framework for simulating translational and rotational ground motions in a homogeneous reduced micropolar half-space. The simulations captured expected wave-arrival behavior for impulse loads: amplitudes decreased and arrival times increased with epicentral distance.
+
+For earthquake loading, the reduced micropolar formulation matched classical elastic results in the appropriate limiting case, supporting the correctness of the derivation and implementation. Parametric studies showed that maximum rotational velocities occur when `w0` is close to the maximum simulation frequency, and that rotations are more sensitive than translations to reduced micropolar material parameters.
+
+The Wutai earthquake simulation demonstrated how the workflow can be applied to real events, while also showing that more experimental information on reduced micropolar properties is needed for stronger agreement with recorded rotational motions.
+
+## For More Information
+
+- [Published article in Journal of Seismology](https://doi.org/10.1007/s10950-021-09983-2)
+- Dhabu, A. C., and Raghukanth, S. T. G. (2021). Translational and rotational ground motion simulations in homogeneous reduced micropolar half-space.

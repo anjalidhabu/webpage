@@ -16,6 +16,24 @@ const fundingEntries = [
     emphasis: "Current PI-level research line",
     description:
       "Leads Heterogeneities and their Effect on Rotational Seismology, defining the simulation strategy and research direction for rotational ground motions in complex media.",
+    href: "/hers",
+    linkLabel: "View HERS project",
+  },
+  {
+    category: "Selected Mentoring & Coaching Programs",
+    title: "dynaMENT advanced Mentoring Program",
+    period: "2026",
+    institution: "University of Hamburg",
+    emphasis: "Selected participant",
+    description: "Selected to participate in dynaMENT advanced, a mentoring program supporting academic career development.",
+  },
+  {
+    category: "Selected Mentoring & Coaching Programs",
+    title: "Agathe Lasch Coaching Program + Diversity",
+    institution: "University of Hamburg",
+    period: "2025",
+    emphasis: "Selected participant",
+    description: "Selected to participate in the Agathe Lasch Coaching Program + Diversity, supporting professional development through individual coaching.",
   },
   {
     category: "Research Recognition",
@@ -37,7 +55,7 @@ const fundingEntries = [
   },
   {
     category: "Merit Funding",
-    title: "MHRD Merit-based Scholarships",
+    title: "MHRD Scholarships and Fellowships",
     institution: "Ministry of Human Resource Development, Govt. of India",
     period: "2012 - 2019",
     emphasis: "M.Tech. and Ph.D. academic excellence",
@@ -46,112 +64,90 @@ const fundingEntries = [
   },
 ];
 
-const collaborationThemes = [
+const collaborationLogos = [
   {
-    title: "Rotational Ground-Motion Theory",
-    description:
-      "Theory and simulation collaborations supporting reduced micropolar media, rotational wave physics, and six-component interpretation.",
-    tags: ["Theory", "Rotational seismology", "Wave propagation"],
-    institutions: [
-      {
-        name: "IIT Madras",
-        logo: "/images/logos/IIT_Madras_Logo.svg",
-      },
-      {
-        name: "University of Hamburg",
-        logo: "/images/logos/Seal_of_the_University_of_Hamburg.svg",
-      },
-      {
-        name: "LMU Munich",
-        logo: "/images/logos/LMU_Muenchen_Logo.svg",
-      },
-    ],
+    name: "University of Hamburg",
+    region: "Germany",
+    logo: "/images/logos/Seal_of_the_University_of_Hamburg.svg",
   },
   {
-    title: "6C Monitoring & Structural Response",
-    description:
-      "Engineering-facing network for six-component sensing, modal analysis, bridge response, wind turbines, and structural health monitoring.",
-    tags: ["6C sensing", "Structures", "Monitoring"],
-    institutions: [
-      {
-        name: "University of Hamburg",
-        logo: "/images/logos/Seal_of_the_University_of_Hamburg.svg",
-      },
-      {
-        name: "BAM Berlin",
-        logo: "/images/logos/BAM-Logo-2015.svg",
-      },
-      {
-        name: "Opole University of Technology",
-        logo: "/images/logos/Opole_University_of_Technology.png",
-      },
-      {
-        name: "Vestas",
-        logo: "/images/logos/Vestas.svg",
-      },
-    ],
+    name: "IIT Madras",
+    region: "India",
+    logo: "/images/logos/IIT_Madras_Logo.svg",
   },
   {
-    title: "Simulation, Topography & Subsurface Structure",
-    description:
-      "Collaborations that strengthen heterogeneous-media modeling, topography effects, regional simulations, and subsurface structure questions.",
-    tags: ["Simulation", "Topography", "Heterogeneity"],
-    institutions: [
-      {
-        name: "University of Hamburg",
-        logo: "/images/logos/Seal_of_the_University_of_Hamburg.svg",
-      },
-      {
-        name: "IIT Madras",
-        logo: "/images/logos/IIT_Madras_Logo.svg",
-      },
-      {
-        name: "BGR Hannover",
-        logo: "/images/logos/BGR_Logo-cropped.svg",
-      },
-      {
-        name: "NGRI Hyderabad",
-        logo: "/images/logos/National_Geophysical_Research_Institute_Logo.png",
-      },
-    ],
+    name: "LMU Munich",
+    region: "Germany",
+    logo: "/images/logos/LMU_Muenchen_Logo.svg",
   },
   {
-    title: "Planetary & Source Seismology",
-    description:
-      "A broader geophysical network connecting strong-motion source characterization with lunar, Martian, and planetary seismic applications.",
-    tags: ["Planetary seismology", "Source physics", "Applications"],
-    institutions: [
-      {
-        name: "ISRO",
-        logo: "/images/logos/Indian_Space_Research_Organisation_Logo.svg",
-      },
-      {
-        name: "Max Planck Institute",
-        logo: "/images/logos/Logo-mps.png",
-      },
-      {
-        name: "Planetary Science Institute",
-        logo: "/images/logos/Planetary_Science_Institute_logo.png",
-      },
-    ],
+    name: "CNRS",
+    region: "France",
+    logo: "/images/logos/LOGO_CNRS_BLEU.png",
+  },
+  {
+    name: "BAM Berlin",
+    region: "Germany",
+    logo: "/images/logos/BAM-Logo-2015.svg",
+  },
+  {
+    name: "BGR Hannover",
+    region: "Germany",
+    logo: "/images/logos/BGR_Logo-cropped.svg",
+  },
+  {
+    name: "ISRO",
+    region: "India",
+    logo: "/images/logos/Indian_Space_Research_Organisation_Logo.svg",
+  },
+  {
+    name: "NGRI Hyderabad",
+    region: "India",
+    logo: "/images/logos/National_Geophysical_Research_Institute_Logo.png",
+  },
+  {
+    name: "Max Planck Institute",
+    region: "Germany",
+    logo: "/images/logos/Logo-mps.png",
+  },
+  {
+    name: "Planetary Science Institute",
+    region: "United States",
+    logo: "/images/logos/Planetary_Science_Institute_logo.png",
+  },
+  {
+    name: "Opole University of Technology",
+    region: "Poland",
+    logo: "/images/logos/Opole_University_of_Technology.png",
+  },
+  {
+    name: "Vestas",
+    region: "Germany",
+    logo: "/images/logos/Vestas.svg",
   },
 ];
 
-const futureDirections = [
+// Edit this list to update workshop titles, descriptions, tags, or YouTube links.
+const workshopVideos = [
   {
-    title: "6C Ground-Motion Physics in Complex Media",
+    title: "SPECFEM — Recorded session at SPIN Short Research Course 1 on Computational Seismology",
+    context: "Workshop / training session",
+    role: "Delivered as a postdoctoral researcher",
     description:
-      "Develop simulation and interpretation frameworks for rotations, strains, and translations in heterogeneous Earth models.",
+      "Research-community training connected to computational seismology, wavefield interpretation, and numerical modeling practice.",
+    href: "https://www.youtube.com/watch?v=TKjINocbMjM",
+    videoId: "TKjINocbMjM",
+    tags: ["Workshop", "Postdoctoral Training", "Computational Seismology"],
   },
   {
-    title: "Rotational Inputs for Earthquake-Resistant Design",
+    title: "Seismology and Rotational Ground Motions — Recorded lecture at SPIN Short Research Course 2",
+    context: "Workshop / invited training",
+    role: "Delivered as a postdoctoral researcher",
     description:
-      "Translate rotational ground-motion characterization into engineering quantities relevant for bridges and infrastructure resilience.",
-  },
-  {
-    title: "Simulation-to-Observation Workflows",
-    description:
-      "Connect numerical wavefield models with six-component measurements, modal analysis, and structural health monitoring.",
+      "A public workshop recording highlighting teaching, research exchange, and method-focused scientific communication.",
+    href: "https://www.youtube.com/watch?v=gagPomSCue4",
+    videoId: "gagPomSCue4",
+    tags: ["Research Training", "Seismology", "Community Teaching"],
   },
 ];
 
@@ -162,19 +158,19 @@ const stats = [
     detail: "HERS project, 2024-2027.",
   },
   {
+    value: "€300K",
+    label: "Funding secured",
+    detail: "Three-year individual research grant.",
+  },
+  {
     value: "3",
-    label: "Leadership streams",
-    detail: "Funding, mentoring/service, and collaboration.",
+    label: "Research clusters",
+    detail: "Theory, simulation, and monitoring.",
   },
   {
-    value: "4",
-    label: "Network themes",
-    detail: "Collaborations grouped by research value.",
-  },
-  {
-    value: "5-year",
-    label: "Future agenda",
-    detail: "Proposal-ready research directions.",
+    value: "3",
+    label: "Students guided in Hamburg",
+    detail: "Thesis mentoring and research collaboration.",
   },
 ];
 
@@ -207,66 +203,116 @@ export default function LeadershipPage() {
         }}
       />
 
+      <header className={styles.pageIntro}>
+        <h1>Research Leadership</h1>
+        <p>
+          Leading independent research in rotational seismology through funded projects, scientific
+          collaboration, and mentoring.
+        </p>
+      </header>
+
       <section className={styles.heroSection}>
-        <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>Funding & Leadership</p>
-          <h1>Evidence for independent research leadership.</h1>
-          <p>
-            A strategic view of Anjali’s funding record, project leadership, scientific service,
-            collaborative network, and future research directions for building an independent group
-            in rotational seismology and earthquake engineering.
-          </p>
-          <div className={styles.heroActions}>
-            <Link href="/work" className={styles.primaryButton}>
-              Research Work
-            </Link>
-            <Link href="/publications" className={styles.secondaryButton}>
-              Publications
-            </Link>
+        <div className={styles.heroStrip} aria-label="Current HERS role and funding">
+          <div className={styles.heroStripProject}>
+            <span>HERS</span>
+            <strong>Heterogeneities and their Effect on Rotational Seismology</strong>
+          </div>
+          <div className={styles.heroStripMeta}>
+            <span>Current position: Project lead</span>
+            <span>Funding: DFG Individual Research Grant, 2024-2027</span>
           </div>
         </div>
+
+        <figure className={styles.heroFigure}>
+          <div className={styles.heroImageFrame}>
+            <Image
+              src={withBasePath("/images/projects/hetro.png")}
+              alt="Overview of the HERS research work connecting heterogeneous Earth structure with rotational-seismology simulation outputs."
+              width={1254}
+              height={1254}
+              sizes="(max-width: 720px) 100vw, 58vw"
+              className={styles.heroImage}
+              priority
+            />
+          </div>
+        </figure>
 
         <div className={styles.statGrid} aria-label="Funding and leadership summary">
           {stats.map((stat) => (
             <article key={stat.label} className={styles.statCard}>
               <strong>{stat.value}</strong>
-              <h2>{stat.label}</h2>
+              <div>
+                <h2>{stat.label}</h2>
+                {stat.value === "DFG" && (
+                  <Image
+                    src={withBasePath("/images/projects/hers_logo.png")}
+                    alt="HERS logo"
+                    width={576}
+                    height={325}
+                    sizes="120px"
+                    className={styles.statLogo}
+                  />
+                )}
+              </div>
               <p>{stat.detail}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.piPanel} aria-labelledby="pi-profile">
-        <div>
-          <p className={styles.eyebrow}>Independent PI Profile</p>
-          <h2 id="pi-profile">From funded project lead to proposal-ready research programme.</h2>
+      <section className={styles.logoSection} aria-labelledby="collaborative-footprint-title">
+        <div className={styles.logoIntro}>
+          <p className={styles.eyebrow}>Collaborative Footprint</p>
+          <h2 id="collaborative-footprint-title">
+            Institutions connected through publications, projects, and research exchange.
+          </h2>
         </div>
-        <p>
-          The DFG-funded HERS project is the anchor for a broader research trajectory: connecting
-          rotational ground-motion theory, heterogeneous media, six-component observation, and
-          structural resilience. The leadership profile here is designed to make that trajectory
-          visible to grant panels, faculty search committees, and research institutes.
-        </p>
+
+        <div className={styles.logoGrid} aria-label="Collaborating institutions">
+          {collaborationLogos.map((institution) => (
+            <article key={institution.name} className={styles.logoCard}>
+              <div className={styles.logoMark}>
+                <Image
+                  src={withBasePath(institution.logo)}
+                  alt={`${institution.name} logo`}
+                  width={160}
+                  height={82}
+                  sizes="(max-width: 720px) 42vw, 160px"
+                  className={styles.institutionLogo}
+                />
+              </div>
+              <div className={styles.logoMeta}>
+                <strong>{institution.name}</strong>
+                <span>{institution.region}</span>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
-      <section aria-label="Independent funding and grants">
+      <section aria-label="Funding and professional development">
         <div className={styles.sectionIntro}>
           <p className={styles.eyebrow}>Funding Record</p>
-          <h2>Independent funding, recognition, and academic support.</h2>
+          <h2>A progression from academic support to independent project leadership.</h2>
         </div>
 
-        <div className={styles.fundingGrid}>
+        <div className={styles.fundingTimeline}>
           {fundingEntries.map((entry) => (
             <article key={entry.title} className={styles.fundingCard}>
+              <div className={styles.timelineMarker} aria-hidden="true" />
               <p className={styles.cardKicker}>{entry.category}</p>
               <h3>{entry.title}</h3>
               <div className={styles.metaRow}>
-                <span>{entry.period}</span>
+                {entry.period && <span>{entry.period}</span>}
                 <span>{entry.emphasis}</span>
               </div>
               <p className={styles.institution}>{entry.institution}</p>
               <p>{entry.description}</p>
+              {"href" in entry && entry.href && (
+                <Link href={entry.href} className={styles.inlineLink}>
+                  {entry.linkLabel}
+                </Link>
+              )}
             </article>
           ))}
         </div>
@@ -284,8 +330,8 @@ export default function LeadershipPage() {
               <span>{item.timeframe}</span>
               <h3>{item.title}</h3>
               <ul>
-                {item.points.map((point) => (
-                  <li key={`${item.title}-${String(point)}`}>{point}</li>
+                {item.points.map((point, pointIndex) => (
+                  <li key={`${item.title}-${pointIndex}`}>{point}</li>
                 ))}
               </ul>
             </article>
@@ -293,62 +339,51 @@ export default function LeadershipPage() {
         </div>
       </section>
 
-      <section aria-label="Collaborative network by research theme">
+      <section className={styles.workshopSection} aria-labelledby="recorded-workshops-title">
         <div className={styles.sectionIntro}>
-          <p className={styles.eyebrow}>Collaboration Network</p>
-          <h2>Collaborative network by research theme.</h2>
+          <p className={styles.eyebrow}>Recorded Workshops & Training</p>
+          <h2 id="recorded-workshops-title">
+            Public research training delivered during postdoctoral appointments.
+          </h2>
           <p>
-            The network supports future proposal feasibility because each collaboration cluster
-            contributes a distinct capability: theory, simulation, instrumentation, engineering, or
-            planetary applications.
+            Selected workshop recordings that show scientific teaching, method-focused training, and
+            research-community service beyond written publications.
           </p>
         </div>
 
-        <div className={styles.collaborationGrid}>
-          {collaborationThemes.map((theme) => (
-            <article key={theme.title} className={styles.collaborationCard}>
-              <div className={styles.collaborationText}>
-                <h3>{theme.title}</h3>
-                <p>{theme.description}</p>
+        <div className={styles.workshopGrid}>
+          {workshopVideos.map((video) => (
+            <a
+              key={video.videoId}
+              href={video.href}
+              className={styles.workshopCard}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className={styles.workshopThumbnail}>
+                <img
+                  src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
+                  alt={`${video.title} thumbnail`}
+                />
+                <span className={styles.workshopPlay} aria-hidden="true">
+                  <span />
+                </span>
               </div>
-
-              <div className={styles.themeLogoGrid}>
-                {theme.institutions.map((institution) => (
-                  <div key={`${theme.title}-${institution.name}`} className={styles.logoPlate}>
-                    <Image
-                      src={withBasePath(institution.logo)}
-                      alt={`${institution.name} logo`}
-                      width={160}
-                      height={82}
-                      sizes="(max-width: 720px) 44vw, 160px"
-                      className={styles.logoImage}
-                    />
-                  </div>
-                ))}
+              <div className={styles.workshopBody}>
+                <span className={styles.workshopMeta}>
+                  <span>{video.context}</span>
+                  <span>{video.role}</span>
+                </span>
+                <h3>{video.title}</h3>
+                <p>{video.description}</p>
+                <span className={styles.workshopTags} aria-label="Workshop topics">
+                  {video.tags.map((tag) => (
+                    <span key={`${video.videoId}-${tag}`}>{tag}</span>
+                  ))}
+                </span>
+                <span className={styles.watchLink}>Watch recording</span>
               </div>
-
-              <div className={styles.themeTags}>
-                {theme.tags.map((tag) => (
-                  <span key={`${theme.title}-${tag}`}>{tag}</span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.futurePanel} aria-labelledby="future-directions">
-        <div className={styles.sectionIntro}>
-          <p className={styles.eyebrow}>Proposal-Ready Directions</p>
-          <h2 id="future-directions">Future group directions for ERC and faculty positioning.</h2>
-        </div>
-
-        <div className={styles.futureGrid}>
-          {futureDirections.map((direction) => (
-            <article key={direction.title} className={styles.futureCard}>
-              <h3>{direction.title}</h3>
-              <p>{direction.description}</p>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -356,7 +391,7 @@ export default function LeadershipPage() {
       <section className={styles.ctaPanel}>
         <div>
           <p className={styles.eyebrow}>Next Step</p>
-          <h2>Connect leadership evidence with research depth.</h2>
+          <h2>Research Leadership with Depth and Evidence</h2>
         </div>
         <div className={styles.ctaActions}>
           <Link href="/work" className={styles.primaryButton}>

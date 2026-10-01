@@ -9,4 +9,5 @@ export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
 export { ProjectBadgeStrip } from "@/components/ProjectBadgeStrip";
+export { ProjectThemeReturnLink } from "@/components/ProjectThemeReturnLink";
 export { FooterContact } from "@/components/FooterContact";

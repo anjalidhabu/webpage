@@ -1,3 +1,16 @@
+.workPage {
+  --work-ink: #102522;
+  --work-lagoon: #167f7a;
+  --work-copper: #c97843;
+  --work-paper: color-mix(in srgb, var(--surface-background) 92%, var(--page-background));
+  --work-line: color-mix(in srgb, var(--neutral-alpha-medium) 76%, transparent);
+
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  padding-bottom: 4rem;
+}
+
 .page {
   width: min(1380px, 100%);
   display: flex;
@@ -6,22 +19,27 @@
   padding-bottom: 4rem;
 }
 
-.introSection,
+.heroSection,
+.lookForSection,
+.hersFeatureSection,
+.contactSection,
 .centeredSection {
-  width: min(960px, 100%);
-  margin: 0 auto;
+  width: 100%;
 }
 
-.lookForSection {
+.heroSection {
   display: grid;
-  gap: 1.15rem;
-  padding: 1.35rem 0;
-  border-top: 1px solid var(--neutral-alpha-medium);
-  border-bottom: 1px solid var(--neutral-alpha-medium);
+  gap: 1.2rem;
+  padding-top: 1rem;
 }
 
-.lookForIntro {
-  max-width: 38rem;
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  min-width: 0;
+  padding: clamp(0.25rem, 1.5vw, 1rem) 0;
 }
 
 .eyebrow {
@@ -29,304 +47,519 @@
   text-transform: uppercase;
 }
 
-.heading {
-  max-width: 24rem;
-}
-
-.introText {
-  max-width: 34rem;
-  line-height: 1.7;
-}
-
-.visionSection {
-  display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(20rem, 0.82fr);
-  gap: 1rem;
-  padding: 1.2rem;
-  border: 1px solid
-    color-mix(in srgb, var(--brand-background-medium) 24%, var(--neutral-alpha-medium));
-  border-radius: 8px;
-  background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--brand-background-weak) 28%, var(--surface-background)),
-      color-mix(in srgb, var(--page-background) 92%, transparent)
-    ), color-mix(in srgb, var(--surface-background) 88%, var(--page-background) 12%);
-  box-shadow: 0 18px 48px color-mix(in srgb, var(--brand-background-strong) 8%, transparent);
-}
-
-.visionLead,
-.centralQuestion,
-.visionCard,
-.independencePanel {
-  border-radius: 8px;
-  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 72%, transparent);
-  background: color-mix(in srgb, var(--surface-background) 82%, transparent);
-}
-
-.visionLead {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.35rem;
-}
-
-.visionLead h2 {
-  max-width: 13ch;
+.heroTitle {
+  max-width: 22ch;
   letter-spacing: 0;
 }
 
-.visionText {
-  max-width: 44rem;
+.heroText {
+  max-width: 58rem;
+  color: color-mix(in srgb, var(--neutral-on-background-weak) 86%, var(--work-ink));
   line-height: 1.72;
 }
 
-.visionActions {
+.heroActions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  padding-top: 0.3rem;
 }
 
-.centralQuestion {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.9rem;
-  padding: 1.25rem;
-  border-color: color-mix(in srgb, var(--brand-background-medium) 36%, var(--neutral-alpha-medium));
-}
-
-.centralQuestion h3 {
-  letter-spacing: 0;
-}
-
-.centralQuestion p {
-  line-height: 1.62;
-}
-
-.visionGrid {
+.visionFigure {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.visionCard {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  padding: 1rem;
-}
-
-.visionCard h3 {
-  letter-spacing: 0;
-}
-
-.visionCard p {
-  line-height: 1.58;
-}
-
-.independencePanel {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(13rem, 0.34fr) minmax(0, 1fr);
-  gap: 1rem;
-  align-items: center;
-  padding: 1rem;
-}
-
-.independencePanel ul {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.independencePanel li {
-  min-height: 100%;
-  padding-left: 0.8rem;
-  border-left: 0.2rem solid color-mix(in srgb, var(--brand-background-medium) 54%, transparent);
-  color: var(--neutral-on-background-weak);
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-
-.signalGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.65rem;
-}
-
-.signalCard {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  padding: 0.72rem 0.82rem;
-  border-radius: 8px;
-  border: 1px solid
-    color-mix(in srgb, var(--brand-background-medium) 24%, var(--neutral-alpha-medium));
-  background: color-mix(in srgb, var(--surface-background) 88%, var(--page-background) 12%);
-}
-
-.signalLabel {
-  display: inline-flex;
-  width: fit-content;
-  padding: 0.28rem 0.58rem;
-  border-radius: 6px;
-  background: color-mix(in srgb, var(--brand-background-weak) 56%, transparent);
-}
-
-.signalDetail {
-  line-height: 1.45;
-}
-
-.diagramSection {
-  display: grid;
-  gap: 1rem;
-  padding: 1.2rem;
-  border-radius: 8px;
-  border: 1px solid
-    color-mix(in srgb, var(--brand-background-medium) 22%, var(--neutral-alpha-medium));
-  background: color-mix(in srgb, var(--surface-background) 86%, var(--page-background) 14%);
-}
-
-.diagramIntro {
-  max-width: 42rem;
-}
-
-.diagramFigure {
-  margin: 0;
   display: grid;
   gap: 0.7rem;
+  margin: 0;
 }
 
-.diagramScroller {
+.visionImageScroller {
   overflow-x: auto;
+  border: 1px solid color-mix(in srgb, var(--work-lagoon) 20%, var(--work-line));
   border-radius: 8px;
-  border: 1px solid var(--neutral-alpha-medium);
-  background: #f8fbfc;
-  box-shadow: 0 18px 44px color-mix(in srgb, var(--brand-background-strong) 8%, transparent);
+  background: #ffffff;
+  box-shadow: 0 16px 42px color-mix(in srgb, var(--work-ink) 7%, transparent);
 }
 
-.diagramScroller img {
+.visionImageScroller img {
   display: block;
   width: 100%;
-  min-width: 820px;
+  min-width: 860px;
   height: auto;
 }
 
-.diagramFigure figcaption {
+.visionFigure figcaption {
+  max-width: 48rem;
   color: var(--neutral-on-background-weak);
   font-size: 0.92rem;
   line-height: 1.55;
 }
 
-.framingSection {
+.lookForSection {
+  display: grid;
+  gap: 1.35rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--work-line);
+  border-bottom: 1px solid var(--work-line);
+}
+
+.lookForIntro,
+.contactIntro {
+  max-width: 40rem;
+}
+
+.heading {
+  max-width: 26rem;
+  letter-spacing: 0;
+}
+
+.introText {
+  max-width: 34rem;
+  line-height: 1.68;
+}
+
+.visionThemeGroups {
   display: grid;
   gap: 1rem;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--neutral-alpha-medium);
 }
 
-.compactGrid {
+.visionThemeGroup {
+  --theme-accent: #0b7874;
+  --theme-accent-deep: #064c4a;
+  --theme-accent-tint: #e9f8f5;
+
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.65rem;
+  grid-template-columns: minmax(13rem, 0.36fr) minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--theme-accent) 24%, var(--work-line));
 }
 
-.compactCard {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  padding: 0.75rem 0.82rem;
+.visionThemeGroup:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.visionThemeGroup:last-child {
+  padding-bottom: 0;
+}
+
+.visionThemeGroupHeader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.visionThemeGroupNumber {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: var(--theme-accent);
+  color: white;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.visionThemeGroupTitle {
+  color: var(--theme-accent-deep);
+  letter-spacing: 0;
+}
+
+.visionThemeGroupDetail {
+  color: color-mix(in srgb, var(--theme-accent-deep) 54%, var(--neutral-on-background-weak));
+  line-height: 1.55;
+}
+
+.signalGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.95rem;
+}
+
+.signalCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.58fr);
+  grid-template-areas:
+    "label image"
+    "detail image"
+    "action image";
+  gap: 0.72rem 1rem;
+  min-height: 100%;
+  padding: 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--theme-accent) 30%, var(--work-line));
   border-radius: 8px;
-  border: 1px solid var(--neutral-alpha-medium);
-  background: color-mix(in srgb, var(--surface-background) 82%, var(--page-background) 18%);
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--theme-accent-tint) 64%, transparent),
+      color-mix(in srgb, var(--surface-background) 92%, transparent)
+    ), var(--work-paper);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.signalCard:hover,
+.signalCard:focus-visible {
+  border-color: color-mix(in srgb, var(--theme-accent) 58%, var(--work-line));
+  box-shadow: 0 14px 32px color-mix(in srgb, var(--theme-accent) 10%, transparent);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.signalLabel {
+  grid-area: label;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  color: var(--theme-accent-deep);
+  font-size: 1.22rem;
+  font-weight: 800;
+  line-height: 1.16;
+}
+
+.signalDetail {
+  grid-area: detail;
+  color: color-mix(in srgb, var(--theme-accent-deep) 48%, var(--neutral-on-background-weak));
+  line-height: 1.55;
+}
+
+.signalImageWrap {
+  position: relative;
+  grid-area: image;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  min-height: 13.5rem;
+  border: 1px solid color-mix(in srgb, var(--theme-accent) 22%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--theme-accent-tint) 72%, white);
+}
+
+.signalImageWrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.signalAction {
+  grid-area: action;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.62rem;
+  border-top: 1px solid color-mix(in srgb, var(--theme-accent) 20%, transparent);
+  color: color-mix(in srgb, var(--theme-accent) 76%, var(--neutral-on-background));
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.signalAction::after {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 180ms ease;
+}
+
+.signalCard:hover .signalAction::after,
+.signalCard:focus-visible .signalAction::after {
+  transform: translateX(0.12rem) rotate(-45deg);
+}
+
+.signalWavefieldPhysics {
+  --theme-accent: #0b7874;
+  --theme-accent-deep: #064c4a;
+  --theme-accent-tint: #e9f8f5;
+}
+
+.signalEarthSources {
+  --theme-accent: #174f2a;
+  --theme-accent-deep: #0c341a;
+  --theme-accent-tint: #edf6e8;
+}
+
+.signalComputationalTools {
+  --theme-accent: #1747b6;
+  --theme-accent-deep: #0d2676;
+  --theme-accent-tint: #edf4ff;
+}
+
+.signalObservablesData {
+  --theme-accent: #6f2dbd;
+  --theme-accent-deep: #431174;
+  --theme-accent-tint: #f3eafe;
+}
+
+.signalStructuralHealthMonitoring {
+  --theme-accent: #c97843;
+  --theme-accent-deep: #764122;
+  --theme-accent-tint: #fff4e8;
+}
+
+.hersFeatureSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.42fr);
+  gap: 1rem;
+  align-items: stretch;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--work-line);
+  border-bottom: 1px solid var(--work-line);
+}
+
+.hersFeatureCopy {
+  display: grid;
+  align-content: center;
+  gap: 0.85rem;
+  min-width: 0;
+  padding: 0.35rem 0;
+}
+
+.hersFeatureCopy h2 {
+  max-width: 18ch;
+  letter-spacing: 0;
+}
+
+.hersFeatureTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.15rem;
+}
+
+.hersFeatureTags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.34rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--work-lagoon) 24%, var(--work-line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--work-lagoon) 8%, var(--surface-background));
+  color: color-mix(in srgb, var(--work-lagoon) 72%, var(--neutral-on-background));
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hersFeatureVisual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  min-height: 17rem;
+  border: 1px solid color-mix(in srgb, var(--work-lagoon) 28%, var(--work-line));
+  border-radius: 8px;
+  background: #ffffff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 16px 42px color-mix(in srgb, var(--work-ink) 7%, transparent);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.hersFeatureVisual:hover,
+.hersFeatureVisual:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--work-lagoon) 54%, var(--work-line));
+  box-shadow: 0 22px 54px color-mix(in srgb, var(--work-ink) 10%, transparent);
+  outline: none;
+}
+
+.hersFeatureVisual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hersFeatureVisual span {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.85rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--work-copper) 42%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, #ffffff 88%, transparent);
+  color: color-mix(in srgb, var(--work-ink) 88%, var(--work-copper));
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0;
 }
 
 .contactSection {
   display: grid;
   gap: 1rem;
-  padding: 1.2rem;
+  padding: 1.1rem;
+  border: 1px solid var(--work-line);
   border-radius: 8px;
-  border: 1px solid var(--neutral-alpha-medium);
   background: color-mix(in srgb, var(--surface-background) 84%, var(--page-background) 16%);
 }
 
-.contactIntro {
-  max-width: 40rem;
+.themePage {
+  --theme-accent: #174f2a;
+  --theme-accent-deep: #0c341a;
+  --theme-accent-tint: #edf6e8;
+
+  width: min(1120px, 100%);
+  display: grid;
+  gap: 1.4rem;
+  margin: 0 auto;
+  padding: 1.5rem clamp(1rem, 3vw, 2rem) 4rem;
+}
+
+.themeHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.58fr);
+  gap: 1rem;
+  align-items: stretch;
+  padding: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--theme-accent) 28%, var(--work-line));
+  border-radius: 8px;
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--theme-accent-tint) 68%, transparent),
+      color-mix(in srgb, var(--surface-background) 92%, transparent)
+    ), var(--work-paper);
+}
+
+.themeHeroCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.95rem;
+  min-width: 0;
+  padding: 0.3rem;
+}
+
+.themeHeroCopy h1 {
+  max-width: 18ch;
+  letter-spacing: 0;
+}
+
+.themeLead {
+  max-width: 46rem;
+  line-height: 1.68;
+}
+
+.themeActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.themeHeroImage {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  min-height: 18rem;
+  border: 1px solid color-mix(in srgb, var(--theme-accent) 24%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--theme-accent-tint) 74%, white);
+}
+
+.themeHeroImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.themeProjectsSection {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--work-line);
+}
+
+@media (max-width: 1080px) {
+  .heroSection,
+  .visionThemeGroup,
+  .hersFeatureSection,
+  .themeHero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle,
+  .themeHeroCopy h1 {
+    max-width: 18ch;
+  }
 }
 
 @media (max-width: 768px) {
-  .visionSection {
-    grid-template-columns: 1fr;
-    padding: 1rem;
+  .workPage {
+    padding-inline: 1rem;
   }
 
-  .visionLead {
-    padding: 1rem;
+  .heroSection {
+    padding-top: 0.5rem;
   }
 
-  .visionLead h2 {
+  .heroTitle,
+  .hersFeatureCopy h2,
+  .themeHeroCopy h1 {
     max-width: none;
   }
 
-  .centralQuestion {
+  .contactSection,
+  .themeHero {
     padding: 1rem;
   }
 
-  .visionGrid,
-  .independencePanel,
-  .independencePanel ul {
-    grid-template-columns: 1fr;
+  .hersFeatureVisual {
+    min-height: 13rem;
+  }
+
+  .visionImageScroller img {
+    min-width: 720px;
   }
 
   .lookForSection {
-    padding: 1.1rem;
-  }
-
-  .diagramSection {
-    padding: 1rem;
-  }
-
-  .contactSection {
-    padding: 1rem;
-  }
-
-  .signalGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .compactGrid {
-    grid-template-columns: 1fr;
+    padding: 1.5rem 0;
   }
 
   .signalCard {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "label"
+      "detail"
+      "image"
+      "action";
     min-height: unset;
+  }
+
+  .signalImageWrap {
+    min-height: 12rem;
+  }
+
+  .themePage {
+    padding-top: 1rem;
+  }
+
+  .themeHeroImage {
+    min-height: 14rem;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1080px) {
-  .visionSection {
-    grid-template-columns: 1fr;
+@media (max-width: 520px) {
+  .heroActions,
+  .hersFeatureTags {
+    display: grid;
   }
 
-  .visionLead h2 {
-    max-width: 18ch;
+  .signalLabel {
+    font-size: 1.12rem;
   }
 
-  .visionGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .independencePanel,
-  .independencePanel ul {
-    grid-template-columns: 1fr;
-  }
-
-  .compactGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .visionImageScroller img {
+    min-width: 620px;
   }
 }

@@ -1,11 +1,75 @@
 import { awards } from "@/app/awards/content";
 import { about, baseURL, home, person } from "@/resources";
+import { withBasePath } from "@/utils/paths";
 import { Meta, Schema } from "@once-ui-system/core";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import styles from "./page.module.css";
 
-const awardEntries = [
+type AwardLogo = {
+  label: string;
+  initials: string;
+  src?: string;
+  wide?: boolean;
+};
+
+type AwardDetailGroup = {
+  label: string;
+  items: string[];
+};
+
+type AwardEntry = {
+  group: "academic" | "scholarships";
+  year: string;
+  sortYear: number;
+  title: string;
+  institution: string;
+  description: string;
+  detailGroups?: AwardDetailGroup[];
+  href?: string;
+  linkLabel?: string;
+  logos: AwardLogo[];
+};
+
+type AwardMoment = {
+  title: string;
+  context: string;
+  year: string;
+  image?: string;
+  alt: string;
+};
+
+const awardEntries: AwardEntry[] = [
+  {
+    group: "academic",
+    year: "2025",
+    sortYear: 2025,
+    title: "Agathe Lasch Coaching Program + Diversity",
+    institution: "University of Hamburg",
+    description: "Selected participant in the Agathe Lasch Coaching Program + Diversity.",
+    logos: [
+      {
+        label: "University of Hamburg",
+        initials: "UHH",
+        src: "/images/logos/UHH.svg",
+      },
+    ],
+  },
+  {
+    group: "academic",
+    year: "2026",
+    sortYear: 2026,
+    title: "dynaMENT advanced Mentoring Program",
+    institution: "University of Hamburg",
+    description: "Selected participant in the dynaMENT advanced Mentoring Program.",
+    logos: [
+      {
+        label: "University of Hamburg",
+        initials: "UHH",
+        src: "/images/logos/UHH.svg",
+      },
+    ],
+  },
   {
     group: "academic",
     year: "2014",
@@ -14,98 +78,222 @@ const awardEntries = [
     institution: "Visvesvaraya National Institute of Technology Nagpur",
     description:
       "Awarded for securing second position in the Department of Applied Mechanics during the M.Tech. programme.",
+    logos: [
+      {
+        label: "Visvesvaraya National Institute of Technology Nagpur",
+        initials: "VNIT",
+        src: "/images/logos/VNIT_logo.jpeg",
+      },
+    ],
   },
   {
     group: "academic",
-    year: "2010",
-    sortYear: 2010,
-    title: "Gold Medals and Academic Awards, SGSITS Indore",
-    institution: "Shri G.S. Institute of Technology and Science, Indore",
+    year: "2011",
+    sortYear: 2011,
+    title: "Gold Medal, SGSITS Indore",
+    institution: "Shri G. S. Institute of Technology and Science, Indore, India",
     description:
-      "Multiple undergraduate academic honours for first position, highest overall marks, and distinction in structural and geotechnical engineering.",
+      "Awarded for achieving the highest overall academic performance and securing first rank throughout the B.E. (Civil) programme.",
+    detailGroups: [
+      {
+        label: "2011",
+        items: [
+          "Prof. D. G. Dhavalikar Memorial Gold Medal.",
+          "Shri K. G. Seksaria Memorial Medal.",
+          "Planarch Gold Medal.",
+          "Prof. B. S. Phadke Award.",
+          "Gold Medal for securing the highest marks in Structural Engineering.",
+        ],
+      },
+      {
+        label: "2010",
+        items: ["Gold Medal for securing the highest marks in Geotechnical Engineering."],
+      },
+    ],
+    logos: [
+      {
+        label: "Shri G.S. Institute of Technology and Science, Indore",
+        initials: "SGSITS",
+        src: "/images/logos/SGSITS_Indore.png",
+      },
+    ],
   },
   {
     group: "scholarships",
-    year: "Jan. 2014 - July 2019",
+    year: "2024 - 2027",
+    sortYear: 2027,
+    title: "Independent DFG Research Project",
+    institution: "Deutsche Forschungsgemeinschaft",
+    description:
+      "Individual research grant (Eigene Stelle) for the Heterogeneities and Their Effect on Rotational Seismology (HERS) project from the Deutsche Forschungsgemeinschaft.",
+    href: "/hers",
+    linkLabel: "View HERS project",
+    logos: [
+      {
+        label: "Deutsche Forschungsgemeinschaft",
+        initials: "DFG",
+        src: "/images/logos/logo-dfg.jpg",
+        wide: true,
+      },
+      {
+        label: "University of Hamburg",
+        initials: "UHH",
+        src: "/images/logos/Seal_of_the_University_of_Hamburg.svg",
+      },
+    ],
+  },
+  {
+    group: "scholarships",
+    year: "2014 - 2019",
     sortYear: 2019,
-    title: "Merit-based Scholarship, Ph.D.",
-    institution: "Ministry of Human Resource Development, Govt. of India",
-    description: "Government scholarship for academic excellence during Ph.D. studies.",
+    title: "Doctoral Research Fellowship, MHRD",
+    institution: "Ministry of Human Resource Development, Government of India",
+    description:
+      "Merit-based government fellowship for academic excellence during doctoral studies.",
+    logos: [
+      {
+        label: "Ministry of Human Resource Development, Government of India",
+        initials: "MHRD",
+        src: "/images/logos/MHRD_India.png",
+        wide: true,
+      },
+      {
+        label: "Indian Institute of Technology Madras",
+        initials: "IITM",
+        src: "/images/logos/IIT_Madras_Logo.svg",
+      },
+    ],
   },
   {
     group: "scholarships",
-    year: "Jan. 2012 - July 2014",
+    year: "2012 - 2014",
     sortYear: 2014,
     title: "Merit-based Scholarship, M.Tech.",
-    institution: "Ministry of Human Resource Development, Govt. of India",
+    institution: "Ministry of Human Resource Development, Government of India",
     description: "Government scholarship for academic excellence during M.Tech. studies.",
+    logos: [
+      {
+        label: "Ministry of Human Resource Development, Government of India",
+        initials: "MHRD",
+        src: "/images/logos/MHRD_India.png",
+        wide: true,
+      },
+      {
+        label: "Visvesvaraya National Institute of Technology Nagpur",
+        initials: "VNIT",
+        src: "/images/logos/VNIT_logo.jpeg",
+      },
+    ],
   },
   {
-    group: "research",
+    group: "academic",
     year: "2020",
     sortYear: 2020,
     title: "Institute Research Award, IIT Madras",
     institution: "Indian Institute of Technology Madras",
     description:
-      "Recognition for the quality and quantity of research output during doctoral studies.",
+      "Honour for the exceptional quality of research, publications, and contributions during doctoral studies.",
+    logos: [
+      {
+        label: "Indian Institute of Technology Madras",
+        initials: "IITM",
+        src: "/images/logos/IIT_Madras_Logo.svg",
+      },
+    ],
   },
   {
-    group: "research",
+    group: "scholarships",
     year: "Sep. 2018",
     sortYear: 2018,
-    title: "Student Travel Grant",
-    institution: "Indian Institute of Technology Madras",
-    description: "Support for conference presentations and research dissemination.",
+    title: "International Travel Grant",
+    institution: "Indian Institute of Technology Madras and MHRD",
+    description: "Travel grant for international conferences and research collaborations.",
+    logos: [
+      {
+        label: "Ministry of Human Resource Development, Government of India",
+        initials: "MHRD",
+        src: "/images/logos/MHRD_India.png",
+        wide: true,
+      },
+      {
+        label: "Indian Institute of Technology Madras",
+        initials: "IITM",
+        src: "/images/logos/IIT_Madras_Logo.svg",
+      },
+    ],
+  },
+];
+
+const awardStats = [
+  {
+    value: "DFG",
+    label: "Independent grant",
+    detail: "HERS project, 2024-2027",
+  },
+  {
+    value: "€300K",
+    label: "Funding secured",
+    detail: "Three-year individual research grant",
+  },
+  {
+    value: String(awardEntries.length),
+    label: "Listed honours",
+    detail: "Grants, fellowships, medals, mentoring and coaching selections, and travel support",
+  },
+  {
+    value: "2010-2027",
+    label: "Recognition timeline",
+    detail: "Academic distinction from B.E. to independent PI funding",
   },
 ];
 
 const awardGroups = [
   {
-    id: "academic",
-    eyebrow: "Medals & Honours",
-    title: "Academic Medals / Awards",
-    description:
-      "Academic distinctions earned through strong performance in civil engineering studies.",
-    accent: "#c78321",
-  },
-  {
     id: "scholarships",
     eyebrow: "Academic Funding",
-    title: "Scholarships",
+    title: "Research Grants, Fellowships & Travel Support",
     description:
-      "Merit-based Government of India support awarded for postgraduate academic excellence.",
+      "Competitive research grants, fellowships, scholarships, and travel support for independent projects and academic excellence.",
     accent: "#a94d63",
   },
   {
-    id: "research",
-    eyebrow: "Research Support",
-    title: "Research Awards & Travel Grants",
+    id: "academic",
+    eyebrow: "Academic Honours",
+    title: "Medals & Honours",
     description:
-      "Recognition and institutional support connected to doctoral research and conference dissemination.",
-    accent: "#167d9c",
+      "Academic distinctions and mentoring and coaching program selections supporting research and professional development.",
+    accent: "#c78321",
   },
 ];
 
-const stats = [
+const awardMoments: AwardMoment[] = [
   {
-    value: awardGroups.length.toString(),
-    label: "Grouped themes",
-    detail: "Academic awards, scholarships, and research/travel support.",
+    title: "Gold Medal Ceremony",
+    context: "SGSITS Indore | B.E. Civil Engineering",
+    year: "2011",
+    image: undefined,
+    alt: "Dr. Anjali Dhabu receiving the SGSITS gold medal",
   },
   {
-    value: awardEntries.length.toString(),
-    label: "Honours listed",
-    detail: "A concise view of awards, medals, scholarships, and grants.",
+    title: "Institute Research Award",
+    context: "IIT Madras | Doctoral research recognition",
+    year: "2020",
+    image: undefined,
+    alt: "Dr. Anjali Dhabu receiving the Institute Research Award at IIT Madras",
   },
   {
-    value: "2010-2020",
-    label: "Recognition span",
-    detail: "From undergraduate distinction to doctoral research achievement.",
+    title: "Silver Medal Recognition",
+    context: "VNIT Nagpur | M.Tech. Applied Mechanics",
+    year: "2014",
+    image: undefined,
+    alt: "Dr. Anjali Dhabu receiving the VNIT Nagpur silver medal",
   },
   {
-    value: "3",
-    label: "Career stages",
-    detail: "Undergraduate, master’s, and doctoral academic milestones.",
+    title: "Research Grant Milestone",
+    context: "DFG HERS project | Independent research funding",
+    year: "2024",
+    image: undefined,
+    alt: "Dr. Anjali Dhabu at a research grant or project recognition moment",
   },
 ];
 
@@ -120,10 +308,6 @@ export async function generateMetadata() {
 }
 
 export default function AwardsPage() {
-  const timelineEntries = [...awardEntries].sort(
-    (first, second) => second.sortYear - first.sortYear,
-  );
-
   return (
     <main className={styles.awardsPage}>
       <Schema
@@ -140,37 +324,27 @@ export default function AwardsPage() {
         }}
       />
 
-      <section className={styles.heroSection}>
-        <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>Awards & Honours</p>
-          <h1>Recognition across research and academic excellence.</h1>
+      <header className={styles.pageHeader}>
+        <div className={styles.pageHeaderCopy}>
+          <p className={styles.eyebrow}>Academic Recognition</p>
+          <h1>Awards, Grants & Honours</h1>
           <p>
-            A focused view of academic medals, merit-based scholarships, research recognition, and
-            travel support across Anjali’s civil engineering and earthquake engineering journey.
+            Competitive funding, fellowships, medals, and academic recognition supporting an
+            independent research trajectory from civil engineering to rotational seismology.
           </p>
         </div>
-
-        <div className={styles.statGrid} aria-label="Awards summary">
-          {stats.map((stat) => (
-            <article key={stat.label} className={styles.statCard}>
+        <div className={styles.awardStats} aria-label="Awards and funding summary">
+          {awardStats.map((stat) => (
+            <span key={stat.label} className={styles.awardStat}>
               <strong>{stat.value}</strong>
-              <h2>{stat.label}</h2>
-              <p>{stat.detail}</p>
-            </article>
+              <em>{stat.label}</em>
+              <small>{stat.detail}</small>
+            </span>
           ))}
         </div>
-      </section>
+      </header>
 
       <section aria-label="Grouped awards">
-        <div className={styles.sectionIntro}>
-          <p className={styles.eyebrow}>Recognition Groups</p>
-          <h2>Sorted into three clearer categories.</h2>
-          <p>
-            Related honours are grouped together so the page reads as a structured academic profile
-            instead of a dense list of separate cards.
-          </p>
-        </div>
-
         <div className={styles.groupStack}>
           {awardGroups.map((group) => (
             <section
@@ -188,13 +362,52 @@ export default function AwardsPage() {
               <div className={styles.awardList}>
                 {awardEntries
                   .filter((entry) => entry.group === group.id)
+                  .sort((first, second) => second.sortYear - first.sortYear)
                   .map((entry) => (
                     <article key={entry.title} className={styles.awardItem}>
                       <div className={styles.awardYear}>{entry.year}</div>
                       <div className={styles.awardBody}>
                         <h4>{entry.title}</h4>
                         <p className={styles.institution}>{entry.institution}</p>
-                        <p>{entry.description}</p>
+                        <p className={styles.awardDescription}>{entry.description}</p>
+                        {entry.detailGroups?.length ? (
+                          <div className={styles.awardDetailGroups}>
+                            {entry.detailGroups.map((detailGroup) => (
+                              <div key={detailGroup.label} className={styles.awardDetailGroup}>
+                                <h5>{detailGroup.label}</h5>
+                                <ul className={styles.awardBullets}>
+                                  {detailGroup.items.map((item) => (
+                                    <li key={item}>{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        ) : null}
+                        {entry.href ? (
+                          <Link href={entry.href} className={styles.awardLink}>
+                            {entry.linkLabel ?? "View details"}
+                          </Link>
+                        ) : null}
+                      </div>
+                      <div
+                        className={styles.awardLogoGroup}
+                        aria-label={`${entry.logos.map((logo) => logo.label).join(" and ")} logos`}
+                      >
+                        {entry.logos.map((logo) => (
+                          <span
+                            key={logo.label}
+                            className={`${styles.awardLogoPlate} ${
+                              logo.wide ? styles.wideAwardLogoPlate : ""
+                            }`}
+                          >
+                            {logo.src ? (
+                              <img src={withBasePath(logo.src)} alt="" />
+                            ) : (
+                              <span aria-hidden="true">{logo.initials}</span>
+                            )}
+                          </span>
+                        ))}
                       </div>
                     </article>
                   ))}
@@ -204,23 +417,34 @@ export default function AwardsPage() {
         </div>
       </section>
 
-      <section className={styles.timelinePanel} aria-label="Compact recognition timeline">
-        <div className={styles.timelineHeader}>
-          <div>
-            <p className={styles.eyebrow}>At a Glance</p>
-            <h2>Chronological overview.</h2>
-          </div>
-          <span>{awardEntries.length} honours</span>
+      <section className={styles.momentsSection} aria-labelledby="award-moments-heading">
+        <div className={styles.momentsHeader}>
+          <p className={styles.eyebrow}>Recognition Milestones</p>
+          <h2 id="award-moments-heading">
+            Selected milestones in academic recognition and research funding.
+          </h2>
         </div>
-
-        <ol className={styles.timelineList}>
-          {timelineEntries.map((entry) => (
-            <li key={`timeline-${entry.title}`} className={styles.timelineItem}>
-              <span>{entry.year}</span>
-              <strong>{entry.title}</strong>
-            </li>
+        <div className={styles.momentsGrid}>
+          {awardMoments.map((moment) => (
+            <article key={moment.title} className={styles.momentCard}>
+              <div className={styles.momentImageFrame}>
+                {moment.image ? (
+                  <img src={withBasePath(moment.image)} alt={moment.alt} />
+                ) : (
+                  <div className={styles.momentPlaceholder} aria-label={`${moment.title}, ${moment.year}`}>
+                    <span>{moment.year}</span>
+                    <strong>AD</strong>
+                  </div>
+                )}
+              </div>
+              <div className={styles.momentCaption}>
+                <span>{moment.year}</span>
+                <h3>{moment.title}</h3>
+                <p>{moment.context}</p>
+              </div>
+            </article>
           ))}
-        </ol>
+        </div>
       </section>
 
       <section className={styles.leadershipCta}>

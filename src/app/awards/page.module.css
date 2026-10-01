@@ -11,17 +11,7 @@
   padding: 1.25rem 0 4rem;
 }
 
-.heroSection {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
-  gap: 1rem;
-  align-items: stretch;
-}
-
-.heroCopy,
-.statCard,
-.groupPanel,
-.timelinePanel {
+.groupPanel {
   border: 1px solid color-mix(in srgb, var(--award-rose) 20%, var(--neutral-alpha-medium));
   border-radius: 8px;
   background: linear-gradient(
@@ -30,18 +20,6 @@
       color-mix(in srgb, var(--page-background) 96%, transparent)
     ), color-mix(in srgb, var(--surface-background) 92%, transparent);
   box-shadow: 0 16px 42px color-mix(in srgb, var(--award-plum) 8%, transparent);
-}
-
-.heroCopy {
-  min-height: 18rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 2.25rem;
-  background: linear-gradient(135deg, rgba(31, 20, 34, 0.97), rgba(83, 43, 61, 0.9)),
-    radial-gradient(circle at top right, rgba(245, 196, 207, 0.22), transparent 36%),
-    radial-gradient(circle at bottom left, rgba(22, 125, 156, 0.2), transparent 38%);
-  color: #fff7fa;
 }
 
 .eyebrow {
@@ -53,82 +31,205 @@
   text-transform: uppercase;
 }
 
-.heroCopy .eyebrow {
-  color: #efc3d0;
+.pageHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 0.62fr);
+  gap: 1rem;
+  align-items: end;
+  padding: 0.25rem 0.25rem 0.5rem;
 }
 
-.heroCopy h1 {
-  max-width: 15ch;
+.pageHeaderCopy {
+  max-width: 44rem;
+}
+
+.pageHeader h1 {
   margin: 0;
-  font-size: 3.85rem;
-  line-height: 1;
+  color: var(--neutral-on-background);
+  font-size: 2.55rem;
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
-.heroCopy p:last-child {
-  max-width: 44rem;
-  margin: 1.1rem 0 0;
-  color: rgba(255, 247, 250, 0.78);
+.pageHeaderCopy > p:last-child {
+  margin: 0.9rem 0 0;
+  color: var(--neutral-on-background-weak);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
-.statGrid {
+.awardStats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.65rem;
 }
 
-.statCard {
-  min-height: 9.25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.15rem;
+.awardStat {
+  display: grid;
+  gap: 0.2rem;
+  min-height: 100%;
+  padding: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--award-rose) 22%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-background) 88%, var(--page-background) 12%);
 }
 
-.statCard strong {
-  color: color-mix(in srgb, var(--award-rose) 62%, var(--neutral-on-background));
-  font-size: 2.15rem;
+.awardStat strong {
+  color: color-mix(in srgb, var(--award-rose) 72%, var(--neutral-on-background));
+  font-size: 1.18rem;
   line-height: 1;
 }
 
-.statCard h2 {
-  margin: 0.9rem 0 0;
-  font-size: 0.98rem;
-  letter-spacing: 0;
+.awardStat em {
+  color: var(--neutral-on-background);
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 1.25;
 }
 
-.statCard p {
-  margin: 0.45rem 0 0;
+.awardStat small {
   color: var(--neutral-on-background-weak);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.76rem;
+  line-height: 1.35;
 }
 
-.sectionIntro {
+.momentsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--award-gold) 24%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      115deg,
+      color-mix(in srgb, var(--award-gold) 12%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ), color-mix(in srgb, var(--surface-background) 92%, transparent);
+  box-shadow: 0 16px 42px color-mix(in srgb, var(--award-plum) 8%, transparent);
+}
+
+.momentsHeader {
   max-width: 46rem;
-  padding: 0 0.25rem;
 }
 
-.sectionIntro h2 {
+.momentsHeader h2 {
   margin: 0;
-  font-size: 2.4rem;
-  line-height: 1.08;
+  color: color-mix(in srgb, var(--award-plum) 78%, var(--neutral-on-background));
+  font-size: 1.75rem;
+  line-height: 1.12;
   letter-spacing: 0;
 }
 
-.sectionIntro p {
-  margin: 0.85rem 0 0;
+.momentsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.momentCard {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--award-gold) 24%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-background) 90%, transparent);
+  box-shadow: 0 14px 36px color-mix(in srgb, var(--award-plum) 8%, transparent);
+}
+
+.momentImageFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: repeating-linear-gradient(
+      120deg,
+      transparent 0 2.8rem,
+      color-mix(in srgb, var(--award-gold) 8%, transparent) 2.85rem 2.9rem
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--award-rose) 14%, var(--surface-background)),
+      color-mix(in srgb, var(--award-gold) 12%, var(--page-background))
+    );
+}
+
+.momentImageFrame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.momentPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.35rem;
+  color: color-mix(in srgb, var(--award-plum) 72%, var(--neutral-on-background));
+  text-align: center;
+}
+
+.momentPlaceholder span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.7rem;
+  padding: 0 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--award-gold) 28%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-background) 76%, transparent);
+  font-size: 0.75rem;
+  font-weight: 850;
+}
+
+.momentPlaceholder strong {
+  display: grid;
+  place-items: center;
+  width: 4.1rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--award-rose) 28%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface-background) 78%, transparent);
+  color: color-mix(in srgb, var(--award-rose) 74%, var(--neutral-on-background));
+  font-size: 1.3rem;
+  letter-spacing: 0;
+}
+
+.momentCaption {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.9rem;
+}
+
+.momentCaption span {
+  color: color-mix(in srgb, var(--award-gold) 70%, var(--neutral-on-background));
+  font-size: 0.75rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.momentCaption h3 {
+  margin: 0;
+  color: var(--neutral-on-background);
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.momentCaption p {
+  margin: 0;
   color: var(--neutral-on-background-weak);
-  line-height: 1.7;
+  font-size: 0.86rem;
+  line-height: 1.45;
 }
 
 .groupStack {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
-  margin-top: 1.15rem;
   align-items: stretch;
 }
 
@@ -175,7 +276,9 @@
 
 .awardItem {
   display: grid;
-  gap: 0.55rem;
+  grid-template-columns: max-content minmax(0, 1fr) minmax(6rem, auto);
+  gap: 0.65rem 1rem;
+  align-items: start;
   padding: 0.95rem 0;
   border-bottom: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 48%, transparent);
 }
@@ -201,6 +304,52 @@
   line-height: 1.25;
 }
 
+.awardLogoGroup {
+  justify-self: end;
+  align-self: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: flex-end;
+}
+
+.awardLogoPlate {
+  width: 6.4rem;
+  height: 5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border: 1px solid color-mix(in srgb, var(--award-accent) 24%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 94%, var(--surface-background)),
+    color-mix(in srgb, var(--award-accent) 8%, var(--surface-background))
+  );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, white 58%, transparent);
+}
+
+.awardLogoPlate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: saturate(0.95) contrast(1.02);
+}
+
+.wideAwardLogoPlate {
+  width: 8.8rem;
+}
+
+.awardLogoPlate span {
+  color: color-mix(in srgb, var(--award-accent) 72%, var(--neutral-on-background));
+  font-size: 1rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-align: center;
+}
+
 .awardBody h4 {
   margin: 0;
   color: var(--neutral-on-background);
@@ -217,65 +366,59 @@
   line-height: 1.45;
 }
 
-.awardBody p:last-child {
+.awardDescription {
   margin: 0.45rem 0 0;
   color: var(--neutral-on-background-weak);
   line-height: 1.58;
 }
 
-.timelinePanel {
-  padding: 1.25rem;
-}
-
-.timelineHeader {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: end;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 62%, transparent);
-}
-
-.timelineHeader h2 {
-  margin: 0;
-  font-size: 1.8rem;
-  line-height: 1.1;
-  letter-spacing: 0;
-}
-
-.timelineHeader span {
-  color: color-mix(in srgb, var(--award-rose) 68%, var(--neutral-on-background));
-  font-weight: 800;
-}
-
-.timelineList {
+.awardDetailGroups {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.65rem 1rem;
-  margin: 1rem 0 0;
-  padding: 0;
-  list-style: none;
+  gap: 0.65rem;
+  margin: 0.7rem 0 0;
 }
 
-.timelineItem {
+.awardDetailGroup {
   display: grid;
-  grid-template-columns: 7.5rem minmax(0, 1fr);
-  gap: 0.75rem;
-  align-items: baseline;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 38%, transparent);
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 0.65rem;
 }
 
-.timelineItem span {
-  color: color-mix(in srgb, var(--award-gold) 68%, var(--neutral-on-background));
-  font-size: 0.88rem;
+.awardDetailGroup h5 {
+  margin: 0.1rem 0 0;
+  color: color-mix(in srgb, var(--award-accent) 70%, var(--neutral-on-background));
+  font-size: 0.82rem;
   font-weight: 850;
+  line-height: 1.35;
 }
 
-.timelineItem strong {
-  color: var(--neutral-on-background);
-  font-size: 0.98rem;
-  line-height: 1.35;
+.awardBullets {
+  display: grid;
+  gap: 0.38rem;
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.5;
+}
+
+.awardBullets li::marker {
+  color: color-mix(in srgb, var(--award-accent) 72%, var(--neutral-on-background));
+}
+
+.awardLink {
+  width: fit-content;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding: 0 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--award-accent) 24%, var(--neutral-alpha-medium));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--award-accent) 9%, var(--surface-background));
+  color: color-mix(in srgb, var(--award-accent) 72%, var(--neutral-on-background));
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .leadershipCta {
@@ -310,58 +453,68 @@
   white-space: nowrap;
 }
 
-@media (max-width: 960px) {
-  .heroSection,
-  .groupStack {
-    grid-template-columns: 1fr;
-  }
-
-  .timelineList {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 720px) {
   .awardsPage {
     gap: 1.35rem;
     padding: 1rem 0 3rem;
   }
 
-  .heroCopy {
-    min-height: auto;
-    padding: 1.5rem;
-  }
-
-  .heroCopy h1 {
-    max-width: none;
-    font-size: 2.45rem;
-  }
-
-  .statGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .sectionIntro h2 {
-    font-size: 2rem;
-  }
-
-  .groupPanel {
+  .groupPanel,
+  .momentsSection {
     padding: 1.1rem;
   }
 
-  .awardItem,
-  .timelineItem {
-    grid-template-columns: 1fr;
-    gap: 0.45rem;
+  .momentsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .timelineHeader {
-    flex-direction: column;
-    align-items: flex-start;
+  .momentsHeader h2 {
+    font-size: 1.4rem;
+  }
+
+  .pageHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .pageHeader h1 {
+    font-size: 2.1rem;
+  }
+
+  .awardStats {
+    grid-template-columns: 1fr;
+  }
+
+  .awardItem {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.65rem;
+  }
+
+  .awardBody {
+    grid-column: 1 / -1;
+  }
+
+  .awardDetailGroup {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .awardLogoPlate {
+    width: 5.35rem;
+    height: 4.15rem;
+  }
+
+  .wideAwardLogoPlate {
+    width: 7rem;
   }
 
   .leadershipCta {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .momentsGrid {
+    grid-template-columns: 1fr;
   }
 }

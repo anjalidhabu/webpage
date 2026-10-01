@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T06:48:23.196Z",
+  "generatedAt": "2026-09-25T12:22:07.636Z",
   "source": "OpenAlex",
   "sourceUrl": "https://openalex.org",
   "candidateCount": 16,
@@ -12,8 +12,32 @@
       "openAlexId": "W3204044099",
       "openAlexUrl": "https://openalex.org/W3204044099",
       "matchedBy": "openalex-id",
-      "citedByCount": 5,
+      "citedByCount": 8,
       "citingWorks": [
+        {
+          "id": "https://openalex.org/W7169874976",
+          "title": "Rotational Ground Motion Model and Design Spectrum for the Himalayan Region",
+          "year": "2026",
+          "authors": "Narsiram Gurjar, Ravi Kanth Sriwastav, STG Raghukanth",
+          "venue": "Bulletin of Earthquake Engineering",
+          "url": "https://doi.org/10.1007/s10518-026-02592-9"
+        },
+        {
+          "id": "https://openalex.org/W7165131322",
+          "title": "Simulation of Wave Propagation in Cosserat Micropolar Media",
+          "year": "2026",
+          "authors": "Jose M. Carcione, Mamdoh S. Alajmi, Ayman N. Qadrouh +2",
+          "venue": "Pure and Applied Geophysics",
+          "url": "https://doi.org/10.1007/s00024-026-04012-0"
+        },
+        {
+          "id": "https://openalex.org/W7162070553",
+          "title": "An analytical model for subsurface ground motions due to kinematic shear dislocation sources in layered media",
+          "year": "2026",
+          "authors": "Jahnabi Basu, B Shree Rashmi, S T G Raghukanth +1",
+          "venue": "Soil Dynamics and Earthquake Engineering",
+          "url": "https://doi.org/10.1016/j.soildyn.2026.110319"
+        },
         {
           "id": "https://openalex.org/W4416415872",
           "title": "Generalized Reflection and Transmission Method for Solving the Steady-State Electric Field Excited by a Point Current Source at Arbitrary Depth in Layered Media",
@@ -34,7 +58,7 @@
           "id": "https://openalex.org/W4403708897",
           "title": "A mathematical model for a buried source in the layered reduced micropolar half-space",
           "year": "2024",
-          "authors": "Mohammad Atif, S. T. G. Raghukanth, S.R. Manam",
+          "authors": "Mohammad Atif, S. T. G. Raghukanth, Srinivasa Rao Manam",
           "venue": "Pure and Applied Geophysics",
           "url": "https://doi.org/10.1007/s00024-024-03571-4"
         },
@@ -42,7 +66,7 @@
           "id": "https://openalex.org/W4388575229",
           "title": "Surface rotations and translations of layered elastic half-space due to static shear dislocation point source",
           "year": "2023",
-          "authors": "Varun K. Singla, S. T. G. Raghukanth",
+          "authors": "Varun Kumar Singla, S. T. G. Raghukanth",
           "venue": "International Journal of Advances in Engineering Sciences and Applied Mathematics",
           "url": "https://doi.org/10.1007/s12572-023-00356-1"
         },
@@ -50,7 +74,7 @@
           "id": "https://openalex.org/W4380028292",
           "title": "Finite-fault simulations for rotations and strains in the near-fault subjected to layered reduced micropolar half-space",
           "year": "2023",
-          "authors": "Mohammad Atif, S. T. G. Raghukanth, S.R. Manam",
+          "authors": "Mohammad Atif, S. T. G. Raghukanth, Srinivasa Rao Manam",
           "venue": "Journal of Seismology",
           "url": "https://doi.org/10.1007/s10950-023-10140-0"
         }
@@ -63,13 +87,21 @@
       "openAlexId": "W3148373636",
       "openAlexUrl": "https://openalex.org/W3148373636",
       "matchedBy": "openalex-id",
-      "citedByCount": 4,
+      "citedByCount": 5,
       "citingWorks": [
+        {
+          "id": "https://openalex.org/W7165363155",
+          "title": "Physics based translational ground motion synthetics and quantification of fling and rupture directivity induced ground strains and rotations: a comparative parametric study",
+          "year": "2026",
+          "authors": "J. P. Narayan, Vishal, Lav Joshi +1",
+          "venue": "Journal of Seismology",
+          "url": "https://doi.org/10.1007/s10950-026-10405-4"
+        },
         {
           "id": "https://openalex.org/W4403708897",
           "title": "A mathematical model for a buried source in the layered reduced micropolar half-space",
           "year": "2024",
-          "authors": "Mohammad Atif, S. T. G. Raghukanth, S.R. Manam",
+          "authors": "Mohammad Atif, S. T. G. Raghukanth, Srinivasa Rao Manam",
           "venue": "Pure and Applied Geophysics",
           "url": "https://doi.org/10.1007/s00024-024-03571-4"
         },
@@ -77,7 +109,7 @@
           "id": "https://openalex.org/W4388575229",
           "title": "Surface rotations and translations of layered elastic half-space due to static shear dislocation point source",
           "year": "2023",
-          "authors": "Varun K. Singla, S. T. G. Raghukanth",
+          "authors": "Varun Kumar Singla, S. T. G. Raghukanth",
           "venue": "International Journal of Advances in Engineering Sciences and Applied Mathematics",
           "url": "https://doi.org/10.1007/s12572-023-00356-1"
         },
@@ -85,7 +117,7 @@
           "id": "https://openalex.org/W4380028292",
           "title": "Finite-fault simulations for rotations and strains in the near-fault subjected to layered reduced micropolar half-space",
           "year": "2023",
-          "authors": "Mohammad Atif, S. T. G. Raghukanth, S.R. Manam",
+          "authors": "Mohammad Atif, S. T. G. Raghukanth, Srinivasa Rao Manam",
           "venue": "Journal of Seismology",
           "url": "https://doi.org/10.1007/s10950-023-10140-0"
         },
@@ -93,7 +125,7 @@
           "id": "https://openalex.org/W3204044099",
           "title": "Seismic Wave Propagation Through Layered Reduced Micropolar Medium",
           "year": "2021",
-          "authors": "Anjali C. Dhabu, Varun K. Singla, S. T. G. Raghukanth",
+          "authors": "Anjali C. Dhabu, Varun Kumar Singla, S. T. G. Raghukanth",
           "venue": "Journal of Geophysical Research Solid Earth",
           "url": "https://doi.org/10.1029/2020jb020931"
         }
@@ -112,7 +144,7 @@
           "id": "https://openalex.org/W4403708897",
           "title": "A mathematical model for a buried source in the layered reduced micropolar half-space",
           "year": "2024",
-          "authors": "Mohammad Atif, S. T. G. Raghukanth, S.R. Manam",
+          "authors": "Mohammad Atif, S. T. G. Raghukanth, Srinivasa Rao Manam",
           "venue": "Pure and Applied Geophysics",
           "url": "https://doi.org/10.1007/s00024-024-03571-4"
         },
@@ -120,7 +152,7 @@
           "id": "https://openalex.org/W4399766414",
           "title": "Application of the fractional-order theory of micropolar thermoelasticity in the solid cylinder",
           "year": "2024",
-          "authors": "S. E. Khader, A. A. Marrouf, M. Khedr",
+          "authors": "Shaaban E. Khader, Ayman A. Marrouf, Mennatallah A. Khedr",
           "venue": "Journal of the Brazilian Society of Mechanical Sciences and Engineering",
           "url": "https://doi.org/10.1007/s40430-024-04941-8"
         },
@@ -128,7 +160,7 @@
           "id": "https://openalex.org/W4380028292",
           "title": "Finite-fault simulations for rotations and strains in the near-fault subjected to layered reduced micropolar half-space",
           "year": "2023",
-          "authors": "Mohammad Atif, S. T. G. Raghukanth, S.R. Manam",
+          "authors": "Mohammad Atif, S. T. G. Raghukanth, Srinivasa Rao Manam",
           "venue": "Journal of Seismology",
           "url": "https://doi.org/10.1007/s10950-023-10140-0"
         },
@@ -136,7 +168,7 @@
           "id": "https://openalex.org/W3204044099",
           "title": "Seismic Wave Propagation Through Layered Reduced Micropolar Medium",
           "year": "2021",
-          "authors": "Anjali C. Dhabu, Varun K. Singla, S. T. G. Raghukanth",
+          "authors": "Anjali C. Dhabu, Varun Kumar Singla, S. T. G. Raghukanth",
           "venue": "Journal of Geophysical Research Solid Earth",
           "url": "https://doi.org/10.1029/2020jb020931"
         },
@@ -173,8 +205,16 @@
       "openAlexId": "W3198599964",
       "openAlexUrl": "https://openalex.org/W3198599964",
       "matchedBy": "openalex-id",
-      "citedByCount": 3,
+      "citedByCount": 4,
       "citingWorks": [
+        {
+          "id": "https://openalex.org/W7168351602",
+          "title": "A 3D Crustal Velocity Model for Ground-Motion Simulation in the Northwestern Himalayas: Revisiting the 1905 Kangra Earthquake",
+          "year": "2026",
+          "authors": "Varun Sharma, Jaya Dhanya, Maheshreddy Gade",
+          "venue": "Bulletin of the Seismological Society of America",
+          "url": "https://doi.org/10.1785/0120250219"
+        },
         {
           "id": "https://openalex.org/W7119164965",
           "title": "Shaking table test on the acceleration amplification effect of platform-canyon combination topography",
@@ -195,9 +235,44 @@
           "id": "https://openalex.org/W4376129782",
           "title": "Numerical Simulations and Development of Relations for the Assessment of Ground Motion Amplifications Along the Flanks of 2D and 3D Hills",
           "year": "2023",
-          "authors": "Vishal, J. P. Narayan",
+          "authors": "Vishal, Jay Prakash Narayan",
           "venue": "Pure and Applied Geophysics",
           "url": "https://doi.org/10.1007/s00024-023-03261-7"
+        }
+      ]
+    },
+    "strong-motion-generation-extreme-value": {
+      "publicationId": "strong-motion-generation-extreme-value",
+      "status": "ready",
+      "sourceTitle": "Characterization of Strong Motion Generation Regions of Earthquake Slip Using Extreme Value Theory",
+      "openAlexId": "W2938887213",
+      "openAlexUrl": "https://openalex.org/W2938887213",
+      "matchedBy": "openalex-id",
+      "citedByCount": 3,
+      "citingWorks": [
+        {
+          "id": "https://openalex.org/W4319659033",
+          "title": "Statistical kinematic source models for seismic hazard estimations",
+          "year": "2023",
+          "authors": "Jaya Dhanya, S. T. G. Raghukanth",
+          "venue": "International Journal of Advances in Engineering Sciences and Applied Mathematics",
+          "url": "https://doi.org/10.1007/s12572-023-00328-5"
+        },
+        {
+          "id": "https://openalex.org/W3198599964",
+          "title": "Influence of Himalayan topography on earthquake ground motions",
+          "year": "2021",
+          "authors": "Anjali C. Dhabu, Raghukanth Srimath Tirumala Gudimella",
+          "venue": "Arabian Journal of Geosciences",
+          "url": "https://doi.org/10.1007/s12517-021-08111-1"
+        },
+        {
+          "id": "https://openalex.org/W2950037023",
+          "title": "A non-Gaussian random field model for earthquake slip",
+          "year": "2019",
+          "authors": "Jaya Dhanya, S. T. G. Raghukanth",
+          "venue": "Journal of Seismology",
+          "url": "https://doi.org/10.1007/s10950-019-09840-3"
         }
       ]
     },
@@ -232,7 +307,7 @@
           "id": "https://openalex.org/W2995046219",
           "title": "Simulation of site and topographic effects on ground motion in Los Alamos, NM mesas",
           "year": "2019",
-          "authors": "Swetha Veeraraghavan, Justin Coleman, Jacobo Bielak",
+          "authors": "Swetha Veeraraghavan, Justin Leigh Coleman, Jacobo Bielak",
           "venue": "Geophysical Journal International",
           "url": "https://doi.org/10.1093/gji/ggz448"
         }
@@ -315,50 +390,55 @@
       "citingWorks": [],
       "message": "No OpenAlex match found."
     },
-    "strong-motion-generation-extreme-value": {
-      "publicationId": "strong-motion-generation-extreme-value",
-      "status": "ready",
-      "sourceTitle": "Characterization of Strong Motion Generation Regions of Earthquake Slip Using Extreme Value Theory",
-      "openAlexId": "W2938887213",
-      "openAlexUrl": "https://openalex.org/W2938887213",
-      "matchedBy": "openalex-id",
-      "citedByCount": 3,
-      "citingWorks": [
-        {
-          "id": "https://openalex.org/W4319659033",
-          "title": "Statistical kinematic source models for seismic hazard estimations",
-          "year": "2023",
-          "authors": "J. Dhanya, S. T. G. Raghukanth",
-          "venue": "International Journal of Advances in Engineering Sciences and Applied Mathematics",
-          "url": "https://doi.org/10.1007/s12572-023-00328-5"
-        },
-        {
-          "id": "https://openalex.org/W3198599964",
-          "title": "Influence of Himalayan topography on earthquake ground motions",
-          "year": "2021",
-          "authors": "Anjali C. Dhabu, Raghukanth Srimath Tirumala Gudimella",
-          "venue": "Arabian Journal of Geosciences",
-          "url": "https://doi.org/10.1007/s12517-021-08111-1"
-        },
-        {
-          "id": "https://openalex.org/W2950037023",
-          "title": "A non-Gaussian random field model for earthquake slip",
-          "year": "2019",
-          "authors": "J. Dhanya, S. T. G. Raghukanth",
-          "venue": "Journal of Seismology",
-          "url": "https://doi.org/10.1007/s10950-019-09840-3"
-        }
-      ]
-    },
     "lunar-boulder-avalanches-moonquake": {
       "publicationId": "lunar-boulder-avalanches-moonquake",
       "status": "ready",
-      "sourceTitle": "The Seismically Active Lobate Scarps and Coseismic Lunar Boulder Avalanches Triggered by 3 January 1975 ( M W 4.1) Shallow Moonquake",
+      "sourceTitle": "The Seismically Active Lobate Scarps and Coseismic Lunar Boulder Avalanches Triggered by 3 January 1975 (MW 4.1) Shallow Moonquake",
       "openAlexId": "W2961257836",
       "openAlexUrl": "https://openalex.org/W2961257836",
       "matchedBy": "openalex-id",
-      "citedByCount": 32,
+      "citedByCount": 38,
       "citingWorks": [
+        {
+          "id": "https://openalex.org/W7212163932",
+          "title": "MALS-Net: a multimodal attention-enhanced segmentation network for detecting lunar lobate scarps",
+          "year": "2026",
+          "authors": "Xijian Li, Man Peng, Kaichang Di +6",
+          "venue": "Geo-spatial Information Science",
+          "url": "https://doi.org/10.1080/10095020.2026.2728348"
+        },
+        {
+          "id": "https://openalex.org/W7211962615",
+          "title": "Listening to active planetary surfaces",
+          "year": "2026",
+          "authors": "Antoine Lucas",
+          "venue": "Nature Astronomy",
+          "url": "https://doi.org/10.1038/s41550-026-02952-0"
+        },
+        {
+          "id": "https://openalex.org/W7205000327",
+          "title": "Recent boulder falls in Cerberus Fossae, Mars, triggered by the S0235b marsquake",
+          "year": "2026",
+          "authors": "S. Vijayan, Bivas Das, V. Rama Subramanian +8",
+          "venue": "npj Space Exploration",
+          "url": "https://doi.org/10.1038/s44453-026-00052-x"
+        },
+        {
+          "id": "https://openalex.org/W7169879179",
+          "title": "Spatial distribution of boulder falls in Tharsis bulge, Mars: Insights into various formation scenarios and recent surface changes",
+          "year": "2026",
+          "authors": "Vivek Krishnan, P. Senthil Kumar",
+          "venue": "Earth and Planetary Science Advances",
+          "url": "https://doi.org/10.1016/j.epsa.2026.100007"
+        },
+        {
+          "id": "https://openalex.org/W7161810499",
+          "title": "Discovery of Repeating Shallow Moonquakes in the Apollo Lunar Seismic Data",
+          "year": "2026",
+          "authors": "Keisuke Onodera",
+          "venue": "Geophysical Research Letters",
+          "url": "https://doi.org/10.1029/2026gl122541"
+        },
         {
           "id": "https://openalex.org/W7151262575",
           "title": "Age dating, geometry and movement direction of a 411 km long lunar lobate scarp complex: Evidence of recent tectonism on the far side of the moon",
@@ -366,6 +446,22 @@
           "authors": "Abhisek Mishra, P. Senthil Kumar",
           "venue": "Planetary and Space Science",
           "url": "https://doi.org/10.1016/j.pss.2026.106280"
+        },
+        {
+          "id": "https://openalex.org/W7162094176",
+          "title": "In-Situ Manufacturing of Conformal Fillers for High-Stress Underground Arch Restoration",
+          "year": "2026",
+          "authors": "Madison C. Feehan, Timothy Anderson",
+          "venue": "Venue unavailable",
+          "url": "https://doi.org/10.1109/aero66936.2026.11519808"
+        },
+        {
+          "id": "https://openalex.org/W7138952231",
+          "title": "Mapping of Patterned Regolith Textures Near the Lunar South Pole",
+          "year": "2026",
+          "authors": "Holly M. Brown, A. K. Boyd, Mark A. Robinson +2",
+          "venue": "Journal of Astronomy and Space Sciences",
+          "url": "https://doi.org/10.5140/jass.2026.43.1.1"
         },
         {
           "id": "https://openalex.org/W7139065949",
@@ -376,18 +472,10 @@
           "url": "https://doi.org/10.1029/2025ea004792"
         },
         {
-          "id": "https://openalex.org/W7138952231",
-          "title": "Mapping of Patterned Regolith Textures Near the Lunar South Pole",
-          "year": "2026",
-          "authors": "Holly Brown, A. K. Boyd, Mark A. Robinson +2",
-          "venue": "Journal of Astronomy and Space Sciences",
-          "url": "https://doi.org/10.5140/jass.2026.43.1.1"
-        },
-        {
           "id": "https://openalex.org/W4415022732",
           "title": "Outlook",
           "year": "2025",
-          "authors": "Christian Klimczak, G. C. Collins, P. K. Byrne",
+          "authors": "Christian Klimczak, Geoffrey C. Collins, P. K. Byrne",
           "venue": "Elsevier eBooks",
           "url": "https://doi.org/10.1016/b978-0-12-816092-3.00008-1"
         },
@@ -403,57 +491,9 @@
           "id": "https://openalex.org/W4412741607",
           "title": "Paleoseismic activity in the moon’s Taurus-Littrow valley inferred from boulder falls and landslides",
           "year": "2025",
-          "authors": "T. R. Watters, N. C. Schmerr",
+          "authors": "T. R. Watters, Nicholas Charles Schmerr",
           "venue": "Science Advances",
           "url": "https://doi.org/10.1126/sciadv.adu3201"
-        },
-        {
-          "id": "https://openalex.org/W4409919818",
-          "title": "Recent boulder falls on the Moon",
-          "year": "2025",
-          "authors": "S. Vijayan, K.S. Sharini, K.B. Kimi +5",
-          "venue": "Icarus",
-          "url": "https://doi.org/10.1016/j.icarus.2025.116627"
-        },
-        {
-          "id": "https://openalex.org/W4402506575",
-          "title": "Effects of Particle Size and Normal Stress on the Frictional Stability and Healing of Simulated Basalt Gouges: Implications for Lunar Seismicity",
-          "year": "2024",
-          "authors": "Shutian Cao, Fengshou Zhang, Mengke An +1",
-          "venue": "Rock Mechanics and Rock Engineering",
-          "url": "https://doi.org/10.1007/s00603-024-04070-7"
-        },
-        {
-          "id": "https://openalex.org/W4400361455",
-          "title": "New Views of Lunar Seismicity Brought by Analysis of Newly Discovered Moonquakes in Apollo Short‐Period Seismic Data",
-          "year": "2024",
-          "authors": "Keisuke Onodera",
-          "venue": "Journal of Geophysical Research Planets",
-          "url": "https://doi.org/10.1029/2023je008153"
-        },
-        {
-          "id": "https://openalex.org/W4399564361",
-          "title": "Gouge stability controlled by temperature elevation and obsidian addition in basaltic faults and implications for moonquakes",
-          "year": "2024",
-          "authors": "Shutian Cao, Fengshou Zhang, Mengke An +4",
-          "venue": "International Journal of Mining Science and Technology",
-          "url": "https://doi.org/10.1016/j.ijmst.2024.04.012"
-        },
-        {
-          "id": "https://openalex.org/W4392821688",
-          "title": "How old are lunar lobate scarps? 2. Distribution in space and time",
-          "year": "2024",
-          "authors": "Jaclyn D. Clark, C. H. van der Bogert, H. Hiesinger",
-          "venue": "Earth and Planetary Science Letters",
-          "url": "https://doi.org/10.1016/j.epsl.2024.118636"
-        },
-        {
-          "id": "https://openalex.org/W4389298914",
-          "title": "Tectonics of the Moon",
-          "year": "2023",
-          "authors": "A. L. Nahm, T. R. Watters, C. L. Johnson +4",
-          "venue": "Reviews in Mineralogy and Geochemistry",
-          "url": "https://doi.org/10.2138/rmg.2023.89.16"
         }
       ]
     },
@@ -464,13 +504,45 @@
       "openAlexId": "W2898497778",
       "openAlexUrl": "https://openalex.org/W2898497778",
       "matchedBy": "openalex-id",
-      "citedByCount": 49,
+      "citedByCount": 53,
       "citingWorks": [
+        {
+          "id": "https://openalex.org/W7212032907",
+          "title": "Slope stability analysis of a west-facing landslide in the Iani Chaos Region (Mars)",
+          "year": "2026",
+          "authors": "Andrea Ermini, Susan J. Conway, Luca Guallini +1",
+          "venue": "Planetary and Space Science",
+          "url": "https://doi.org/10.1016/j.pss.2026.106346"
+        },
+        {
+          "id": "https://openalex.org/W7203500597",
+          "title": "The Impact of Data Resolution on Planetary Compressional Structure Analysis",
+          "year": "2026",
+          "authors": "Filippo Carboni",
+          "venue": "Journal of Geophysical Research Planets",
+          "url": "https://doi.org/10.1029/2026je009794"
+        },
+        {
+          "id": "https://openalex.org/W7169879179",
+          "title": "Spatial distribution of boulder falls in Tharsis bulge, Mars: Insights into various formation scenarios and recent surface changes",
+          "year": "2026",
+          "authors": "Vivek Krishnan, P. Senthil Kumar",
+          "venue": "Earth and Planetary Science Advances",
+          "url": "https://doi.org/10.1016/j.epsa.2026.100007"
+        },
+        {
+          "id": "https://openalex.org/W7166842173",
+          "title": "Landslide Susceptibility on Mars: Application of Frequency Ratio Method",
+          "year": "2026",
+          "authors": "Andrea Ermini, Susan J. Conway, Riccardo Salvini",
+          "venue": "Geosciences",
+          "url": "https://doi.org/10.3390/geosciences16070261"
+        },
         {
           "id": "https://openalex.org/W4413399053",
           "title": "Fresh rockfalls near the landing site of ExoMars Rosalind Franklin Rover: drivers, trafficability, and implications",
           "year": "2025",
-          "authors": "Aleksandra J. Sokołowska, I. J. Daubar, Ariyana Bonab +5",
+          "authors": "Aleksandra J. Sokołowska, Ingrid Justine Daubar, Ariyana Bonab +5",
           "venue": "npj Space Exploration",
           "url": "https://doi.org/10.1038/s44453-025-00008-7"
         },
@@ -478,7 +550,7 @@
           "id": "https://openalex.org/W4405447257",
           "title": "The First Global Catalog of Rockfall Locations on Mars",
           "year": "2024",
-          "authors": "Valentin Bickel, I. J. Daubar, Aleksandra Sokołowska +3",
+          "authors": "Valentin Bickel, Ingrid Justine Daubar, Aleksandra Sokołowska +3",
           "venue": "Geophysical Research Letters",
           "url": "https://doi.org/10.1029/2024gl110674"
         },
@@ -529,38 +601,6 @@
           "authors": "Wenqing Niu, Hu Zheng, Wuwei Mao +1",
           "venue": "Powder Technology",
           "url": "https://doi.org/10.1016/j.powtec.2024.119604"
-        },
-        {
-          "id": "https://openalex.org/W4386573631",
-          "title": "Absolute dating and evolutionary model of large rock avalanches on Mars: Examples from the Hydraotes Chaos and Tiu Valles region",
-          "year": "2023",
-          "authors": "Lisa Molaro, Marco Emanuele Discenza, Mariacarmela Minnillo +2",
-          "venue": "Icarus",
-          "url": "https://doi.org/10.1016/j.icarus.2023.115778"
-        },
-        {
-          "id": "https://openalex.org/W4385632928",
-          "title": "Mapping the Seismicity of Mars With InSight",
-          "year": "2023",
-          "authors": "Savas Ceylan, Domenico Giardini, John Clinton +6",
-          "venue": "Journal of Geophysical Research Planets",
-          "url": "https://doi.org/10.1029/2023je007826"
-        },
-        {
-          "id": "https://openalex.org/W4385440779",
-          "title": "An overview of sedimentary volcanism on Mars",
-          "year": "2023",
-          "authors": "Petr Brož, Dorothy Z. Oehler, Adriano Mazzini +4",
-          "venue": "Earth Surface Dynamics",
-          "url": "https://doi.org/10.5194/esurf-11-633-2023"
-        },
-        {
-          "id": "https://openalex.org/W4379980807",
-          "title": "Reply on RC2",
-          "year": "2023",
-          "authors": "Petr Brož",
-          "venue": "Venue unavailable",
-          "url": "https://doi.org/10.5194/egusphere-2022-1458-ac2"
         }
       ]
     }

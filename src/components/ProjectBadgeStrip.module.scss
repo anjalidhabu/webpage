@@ -1,0 +1,84 @@
+.badgeStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: flex-start;
+}
+
+.badge {
+  --badge-accent: #167f7a;
+  --badge-surface: color-mix(in srgb, var(--badge-accent) 10%, var(--surface-background));
+  --badge-border: color-mix(in srgb, var(--badge-accent) 24%, var(--neutral-alpha-medium));
+  --badge-text: color-mix(in srgb, var(--badge-accent) 68%, var(--neutral-on-background));
+
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 1.85rem;
+  padding: 0.32rem 0.58rem;
+  border: 1px solid var(--badge-border);
+  border-radius: 999px;
+  background: var(--badge-surface);
+  color: var(--badge-text);
+  font-size: 0.74rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.badgeLabel {
+  flex: 0 0 auto;
+  margin-right: 0.36rem;
+  color: color-mix(in srgb, var(--badge-accent) 82%, var(--neutral-on-background));
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.badgeValue {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.domain {
+  --badge-accent: #146c7c;
+}
+
+.focus {
+  --badge-accent: #6d3f96;
+}
+
+.scale {
+  --badge-accent: #287044;
+}
+
+.computing {
+  --badge-accent: #2456a6;
+}
+
+.modeling {
+  --badge-accent: #0d766f;
+}
+
+.rotational {
+  --badge-accent: #7a3bb4;
+}
+
+.structural {
+  --badge-accent: #ad6730;
+}
+
+.analytical {
+  --badge-accent: #566172;
+}
+
+.data {
+  --badge-accent: #9a4d20;
+}
+
+@media (max-width: 520px) {
+  .badge {
+    width: 100%;
+    border-radius: 8px;
+  }
+}

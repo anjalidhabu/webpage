@@ -39,15 +39,15 @@ const teaching: TeachingPage = {
       title: "University of Hamburg Supervision",
       items: [
         {
-          title: "M.Sc. Thesis Co-Supervision",
+          title: "B.Sc. Thesis Co-Supervision — Laurin Müller",
           description:
-            "Co-supervising Laurin Muller on structural health monitoring of wind turbines using 6-component ground-motion data at the University of Hamburg.",
-          tags: ["M.Sc. Supervision", "6C Data", "Structural Health Monitoring"],
+            "Co-supervising Laurin Müller on structural health monitoring of wind turbines using 6-component ground-motion data at the University of Hamburg.",
+          tags: ["B.Sc. Supervision", "6C Data", "Structural Health Monitoring"],
         },
         {
           title: "B.Sc. Thesis Co-Supervision",
           description:
-            "Co-supervised Nicolas Matthiessen on numerical simulation of seismic gradients and their response to heterogeneity in the Earth medium.",
+            "Co-supervised Nicolas Matthießen on numerical simulation of seismic gradients and their response to heterogeneity in the Earth medium.",
           tags: ["B.Sc. Supervision", "Seismic Gradients", "Numerical Simulation"],
         },
       ],
@@ -56,7 +56,7 @@ const teaching: TeachingPage = {
       title: "Computational Seismology Teaching",
       items: [
         {
-          title: "SPECFEM Short Course",
+          title: "SPECFEM Short Course (2021)",
           description:
             "Taught an online course on SPECFEM, a community solver for seismic wave propagation based on the spectral element method, as part of a SPIN-ITN short course on computational seismology.",
           tags: ["SPECFEM", "Spectral Element Method", "Computational Seismology"],

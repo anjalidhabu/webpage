@@ -1,0 +1,98 @@
+---
+title: "Effect of Topography on Earthquake Ground Motions"
+publishedAt: "2019-01-01"
+link: "https://doi.org/10.1007/978-981-13-0365-4_9"
+summary: "Used SPECFEM3D to study how idealized three-dimensional ridge and valley topography modifies earthquake ground motions, including benchmark comparisons with analytical topographic amplification results and gradient-based relationships for PGD and PGV amplification."
+domain: "Seismic Wave Simulation"
+focus: "Idealized Topographic Amplification"
+scale: "Springer Proceedings Chapter and Ph.D. Research"
+techStack:
+  - "SPECFEM3D Cartesian"
+  - "Spectral Finite Element Modeling"
+  - "Gaussian Ridge and Valley Models"
+  - "PGD and PGV Amplification"
+heroImage: "/images/projects/topography/topo_simple/tp_simple.png"
+images:
+  - "/images/projects/topography/topo_simple/tp_simple.png"
+team:
+  - name: "Dr. Anjali Dhabu"
+    role: "Doctoral Researcher"
+    avatar: "/images/anjali_avtar.jpeg"
+    linkedIn: "https://www.geo.uni-hamburg.de/en/geophysik/personen/dhabu-anjali.html"
+---
+
+## Project Summary
+
+I studied how three-dimensional topographic features can amplify earthquake ground motions, using simplified ridge and valley models as a controlled way to isolate the role of terrain. The work used SPECFEM3D Cartesian to simulate seismic wave propagation through an idealized 300 km x 300 km x 80 km domain with Himalayan depth-dependent material properties.
+
+The study first checked whether the numerical model reproduced the amplification trends reported by analytical two-dimensional topography studies. It then tested Gaussian ridge and valley profiles with different source positions and interpreted the response using peak ground displacement and peak ground velocity amplification ratios.
+
+## Research Problem
+
+Topography acts as the free-surface boundary condition for seismic wave propagation. In mountainous regions, that boundary can scatter, focus, or defocus wave energy, making earthquake shaking stronger at some locations than flat-ground models would suggest.
+
+At the time of this work, most topographic amplification studies were either analytical, two-dimensional, or focused on specific local cases. Full three-dimensional simulation was less common because representing irregular surface geometry creates numerical and computational challenges. This project asked how much can be learned from a controlled 3D model before moving to fully realistic terrain.
+
+## Model Setup
+
+The numerical domain represented a large crustal block with material properties assigned by depth, including P-wave velocity, S-wave velocity, density, and quality factors. The model used hexahedral spectral elements and Gauss-Lobatto-Legendre points within SPECFEM3D Cartesian.
+
+The workflow used these components:
+
+- **Analytical comparison:** A conical topography was modeled as the 3D counterpart of triangular 2D profiles, with height-to-length ratios of 0.375, 0.5, and 0.75.
+- **Parametric topography study:** Gaussian ridge and valley profiles were modeled with 8000 m maximum relief and a height-to-length ratio of 0.05, chosen to resemble high-relief Himalayan terrain.
+- **Earthquake source cases:** A Mw 7.5 source was represented through a central moment tensor with strike 0 degrees, dip 45 degrees, and rake 90 degrees, then placed at different positions relative to the ridge or valley.
+- **Synthetic ground motions:** Displacement and velocity time histories were generated for 135 seconds on a 151 x 151 station grid with approximately 10 km station spacing.
+
+## Methods and Technical Expertise
+
+- **3D Spectral Finite Element Modeling:** Simulated seismic wave propagation through an idealized three-dimensional Earth model using SPECFEM3D Cartesian.
+- **Topographic Mesh Construction:** Built ridge, valley, and conical terrain profiles so amplification could be studied under controlled geometry.
+- **Analytical Benchmarking:** Compared numerical amplification trends with published analytical results for wave diffraction by two-dimensional topography.
+- **Source-Topography Geometry Tests:** Varied the source position and depth relative to the topographic peak to identify how source location changes the spatial pattern of amplification.
+- **Ground-Motion Metrics:** Evaluated amplification using peak ground displacement and peak ground velocity, comparing simulations with and without topography.
+- **Regression Analysis:** Related horizontal displacement and velocity amplification ratios to the topographic gradient.
+- **Parallel Computing:** Ran SPECFEM3D simulations using MPI on a Rocks cluster with AMD Opteron processors.
+
+## Research Contributions
+
+- **Controlled 3D topographic benchmark:** Established a numerical workflow for studying three-dimensional topographic amplification using simplified but physically interpretable terrain.
+- **Bridge from analytical to numerical modeling:** Showed that the SPECFEM3D model follows the expected increase in horizontal amplification as the height-to-length ratio of topography increases.
+- **Ridge and valley comparison:** Quantified how ridge and valley geometries produce different amplification patterns for the same type of earthquake source.
+- **Source-location sensitivity:** Demonstrated that the zone of maximum amplification depends strongly on the source position relative to the topographic feature.
+- **Gradient-based amplification relationships:** Derived preliminary linear relationships for horizontal amplification: DAR = 15G + 0.84 for displacement and VAR = 12G + 0.85 for velocity, where G is the topographic gradient.
+- **Foundation for realistic terrain studies:** Created the simplified modeling basis for later work using actual Himalayan topography and regional earthquake scenarios.
+
+## Key Findings
+
+- Topography can substantially modify simulated earthquake ground motions, even when the terrain is represented by simple ridge and valley profiles.
+- For the conical-topography benchmark, horizontal amplification increased as the height-to-length ratio increased from 0.375 to 0.75.
+- In the ridge case with the source beneath the peak, the strongest amplification pattern was symmetric around the topography.
+- When the source was moved away from the ridge, the maximum amplification shifted to the topographic face away from the source.
+- In the valley case, the maximum amplification occurred closer to the source side, showing a different focusing pattern than the ridge.
+- The near-source ridge case produced very large displacement amplification in the idealized model, emphasizing how strongly source position and topographic shape can interact.
+- Horizontal displacement and velocity amplification ratios increased approximately linearly with topographic gradient for the tested model setup.
+
+## My Role
+
+I led the numerical simulation workflow, topographic model setup, source-case design, amplification analysis, and manuscript preparation for this study. I worked with co-authors to compare the numerical results against analytical expectations, interpret the ridge and valley response patterns, and frame the work as a basis for estimating possible amplification at topographically complex sites.
+
+## Challenges and Lessons Learned
+
+A central challenge was representing 3D topography in a way that was simple enough to interpret but still rich enough to reveal meaningful wave-propagation effects. The idealized ridge and valley geometries made it possible to separate the influence of topographic shape from the complexity of a real landscape.
+
+Another challenge was understanding how much of the amplification came from the terrain itself and how much came from the source position. The parametric source-location tests showed that topographic amplification is not only a property of the hill or valley; it also depends on how incoming wave energy meets that geometry.
+
+## Outcome and Research Continuity
+
+This work provided an early numerical foundation for studying topographic amplification in earthquake ground motions. It showed that simplified 3D models can reveal important physical controls, especially the role of topographic gradient and source-topography geometry.
+
+The project directly connects to later research on realistic Himalayan topography, where actual digital elevation models, regional material structure, recorded earthquake validation, and large-earthquake scenarios were incorporated into the same broader research direction.
+
+## Citation
+
+Dhabu, A., Dhanya, J., & Raghukanth, S. T. G. (2019). Effect of topography on earthquake ground motions. In A. Rama Mohan Rao & K. Ramanjaneyulu (Eds.), *Recent Advances in Structural Engineering, Volume 2* (Lecture Notes in Civil Engineering, Vol. 12, pp. 107-117). Springer Nature Singapore. https://doi.org/10.1007/978-981-13-0365-4_9
+
+## For More Information
+
+- [Published chapter in Lecture Notes in Civil Engineering](https://doi.org/10.1007/978-981-13-0365-4_9)

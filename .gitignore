@@ -1,23 +1,39 @@
+# Dependencies and generated output
+node_modules/
 .next/
 out/
-node_modules/
-
+build/
+dist/
+coverage/
 *.tsbuildinfo
+next-env.d.ts
 
+# Local environment values; keep a safe placeholder template
 .env
 .env.*
 !.env.example
 
-.agents/
-.codex/
+# Local agent configuration and preserved Git metadata
 .agents
 .codex
+.aws/
 .gitdata/
+.vercel/
+.netlify/
 
+# Unused reference files; published CV lives in public/documents/cv.pdf
+/AD_Resume_updated.pdf
+/fromsomeone.md
+/src/resources/original/
+/src/app/travel/Travel.html
+/src/components/Publiacations/Publications.html
+/public/images/projects/Fur die Website/
+/public/images/projects/research_vision (copy).png
+
+# Logs and editor / OS temporary files
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

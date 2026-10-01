@@ -118,41 +118,49 @@ const modeOptions: Array<{
   { id: "citations", label: "Citations", statLabel: "sources" },
 ];
 
-const affiliationSourceLabels: Record<AuthorSummary["affiliationSource"], string> = {
-  manual: "Manual affiliation",
-  fetched: "Fetched affiliation",
-  missing: "Needs manual affiliation",
-};
-
 const themePalette: Record<
   string,
   {
+    title: string;
     color: string;
     deepColor: string;
     shortTitle: string;
   }
 > = {
-  "rotational-ground-motion-theory": {
-    color: "#2b78d0",
-    deepColor: "#174d8e",
-    shortTitle: "Theory",
+  "wavefield-physics-theory": {
+    title: "Wavefield Theory",
+    color: "#0f766e",
+    deepColor: "#115e59",
+    shortTitle: "Wavefield Theory",
   },
-  "simulation-topography-subsurface": {
-    color: "#c78321",
-    deepColor: "#85520f",
-    shortTitle: "Sim",
+  "earth-sources": {
+    title: "Earth Structure & Sources",
+    color: "#4d7c0f",
+    deepColor: "#365314",
+    shortTitle: "Earth Structure",
   },
-  "structural-response-6c-monitoring": {
-    color: "#1e9568",
-    deepColor: "#0f6548",
-    shortTitle: "6C",
+  "computational-modeling-tools": {
+    title: "Computational Modeling",
+    color: "#2563eb",
+    deepColor: "#1e3a8a",
+    shortTitle: "Computational Modeling",
   },
-  "planetary-source-characterization": {
-    color: "#9a5fd0",
-    deepColor: "#61358c",
-    shortTitle: "Planet",
+  "observables-data": {
+    title: "Observables & Data",
+    color: "#7c3aed",
+    deepColor: "#4c1d95",
+    shortTitle: "New Observables",
+  },
+  "structural-health-monitoring": {
+    title: "Structural Monitoring",
+    color: "#c2410c",
+    deepColor: "#7c2d12",
+    shortTitle: "SHM",
   },
 };
+
+const cnrsInstitutionName = "Centre national de la recherche scientifique";
+const csirFourthParadigmInstituteName = "CSIR Fourth Paradigm Institute (CSIR-4PI)";
 
 const institutionDirectory: Record<
   string,
@@ -217,6 +225,12 @@ const institutionDirectory: Record<
     lat: 17.4141,
     lon: 78.5504,
   },
+  [csirFourthParadigmInstituteName]: {
+    city: "Bengaluru",
+    country: "India",
+    lat: 12.9716,
+    lon: 77.5946,
+  },
   "Indian Space Research Organisation": {
     city: "Bengaluru",
     country: "India",
@@ -253,6 +267,12 @@ const institutionDirectory: Record<
     lat: 52.401,
     lon: 13.012,
   },
+  [cnrsInstitutionName]: {
+    city: "Paris",
+    country: "France",
+    lat: 48.8566,
+    lon: 2.3522,
+  },
 };
 
 const homeInstitutionNames = [
@@ -266,11 +286,19 @@ const featuredInstitutionNames = [
   "Indian Institute of Technology Madras",
   "Ludwig Maximilian University of Munich",
   "Federal Institute for Materials Research and Testing",
+  cnrsInstitutionName,
   "Opole University of Technology",
   "National Geophysical Research Institute",
+  csirFourthParadigmInstituteName,
 ] as const;
 
 const institutionAliases: Record<string, string> = {
+  "CSIR-4PI": csirFourthParadigmInstituteName,
+  CNRS: cnrsInstitutionName,
+  "Centre National de la Recherche Scientifique": cnrsInstitutionName,
+  "Centre National de la Recherche Scientifique (CNRS)": cnrsInstitutionName,
+  "Centre national de la recherche scientifique (CNRS)": cnrsInstitutionName,
+  "French National Centre for Scientific Research": cnrsInstitutionName,
   "Universität Hamburg": "University of Hamburg",
 };
 
@@ -285,11 +313,13 @@ const institutionLogoPaths: Record<string, string> = {
   "Opole University of Technology": "/images/logos/Opole_University_of_Technology.png",
   "National Geophysical Research Institute":
     "/images/logos/National_Geophysical_Research_Institute_Logo.png",
+  [csirFourthParadigmInstituteName]: "/images/logos/CSIR-Logo.png",
   "Indian Space Research Organisation": "/images/logos/Indian_Space_Research_Organisation_Logo.svg",
   "ISRO-Space Applications Centre Ahmedabad India":
     "/images/logos/Indian_Space_Research_Organisation_Logo.svg",
   "Max Planck Institute for Solar System Research": "/images/logos/Logo-mps.png",
   "Planetary Science Institute": "/images/logos/Planetary_Science_Institute_logo.png",
+  [cnrsInstitutionName]: "/images/logos/LOGO_CNRS_BLEU.png",
 };
 
 const generatedCitationCache = openAlexCitationCache as OpenAlexCitationCache;
@@ -368,8 +398,10 @@ function getInstitutionLogo(institution: string) {
 }
 
 function getInstitutionLocation(institution: string) {
+  const normalizedInstitution = normalizeInstitutionName(institution);
+
   return (
-    institutionDirectory[institution] ?? {
+    institutionDirectory[normalizedInstitution] ?? {
       city: "Research network",
       country: "Collaboration",
       lat: 18,
@@ -416,6 +448,7 @@ function buildNetworkData(publications: FlatPublication[]) {
       ]),
     );
     const palette = themePalette[publication.groupId] ?? {
+      title: publication.groupTitle,
       color: "#167d9c",
       deepColor: "#0f5369",
       shortTitle: publication.groupTitle,
@@ -423,7 +456,7 @@ function buildNetworkData(publications: FlatPublication[]) {
 
     const theme = themeMap.get(publication.groupId) ?? {
       id: publication.groupId,
-      title: publication.groupTitle,
+      title: palette.title,
       shortTitle: palette.shortTitle,
       focus: publication.groupFocus,
       color: palette.color,
@@ -667,6 +700,11 @@ function publicationLabel(publication: PublicationItem) {
   return cleanTitle.length > 84 ? `${cleanTitle.slice(0, 81)}...` : cleanTitle;
 }
 
+function citationPlotLabel(publication: PublicationItem) {
+  const cleanTitle = publication.title.replace(/\.$/, "");
+  return cleanTitle.length > 36 ? `${cleanTitle.slice(0, 33)}...` : cleanTitle;
+}
+
 function authorTooltip(author: AuthorSummary) {
   return [
     `${author.displayName}, ${author.publicationIds.length} shared publications`,
@@ -722,12 +760,14 @@ const shortInstitutionNames: Record<string, string> = {
   "Vestas Wind Systems, Vestas Deutschland GmbH": "Vestas Hamburg",
   "Opole University of Technology": "Opole Tech",
   "National Geophysical Research Institute": "NGRI Hyderabad",
+  [csirFourthParadigmInstituteName]: "CSIR-4PI",
   "Indian Space Research Organisation": "ISRO Bengaluru",
   "ISRO-Space Applications Centre Ahmedabad India": "ISRO SAC",
   "Max Planck Institute for Solar System Research": "MPS Gottingen",
   "Planetary Science Institute": "PSI Tucson",
   "German Aerospace Center": "DLR Cologne",
   "University of Potsdam": "U Potsdam",
+  [cnrsInstitutionName]: "CNRS",
 };
 
 function institutionLabel(institutionName: string) {
@@ -872,9 +912,9 @@ function AuthorNetwork({
   onSelect: (key: string) => void;
 }) {
   const center = { x: 360, y: 215 };
-  const selectedThemeId = selectedKey?.startsWith("theme:")
-    ? selectedKey.replace("theme:", "")
-    : null;
+  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
+  const focusedKey = selectedKey ?? hoveredKey;
+  const focusedThemeId = focusedKey?.startsWith("theme:") ? focusedKey.replace("theme:", "") : null;
   const themeNodes = themes.map((theme, index) => {
     const point = polarPoint(index, themes.length, 122, 86);
 
@@ -899,11 +939,11 @@ function AuthorNetwork({
       radius: Math.min(26, 10 + author.publicationIds.length * 4),
     };
   });
-  const selectedAuthor =
-    selectedKey && !selectedKey.startsWith("theme:")
-      ? nodes.find((node) => node.key === selectedKey)
+  const focusedAuthor =
+    focusedKey && !focusedKey.startsWith("theme:")
+      ? nodes.find((node) => node.key === focusedKey)
       : null;
-  const selectedAuthorThemeIds = selectedAuthor ? new Set(selectedAuthor.themeIds) : null;
+  const focusedAuthorThemeIds = focusedAuthor ? new Set(focusedAuthor.themeIds) : null;
 
   return (
     <svg
@@ -911,6 +951,7 @@ function AuthorNetwork({
       viewBox="0 0 720 430"
       role="img"
       aria-label="Coauthor network"
+      onMouseLeave={() => setHoveredKey(null)}
     >
       <g className={styles.networkGrid}>
         <circle cx={center.x} cy={center.y} r="170" />
@@ -928,11 +969,11 @@ function AuthorNetwork({
             x2={theme.x}
             y2={theme.y}
             className={`${styles.themeNetworkLink} ${
-              selectedKey === theme.key || selectedAuthorThemeIds?.has(theme.id)
+              focusedKey === theme.key || focusedAuthorThemeIds?.has(theme.id)
                 ? styles.activeThemeNetworkLink
                 : ""
             } ${
-              selectedAuthorThemeIds && !selectedAuthorThemeIds.has(theme.id)
+              focusedAuthorThemeIds && !focusedAuthorThemeIds.has(theme.id)
                 ? styles.mutedNetworkLink
                 : ""
             }`}
@@ -952,14 +993,14 @@ function AuthorNetwork({
                 y1={theme.y}
                 x2={node.x}
                 y2={node.y}
-                className={`${styles.themeNetworkLink} ${
-                  selectedKey === theme.key ||
-                  selectedKey === node.key ||
-                  (selectedAuthor?.key === node.key && selectedAuthorThemeIds?.has(theme.id))
+                className={`${styles.themeNetworkLink} ${styles.authorThemeNetworkLink} ${
+                  focusedKey === theme.key ||
+                  focusedKey === node.key ||
+                  (focusedAuthor?.key === node.key && focusedAuthorThemeIds?.has(theme.id))
                     ? styles.activeThemeNetworkLink
                     : ""
                 } ${
-                  selectedAuthor && selectedAuthor.key !== node.key ? styles.mutedNetworkLink : ""
+                  focusedAuthor && focusedAuthor.key !== node.key ? styles.mutedNetworkLink : ""
                 }`}
                 style={themeStyle(theme)}
                 strokeWidth={1.1}
@@ -985,16 +1026,19 @@ function AuthorNetwork({
           role="button"
           tabIndex={0}
           className={`${styles.networkNode} ${styles.themeNode} ${
-            selectedKey === theme.key || selectedAuthorThemeIds?.has(theme.id)
+            focusedKey === theme.key || focusedAuthorThemeIds?.has(theme.id)
               ? styles.activeNetworkNode
               : ""
           } ${
-            selectedAuthorThemeIds && !selectedAuthorThemeIds.has(theme.id)
+            focusedAuthorThemeIds && !focusedAuthorThemeIds.has(theme.id)
               ? styles.mutedNetworkNode
               : ""
           }`}
           style={themeStyle(theme)}
           transform={`translate(${theme.x} ${theme.y})`}
+          onPointerEnter={() => setHoveredKey(theme.key)}
+          onFocus={() => setHoveredKey(theme.key)}
+          onBlur={() => setHoveredKey(null)}
           onClick={() => onSelect(theme.key)}
           onKeyDown={(event) => handleSvgKeyboard(event, () => onSelect(theme.key))}
         >
@@ -1015,15 +1059,18 @@ function AuthorNetwork({
           role="button"
           tabIndex={0}
           className={`${styles.networkNode} ${styles.coauthorNode} ${
-            selectedKey === node.key ? styles.activeNetworkNode : ""
+            focusedKey === node.key ? styles.activeNetworkNode : ""
           } ${
-            (selectedThemeId && !node.themeIds.includes(selectedThemeId)) ||
-            (selectedAuthor && selectedAuthor.key !== node.key)
+            (focusedThemeId && !node.themeIds.includes(focusedThemeId)) ||
+            (focusedAuthor && focusedAuthor.key !== node.key)
               ? styles.mutedNetworkNode
               : ""
           }`}
           style={node.primaryTheme ? themeStyle(node.primaryTheme) : undefined}
           transform={`translate(${node.x} ${node.y})`}
+          onPointerEnter={() => setHoveredKey(node.key)}
+          onFocus={() => setHoveredKey(node.key)}
+          onBlur={() => setHoveredKey(null)}
           onClick={() => onSelect(node.key)}
           onKeyDown={(event) => handleSvgKeyboard(event, () => onSelect(node.key))}
         >
@@ -1054,10 +1101,10 @@ function InstitutionNetwork({
   const institutionLookup = new Map(
     institutions.map((institution) => [institution.key, institution]),
   );
-  const selectedThemeId = selectedKey?.startsWith("theme:")
+  const focusedThemeId = selectedKey?.startsWith("theme:")
     ? selectedKey.replace("theme:", "")
     : null;
-  const selectedTheme = themes.find((theme) => theme.id === selectedThemeId);
+  const selectedTheme = themes.find((theme) => theme.id === focusedThemeId);
   const homeInstitutionKeys = new Set<string>(homeInstitutionNames);
   const collaboratorMap = new Map<string, InstitutionSummary>();
 
@@ -1180,8 +1227,8 @@ function InstitutionNetwork({
   }
 
   const isMutedNode = (node: ReturnType<typeof makeNode>) => {
-    if (selectedThemeId) {
-      return !node.themeIds.includes(selectedThemeId);
+    if (focusedThemeId) {
+      return !node.themeIds.includes(focusedThemeId);
     }
 
     if (selectedInstitutionKey) {
@@ -1192,13 +1239,13 @@ function InstitutionNetwork({
   };
   const isActiveLink = (link: (typeof links)[number]) =>
     Boolean(
-      (selectedThemeId && link.themeIds.includes(selectedThemeId)) ||
+      (focusedThemeId && link.themeIds.includes(focusedThemeId)) ||
         selectedInstitutionKey === link.homeKey ||
         selectedInstitutionKey === link.collaboratorKey,
     );
   const isMutedLink = (link: (typeof links)[number]) =>
     Boolean(
-      (selectedThemeId && !link.themeIds.includes(selectedThemeId)) ||
+      (focusedThemeId && !link.themeIds.includes(focusedThemeId)) ||
         (selectedInstitutionKey &&
           selectedInstitutionKey !== link.homeKey &&
           selectedInstitutionKey !== link.collaboratorKey),
@@ -1334,57 +1381,119 @@ function CitationNetwork({
   selectedKey: string | null;
   onSelect: (key: string) => void;
 }) {
-  const sourcePublications = publications.slice(0, 9);
-  const citingWorks = sourcePublications.flatMap((publication) =>
-    (citationResults[publication.id]?.citingWorks ?? []).slice(0, 2).map((work) => ({
-      ...work,
-      sourceId: publication.id,
-    })),
+  const plotTop = 74;
+  const plotHeight = 320;
+  const barX = 278;
+  const barMaxWidth = 168;
+  const sourcePublications = [...publications]
+    .sort((first, second) => {
+      const firstResult = citationResults[first.id];
+      const secondResult = citationResults[second.id];
+      const firstCount = firstResult?.citedByCount ?? 0;
+      const secondCount = secondResult?.citedByCount ?? 0;
+      const firstYear = Number.parseInt(first.year, 10) || 0;
+      const secondYear = Number.parseInt(second.year, 10) || 0;
+
+      return (
+        secondCount - firstCount ||
+        Number(secondResult?.status === "ready") - Number(firstResult?.status === "ready") ||
+        secondYear - firstYear ||
+        publicationLabel(first).localeCompare(publicationLabel(second))
+      );
+    })
+    .slice(0, 9);
+  const maxCitationCount = Math.max(
+    1,
+    ...sourcePublications.map((publication) => citationResults[publication.id]?.citedByCount ?? 0),
   );
-  const uniqueCitingWorks = Array.from(
-    new Map(citingWorks.map((work) => [`${work.sourceId}-${work.id}`, work])).values(),
-  ).slice(0, 9);
-  const sourceSpacing = 320 / Math.max(1, sourcePublications.length);
-  const citingSpacing = 320 / Math.max(1, uniqueCitingWorks.length);
-  const themeSpacing = 320 / Math.max(1, themes.length);
+  const citingWorkMap = new Map<CitingWork["id"], CitingWork & { sourceIds: string[] }>();
+
+  for (const publication of sourcePublications) {
+    for (const work of (citationResults[publication.id]?.citingWorks ?? []).slice(0, 3)) {
+      const existingWork = citingWorkMap.get(work.id);
+
+      if (existingWork) {
+        addUnique(existingWork.sourceIds, publication.id);
+        continue;
+      }
+
+      citingWorkMap.set(work.id, {
+        ...work,
+        sourceIds: [publication.id],
+      });
+    }
+  }
+
+  const uniqueCitingWorks = Array.from(citingWorkMap.values()).slice(0, 9);
+  const sourceSpacing = plotHeight / Math.max(1, sourcePublications.length);
+  const citingSpacing = plotHeight / Math.max(1, uniqueCitingWorks.length);
+  const themeSpacing = plotHeight / Math.max(1, themes.length);
   const themeNodes = themes.map((theme, index) => ({
     ...theme,
     key: `theme:${theme.id}`,
-    x: 86,
-    y: 56 + themeSpacing * index + themeSpacing / 2,
+    x: 82,
+    y: plotTop + themeSpacing * index + themeSpacing / 2,
     radius: Math.min(22, 11 + theme.publicationIds.length * 1.4),
   }));
   const themeLookup = new Map(themeNodes.map((theme) => [theme.id, theme]));
-  const sourceNodes = sourcePublications.map((publication, index) => ({
-    publication,
-    theme: themeLookup.get(publication.groupId),
-    key: `source:${publication.id}`,
-    x: 248,
-    y: 56 + sourceSpacing * index + sourceSpacing / 2,
-  }));
+  const sourceNodes = sourcePublications.map((publication, index) => {
+    const result = citationResults[publication.id];
+    const citationCount = result?.citedByCount ?? 0;
+    const statusLabel =
+      result?.status === "ready"
+        ? `${citationCount} citation${citationCount === 1 ? "" : "s"}`
+        : "not indexed";
+
+    return {
+      publication,
+      theme: themeLookup.get(publication.groupId),
+      key: `source:${publication.id}`,
+      x: 242,
+      y: plotTop + sourceSpacing * index + sourceSpacing / 2,
+      citationCount,
+      status: result?.status,
+      statusLabel,
+      label: citationPlotLabel(publication),
+      barWidth: Math.round((citationCount / maxCitationCount) * barMaxWidth),
+    };
+  });
   const citingNodes = uniqueCitingWorks.map((work, index) => ({
     work,
-    key: `citing:${work.sourceId}:${work.id}`,
-    x: 535,
-    y: 56 + citingSpacing * index + citingSpacing / 2,
+    key: `citing:${work.id}`,
+    x: 610,
+    y: plotTop + citingSpacing * index + citingSpacing / 2,
   }));
   const sourceLookup = new Map(sourceNodes.map((node) => [node.publication.id, node]));
-  const citingLookup = new Map(
-    citingNodes.map((node) => [`${node.work.sourceId}-${node.work.id}`, node]),
-  );
+  const citingLookup = new Map(citingNodes.map((node) => [node.work.id, node]));
 
   return (
     <svg
       className={styles.networkSvg}
-      viewBox="0 0 720 430"
+      viewBox="0 0 760 430"
       role="img"
       aria-label="Citation network"
     >
+      <g className={styles.networkColumnLabels}>
+        <text x="82" y="36" textAnchor="middle">
+          Themes
+        </text>
+        <text x={barX} y="36">
+          Source papers
+        </text>
+        <text x="610" y="36" textAnchor="middle">
+          Recent citing works
+        </text>
+        <text className={styles.networkColumnHint} x={barX} y="54">
+          Ranked by OpenAlex cited-by count
+        </text>
+      </g>
+
       <g className={styles.networkGrid}>
-        <line x1="172" y1="36" x2="172" y2="394" />
-        <line x1="392" y1="36" x2="392" y2="394" />
-        <circle cx="248" cy="215" r="132" />
-        <circle cx="535" cy="215" r="132" />
+        <line x1="164" y1="62" x2="164" y2="402" />
+        <line x1="512" y1="62" x2="512" y2="402" />
+        <line x1={barX} y1="402" x2={barX + barMaxWidth} y2="402" />
+        <circle cx="242" cy="234" r="126" />
+        <circle cx="610" cy="234" r="126" />
       </g>
 
       <g className={styles.networkLinks}>
@@ -1396,7 +1505,7 @@ function CitationNetwork({
           return (
             <path
               key={`${node.theme.key}-${node.key}`}
-              d={`M ${node.theme.x + node.theme.radius} ${node.theme.y} C 144 ${node.theme.y}, 184 ${
+              d={`M ${node.theme.x + node.theme.radius} ${node.theme.y} C 142 ${node.theme.y}, 184 ${
                 node.y
               }, ${node.x - 16} ${node.y}`}
               className={`${styles.themeNetworkLink} ${
@@ -1408,28 +1517,34 @@ function CitationNetwork({
             />
           );
         })}
-        {uniqueCitingWorks.map((work) => {
-          const sourceNode = sourceLookup.get(work.sourceId);
-          const citingNode = citingLookup.get(`${work.sourceId}-${work.id}`);
+        {uniqueCitingWorks.flatMap((work) =>
+          work.sourceIds.map((sourceId) => {
+            const sourceNode = sourceLookup.get(sourceId);
+            const citingNode = citingLookup.get(work.id);
 
-          if (!sourceNode || !citingNode) {
-            return null;
-          }
+            if (!sourceNode || !citingNode) {
+              return null;
+            }
 
-          return (
-            <path
-              key={`${work.sourceId}-${work.id}`}
-              d={`M ${sourceNode.x + 16} ${sourceNode.y} C 300 ${sourceNode.y}, 420 ${citingNode.y}, ${
-                citingNode.x - 16
-              } ${citingNode.y}`}
-              className={
-                selectedKey === sourceNode.key || selectedKey === citingNode.key
-                  ? styles.activeNetworkLink
-                  : undefined
-              }
-            />
-          );
-        })}
+            const linkStartX = barX + Math.max(12, sourceNode.barWidth) + 8;
+
+            return (
+              <path
+                key={`${sourceId}-${work.id}`}
+                d={`M ${linkStartX} ${sourceNode.y + 4} C 468 ${sourceNode.y}, 510 ${
+                  citingNode.y
+                }, ${citingNode.x - 16} ${citingNode.y}`}
+                className={
+                  selectedKey === sourceNode.key ||
+                  selectedKey === citingNode.key ||
+                  selectedKey === sourceNode.theme?.key
+                    ? styles.activeNetworkLink
+                    : undefined
+                }
+              />
+            );
+          }),
+        )}
       </g>
 
       {themeNodes.map((theme) => (
@@ -1455,8 +1570,7 @@ function CitationNetwork({
       ))}
 
       {sourceNodes.map((node) => {
-        const result = citationResults[node.publication.id];
-        const radius = Math.min(24, 11 + Math.sqrt(result?.citedByCount ?? 0));
+        const radius = Math.min(24, 11 + Math.sqrt(node.citationCount));
 
         return (
           <g
@@ -1481,6 +1595,47 @@ function CitationNetwork({
         );
       })}
 
+      <g className={styles.citationBars}>
+        {sourceNodes.map((node) => (
+          <g
+            key={`${node.key}:bar`}
+            className={selectedKey === node.key ? styles.activeCitationBarRow : undefined}
+            style={node.theme ? themeStyle(node.theme) : undefined}
+          >
+            <text className={styles.citationSourceTitle} x={barX} y={node.y - 11}>
+              {node.label}
+            </text>
+            <rect
+              className={styles.citationBarTrack}
+              x={barX}
+              y={node.y - 1}
+              width={barMaxWidth}
+              height="8"
+              rx="4"
+            />
+            {node.barWidth > 0 ? (
+              <rect
+                className={styles.citationBar}
+                x={barX}
+                y={node.y - 1}
+                width={node.barWidth}
+                height="8"
+                rx="4"
+              />
+            ) : null}
+            <text
+              className={`${styles.citationCountLabel} ${
+                node.status === "ready" ? "" : styles.citationNotIndexedLabel
+              }`}
+              x={barX + Math.max(12, node.barWidth) + 8}
+              y={node.y + 7}
+            >
+              {node.statusLabel}
+            </text>
+          </g>
+        ))}
+      </g>
+
       {citingNodes.map((node) => (
         <g
           key={node.key}
@@ -1502,9 +1657,14 @@ function CitationNetwork({
         </g>
       ))}
 
-      {!uniqueCitingWorks.length && (
+      {!sourceNodes.length && (
         <text className={styles.citationEmptyText} x="360" y="216" textAnchor="middle">
-          OpenAlex citation layer
+          No citation candidates in this view
+        </text>
+      )}
+      {sourceNodes.length > 0 && !uniqueCitingWorks.length && (
+        <text className={styles.citationEmptyText} x="610" y="216" textAnchor="middle">
+          No citing works loaded
         </text>
       )}
     </svg>
@@ -1530,10 +1690,10 @@ function DetailPanel({
   citationResults: Record<string, CitationResult>;
   citationGeneratedAt: string | null;
 }) {
-  const selectedThemeId = selectedKey?.startsWith("theme:")
+  const focusedThemeId = selectedKey?.startsWith("theme:")
     ? selectedKey.replace("theme:", "")
     : null;
-  const selectedTheme = themes.find((theme) => theme.id === selectedThemeId);
+  const selectedTheme = themes.find((theme) => theme.id === focusedThemeId);
 
   if (selectedTheme) {
     return (
@@ -1562,36 +1722,35 @@ function DetailPanel({
   }
 
   if (mode === "authors") {
-    const selectedAuthor = coauthors.find((author) => author.key === selectedKey) ?? coauthors[0];
+    const focusedAuthor = coauthors.find((author) => author.key === selectedKey) ?? coauthors[0];
 
     return (
       <aside className={styles.networkDetails}>
         <p className={styles.detailLabel}>Coauthor focus</p>
-        <h3>{selectedAuthor?.displayName ?? "Collaboration network"}</h3>
+        <h3>{focusedAuthor?.displayName ?? "Collaboration network"}</h3>
         <p>
-          {selectedAuthor
-            ? `${selectedAuthor.publicationIds.length} shared publication${
-                selectedAuthor.publicationIds.length === 1 ? "" : "s"
-              } across ${selectedAuthor.groups.length} research group${
-                selectedAuthor.groups.length === 1 ? "" : "s"
+          {focusedAuthor
+            ? `${focusedAuthor.publicationIds.length} shared publication${
+                focusedAuthor.publicationIds.length === 1 ? "" : "s"
+              } across ${focusedAuthor.groups.length} research group${
+                focusedAuthor.groups.length === 1 ? "" : "s"
               }.`
             : "Coauthor relationships are derived from the publication list."}
         </p>
-        {selectedAuthor && (
+        {focusedAuthor && (
           <>
             <div className={styles.detailBlock}>
               <div className={styles.detailBlockHeader}>
                 <span>Affiliations</span>
-                <small>{affiliationSourceLabels[selectedAuthor.affiliationSource]}</small>
               </div>
               <div className={styles.detailMeta}>
-                {selectedAuthor.institutions.map((institution) => (
+                {focusedAuthor.institutions.map((institution) => (
                   <span key={institution}>{institution}</span>
                 ))}
               </div>
             </div>
             <ul className={styles.detailList}>
-              {selectedAuthor.publications.slice(0, 4).map((publication) => (
+              {focusedAuthor.publications.slice(0, 4).map((publication) => (
                 <li key={publication.id}>{publicationLabel(publication)}</li>
               ))}
             </ul>
@@ -1708,7 +1867,7 @@ function DetailPanel({
             sourceId: result.publicationId,
           })),
         )
-        .find((work) => `${work.sourceId}:${work.id}` === selectedCitingKey)
+        .find((work) => work.id === selectedCitingKey)
     : null;
 
   if (selectedCitingWork) {
@@ -1742,10 +1901,12 @@ function DetailPanel({
           ? `${selectedCitationResult.citedByCount ?? 0} citing work${
               selectedCitationResult.citedByCount === 1 ? "" : "s"
             } reported by OpenAlex.`
-          : (selectedCitationResult?.message ??
-            `Citation records are cached from OpenAlex. Last updated: ${citationCacheDateLabel(
-              citationGeneratedAt,
-            )}.`)}
+          : selectedCitationResult?.status === "not-found"
+            ? "This publication is not indexed in the current OpenAlex cache."
+            : (selectedCitationResult?.message ??
+              `Citation records are cached from OpenAlex. Last updated: ${citationCacheDateLabel(
+                citationGeneratedAt,
+              )}.`)}
       </p>
       {selectedSource && (
         <div className={styles.detailMeta}>
@@ -1916,7 +2077,7 @@ export function CollaborationMap({ publications, activeGroup }: CollaborationMap
         </div>
         {mode === "citations" && (
           <p className={styles.citationCacheNote}>
-            OpenAlex cache: {readyCitationCount}/{citationCandidates.length} matched | updated{" "}
+            OpenAlex: {readyCitationCount}/{citationCandidates.length} indexed, updated{" "}
             {citationCacheDateLabel(generatedCitationCache.generatedAt)}
           </p>
         )}
@@ -1935,7 +2096,10 @@ export function CollaborationMap({ publications, activeGroup }: CollaborationMap
           >
             <span aria-hidden="true" />
             <strong>{theme.title}</strong>
-            <small>{theme.publicationIds.length} publications</small>
+            <small>
+              {theme.shortTitle} · {theme.publicationIds.length} publication
+              {theme.publicationIds.length === 1 ? "" : "s"}
+            </small>
           </button>
         ))}
       </div>

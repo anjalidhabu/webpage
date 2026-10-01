@@ -33,7 +33,7 @@ export default function TeachingPage() {
 
       <Column gap="20" horizontal="center" align="center">
         <Text variant="label-strong-m" onBackground="brand-weak">
-          Teaching And Mentoring
+          Teaching and Mentoring
         </Text>
         <Heading variant="display-strong-m" align="center">
           Teaching, mentoring, and research training in seismology and civil engineering.

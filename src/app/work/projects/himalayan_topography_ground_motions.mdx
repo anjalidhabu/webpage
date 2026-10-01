@@ -2,18 +2,18 @@
 title: "Influence of Himalayan Topography on Earthquake Ground Motions"
 publishedAt: "2021-09-01"
 link: "https://doi.org/10.1007/s12517-021-08111-1"
-summary: "Studied how complex Himalayan topography can influence earthquake ground motions, connecting numerical modeling with site and regional effects in a high-relief tectonic setting."
+summary: "Developed and validated a 3D spectral finite element model to quantify how Himalayan topography amplifies earthquake displacement and velocity, including simulations for Chamoli, Uttarkashi, and a hypothetical Mw 8.5 central seismic gap earthquake."
 domain: "Seismic Wave Simulation"
-focus: "Topographic Effects on Ground Motion"
-scale: "Himalayan Regional Study"
+focus: "Topographic Amplification in the Himalayas"
+scale: "Arabian Journal of Geosciences Publication and Ph.D. Research"
 techStack:
-  - "Numerical Modeling"
-  - "Ground-Motion Simulation"
-  - "Topographic Effects"
-  - "Earthquake Engineering"
-heroImage: "/images/projects/anjali/himalayan-topography.png"
+  - "SPECFEM3D Cartesian"
+  - "3D Spectral Finite Element Modeling"
+  - "Digital Elevation Models"
+  - "Peak Ground Displacement and Velocity"
+heroImage: "/images/projects/topography/tp1.png"
 images:
-  - "/images/projects/anjali/himalayan-topography.png"
+  - "/images/projects/topography/tp1.png"
 team:
   - name: "Dr. Anjali Dhabu"
     role: "Doctoral Researcher"
@@ -21,24 +21,75 @@ team:
     linkedIn: "https://www.geo.uni-hamburg.de/en/geophysik/personen/dhabu-anjali.html"
 ---
 
-## Research Question
+## Project Summary
 
-Topography can amplify, scatter, or otherwise modify earthquake ground motion, especially in mountainous regions. This project asks how Himalayan topography influences earthquake strong ground motions and what those effects mean for site response and engineering interpretation.
+I studied how complex Himalayan topography modifies earthquake ground motions in one of the most seismically active and densely inhabited mountain belts in the world. The work developed a three-dimensional spectral finite element model that incorporated realistic Himalayan topography, depth-dependent material properties, and earthquake source information.
 
-## Method
+The model was validated using recorded ground motions from the 2005 Mw 5.2 Chamoli earthquake and the 2009 Mw 4.7 Uttarkashi earthquake. After validation, it was used to simulate a hypothetical Mw 8.5 earthquake in the central seismic gap of the Himalayas and quantify topographic amplification in displacement and velocity.
 
-The work used numerical modeling to study ground-motion behavior in the presence of complex topographic features. The project connected seismic wave propagation with engineering-relevant motion, focusing on how terrain shape can affect simulated earthquake response.
+## Research Problem
 
-## Contribution
+The Himalayas contain steep ridges, deep valleys, active faults, major population centers, pilgrimage routes, tourism sites, and critical infrastructure. Flat-ground assumptions can miss how this terrain scatters, focuses, or amplifies seismic waves. This is especially important because earthquake-resistant design increasingly uses peak ground displacement and peak ground velocity, not only peak acceleration.
 
-This case study broadens the Work page beyond rotational seismology alone. It shows Dr. Dhabu's experience with regional ground-motion simulation, topographic effects, and the translation of wave-propagation behavior into earthquake-engineering questions.
+The central research question was how much Himalayan topography can amplify earthquake ground motions, and whether amplification ratios can be estimated as a function of elevation for future large earthquakes in the region.
 
-## Outputs
+## Study Region and Data
 
-- Journal article on the influence of Himalayan topography on earthquake ground motions.
-- Conference work on topographic effects and earthquake strong ground motions.
-- Modeling experience that informs later work on heterogeneous media and complex seismic response.
+The simulation domain covered a 4 x 4 degree region from 77 to 81 degrees east longitude and 28 to 32 degrees north latitude, with a model depth of 77 km. The region includes Himalayan terrain and the Indo-Gangetic basin, requiring different material properties for the mountain belt and basin deposits.
 
-## Why It Matters
+The topography was represented using a 90 m digital elevation model and a 270 m finite element mesh. Within the modeled region, topographic elevation ranged from 131 m to 7,121 m, capturing the strong relief that controls ridge and valley amplification.
 
-Mountainous regions can experience ground-motion patterns that are difficult to understand with simplified flat-surface assumptions. Modeling topography helps researchers interpret regional hazard and supports better engineering awareness in complex terrain.
+Recorded strong-motion data from the PESMOS network were used for validation. The study used eight recording stations for the 2005 Chamoli earthquake and 13 recording stations for the 2009 Uttarkashi earthquake, with stations distributed across different elevations.
+
+## Methods and Technical Expertise
+
+- **3D Spectral Finite Element Modeling:** Built a SPECFEM3D Cartesian model capable of simulating seismic wave propagation through a realistic three-dimensional Earth domain.
+- **Topography Integration:** Incorporated high-resolution Himalayan topography into the finite element mesh so ridge, valley, and elevation effects could influence the simulated wavefield.
+- **Regional Velocity Modeling:** Assigned separate depth-dependent material properties for the Himalayan terrain and the Indo-Gangetic basin, including density, P-wave velocity, S-wave velocity, and quality factor.
+- **Earthquake Source Modeling:** Simulated point-source earthquakes for Chamoli and Uttarkashi validation cases, then modeled a non-Gaussian finite fault for the hypothetical Mw 8.5 event.
+- **Model Validation:** Compared simulated and recorded time histories, Fourier amplitude spectra, and peak ground velocities at multiple strong-motion stations.
+- **Topographic Amplification Analysis:** Placed paired stations at the topographic surface and at zero elevation to compute amplification factors for peak ground displacement and peak ground velocity.
+- **High-Performance Computing:** Executed large-scale simulations using MPI parallelization on the VIRGO supercluster at IIT Madras.
+
+## Research Contributions
+
+- **Validated Himalayan ground-motion model:** Developed and tested a 3D spectral finite element model for realistic Himalayan topography and regional material structure.
+- **Topography versus zero-elevation comparison:** Designed a paired-station workflow to isolate the effect of topography by comparing motions at the actual topographic level with corresponding zero-elevation stations.
+- **Past-earthquake validation:** Simulated the 2005 Chamoli and 2009 Uttarkashi earthquakes and showed that synthetic motions at topographic stations compare well with recorded data.
+- **Large-earthquake scenario simulation:** Simulated a hypothetical Mw 8.5 earthquake in the central seismic gap using a finite-fault model with 340 km x 150 km rupture dimensions and 9.31 m maximum slip.
+- **Amplification ratio maps:** Computed spatial patterns of horizontal and vertical displacement and velocity amplification across 10,201 recording locations.
+- **Elevation-based regression relationships:** Derived best-fit equations relating amplification ratios to topographic elevation for future high-magnitude Himalayan earthquake scenarios.
+
+## Key Findings
+
+- Ignoring topography can underestimate peak ground motions in the Himalayan region.
+- For the 2005 Chamoli earthquake, maximum peak-velocity amplification reached 2.78, 2.4, and 1.7 in the east-west, north-south, and vertical components.
+- For the 2009 Uttarkashi earthquake, maximum peak-velocity amplification reached 1.77, 2.22, and 1.6 in the east-west, north-south, and vertical components.
+- For the hypothetical Mw 8.5 earthquake, maximum displacement amplification reached 1.86 horizontally and 1.81 vertically.
+- Velocity amplification was stronger than displacement amplification, reaching 3.22 horizontally and 3.72 vertically for the hypothetical event.
+- Higher amplification was observed near mountain peaks and near the junction of the Indo-Gangetic basin and the Himalayas.
+- Both displacement and velocity amplification showed a generally increasing trend with topographic elevation.
+
+## My Role
+
+I led the numerical modeling, validation, post-processing, amplification analysis, visualization, and original manuscript preparation for this study. I developed the computational workflow for integrating Himalayan topography and regional material properties into SPECFEM3D, compared simulated ground motions with observed records, and interpreted the topographic amplification patterns for earthquake engineering relevance.
+
+## Challenges and Lessons Learned
+
+A major challenge was representing a very large Himalayan region while preserving enough topographic detail to capture ridge and valley effects. The model required careful balance between digital elevation resolution, finite element mesh size, computational cost, and the minimum resolvable period of the simulations.
+
+Another challenge was separating true topographic amplification from source and path effects. The paired-station strategy, with one station at the actual topographic level and another at zero elevation, provided a controlled way to isolate the role of terrain in amplifying displacement and velocity.
+
+## Outcome and Research Continuity
+
+The work demonstrated that Himalayan topography can significantly amplify earthquake ground motions and that velocity amplification may be especially important for engineering interpretation. The study provides a validated numerical workflow and elevation-based amplification relationships that can support future seismic hazard assessment in high-relief regions.
+
+This project connects regional seismic wave simulation with practical earthquake-engineering needs, and complements later work on complex media, topographic site effects, rotational motion, and 6C ground-motion interpretation.
+
+## Citation
+
+Dhabu, A. C., & Raghukanth, S. T. G. (2021). Influence of Himalayan topography on earthquake ground motions. *Arabian Journal of Geosciences*, 14, 1931. https://doi.org/10.1007/s12517-021-08111-1
+
+## For More Information
+
+- [Published article in Arabian Journal of Geosciences](https://doi.org/10.1007/s12517-021-08111-1)

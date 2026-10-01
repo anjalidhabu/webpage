@@ -1,15 +1,21 @@
 .page {
-  --home-deep-ink: #17111f;
-  --home-plum: #251525;
-  --home-rose: #d7839d;
-  --home-blush: #f3bdca;
-  --home-pearl: #fff7fa;
-  --home-mauve: #b98ca2;
-  --home-teal: #75aeb4;
+  --home-ink: #102522;
+  --home-deep: #17352f;
+  --home-lagoon: #167f7a;
+  --home-seafoam: #8edbd1;
+  --home-copper: #c97843;
+  --home-amber: #efc36a;
+  --home-rose: #d9858f;
+  --home-clay: #9e5d52;
+  --home-paper: #fbfff9;
+  --home-mist: #e7f4ef;
+  --home-sage: #91aa9f;
+  --home-shadow: rgba(16, 37, 34, 0.18);
+  --home-border: color-mix(in srgb, var(--home-lagoon) 22%, var(--neutral-alpha-medium));
   width: min(1380px, 100%);
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
   padding: 1.5rem 0 4rem;
 }
 
@@ -19,8 +25,9 @@
 }
 
 .visitorMapSection {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .heroSection {
@@ -31,22 +38,17 @@
 
 .heroBackdrop {
   position: absolute;
-  inset: -2.5rem -2rem;
-  border-radius: 48px;
+  inset: -1.5rem -1.25rem;
+  border-radius: 18px;
   background: linear-gradient(
       90deg,
-      rgba(23, 17, 31, 0.72) 0%,
-      rgba(23, 17, 31, 0.34) 46%,
-      rgba(23, 17, 31, 0.12) 100%
-    ), radial-gradient(circle at 20% 20%, rgba(255, 247, 250, 0.1), transparent 22%),
-    radial-gradient(circle at top left, rgba(215, 131, 157, 0.26), transparent 30%),
-    radial-gradient(
-      circle at bottom right,
-      color-mix(in srgb, var(--home-teal) 24%, transparent),
-      transparent 35%
-    ), linear-gradient(135deg, var(--home-deep-ink) 0%, var(--home-plum) 46%, #18343a 100%);
-  box-shadow: 0 28px 90px rgba(25, 12, 23, 0.16);
-  filter: saturate(0.98);
+      rgba(16, 37, 34, 0.92) 0%,
+      rgba(16, 37, 34, 0.62) 50%,
+      rgba(16, 37, 34, 0.36) 100%
+    ), repeating-linear-gradient(90deg, rgba(142, 219, 209, 0.08) 0 1px, transparent 1px 88px),
+    repeating-linear-gradient(0deg, rgba(251, 255, 249, 0.045) 0 1px, transparent 1px 72px),
+    linear-gradient(135deg, var(--home-ink) 0%, var(--home-deep) 48%, #315c4b 100%);
+  box-shadow: 0 22px 60px color-mix(in srgb, var(--home-ink) 15%, transparent);
   pointer-events: none;
 }
 
@@ -54,40 +56,134 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.32fr) minmax(340px, 0.9fr);
-  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.82fr);
+  gap: 1rem;
   align-items: stretch;
 }
 
 .heroCopy,
 .profileCard,
 .storyCard,
-.timelineCard,
-.ctaCard,
-.capabilityCard {
-  border: 1px solid rgba(243, 189, 202, 0.14);
+.timelineCard {
+  border: 1px solid rgba(142, 219, 209, 0.18);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)),
-    radial-gradient(circle at top left, rgba(215, 131, 157, 0.16), transparent 45%);
+    linear-gradient(135deg, rgba(239, 195, 106, 0.1), rgba(142, 219, 209, 0.04));
   backdrop-filter: blur(18px);
-  box-shadow: 0 24px 80px rgba(25, 12, 23, 0.18);
+  box-shadow: 0 18px 50px color-mix(in srgb, var(--home-ink) 13%, transparent);
 }
 
 .heroCopy {
-  border-radius: 32px;
-  padding: 3.25rem;
+  border-radius: 8px;
+  padding: clamp(2rem, 4vw, 3rem);
   position: relative;
   overflow: hidden;
-  color: var(--home-pearl);
+  isolation: isolate;
+  color: var(--home-paper);
 }
 
-.heroCopy::before {
+.heroCopy > :not(.heroInstrument) {
+  position: relative;
+  z-index: 1;
+}
+
+.heroInstrument {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heroInstrument::before {
   content: "";
   position: absolute;
-  inset: auto -2rem -2rem auto;
-  width: 16rem;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(251, 255, 249, 0.06), transparent 38%),
+    repeating-linear-gradient(0deg, transparent 0 33px, rgba(142, 219, 209, 0.08) 34px);
+  opacity: 0.52;
+}
+
+.seismicTrace {
+  position: absolute;
+  left: -5%;
+  top: 7%;
+  width: 112%;
   height: 16rem;
-  background: radial-gradient(circle, rgba(243, 189, 202, 0.2), transparent 68%);
-  pointer-events: none;
+  opacity: 0.34;
+  animation: seismicDrift 18s ease-in-out infinite alternate;
+}
+
+.traceGlow,
+.traceLine {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.traceGlow {
+  stroke: rgba(239, 195, 106, 0.32);
+  stroke-width: 10;
+  filter: blur(10px);
+}
+
+.traceLine {
+  stroke: rgba(239, 195, 106, 0.74);
+  stroke-width: 2.5;
+}
+
+.layerBands {
+  position: absolute;
+  right: -5rem;
+  bottom: -2.5rem;
+  width: min(34rem, 72%);
+  height: 18rem;
+  transform: rotate(-7deg);
+}
+
+.layerBands span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(142, 219, 209, 0.4), transparent);
+}
+
+.layerBands span:nth-child(1) {
+  top: 28%;
+}
+
+.layerBands span:nth-child(2) {
+  top: 48%;
+  background: linear-gradient(90deg, transparent, rgba(217, 133, 143, 0.46), transparent);
+}
+
+.layerBands span:nth-child(3) {
+  top: 68%;
+}
+
+.epicenterRings {
+  position: absolute;
+  right: 8%;
+  top: 12%;
+  width: 9rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(142, 219, 209, 0.36);
+  box-shadow: 0 0 0 1.2rem rgba(142, 219, 209, 0.06), 0 0 0 2.8rem rgba(239, 195, 106, 0.045), 0 0 0
+    4.6rem rgba(217, 133, 143, 0.035);
+  opacity: 0.84;
+}
+
+.epicenterRings::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 0.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--home-amber);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 18px rgba(239, 195, 106, 0.42);
 }
 
 .eyebrow,
@@ -103,17 +199,41 @@
 
 .eyebrow,
 .profileLabel,
+.heroCopy .cardKicker {
+  color: var(--home-seafoam);
+}
+
 .cardKicker {
-  color: #efc3d0;
+  color: color-mix(in srgb, var(--home-lagoon) 68%, var(--neutral-on-background));
 }
 
 .sectionEyebrow {
-  color: color-mix(in srgb, var(--home-plum) 35%, var(--home-mauve));
+  color: color-mix(in srgb, var(--home-copper) 72%, var(--neutral-on-background));
+}
+
+.heroIdentity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.1rem;
+  color: rgba(251, 255, 249, 0.84);
+}
+
+.heroIdentity span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.3rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 255, 249, 0.16);
+  background: rgba(251, 255, 249, 0.08);
+  font-size: 0.88rem;
+  font-weight: 650;
 }
 
 .heroTitle {
   margin: 0;
-  font-size: clamp(2.8rem, 4.35vw, 5.15rem);
+  font-size: 4.7rem;
   line-height: 0.96;
   letter-spacing: 0;
   max-width: 17ch;
@@ -124,55 +244,119 @@
   max-width: 48rem;
   font-size: 1.08rem;
   line-height: 1.8;
-  color: rgba(255, 247, 250, 0.86);
+  color: rgba(251, 255, 249, 0.86);
 }
 
-.roleFitPanel {
-  margin-top: 1.25rem;
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.metricCard {
+  position: relative;
+  min-width: 0;
   padding: 1rem;
-  border-radius: 22px;
-  border: 1px solid rgba(243, 189, 202, 0.16);
-  background: linear-gradient(180deg, rgba(255, 247, 250, 0.1), rgba(255, 247, 250, 0.04));
+  border-radius: 8px;
+  border: 1px solid rgba(142, 219, 209, 0.22);
+  background: linear-gradient(180deg, rgba(251, 255, 249, 0.14), rgba(251, 255, 249, 0.06)),
+    linear-gradient(135deg, rgba(217, 133, 143, 0.08), transparent 62%);
+  box-shadow: inset 0 1px 0 rgba(251, 255, 249, 0.1);
 }
 
-.roleFitChips {
+.metricCard::before {
+  content: "";
+  position: absolute;
+  inset: 1rem auto 1rem 0;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--home-amber), var(--home-seafoam));
+}
+
+.metricCard strong {
+  display: block;
+  color: #fff8df;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.metricCard:nth-child(2) strong {
+  color: var(--home-seafoam);
+}
+
+.metricCard:nth-child(3) strong {
+  color: var(--home-rose);
+}
+
+.metricCard span {
+  display: block;
+  margin-top: 0.7rem;
+  color: #effefa;
+  font-size: 0.92rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.metricCard p {
+  margin: 0.5rem 0 0;
+  color: rgba(251, 255, 249, 0.7);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.heroCollaboration {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(142, 219, 209, 0.18);
+  max-width: 47rem;
+}
+
+.heroCollaboration .cardKicker {
+  margin-bottom: 0.8rem;
+}
+
+.heroCollaboration h2 {
+  margin: 0;
+  max-width: 18ch;
+  font-size: 2.05rem;
+  line-height: 1.06;
+  letter-spacing: 0;
+}
+
+.heroCollaboration > p:not(.cardKicker) {
+  margin: 0.9rem 0 0;
+  color: rgba(251, 255, 249, 0.78);
+  line-height: 1.7;
+}
+
+.themeRail {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.55rem;
+  margin-top: 1rem;
 }
 
-.roleFitChips span {
+.themeRail span {
   display: inline-flex;
   align-items: center;
-  min-height: 2.2rem;
-  padding: 0.38rem 0.82rem;
+  min-height: 2rem;
+  padding: 0.32rem 0.68rem;
   border-radius: 999px;
-  border: 1px solid rgba(243, 189, 202, 0.18);
-  color: #fff3f7;
-  background: rgba(255, 247, 250, 0.09);
-  font-size: 0.88rem;
+  border: 1px solid rgba(142, 219, 209, 0.22);
+  background: rgba(142, 219, 209, 0.1);
+  color: #effefa;
+  font-size: 0.86rem;
+  font-weight: 650;
 }
 
-.roleFitMeta {
-  margin: 0.7rem 0 0;
-  font-size: 0.9rem;
-  color: rgba(255, 247, 250, 0.72);
-}
-
-.proofChip,
-.skillCloud span,
-.ctaList span {
+.skillCloud span {
   display: inline-flex;
   align-items: center;
   min-height: 2.5rem;
   padding: 0.45rem 0.95rem;
   border-radius: 999px;
-  border: 1px solid rgba(243, 189, 202, 0.14);
-}
-
-.proofChip {
-  background: rgba(255, 247, 250, 0.08);
-  color: #fff3f7;
+  border: 1px solid rgba(142, 219, 209, 0.18);
 }
 
 .heroActions {
@@ -180,62 +364,6 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
-}
-
-.impactPanel {
-  margin-top: 1.75rem;
-  padding: 1.25rem;
-  border-radius: 28px;
-  border: 1px solid rgba(243, 189, 202, 0.14);
-  background: linear-gradient(180deg, rgba(255, 247, 250, 0.09), rgba(255, 247, 250, 0.04)),
-    radial-gradient(circle at top left, rgba(215, 131, 157, 0.16), transparent 45%);
-}
-
-.impactHeader {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: end;
-}
-
-.impactHeader span {
-  color: rgba(255, 247, 250, 0.7);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.impactGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-  margin-top: 1rem;
-}
-
-.impactCard {
-  border-radius: 22px;
-  padding: 1rem;
-  background: rgba(30, 17, 30, 0.28);
-  border: 1px solid rgba(243, 189, 202, 0.12);
-}
-
-.impactCard strong {
-  display: block;
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--home-pearl);
-}
-
-.impactCard h3 {
-  margin: 0.7rem 0 0;
-  font-size: 1rem;
-  color: #fff3f7;
-}
-
-.impactCard p {
-  margin: 0.55rem 0 0;
-  color: rgba(255, 247, 250, 0.76);
-  line-height: 1.6;
-  font-size: 0.95rem;
 }
 
 .primaryButton,
@@ -259,24 +387,29 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, #d7839d, #f3bdca);
-  color: #24111c;
+  background: linear-gradient(135deg, var(--home-copper), var(--home-amber));
+  color: #201611;
 }
 
 .secondaryButton {
-  border: 1px solid rgba(243, 189, 202, 0.24);
-  color: #fff3f7;
-  background: rgba(255, 247, 250, 0.08);
+  border: 1px solid rgba(239, 195, 106, 0.48);
+  color: var(--home-ink);
+  background: linear-gradient(135deg, rgba(251, 255, 249, 0.96), rgba(142, 219, 209, 0.86));
+  box-shadow: 0 10px 24px rgba(16, 37, 34, 0.18);
+}
+
+.secondaryButton:visited {
+  color: var(--home-ink);
 }
 
 .workButton {
-  box-shadow: 0 14px 30px rgba(215, 131, 157, 0.26);
+  box-shadow: 0 14px 30px rgba(201, 120, 67, 0.28);
 }
 
 .cvButton {
-  background: rgba(243, 189, 202, 0.14);
-  border-color: rgba(243, 189, 202, 0.3);
-  color: #ffe5ec;
+  background: linear-gradient(135deg, rgba(251, 255, 249, 0.98), rgba(142, 219, 209, 0.88));
+  border-color: rgba(239, 195, 106, 0.5);
+  color: var(--home-ink);
 }
 
 .primaryButton:hover,
@@ -287,12 +420,13 @@
 }
 
 .workButton:hover {
-  background: linear-gradient(135deg, #e191a9, #f7cbd4);
+  background: linear-gradient(135deg, #d9874d, #f4cf80);
 }
 
 .cvButton:hover {
-  background: rgba(243, 189, 202, 0.22);
-  border-color: rgba(243, 189, 202, 0.42);
+  background: linear-gradient(135deg, #ffffff, #b5eee6);
+  border-color: rgba(239, 195, 106, 0.75);
+  color: var(--home-ink);
 }
 
 .profilePanel {
@@ -302,7 +436,7 @@
 }
 
 .profileCard {
-  border-radius: 32px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -318,13 +452,13 @@
 .imageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(23, 17, 31, 0.02) 0%, rgba(23, 17, 31, 0.45) 100%),
-    linear-gradient(90deg, rgba(23, 17, 31, 0.2) 0%, rgba(23, 17, 31, 0) 55%);
+  background: linear-gradient(180deg, rgba(16, 37, 34, 0.02) 0%, rgba(16, 37, 34, 0.48) 100%),
+    linear-gradient(90deg, rgba(16, 37, 34, 0.22) 0%, rgba(16, 37, 34, 0) 55%);
 }
 
 .profileBody {
   padding: 1.5rem;
-  color: var(--home-pearl);
+  color: var(--home-paper);
 }
 
 .profileBody h2 {
@@ -335,7 +469,7 @@
 
 .profileSummary {
   margin: 0.95rem 0 0;
-  color: #e3ced7;
+  color: #cde3dc;
   line-height: 1.7;
 }
 
@@ -358,11 +492,10 @@
   gap: 0.75rem;
 }
 
-.skillCloud span,
-.ctaList span {
-  background: color-mix(in srgb, var(--home-blush) 12%, var(--surface-background));
-  border-color: color-mix(in srgb, var(--home-rose) 30%, var(--neutral-alpha-medium));
-  color: color-mix(in srgb, var(--home-plum) 22%, var(--neutral-on-background));
+.skillCloud span {
+  background: color-mix(in srgb, var(--home-mist) 34%, var(--surface-background));
+  border-color: color-mix(in srgb, var(--home-lagoon) 26%, var(--neutral-alpha-medium));
+  color: color-mix(in srgb, var(--home-ink) 28%, var(--neutral-on-background));
 }
 
 .section {
@@ -372,7 +505,35 @@
 }
 
 .logoSection {
+  position: relative;
   gap: 1rem;
+}
+
+.logoSection::before {
+  content: "";
+  position: absolute;
+  inset: -0.5rem 0 auto;
+  height: 10rem;
+  background: linear-gradient(90deg, transparent, rgba(142, 219, 209, 0.08), transparent),
+    repeating-linear-gradient(
+      115deg,
+      transparent 0 4.4rem,
+      rgba(201, 120, 67, 0.09) 4.45rem 4.5rem,
+      transparent 4.55rem 9rem
+    );
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.logoSection > * {
+  position: relative;
+}
+
+.networkHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.28fr);
+  gap: 1rem;
+  align-items: center;
 }
 
 .logoIntro {
@@ -382,15 +543,153 @@
 
 .logoIntro h2 {
   margin: 0;
-  font-size: clamp(1.8rem, 2.6vw, 2.8rem);
+  font-size: 2.35rem;
   line-height: 1.06;
   letter-spacing: 0;
 }
 
+.logoIntroText {
+  max-width: 43rem;
+  margin: 1rem 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.networkSignal {
+  position: relative;
+  min-height: 11rem;
+  display: grid;
+  place-items: center;
+}
+
+.networkSignal span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 11rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--home-lagoon) 28%, transparent);
+}
+
+.networkSignal span:nth-child(2) {
+  width: 72%;
+  border-color: color-mix(in srgb, var(--home-copper) 28%, transparent);
+}
+
+.networkSignal span:nth-child(3) {
+  width: 42%;
+  border-color: color-mix(in srgb, var(--home-rose) 30%, transparent);
+}
+
+.networkSignalBadge {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 6.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #ffffff;
+  border: 1px solid rgba(251, 255, 249, 0.34);
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--home-ink) 18%, transparent);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.networkSignalLogo {
+  display: block;
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+}
+
+.networkSignalBadge:visited {
+  color: #ffffff;
+}
+
+.networkSignalBadge:hover,
+.networkSignalBadge:focus-visible {
+  color: #ffffff;
+  transform: translateY(-2px);
+  border-color: rgba(251, 255, 249, 0.62);
+  box-shadow: 0 20px 42px color-mix(in srgb, var(--home-ink) 24%, transparent);
+  outline: none;
+}
+
+.networkStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0 1rem;
+}
+
+.networkStats span {
+  min-width: 0;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.95rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--home-border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--home-mist) 26%, var(--surface-background)),
+    color-mix(in srgb, var(--page-background) 96%, transparent)
+  );
+  color: var(--neutral-on-background-weak);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.networkStats strong {
+  color: color-mix(in srgb, var(--home-lagoon) 68%, var(--neutral-on-background));
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
 .logoGrid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.8rem;
+}
+
+.logoGrid::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem 2rem;
+  background: linear-gradient(
+      90deg,
+      transparent 0 8%,
+      color-mix(in srgb, var(--home-lagoon) 16%, transparent) 8.2% 8.4%,
+      transparent 8.6% 100%
+    ),
+    linear-gradient(
+      15deg,
+      transparent 0 18%,
+      color-mix(in srgb, var(--home-copper) 12%, transparent) 18.2% 18.35%,
+      transparent 18.55% 100%
+    ),
+    linear-gradient(
+      155deg,
+      transparent 0 32%,
+      color-mix(in srgb, var(--home-lagoon) 12%, transparent) 32.2% 32.35%,
+      transparent 32.55% 100%
+    );
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.logoGrid > * {
+  position: relative;
+  z-index: 1;
 }
 
 .logoCard {
@@ -401,26 +700,21 @@
   justify-content: space-between;
   gap: 0.9rem;
   padding: 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--home-rose) 22%, var(--neutral-alpha-medium));
+  border: 1px solid var(--home-border);
   border-radius: 8px;
   background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--home-blush) 10%, var(--surface-background)),
+      color-mix(in srgb, var(--home-mist) 28%, var(--surface-background)),
       color-mix(in srgb, var(--page-background) 96%, transparent)
-    ),
-    radial-gradient(
-      circle at top left,
-      color-mix(in srgb, var(--home-rose) 16%, transparent),
-      transparent 42%
-    );
-  box-shadow: 0 18px 48px color-mix(in srgb, var(--home-plum) 10%, transparent);
+    ), linear-gradient(135deg, color-mix(in srgb, var(--home-amber) 8%, transparent), transparent);
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--home-ink) 10%, transparent);
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .logoCard:hover {
   transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--home-rose) 42%, transparent);
-  box-shadow: 0 24px 58px color-mix(in srgb, var(--home-plum) 14%, transparent);
+  border-color: color-mix(in srgb, var(--home-lagoon) 45%, transparent);
+  box-shadow: 0 24px 58px color-mix(in srgb, var(--home-ink) 14%, transparent);
 }
 
 .logoMark {
@@ -429,12 +723,12 @@
   align-items: center;
   justify-content: center;
   padding: 0.8rem;
-  border: 1px solid color-mix(in srgb, white 70%, var(--home-blush));
+  border: 1px solid color-mix(in srgb, white 72%, var(--home-mist));
   border-radius: 8px;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, white 96%, var(--home-blush)),
-    color-mix(in srgb, white 90%, var(--home-blush))
+    color-mix(in srgb, white 95%, var(--home-mist)),
+    color-mix(in srgb, white 86%, var(--home-mist))
   );
   box-shadow: inset 0 0 0 1px color-mix(in srgb, white 64%, transparent);
 }
@@ -461,7 +755,7 @@
 }
 
 .logoMeta span {
-  color: color-mix(in srgb, var(--home-rose) 46%, var(--neutral-on-background-weak));
+  color: color-mix(in srgb, var(--home-copper) 58%, var(--neutral-on-background-weak));
   font-size: 0.78rem;
   font-weight: 750;
   text-transform: uppercase;
@@ -476,20 +770,15 @@
 
 .signalCard,
 .snapshotCard {
-  border-radius: 28px;
+  border-radius: 8px;
   padding: 1.5rem;
-  border: 1px solid color-mix(in srgb, var(--home-rose) 22%, var(--neutral-alpha-medium));
+  border: 1px solid var(--home-border);
   background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--home-blush) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--home-mist) 24%, var(--surface-background)),
       color-mix(in srgb, var(--page-background) 96%, transparent)
-    ),
-    radial-gradient(
-      circle at top left,
-      color-mix(in srgb, var(--home-rose) 18%, transparent),
-      transparent 45%
-    );
-  box-shadow: 0 24px 80px color-mix(in srgb, var(--home-plum) 12%, transparent);
+    ), linear-gradient(135deg, color-mix(in srgb, var(--home-amber) 8%, transparent), transparent);
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--home-ink) 12%, transparent);
 }
 
 .signalCard {
@@ -515,16 +804,14 @@
 
 .sectionIntro h2,
 .sectionHeader h2,
-.timelineCard h2,
-.ctaCard h2 {
+.timelineCard h2 {
   margin: 0;
-  font-size: clamp(2rem, 3vw, 3.2rem);
+  font-size: 2.75rem;
   line-height: 1.02;
   letter-spacing: 0;
 }
 
 .sectionIntro p:last-child,
-.ctaCard p,
 .timelineItem p {
   margin-top: 1rem;
   font-size: 1.02rem;
@@ -532,38 +819,9 @@
   color: var(--neutral-on-background-weak);
 }
 
-.capabilityGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.capabilityCard {
-  border-radius: 28px;
-  padding: 1.6rem;
-  background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--home-blush) 8%, var(--surface-background)),
-      color-mix(in srgb, var(--page-background) 96%, transparent)
-    ),
-    radial-gradient(
-      circle at top left,
-      color-mix(in srgb, var(--home-rose) 18%, transparent),
-      transparent 45%
-    );
-  box-shadow: 0 24px 80px color-mix(in srgb, var(--home-plum) 12%, transparent);
-}
-
-.capabilityCard h3,
 .timelineItem h3 {
   margin: 0;
   font-size: 1.25rem;
-}
-
-.capabilityCard p {
-  margin: 0.85rem 0 0;
-  line-height: 1.7;
-  color: var(--neutral-on-background-weak);
 }
 
 .splitSection {
@@ -573,22 +831,16 @@
 }
 
 .timelineCard,
-.ctaCard,
 .storyCard {
-  border-radius: 32px;
+  border-radius: 8px;
   padding: 2rem;
-  border: 1px solid color-mix(in srgb, var(--home-rose) 22%, var(--neutral-alpha-medium));
+  border: 1px solid var(--home-border);
   background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--home-blush) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--home-mist) 24%, var(--surface-background)),
       color-mix(in srgb, var(--page-background) 96%, transparent)
-    ),
-    radial-gradient(
-      circle at top left,
-      color-mix(in srgb, var(--home-rose) 18%, transparent),
-      transparent 45%
-    );
-  box-shadow: 0 24px 80px color-mix(in srgb, var(--home-plum) 12%, transparent);
+    ), linear-gradient(135deg, color-mix(in srgb, var(--home-amber) 8%, transparent), transparent);
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--home-ink) 12%, transparent);
 }
 
 .timelineList {
@@ -600,7 +852,7 @@
 
 .timelineItem {
   padding-top: 1rem;
-  border-top: 1px solid color-mix(in srgb, var(--home-rose) 20%, var(--neutral-alpha-medium));
+  border-top: 1px solid color-mix(in srgb, var(--home-lagoon) 20%, var(--neutral-alpha-medium));
 }
 
 .timelineItem:first-child {
@@ -614,19 +866,12 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--home-rose) 38%, var(--neutral-on-background-weak));
+  color: color-mix(in srgb, var(--home-copper) 48%, var(--neutral-on-background-weak));
   margin-bottom: 0.65rem;
 }
 
 .timelineItem p {
   margin-bottom: 0;
-}
-
-.ctaList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
 }
 
 .caseStudyList {
@@ -652,10 +897,14 @@
   min-height: 2.8rem;
   padding: 0 1rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--home-rose) 28%, var(--neutral-alpha-medium));
-  color: color-mix(in srgb, var(--home-plum) 22%, var(--neutral-on-background));
-  background: color-mix(in srgb, var(--home-blush) 12%, var(--surface-background));
+  border: 1px solid color-mix(in srgb, var(--home-lagoon) 28%, var(--neutral-alpha-medium));
+  color: color-mix(in srgb, var(--home-ink) 24%, var(--neutral-on-background));
+  background: color-mix(in srgb, var(--home-mist) 28%, var(--surface-background));
   white-space: nowrap;
+}
+
+.testimonialSection {
+  overflow: hidden;
 }
 
 .testimonialMarquee {
@@ -673,22 +922,35 @@
 }
 
 .testimonialCard {
-  width: min(26rem, 84vw);
+  position: relative;
+  width: min(27rem, 84vw);
+  min-height: 17rem;
   display: grid;
+  align-content: start;
   gap: 0.8rem;
-  padding: 1.25rem;
-  border-radius: 24px;
-  border: 1px solid color-mix(in srgb, var(--home-rose) 22%, var(--neutral-alpha-medium));
+  padding: 1.35rem;
+  border-radius: 8px;
+  border: 1px solid var(--home-border);
   background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--home-blush) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--home-mist) 28%, var(--surface-background)),
       color-mix(in srgb, var(--page-background) 96%, transparent)
     ),
-    radial-gradient(
-      circle at top left,
-      color-mix(in srgb, var(--home-rose) 16%, transparent),
-      transparent 48%
-    );
+    linear-gradient(135deg, color-mix(in srgb, var(--home-amber) 9%, transparent), transparent 64%);
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--home-ink) 10%, transparent);
+}
+
+.testimonialCard::before {
+  content: "Reference";
+  width: fit-content;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--home-lagoon) 24%, transparent);
+  background: color-mix(in srgb, var(--home-seafoam) 12%, transparent);
+  color: color-mix(in srgb, var(--home-lagoon) 70%, var(--neutral-on-background));
+  font-size: 0.72rem;
+  font-weight: 750;
+  text-transform: uppercase;
 }
 
 .testimonialCard p {
@@ -698,7 +960,9 @@
 }
 
 .testimonialCard strong {
-  font-size: 0.96rem;
+  margin-top: auto;
+  color: var(--neutral-on-background);
+  font-size: 0.98rem;
   line-height: 1.2;
 }
 
@@ -709,16 +973,33 @@
 
 .testimonialLink {
   width: fit-content;
+  min-height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.2rem;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--home-lagoon) 32%, transparent);
+  background: color-mix(in srgb, var(--home-mist) 32%, var(--surface-background));
+  color: color-mix(in srgb, var(--home-lagoon) 70%, var(--neutral-on-background));
   font-size: 0.86rem;
-  color: color-mix(in srgb, var(--home-rose) 68%, var(--neutral-on-background));
+  font-weight: 650;
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--home-rose) 38%, transparent);
-  padding-bottom: 0.1rem;
 }
 
 .testimonialLink:hover {
   color: var(--neutral-on-background);
-  border-bottom-color: color-mix(in srgb, var(--neutral-on-background) 55%, transparent);
+  border-color: color-mix(in srgb, var(--home-lagoon) 50%, transparent);
+  background: color-mix(in srgb, var(--home-mist) 48%, var(--surface-background));
+}
+
+@keyframes seismicDrift {
+  from {
+    transform: translateX(-1.5rem);
+  }
+  to {
+    transform: translateX(1.5rem);
+  }
 }
 
 @keyframes testimonialScroll {
@@ -733,7 +1014,6 @@
 @media (max-width: 960px) {
   .heroGrid,
   .splitSection,
-  .capabilityGrid,
   .signalStrip,
   .snapshotGrid {
     grid-template-columns: 1fr;
@@ -741,6 +1021,25 @@
 
   .logoGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .metricGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .networkHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .networkSignal {
+    min-height: 8rem;
+    max-width: 14rem;
+    justify-self: start;
+  }
+
+  .epicenterRings {
+    right: 4%;
+    opacity: 0.56;
   }
 
   .profilePanel {
@@ -751,29 +1050,16 @@
     order: 2;
   }
 
-  .impactGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .roleGrid {
-    grid-template-columns: 1fr;
-  }
-
   .heroCopy {
     padding: 2rem;
   }
 
   .heroBackdrop {
-    inset: -1.25rem -0.5rem;
-    border-radius: 36px;
+    inset: -1rem -0.5rem;
+    border-radius: 12px;
   }
 
   .sectionHeader {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .impactHeader {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -810,14 +1096,36 @@
   .heroCopy,
   .profileCard,
   .timelineCard,
-  .ctaCard,
-  .storyCard,
-  .capabilityCard {
-    border-radius: 24px;
+  .storyCard {
+    border-radius: 8px;
   }
 
   .heroTitle {
-    font-size: clamp(2.4rem, 14vw, 4rem);
+    font-size: 2.9rem;
+  }
+
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metricCard {
+    padding: 0.95rem;
+  }
+
+  .heroCollaboration h2,
+  .logoIntro h2 {
+    font-size: 1.65rem;
+  }
+
+  .seismicTrace {
+    top: 2%;
+    opacity: 0.22;
+  }
+
+  .epicenterRings {
+    width: 6.5rem;
+    right: -1rem;
+    top: 5rem;
   }
 
   .statsGrid {
@@ -830,11 +1138,28 @@
 
   .sectionIntro,
   .sectionHeader,
-  .logoIntro {
+  .logoIntro,
+  .visitorMapSection {
     padding: 0 0.25rem;
   }
 
   .logoGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .networkStats {
+    grid-template-columns: 1fr;
+    padding: 0 0.25rem;
+  }
+
+  .networkSignal {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seismicTrace,
+  .testimonialTrack {
+    animation: none;
   }
 }

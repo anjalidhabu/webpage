@@ -433,6 +433,10 @@ function rememberRecordedVisit() {
   }
 }
 
+function pluralize(count: number, singular: string, plural = `${singular}s`) {
+  return count === 1 ? singular : plural;
+}
+
 export function VisitorLocationMap() {
   const [locations, setLocations] = useState<VisitorCity[]>([]);
   const [hasError, setHasError] = useState(false);
@@ -498,6 +502,30 @@ export function VisitorLocationMap() {
     () => locations.reduce((sum, location) => sum + location.visit_count, 0),
     [locations],
   );
+
+  const countryTotal = useMemo(
+    () => new Set(locations.map((location) => location.country)).size,
+    [locations],
+  );
+
+  const mapStatus = hasError
+    ? "Paused"
+    : hasVisitorStorage
+      ? totalVisits > 0
+        ? "Live"
+        : "Waiting"
+      : "Preview";
+
+  const visitorSummary = totalVisits > 0
+    ? `${totalVisits} ${pluralize(totalVisits, "visit")} from ${locations.length} ${pluralize(locations.length, "place")}`
+    : "Live city and country counts will appear here.";
+
+  const visitorStats = [
+    { label: "Visits", value: String(totalVisits) },
+    { label: "Cities", value: String(locations.length) },
+    { label: "Countries", value: String(countryTotal) },
+    { label: "Status", value: mapStatus },
+  ];
 
   const handleZoomIn = () => {
     mapInstanceRef.current?.zoomIn();
@@ -604,25 +632,35 @@ export function VisitorLocationMap() {
   const topLocations = locations.slice(0, 6);
 
   return (
-    <Column className={styles.locationMap} gap="16" fillWidth>
+    <Column className={styles.locationMap} gap="20" fillWidth>
       <Row
         className={styles.locationHeader}
         fillWidth
         horizontal="between"
-        vertical="center"
-        gap="12"
+        vertical="end"
+        gap="16"
         s={{ direction: "column", horizontal: "start", vertical: "start" }}
       >
-        <Column gap="2">
+        <Column className={styles.locationIntro} gap="4">
           <Text variant="label-default-s" onBackground="neutral-weak">
             Visitor map
           </Text>
-          <Text variant="body-default-s" onBackground="neutral-strong">
-            {totalVisits > 0
-              ? `${totalVisits} visits from ${locations.length} places`
-              : "Recent visitor cities and countries"}
+          <Text variant="body-strong-m" onBackground="neutral-strong">
+            Anonymous city-level reach around the world
+          </Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            {visitorSummary}
           </Text>
         </Column>
+
+        <div className={styles.locationStats} aria-label="Visitor map summary">
+          {visitorStats.map((stat) => (
+            <div key={stat.label} className={styles.locationStat}>
+              <span>{stat.label}</span>
+              <strong>{stat.value}</strong>
+            </div>
+          ))}
+        </div>
       </Row>
 
       <div className={styles.locationMapFrame}>
@@ -647,21 +685,36 @@ export function VisitorLocationMap() {
             -
           </button>
         </div>
-        {!isMapReady && <div className={styles.locationMapFallback} aria-hidden="true" />}
+        {!isMapReady && (
+          <div className={styles.locationMapFallback} role="status" aria-live="polite">
+            <span>{hasError ? "Map temporarily unavailable" : "Loading global map"}</span>
+          </div>
+        )}
       </div>
 
-      <div className={styles.locationList}>
-        {topLocations.map((location) => (
-          <div key={`${location.city}-${location.country}`} className={styles.locationItem}>
+      <div className={styles.locationList} aria-label="Top visitor locations">
+        {topLocations.length > 0 ? (
+          topLocations.map((location) => (
+            <div key={`${location.city}-${location.country}`} className={styles.locationItem}>
+              <Text variant="label-default-s" onBackground="neutral-strong">
+                {location.city}
+              </Text>
+              <Text variant="body-default-xs" onBackground="neutral-weak">
+                {location.country} · {location.visit_count} visit
+                {location.visit_count === 1 ? "" : "s"}
+              </Text>
+            </div>
+          ))
+        ) : (
+          <div className={`${styles.locationItem} ${styles.locationEmpty}`}>
             <Text variant="label-default-s" onBackground="neutral-strong">
-              {location.city}
+              New visitor cities will appear here.
             </Text>
             <Text variant="body-default-xs" onBackground="neutral-weak">
-              {location.country} · {location.visit_count} visit
-              {location.visit_count === 1 ? "" : "s"}
+              The map stores anonymous city and country counts only.
             </Text>
           </div>
-        ))}
+        )}
       </div>
     </Column>
   );

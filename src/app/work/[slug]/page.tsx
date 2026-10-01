@@ -1,15 +1,12 @@
-import { CustomMDX, ProjectBadgeStrip, ScrollToHash } from "@/components";
+import { CustomMDX, ProjectBadgeStrip, ProjectThemeReturnLink, ScrollToHash } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { about, baseURL, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { withBasePath } from "@/utils/paths";
 import { getPosts } from "@/utils/utils";
 import {
-  Avatar,
   AvatarGroup,
-  Button,
   Column,
-  Flex,
   Heading,
   Line,
   Media,
@@ -20,15 +17,37 @@ import {
   Text,
 } from "@once-ui-system/core";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { associatedWorkSections, getResearchThemeLinksForProject } from "../data";
 
 export const dynamicParams = false;
+const hersProjectSlug = "hers_heterogeneities_rotational_seismology";
+const legacyProjectRedirects: Record<string, string> = {
+  Planetory_Seismology1: "/work/mars_seismicity?theme=planetary-seismology",
+};
+
+function getSlugPath(slug: string | string[]) {
+  const slugPath = Array.isArray(slug) ? slug.join("/") : slug || "";
+
+  return decodeURIComponent(slugPath);
+}
+
+function getRelatedProjectSlugs(projectSlug: string, themeIds: string[]) {
+  const relatedSlugs = themeIds.flatMap(
+    (themeId) =>
+      associatedWorkSections.find((section) => section.id === themeId)?.projectSlugs || [],
+  );
+
+  return Array.from(new Set(relatedSlugs)).filter((slug) => slug !== projectSlug);
+}
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts
+    .filter((post) => post.slug !== hersProjectSlug)
+    .map((post) => ({
+      slug: post.slug,
+    }));
 }
 
 export async function generateMetadata({
@@ -37,9 +56,18 @@ export async function generateMetadata({
   params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const slugPath = getSlugPath(routeParams.slug);
+
+  if (legacyProjectRedirects[slugPath]) {
+    return Meta.generate({
+      title: "Recent Seismicity in Valles Marineris, Mars",
+      description:
+        "Planetary seismology project on recent seismicity in Valles Marineris, Mars.",
+      baseURL: baseURL,
+      image: "/images/projects/Planetory_Seismology02.png",
+      path: `${work.path}/mars_seismicity`,
+    });
+  }
 
   const posts = getPosts(["src", "app", "work", "projects"]);
   const post = posts.find((post) => post.slug === slugPath);
@@ -67,9 +95,15 @@ export default async function Project({
   params: Promise<{ slug: string | string[] }>;
 }) {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const slugPath = getSlugPath(routeParams.slug);
+
+  if (slugPath === hersProjectSlug) {
+    redirect("/hers");
+  }
+
+  if (legacyProjectRedirects[slugPath]) {
+    redirect(legacyProjectRedirects[slugPath]);
+  }
 
   const post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
 
@@ -97,6 +131,10 @@ export default async function Project({
     post.metadata.images[0] ||
     "/images/og/anjali-research-preview.png";
   const heroImage = post.metadata.heroImage || post.metadata.images[0];
+  const themeLinks = getResearchThemeLinksForProject(post.slug);
+  const relatedThemeIds = themeLinks.map((theme) => theme.id);
+  const relatedThemeId = relatedThemeIds.length === 1 ? relatedThemeIds[0] : undefined;
+  const relatedProjectSlugs = getRelatedProjectSlugs(post.slug, relatedThemeIds);
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
@@ -144,6 +182,7 @@ export default async function Project({
           scale={post.metadata.scale}
           techStack={post.metadata.techStack || []}
         />
+        <ProjectThemeReturnLink themes={themeLinks} />
       </Column>
       <Row marginBottom="32" horizontal="center">
         <Row gap="16" vertical="center">
@@ -174,13 +213,15 @@ export default async function Project({
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={post.content} />
       </Column>
-      <Column fillWidth gap="40" horizontal="center" marginTop="40">
-        <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          Related projects
-        </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
-      </Column>
+      {relatedProjectSlugs.length > 0 && (
+        <Column fillWidth gap="40" horizontal="center" marginTop="40">
+          <Line maxWidth="40" />
+          <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
+            Related projects
+          </Heading>
+          <Projects slugs={relatedProjectSlugs} themeId={relatedThemeId} />
+        </Column>
+      )}
       <ScrollToHash />
     </Column>
   );

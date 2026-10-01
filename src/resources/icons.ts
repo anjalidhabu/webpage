@@ -2,11 +2,13 @@ import type { IconType } from "react-icons";
 
 import {
   HiArrowDownTray,
+  HiArrowLeft,
   HiArrowRight,
   HiArrowTopRightOnSquare,
   HiArrowUpRight,
   HiCalendarDays,
   HiEnvelope,
+  HiOutlineBuildingLibrary,
   HiOutlineDocument,
   HiOutlineEye,
   HiOutlineEyeSlash,
@@ -24,7 +26,14 @@ import {
   PiUserCircleDuotone,
 } from "react-icons/pi";
 
-import { SiFigma, SiJavascript, SiNextdotjs, SiSupabase } from "react-icons/si";
+import {
+  SiFigma,
+  SiGooglescholar,
+  SiJavascript,
+  SiNextdotjs,
+  SiOrcid,
+  SiSupabase,
+} from "react-icons/si";
 
 import {
   FaDiscord,
@@ -42,11 +51,13 @@ import {
 } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
+  arrowLeft: HiArrowLeft,
   arrowUpRight: HiArrowUpRight,
   arrowRight: HiArrowRight,
   download: HiArrowDownTray,
   email: HiEnvelope,
   globe: HiOutlineGlobeAsiaAustralia,
+  university: HiOutlineBuildingLibrary,
   person: PiUserCircleDuotone,
   grid: PiGridFourDuotone,
   book: PiBookBookmarkDuotone,
@@ -70,6 +81,8 @@ export const iconLibrary: Record<string, IconType> = {
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
   figma: SiFigma,
+  googleScholar: SiGooglescholar,
+  orcid: SiOrcid,
   facebook: FaFacebook,
   pinterest: FaPinterest,
   whatsapp: FaWhatsapp,

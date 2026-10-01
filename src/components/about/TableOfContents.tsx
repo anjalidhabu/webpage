@@ -1,6 +1,7 @@
 "use client";
 
 import { Column, Flex, Text } from "@once-ui-system/core";
+import { useRouter } from "next/navigation";
 import type React from "react";
 import styles from "./about.module.scss";
 
@@ -20,6 +21,8 @@ interface TableOfContentsProps {
 }
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) => {
+  const router = useRouter();
+
   const scrollTo = (id: string, offset: number) => {
     const element = document.getElementById(id);
     if (element) {
@@ -30,6 +33,22 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
         top: offsetPosition,
         behavior: "smooth",
       });
+    }
+  };
+
+  const navigateTo = (href: string) => {
+    if (href.startsWith("/")) {
+      router.push(href);
+      return;
+    }
+
+    window.location.assign(href);
+  };
+
+  const activateOnKeyboard = (event: React.KeyboardEvent, action: () => void) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      action();
     }
   };
 
@@ -56,14 +75,25 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
               cursor="interactive"
               className={styles.hover}
               gap="8"
+              role="button"
+              tabIndex={0}
               vertical="center"
               onClick={() => {
                 if (section.href) {
-                  window.location.href = section.href;
+                  navigateTo(section.href);
                   return;
                 }
                 scrollTo(section.title, 80);
               }}
+              onKeyDown={(event) =>
+                activateOnKeyboard(event, () => {
+                  if (section.href) {
+                    navigateTo(section.href);
+                    return;
+                  }
+                  scrollTo(section.title, 80);
+                })
+              }
             >
               <Flex height="1" minWidth="16" background="neutral-strong"></Flex>
               <Text>{section.title}</Text>
@@ -78,8 +108,11 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                     className={styles.hover}
                     gap="12"
                     paddingLeft="24"
+                    role="button"
+                    tabIndex={0}
                     vertical="center"
                     onClick={() => scrollTo(item, 80)}
+                    onKeyDown={(event) => activateOnKeyboard(event, () => scrollTo(item, 80))}
                   >
                     <Flex height="1" minWidth="8" background="neutral-strong"></Flex>
                     <Text>{item}</Text>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { awards as awardsPage } from "@/app/awards/content";
 import { publications } from "@/app/publications/content";
 import { teaching } from "@/app/teaching/content";
@@ -33,6 +34,7 @@ export async function generateMetadata() {
 }
 
 export default function About() {
+  const displayLocation = person.displayLocation ?? person.location;
   const structure = [
     {
       title: about.intro.title,
@@ -77,7 +79,7 @@ export default function About() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="m" className={styles.aboutPage}>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -91,18 +93,7 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          s={{ hide: true }}
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
+      {about.tableOfContent.display && <TableOfContents structure={structure} about={about} />}
       <Row fillWidth s={{ direction: "column" }} horizontal="center">
         {(about.avatar.display || about.strengths.display || about.studies.display) && (
           <Column
@@ -122,7 +113,7 @@ export default function About() {
             {about.avatar.display && <Avatar src={withBasePath(person.avatar)} size="xl" />}
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
+              {displayLocation}
             </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
@@ -132,20 +123,6 @@ export default function About() {
                   </Tag>
                 ))}
               </Row>
-            )}
-            {person.hardSkills && person.hardSkills.length > 0 && (
-              <Column fillWidth gap="8">
-                <Text variant="label-default-s" onBackground="neutral-weak">
-                  Toolkit:
-                </Text>
-                <Row wrap gap="8">
-                  {person.hardSkills.map((skill) => (
-                    <Tag key={skill} size="l">
-                      {skill}
-                    </Tag>
-                  ))}
-                </Row>
-              </Column>
             )}
             {about.strengths.display && about.strengths.items.length > 0 && (
               <Column fillWidth gap="12">
@@ -161,6 +138,20 @@ export default function About() {
                 </Column>
               </Column>
             )}
+            {person.hardSkills && person.hardSkills.length > 0 && (
+              <Column fillWidth gap="8">
+                <Text variant="label-default-s" onBackground="neutral-weak">
+                  Toolkit:
+                </Text>
+                <Row wrap gap="8">
+                  {person.hardSkills.map((skill) => (
+                    <Tag key={skill} size="l">
+                      {skill}
+                    </Tag>
+                  ))}
+                </Row>
+              </Column>
+            )}
             {about.studies.display && (
               <Column fillWidth gap="12">
                 <Heading as="h2" id={about.studies.title} variant="heading-strong-l">
@@ -168,23 +159,37 @@ export default function About() {
                 </Heading>
                 <Column fillWidth gap="m">
                   {about.studies.institutions.map((institution) => (
-                    <Column key={institution.name} fillWidth gap="4">
-                      <Text id={institution.name} variant="body-strong-m">
-                        {institution.name}
-                      </Text>
-                      <Text variant="body-default-s" onBackground="neutral-weak">
-                        {institution.description}
-                      </Text>
-                    </Column>
+                    <Row key={institution.name} fillWidth gap="12" vertical="start">
+                      {institution.logo && (
+                        <div className={styles.institutionLogo}>
+                          <Image
+                            src={withBasePath(institution.logo)}
+                            alt={`${institution.name} logo`}
+                            width={48}
+                            height={48}
+                            className={styles.institutionLogoImage}
+                          />
+                        </div>
+                      )}
+                      <Column className={styles.institutionDetails} fillWidth gap="4">
+                        <Text id={institution.name} variant="body-strong-m">
+                          {institution.name}
+                        </Text>
+                        <Text variant="body-default-s" onBackground="neutral-weak">
+                          {institution.description}
+                        </Text>
+                      </Column>
+                    </Row>
                   ))}
                 </Column>
               </Column>
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={`${styles.blockAlign} ${styles.mainColumn}`} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
+            className={styles.introBlock}
             fillWidth
             minHeight="160"
             vertical="center"
@@ -274,30 +279,67 @@ export default function About() {
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column
+              className={styles.narrativeBlock}
+              textVariant="body-default-l"
+              fillWidth
+              gap="m"
+              marginBottom="xl"
+            >
               {about.intro.description}
             </Column>
           )}
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading
+                className={styles.sectionTitle}
+                as="h2"
+                id={about.work.title}
+                variant="display-strong-s"
+                marginBottom="m"
+              >
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience) => (
-                  <Column key={`${experience.company}-${experience.role}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
+                  <Column
+                    key={`${experience.company}-${experience.role}`}
+                    className={styles.experienceCard}
+                    fillWidth
+                  >
+                    <Row fillWidth gap="12" vertical="start" marginBottom="m">
+                      {experience.logo && (
+                        <div className={styles.institutionLogo}>
+                          <Image
+                            src={withBasePath(experience.logo)}
+                            alt={`${experience.company} logo`}
+                            width={48}
+                            height={48}
+                            className={styles.institutionLogoImage}
+                          />
+                        </div>
+                      )}
+                      <Column className={styles.institutionDetails} fillWidth gap="4">
+                        <Row
+                          className={styles.experienceHeader}
+                          fillWidth
+                          horizontal="between"
+                          vertical="end"
+                          s={{ direction: "column", vertical: "start" }}
+                        >
+                          <Text id={experience.company} variant="heading-strong-l">
+                            {experience.company}
+                          </Text>
+                          <Text variant="heading-default-xs" onBackground="neutral-weak">
+                            {experience.timeframe}
+                          </Text>
+                        </Row>
+                        <Text variant="body-default-s" onBackground="brand-weak">
+                          {experience.role}
+                        </Text>
+                      </Column>
                     </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
                     <Column as="ul" gap="16">
                       {experience.achievements.map((achievement: React.ReactNode) => (
                         <Text
@@ -337,7 +379,7 @@ export default function About() {
                     href={teaching.path}
                     variant="secondary"
                     prefixIcon="book"
-                    label="See Teaching And Mentoring"
+                    label="See Teaching and Mentoring"
                   />
                 </Row>
               </Column>
@@ -346,6 +388,7 @@ export default function About() {
           {about.technical.display && (
             <>
               <Heading
+                className={styles.sectionTitle}
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
@@ -355,7 +398,7 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill) => (
-                  <Column key={skill.title} fillWidth gap="4">
+                  <Column key={skill.title} className={styles.skillCard} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
@@ -400,6 +443,7 @@ export default function About() {
           {about.coordination?.display && (
             <>
               <Heading
+                className={styles.sectionTitle}
                 as="h2"
                 id={about.coordination.title}
                 variant="display-strong-s"
@@ -410,8 +454,14 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l">
                 {about.coordination.items.map((item) => (
-                  <Column key={item.title} fillWidth gap="4">
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+                  <Column key={item.title} className={styles.coordinationCard} fillWidth gap="4">
+                    <Row
+                      className={styles.experienceHeader}
+                      fillWidth
+                      horizontal="between"
+                      vertical="end"
+                      marginBottom="4"
+                    >
                       <Text id={item.title} variant="heading-strong-l">
                         {item.title}
                       </Text>
@@ -422,11 +472,11 @@ export default function About() {
                       )}
                     </Row>
                     <Column as="ul" gap="16">
-                      {item.points.map((point) => (
+                      {item.points.map((point, pointIndex) => (
                         <Text
                           as="li"
                           variant="body-default-m"
-                          key={`${item.title}-${String(point)}`}
+                          key={`${item.title}-${pointIndex}`}
                         >
                           {point}
                         </Text>

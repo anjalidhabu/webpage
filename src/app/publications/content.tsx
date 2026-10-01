@@ -45,7 +45,7 @@ const publicationInsights: Record<string, PublicationInsight> = {
     keyFinding:
       "The work is designed to identify which heterogeneity parameters most strongly affect rotational and strain fields.",
     whyItMatters:
-      "It turns earlier theory into a proposal-ready research line on complex media and 6C ground motion.",
+      "It extends earlier theory to the study of complex media and 6C ground motion.",
   },
   "himalayan-topography-ground-motions": {
     contribution:
@@ -167,15 +167,14 @@ const publications: Publications = {
   label: "Publications",
   title: `Publications - ${person.name}`,
   description: `Journal articles, manuscripts, and conference contributions by ${person.name}`,
-  intro:
-    "Research output grouped by the scientific questions that connect my publications: rotational ground-motion theory, seismic wave simulation, structural response, 6-component monitoring, and planetary seismology.",
+  intro: "",
   groups: [
     {
-      id: "rotational-ground-motion-theory",
-      title: "Rotational Ground-Motion Theory",
+      id: "wavefield-physics-theory",
+      title: "Wavefield Physics & Theory",
       description:
-        "Analytical and numerical work on reduced micropolar media, rotational ground motions, strains, and fundamental solutions for earthquake loading.",
-      focus: "Theory, wave propagation, reduced micropolar media",
+        "Foundational publications on reduced micropolar continua, rotational ground-motion theory, wave propagation, and benchmark solutions for earthquake loading.",
+      focus: "Reduced micropolar theory, rotations, wave propagation",
       items: [
         {
           id: "layered-reduced-micropolar-medium",
@@ -240,6 +239,26 @@ const publications: Publications = {
           tags: ["Rotational seismology", "Earth medium", "Ground motions"],
           insights: publicationInsights["reduced-micropolar-iwgors"],
         },
+      ],
+    },
+    {
+      id: "earth-sources",
+      title: "Earth & Sources",
+      description:
+        "Work on heterogeneous Earth structure, source processes, finite-fault slip, and the strong-motion source regions that control damaging earthquake motion.",
+      focus: "Heterogeneity, source processes, strong motion",
+      items: [
+        {
+          id: "basin-topography-rotational-ground-motions-esc-2026",
+          authors: "Dhabu, A.C., Nooghabi, A., and Hadziioannou, C.",
+          title: "Effect of basin structure and topography on rotational ground motions",
+          venue: "40th General Assembly of the European Seismological Commission.",
+          details: "Poster presentation, 2026.",
+          year: "2026",
+          type: "Conference",
+          institutions: ["University of Hamburg"],
+          tags: ["Basin structure", "Topography", "Rotational ground motions"],
+        },
         {
           id: "heterogeneities-rotational-ground-motions",
           authors: "Dhabu, A.C., Matthiessen, N. and Hadziioannou, C.",
@@ -254,30 +273,53 @@ const publications: Publications = {
           tags: ["Heterogeneity", "Rotations", "Strain"],
           insights: publicationInsights["heterogeneities-rotational-ground-motions"],
         },
-      ],
-    },
-    {
-      id: "simulation-topography-subsurface",
-      title: "Simulation, Topography, and Subsurface Structure",
-      description:
-        "Studies that use numerical simulation and site/topography effects to understand earthquake ground motions across regional and teleseismic scales.",
-      focus: "Ground-motion simulation, topography, subsurface models",
-      items: [
         {
-          id: "himalayan-topography-ground-motions",
-          authors: "Dhabu, A.C. and Raghukanth, S.T.G.",
-          title: "Influence of Himalayan topography on earthquake ground motions.",
-          venue: "Arabian Journal of Geosciences.",
-          details: "14, article 1931, 2021.",
-          year: "2021",
+          id: "strong-motion-generation-extreme-value",
+          authors: "Dhabu, A.C., Sugumar, S. and Raghukanth, S.T.G.",
+          title:
+            "Characterization of strong motion generation regions of earthquake slip using extreme value theory.",
+          venue: "Pure and Applied Geophysics.",
+          details: "176(8), 3567-3592, 2019.",
+          year: "2019",
           quartile: "Q2",
           type: "Journal",
           institutions: ["Indian Institute of Technology Madras"],
-          tags: ["Himalayan topography", "Ground motion", "Numerical modeling"],
-          insights: publicationInsights["himalayan-topography-ground-motions"],
-          href: "https://doi.org/10.1007/s12517-021-08111-1",
-          doi: "10.1007/s12517-021-08111-1",
-          openAlexId: "W3198599964",
+          tags: ["Strong motion", "Earthquake slip", "Extreme value theory"],
+          insights: publicationInsights["strong-motion-generation-extreme-value"],
+          href: "https://doi.org/10.1007/s00024-019-02136-0",
+          doi: "10.1007/s00024-019-02136-0",
+          openAlexId: "W2938887213",
+        },
+      ],
+    },
+    {
+      id: "computational-modeling-tools",
+      title: "Computational Modeling & Tools",
+      description:
+        "Simulation workflows and tools for teleseismic-to-local modeling, subsurface structure, and scalable wavefield computation.",
+      focus: "Teleseismic simulation, subsurface modeling, numerical workflows",
+      items: [
+        {
+          id: "layered-earth-rotational-ground-motions-egu-2026",
+          authors: "Dhabu, A.C., Nooghabi, A., and Hadziioannou, C.",
+          title: "Propagation Characteristics of Rotational Ground Motions in Layered Earth Media",
+          venue: "EGU General Assembly.",
+          details: "Extended abstract and poster presentation, 2026.",
+          year: "2026",
+          type: "Conference",
+          institutions: ["University of Hamburg"],
+          tags: ["Layered Earth media", "Rotational ground motions", "Wave propagation"],
+        },
+        {
+          id: "coupled-numerical-teleseismic-simulation-egu-2026",
+          authors: "Nooghabi, A., Dhabu, A.C., Monteiller, M., Matthiessen, N., and Hadziioannou, C.",
+          title: "Coupled Numerical Simulation of Teleseismic Wave Propagation Incorporating Local Structural Features",
+          venue: "EGU General Assembly.",
+          details: "Extended abstract and poster presentation, 2026.",
+          year: "2026",
+          type: "Conference",
+          institutions: ["University of Hamburg"],
+          tags: ["Teleseismic simulation", "Local structure", "Coupled modeling"],
         },
         {
           id: "coupled-teleseismic-ground-motion-simulation",
@@ -309,6 +351,31 @@ const publications: Publications = {
           doi: "10.5194/egusphere-egu25-18687",
           openAlexId: "W4408467426",
         },
+      ],
+    },
+    {
+      id: "observables-data",
+      title: "Observables & Data",
+      description:
+        "Publications using topographic datasets, recorded or surface-derived observations, and planetary evidence to interpret seismic shaking and active processes.",
+      focus: "Topography, planetary surface evidence, seismic observations",
+      items: [
+        {
+          id: "himalayan-topography-ground-motions",
+          authors: "Dhabu, A.C. and Raghukanth, S.T.G.",
+          title: "Influence of Himalayan topography on earthquake ground motions.",
+          venue: "Arabian Journal of Geosciences.",
+          details: "14, article 1931, 2021.",
+          year: "2021",
+          quartile: "Q2",
+          type: "Journal",
+          institutions: ["Indian Institute of Technology Madras"],
+          tags: ["Himalayan topography", "Ground motion", "Numerical modeling"],
+          insights: publicationInsights["himalayan-topography-ground-motions"],
+          href: "https://doi.org/10.1007/s12517-021-08111-1",
+          doi: "10.1007/s12517-021-08111-1",
+          openAlexId: "W3198599964",
+        },
         {
           id: "himalayan-topography-ajg-conference",
           authors: "Dhabu, A.C. and Raghukanth, S.T.G.",
@@ -339,14 +406,50 @@ const publications: Publications = {
           doi: "10.1007/978-981-13-0365-4_9",
           openAlexId: "W2886063726",
         },
+        {
+          id: "lunar-boulder-avalanches-moonquake",
+          authors:
+            "Kumar, P.S., Mohanty, R., Lakshmi, K.J.P., Raghukanth, S.T.G., Dhabu, A.C., Rajasekhar, R.P. and Menon, R.",
+          title:
+            "The seismically active lobate scarps and co-seismic lunar boulder avalanches triggered by 3rd January 1975 (Mw 4.1) shallow moonquake.",
+          venue: "Geophysical Research Letters.",
+          details: "46(14), 7972-7981, 2019.",
+          year: "2019",
+          quartile: "Q1",
+          type: "Journal",
+          institutions: ["Indian Institute of Technology Madras"],
+          tags: ["Moonquake", "Lunar scarps", "Boulder avalanches"],
+          insights: publicationInsights["lunar-boulder-avalanches-moonquake"],
+          href: "https://doi.org/10.1029/2019GL083580",
+          doi: "10.1029/2019GL083580",
+          openAlexId: "W2961257836",
+        },
+        {
+          id: "valles-marineris-recent-seismicity",
+          authors:
+            "Kumar, P.S., Krishna, N., Lakshmi, K.P., Raghukanth, S.T.G., Dhabu, A. and Platz, T.",
+          title:
+            "Recent seismicity in Valles Marineris, Mars: Insights from young faults, landslides, boulder falls and possible mud volcanoes.",
+          venue: "Earth and Planetary Science Letters.",
+          details: "505, 51-64, 2019.",
+          year: "2019",
+          quartile: "Q1",
+          type: "Journal",
+          institutions: ["Indian Institute of Technology Madras"],
+          tags: ["Mars", "Faults", "Landslides"],
+          insights: publicationInsights["valles-marineris-recent-seismicity"],
+          href: "https://doi.org/10.1016/j.epsl.2018.10.008",
+          doi: "10.1016/j.epsl.2018.10.008",
+          openAlexId: "W2898497778",
+        },
       ],
     },
     {
-      id: "structural-response-6c-monitoring",
-      title: "Structural Response and 6C Monitoring",
+      id: "structural-health-monitoring",
+      title: "Structural Health Monitoring",
       description:
-        "Publications and presentations connecting rotational sensing, structural vibration, bridge response, and 6-component monitoring for civil engineering structures.",
-      focus: "Earthquake engineering, 6C sensing, structural health monitoring",
+        "Publications and presentations connecting 6C sensing, rotational measurements, modal analysis, bridge response, and infrastructure monitoring.",
+      focus: "6C sensing, structural dynamics, infrastructure monitoring",
       items: [
         {
           id: "rotational-ground-motions-bridge-design",
@@ -420,68 +523,6 @@ const publications: Publications = {
           institutions: ["University of Hamburg"],
           tags: ["Material damage", "Rotational motion", "Civil engineering"],
           insights: publicationInsights["rotations-material-damage-egu"],
-        },
-      ],
-    },
-    {
-      id: "planetary-source-characterization",
-      title: "Planetary Seismology and Source Characterization",
-      description:
-        "Collaborative work on earthquake source characterization and seismicity on planetary bodies, linking strong-motion analysis with broader geophysical processes.",
-      focus: "Strong-motion sources, lunar and Martian seismicity",
-      items: [
-        {
-          id: "strong-motion-generation-extreme-value",
-          authors: "Dhabu, A.C., Sugumar, S. and Raghukanth, S.T.G.",
-          title:
-            "Characterization of strong motion generation regions of earthquake slip using extreme value theory.",
-          venue: "Pure and Applied Geophysics.",
-          details: "176(8), 3567-3592, 2019.",
-          year: "2019",
-          quartile: "Q2",
-          type: "Journal",
-          institutions: ["Indian Institute of Technology Madras"],
-          tags: ["Strong motion", "Earthquake slip", "Extreme value theory"],
-          insights: publicationInsights["strong-motion-generation-extreme-value"],
-          href: "https://doi.org/10.1007/s00024-019-02136-0",
-          doi: "10.1007/s00024-019-02136-0",
-          openAlexId: "W2938887213",
-        },
-        {
-          id: "lunar-boulder-avalanches-moonquake",
-          authors:
-            "Kumar, P.S., Mohanty, R., Lakshmi, K.J.P., Raghukanth, S.T.G., Dhabu, A.C., Rajasekhar, R.P. and Menon, R.",
-          title:
-            "The seismically active lobate scarps and co-seismic lunar boulder avalanches triggered by 3rd January 1975 (Mw 4.1) shallow moonquake.",
-          venue: "Geophysical Research Letters.",
-          details: "46(14), 7972-7981, 2019.",
-          year: "2019",
-          quartile: "Q1",
-          type: "Journal",
-          institutions: ["Indian Institute of Technology Madras"],
-          tags: ["Moonquake", "Lunar scarps", "Boulder avalanches"],
-          insights: publicationInsights["lunar-boulder-avalanches-moonquake"],
-          href: "https://doi.org/10.1029/2019GL083580",
-          doi: "10.1029/2019GL083580",
-          openAlexId: "W2961257836",
-        },
-        {
-          id: "valles-marineris-recent-seismicity",
-          authors:
-            "Kumar, P.S., Krishna, N., Lakshmi, K.P., Raghukanth, S.T.G., Dhabu, A. and Platz, T.",
-          title:
-            "Recent seismicity in Valles Marineris, Mars: Insights from young faults, landslides, boulder falls and possible mudvolcanoes.",
-          venue: "Earth and Planetary Science Letters.",
-          details: "505, 51-64, 2019.",
-          year: "2019",
-          quartile: "Q1",
-          type: "Journal",
-          institutions: ["Indian Institute of Technology Madras"],
-          tags: ["Mars", "Faults", "Landslides"],
-          insights: publicationInsights["valles-marineris-recent-seismicity"],
-          href: "https://doi.org/10.1016/j.epsl.2018.10.008",
-          doi: "10.1016/j.epsl.2018.10.008",
-          openAlexId: "W2898497778",
         },
       ],
     },

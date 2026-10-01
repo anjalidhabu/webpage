@@ -24,12 +24,13 @@ export const manualCoauthorAffiliations: CoauthorAffiliationDirectory = {
   "igel-h": ["Ludwig Maximilian University of Munich"],
   "liao-c-m": ["Federal Institute for Materials Research and Testing"],
   "matthiessen-n": ["University of Hamburg"],
-  "montellier-v": ["University of Hamburg"],
+  "montellier-v": ["Centre national de la recherche scientifique"],
   "muller-l": ["University of Hamburg"],
   "niederleithinger-e": ["Federal Institute for Materials Research and Testing"],
   "wassermann-j": ["Ludwig Maximilian University of Munich"],
   "yuan-s": ["Ludwig Maximilian University of Munich"],
   "zembaty-z": ["Opole University of Technology"],
+  "Sugumar-s": [" CSIR Fourth paradigm Institute (CSIR-4PI), India"],
 };
 
 function hasKnownAffiliation(institutions?: string[]) {

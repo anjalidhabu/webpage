@@ -22,11 +22,42 @@ const typeClassNames: Record<PublicationItem["type"], string> = {
 };
 
 const groupColorClassNames: Record<string, string> = {
-  "rotational-ground-motion-theory": styles.groupColorRotational,
-  "simulation-topography-subsurface": styles.groupColorSimulation,
-  "structural-response-6c-monitoring": styles.groupColorStructural,
-  "planetary-source-characterization": styles.groupColorPlanetary,
+  "wavefield-physics-theory": styles.groupColorWavefield,
+  "earth-sources": styles.groupColorEarthSources,
+  "computational-modeling-tools": styles.groupColorComputational,
+  "observables-data": styles.groupColorObservables,
+  "structural-health-monitoring": styles.groupColorStructural,
 };
+
+function pluralize(count: number, singular: string) {
+  return `${count} ${singular}${count === 1 ? "" : "s"}`;
+}
+
+function getPublicationTypeSummary(group: PublicationGroup) {
+  const counts = group.items.reduce<Partial<Record<PublicationItem["type"], number>>>(
+    (summary, item) => {
+      summary[item.type] = (summary[item.type] ?? 0) + 1;
+      return summary;
+    },
+    {},
+  );
+
+  const orderedTypes: PublicationItem["type"][] = [
+    "Journal",
+    "Preprint",
+    "Manuscript",
+    "Conference",
+    "Invited Talk",
+  ];
+
+  return [pluralize(group.items.length, "Publication")]
+    .concat(
+      orderedTypes
+        .filter((type) => counts[type])
+        .map((type) => pluralize(counts[type] ?? 0, type.toLowerCase())),
+    )
+    .join(" · ");
+}
 
 export function PublicationsView({ publications }: PublicationsViewProps) {
   const [activeGroup, setActiveGroup] = useState("all");
@@ -41,23 +72,26 @@ export function PublicationsView({ publications }: PublicationsViewProps) {
 
   return (
     <main className={styles.publicationsPage}>
-      <section className={styles.heroSection}>
-        <div className={styles.heroCopy}>
+      <section className={styles.publicationThemesSection} aria-labelledby="publication-themes">
+        <div className={styles.publicationThemesIntro}>
           <p className={styles.eyebrow}>Publications</p>
-          <h1>Research output by publication group.</h1>
-          <p className={styles.heroIntro}>{publications.intro}</p>
-          <figure className={styles.heroThemeFigure}>
-            <div className={styles.heroThemeScroller}>
-              <img
-                src={withBasePath("/images/diagrams/research_themes.png")}
-                alt="Visual overview of research themes: rotational ground-motion theory, simulation and topography, structural response and 6C monitoring, and planetary seismology."
-              />
-            </div>
-          </figure>
+          <h1 id="publication-themes">Research output by research theme.</h1>
+          <p className={styles.introText}>
+            Publications are organized using the same five research themes that structure the
+            research vision.
+          </p>
         </div>
+        <figure className={styles.publicationThemesFigure}>
+          <div className={styles.publicationThemesScroller}>
+            <img
+              src={withBasePath("/images/projects/research_vision.png")}
+              alt="Visual overview of research themes: wavefield physics and theory, Earth and sources, computational modeling tools, observables and data, and structural health monitoring."
+            />
+          </div>
+        </figure>
       </section>
 
-      <section className={styles.groupOverview} aria-label="Publication groups">
+      <section className={styles.groupOverview} aria-label="Publication research themes">
         {publications.groups.map((group) => (
           <button
             key={group.id}
@@ -68,9 +102,10 @@ export function PublicationsView({ publications }: PublicationsViewProps) {
             onClick={() => setActiveGroup(activeGroup === group.id ? "all" : group.id)}
             aria-pressed={activeGroup === group.id}
           >
-            <span>{group.items.length} publications</span>
+            <span>{pluralize(group.items.length, "Publication")}</span>
             <strong>{group.title}</strong>
             <small>{group.focus}</small>
+            <em>{getPublicationTypeSummary(group)}</em>
           </button>
         ))}
       </section>
@@ -90,7 +125,7 @@ export function PublicationsView({ publications }: PublicationsViewProps) {
                 <h2>{group.title}</h2>
                 <p>{group.description}</p>
               </div>
-              <span>{group.items.length} entries</span>
+              <span>{pluralize(group.items.length, "Publication")}</span>
             </div>
 
             <div className={styles.publicationList}>
@@ -126,50 +161,30 @@ function PublicationCard({ item, index }: { item: PublicationItem; index: number
         </p>
 
         {item.insights && (
-          <div className={styles.publicationInsightGrid}>
-            <div>
-              <span>Contribution</span>
-              <p>{item.insights.contribution}</p>
+          <details className={styles.publicationInsightDisclosure}>
+            <summary className={styles.publicationInsightSummary}>
+              <span>Publication insights</span>
+              <small>Contribution, key finding, relevance, and my role</small>
+            </summary>
+            <div className={styles.publicationInsightGrid}>
+              <div>
+                <span>Contribution</span>
+                <p>{item.insights.contribution}</p>
+              </div>
+              <div>
+                <span>Key finding / direction</span>
+                <p>{item.insights.keyFinding}</p>
+              </div>
+              <div>
+                <span>Why it matters</span>
+                <p>{item.insights.whyItMatters}</p>
+              </div>
+              <div>
+                <span>My role</span>
+                <p>{item.insights.role}</p>
+              </div>
             </div>
-            <div>
-              <span>Key finding / direction</span>
-              <p>{item.insights.keyFinding}</p>
-            </div>
-            <div>
-              <span>My role</span>
-              <p>{item.insights.role}</p>
-            </div>
-            <div>
-              <span>Why it matters</span>
-              <p>{item.insights.whyItMatters}</p>
-            </div>
-          </div>
-        )}
-
-        {(item.tags?.length || item.institutions?.length) && (
-          <div className={styles.tagRow}>
-            {item.institutions?.map((institution) => (
-              <span key={institution}>{institution}</span>
-            ))}
-            {item.tags?.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
-        )}
-
-        {(item.href || item.pdf) && (
-          <div className={styles.linkRow}>
-            {item.href && (
-              <a href={item.href} target="_blank" rel="noreferrer">
-                View publication
-              </a>
-            )}
-            {item.pdf && (
-              <a href={item.pdf} target="_blank" rel="noreferrer">
-                View PDF
-              </a>
-            )}
-          </div>
+          </details>
         )}
       </div>
 
@@ -183,6 +198,20 @@ function PublicationCard({ item, index }: { item: PublicationItem; index: number
           <small>{item.year}</small>
           {item.quartile && <em>{item.quartile}</em>}
         </div>
+        {(item.href || item.pdf) && (
+          <div className={styles.coverActions}>
+            {item.href && (
+              <a href={item.href} target="_blank" rel="noreferrer">
+                View publication
+              </a>
+            )}
+            {item.pdf && (
+              <a href={item.pdf} target="_blank" rel="noreferrer">
+                View PDF
+              </a>
+            )}
+          </div>
+        )}
         <div className={styles.coverLines} aria-hidden="true">
           <i />
           <i />

@@ -12,6 +12,21 @@
   padding: 1.25rem 0 4rem;
 }
 
+.pageIntro h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.pageIntro p {
+  max-width: 48rem;
+  margin: 0.85rem 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
 .heroSection {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
@@ -19,14 +34,12 @@
   align-items: stretch;
 }
 
-.heroCopy,
+.heroStrip,
+.heroFigure,
 .statCard,
-.piPanel,
 .fundingCard,
 .leadershipCard,
-.collaborationCard,
-.futurePanel,
-.ctaPanel {
+.collaborationCard {
   border: 1px solid color-mix(in srgb, var(--leadership-rose) 18%, var(--neutral-alpha-medium));
   border-radius: 8px;
   background: linear-gradient(
@@ -37,49 +50,90 @@
   box-shadow: 0 16px 42px color-mix(in srgb, var(--leadership-plum) 7%, transparent);
 }
 
-.heroCopy {
+.heroFigure {
+  min-width: 0;
   min-height: 20rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 2.35rem;
-  background: linear-gradient(135deg, rgba(28, 22, 34, 0.97), rgba(76, 40, 58, 0.9)),
-    radial-gradient(circle at top right, rgba(243, 189, 202, 0.22), transparent 38%),
-    radial-gradient(circle at bottom left, rgba(22, 125, 156, 0.18), transparent 42%);
-  color: #fff7fa;
+  margin: 0;
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--leadership-teal) 22%, var(--neutral-alpha-medium));
+  background: color-mix(in srgb, var(--surface-background) 92%, transparent);
 }
 
-.eyebrow,
-.cardKicker {
-  margin: 0 0 0.68rem;
-  color: color-mix(in srgb, var(--leadership-rose) 72%, var(--neutral-on-background));
-  font-size: 0.78rem;
-  font-weight: 820;
+.heroStrip {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-color: color-mix(in srgb, var(--leadership-teal) 22%, var(--neutral-alpha-medium));
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--leadership-teal) 13%, var(--surface-background)),
+    color-mix(in srgb, var(--leadership-rose) 9%, var(--surface-background))
+  );
+}
+
+.heroStripProject,
+.heroStripMeta {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  align-items: center;
+}
+
+.heroStripProject span {
+  width: fit-content;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--leadership-teal) 12%, var(--surface-background));
+  color: color-mix(in srgb, var(--leadership-teal) 72%, var(--neutral-on-background));
+  font-size: 0.72rem;
+  font-weight: 850;
   letter-spacing: 0;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
-.heroCopy .eyebrow {
-  color: #efc3d0;
+.heroStripProject strong {
+  color: var(--neutral-on-background);
+  font-size: 0.98rem;
+  line-height: 1.35;
 }
 
-.heroCopy h1 {
-  max-width: 13ch;
-  margin: 0;
-  font-size: 4rem;
-  line-height: 1;
-  letter-spacing: 0;
+.heroStripMeta span {
+  width: fit-content;
+  padding: 0.34rem 0.62rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--leadership-green) 11%, var(--surface-background));
+  color: color-mix(in srgb, var(--leadership-green) 72%, var(--neutral-on-background));
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
-.heroCopy p:not(.eyebrow) {
-  max-width: 48rem;
-  margin: 1.1rem 0 0;
-  color: rgba(255, 247, 250, 0.8);
-  font-size: 1rem;
-  line-height: 1.72;
+.heroImageFrame {
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 0.85rem;
+  background: color-mix(in srgb, #ffffff 92%, var(--surface-background));
 }
 
-.heroActions,
+.heroImage {
+  width: 100%;
+  height: 100%;
+  max-height: 34rem;
+  display: block;
+  object-fit: contain;
+}
+
 .ctaActions {
   display: flex;
   flex-wrap: wrap;
@@ -110,10 +164,6 @@
   color: var(--neutral-on-background);
 }
 
-.heroCopy .secondaryButton {
-  color: #fff7fa;
-}
-
 .statGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -124,8 +174,17 @@
   min-height: 9.7rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 1.15rem;
+}
+
+.statLogo {
+  display: block;
+  width: 120px;
+  max-width: 100%;
+  height: auto;
+  margin: 0.35rem 0 0;
+  object-fit: contain;
 }
 
 .statCard strong {
@@ -135,7 +194,7 @@
 }
 
 .statCard h2 {
-  margin: 0.9rem 0 0;
+  margin: 0.65rem 0 0;
   font-size: 0.98rem;
   letter-spacing: 0;
 }
@@ -147,16 +206,6 @@
   line-height: 1.5;
 }
 
-.piPanel {
-  display: grid;
-  grid-template-columns: minmax(17rem, 0.42fr) minmax(0, 1fr);
-  gap: 1.4rem;
-  align-items: center;
-  padding: 1.35rem;
-  border-color: color-mix(in srgb, var(--leadership-teal) 24%, var(--neutral-alpha-medium));
-}
-
-.piPanel h2,
 .sectionIntro h2,
 .ctaPanel h2 {
   margin: 0;
@@ -164,14 +213,159 @@
   line-height: 1.08;
 }
 
-.piPanel h2 {
-  font-size: 2rem;
+.peopleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.piPanel p:last-child {
+.personCard {
+  min-width: 0;
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--leadership-teal) 20%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-background) 88%, transparent);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--leadership-plum) 5%, transparent);
+}
+
+.personLogoPlate {
+  min-width: 0;
+  aspect-ratio: 1.45;
+  display: grid;
+  place-items: center;
+  padding: 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 70%, transparent);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.personLogo {
+  max-width: 100%;
+  max-height: 3rem;
+  object-fit: contain;
+}
+
+.personRole {
+  width: fit-content;
+  display: block;
+  margin-bottom: 0.5rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--leadership-green) 12%, var(--surface-background));
+  color: color-mix(in srgb, var(--leadership-green) 72%, var(--neutral-on-background));
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.personCard h3 {
+  margin: 0;
+  color: var(--neutral-on-background);
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.personCard p {
+  margin: 0.35rem 0 0;
+  color: color-mix(in srgb, var(--leadership-rose) 62%, var(--neutral-on-background));
+  font-size: 0.9rem;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.personCard span {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.studentStrip {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 1.8fr);
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--leadership-gold) 24%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--leadership-gold) 10%, var(--surface-background)),
+    color-mix(in srgb, var(--leadership-teal) 7%, var(--surface-background))
+  );
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--leadership-plum) 5%, transparent);
+}
+
+.studentStripIntro {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.studentStripIntro span,
+.studentItem span {
+  width: fit-content;
+  padding: 0.3rem 0.58rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--leadership-gold) 13%, var(--surface-background));
+  color: color-mix(in srgb, var(--leadership-gold) 70%, var(--neutral-on-background));
+  font-size: 0.74rem;
+  font-weight: 820;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.studentStripIntro strong {
+  color: var(--neutral-on-background);
+  font-size: 1.02rem;
+  line-height: 1.36;
+}
+
+.studentStripItems {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.studentItem {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 74%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-background) 84%, transparent);
+}
+
+.studentItem span {
+  background: color-mix(in srgb, var(--leadership-teal) 11%, var(--surface-background));
+  color: color-mix(in srgb, var(--leadership-teal) 72%, var(--neutral-on-background));
+  text-transform: none;
+}
+
+.studentItem h3 {
+  margin: 0;
+  color: var(--neutral-on-background);
+  font-size: 0.98rem;
+  line-height: 1.28;
+  letter-spacing: 0;
+}
+
+.studentItem p {
   margin: 0;
   color: var(--neutral-on-background-weak);
-  line-height: 1.72;
+  font-size: 0.86rem;
+  line-height: 1.48;
 }
 
 .sectionIntro {
@@ -189,30 +383,324 @@
   line-height: 1.68;
 }
 
-.fundingGrid,
-.collaborationGrid,
-.futureGrid {
+.logoSection {
+  display: grid;
+  gap: 1rem;
+}
+
+.logoIntro {
+  max-width: 48rem;
+  padding: 0 0.25rem;
+}
+
+.logoIntro h2 {
+  margin: 0;
+  font-size: 2.35rem;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.logoCard {
+  min-width: 0;
+  min-height: 9.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--leadership-teal) 22%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--leadership-teal) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ),
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--leadership-gold) 13%, transparent),
+      transparent 42%
+    );
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--leadership-plum) 8%, transparent);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.logoCard:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--leadership-teal) 45%, transparent);
+  box-shadow: 0 24px 58px color-mix(in srgb, var(--leadership-plum) 12%, transparent);
+}
+
+.logoMark {
+  height: 5.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  border: 1px solid color-mix(in srgb, #ffffff 72%, var(--leadership-teal));
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #ffffff 95%, var(--leadership-teal)),
+    color-mix(in srgb, #ffffff 86%, var(--leadership-teal))
+  );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #ffffff 64%, transparent);
+}
+
+.institutionLogo {
+  width: 100%;
+  max-width: 8.5rem;
+  height: 3.2rem;
+  object-fit: contain;
+  filter: saturate(0.74) contrast(0.96) brightness(0.98);
+  opacity: 0.88;
+}
+
+.logoMeta {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.logoMeta strong {
+  color: var(--neutral-on-background);
+  font-size: 0.86rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.logoMeta span {
+  color: color-mix(in srgb, var(--leadership-gold) 64%, var(--neutral-on-background-weak));
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.workshopSection {
+  display: grid;
+  gap: 1rem;
+}
+
+.workshopGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.workshopCard {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--leadership-gold) 24%, var(--neutral-alpha-medium));
+  border-radius: 8px;
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--leadership-gold) 8%, var(--surface-background)),
+      color-mix(in srgb, var(--page-background) 96%, transparent)
+    ),
+    color-mix(in srgb, var(--surface-background) 90%, transparent);
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--leadership-plum) 8%, transparent);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.workshopCard:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--leadership-gold) 44%, transparent);
+  box-shadow: 0 26px 64px color-mix(in srgb, var(--leadership-plum) 13%, transparent);
+}
+
+.workshopThumbnail {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: block;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--leadership-plum) 12%, var(--surface-background));
+}
+
+.workshopThumbnail img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.9) contrast(0.98);
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.workshopCard:hover .workshopThumbnail img {
+  transform: scale(1.035);
+  filter: saturate(1) contrast(1.03);
+}
+
+.workshopThumbnail::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--leadership-plum) 4%, transparent),
+    color-mix(in srgb, var(--leadership-plum) 28%, transparent)
+  );
+  content: "";
+}
+
+.workshopPlay {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  width: 3.15rem;
+  height: 3.15rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, #ffffff 72%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--leadership-teal) 82%, #ffffff);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--leadership-plum) 24%, transparent);
+}
+
+.workshopPlay span {
+  width: 0;
+  height: 0;
+  margin-left: 0.18rem;
+  border-top: 0.45rem solid transparent;
+  border-bottom: 0.45rem solid transparent;
+  border-left: 0.72rem solid #ffffff;
+}
+
+.workshopBody {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.05rem;
+}
+
+.workshopMeta,
+.workshopTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.workshopMeta span,
+.workshopTags span {
+  width: fit-content;
+  padding: 0.34rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.workshopMeta span {
+  background: color-mix(in srgb, var(--leadership-teal) 11%, var(--surface-background));
+  color: color-mix(in srgb, var(--leadership-teal) 72%, var(--neutral-on-background));
+}
+
+.workshopMeta span:nth-child(2) {
+  background: color-mix(in srgb, var(--leadership-green) 11%, var(--surface-background));
+  color: color-mix(in srgb, var(--leadership-green) 72%, var(--neutral-on-background));
+}
+
+.workshopBody h3 {
+  margin: 0;
+  color: var(--neutral-on-background);
+  font-size: 1.22rem;
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+
+.workshopBody p {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.workshopTags {
+  margin-top: auto;
+}
+
+.workshopTags span {
+  background: color-mix(in srgb, var(--leadership-rose) 10%, var(--surface-background));
+  color: color-mix(in srgb, var(--leadership-rose) 70%, var(--neutral-on-background));
+}
+
+.watchLink {
+  width: fit-content;
+  color: color-mix(in srgb, var(--leadership-teal) 78%, var(--neutral-on-background));
+  font-size: 0.92rem;
+  font-weight: 820;
+  line-height: 1.35;
+}
+
+.workshopCard:hover .watchLink {
+  text-decoration: underline;
+  text-underline-offset: 0.18rem;
+}
+
+.fundingTimeline,
+.collaborationGrid {
   display: grid;
   gap: 1rem;
   margin-top: 1rem;
 }
 
-.fundingGrid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.fundingTimeline {
+  position: relative;
+  gap: 0;
+  padding-left: 1.25rem;
+}
+
+.fundingTimeline::before {
+  position: absolute;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  left: 0.2rem;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--leadership-teal) 58%, transparent),
+    color-mix(in srgb, var(--leadership-gold) 42%, transparent)
+  );
+  content: "";
 }
 
 .fundingCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   padding: 1.15rem;
+  margin-bottom: 1rem;
   border-color: color-mix(in srgb, var(--leadership-teal) 22%, var(--neutral-alpha-medium));
+}
+
+.fundingCard:last-child {
+  margin-bottom: 0;
+}
+
+.timelineMarker {
+  position: absolute;
+  top: 1.45rem;
+  left: -1.47rem;
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 2px solid var(--surface-background);
+  border-radius: 999px;
+  background: var(--leadership-teal);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--leadership-teal) 24%, transparent);
 }
 
 .fundingCard h3,
 .leadershipCard h3,
-.collaborationCard h3,
-.futureCard h3 {
+.collaborationCard h3 {
   margin: 0;
   color: var(--neutral-on-background);
   font-size: 1.08rem;
@@ -247,17 +735,29 @@
   line-height: 1.45;
 }
 
-.fundingCard p:last-child,
-.futureCard p,
+.fundingCard p:not(.cardKicker):not(.institution),
 .collaborationCard p {
   margin: 0;
   color: var(--neutral-on-background-weak);
   line-height: 1.58;
 }
 
+.inlineLink {
+  width: fit-content;
+  margin-top: 0.15rem;
+  color: color-mix(in srgb, var(--leadership-teal) 78%, var(--neutral-on-background));
+  font-size: 0.92rem;
+  font-weight: 780;
+  text-decoration: none;
+}
+
+.inlineLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18rem;
+}
+
 .leadershipGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -276,18 +776,20 @@
 }
 
 .leadershipCard ul {
-  display: grid;
-  gap: 0.65rem;
   margin: 0;
-  padding: 0;
-  list-style: none;
+  padding-left: 1.2rem;
+  color: var(--neutral-on-background-weak);
+  list-style: disc;
 }
 
 .leadershipCard li {
-  padding-left: 0.75rem;
-  border-left: 0.2rem solid color-mix(in srgb, var(--leadership-green) 46%, transparent);
+  padding-left: 0.25rem;
   color: var(--neutral-on-background-weak);
   line-height: 1.55;
+}
+
+.leadershipCard li + li {
+  margin-top: 0.65rem;
 }
 
 .collaborationGrid {
@@ -350,37 +852,13 @@
   color: color-mix(in srgb, var(--leadership-rose) 70%, var(--neutral-on-background));
 }
 
-.futurePanel {
-  padding: 1.25rem;
-  border-color: color-mix(in srgb, var(--leadership-gold) 26%, var(--neutral-alpha-medium));
-}
-
-.futureGrid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.futureCard {
-  min-height: 11rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem;
-  border: 1px solid color-mix(in srgb, var(--leadership-gold) 22%, var(--neutral-alpha-medium));
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--surface-background) 86%, transparent);
-}
-
-.futureCard h3 {
-  color: color-mix(in srgb, var(--leadership-gold) 42%, var(--neutral-on-background));
-}
-
 .ctaPanel {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
-  padding: 1.2rem;
+  padding: 1.4rem 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--leadership-rose) 20%, var(--neutral-alpha-medium));
 }
 
 .ctaPanel .ctaActions {
@@ -389,19 +867,26 @@
 
 @media (max-width: 1080px) {
   .heroSection,
-  .piPanel,
   .ctaPanel {
     grid-template-columns: 1fr;
   }
 
-  .fundingGrid,
+  .logoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .collaborationGrid,
-  .futureGrid {
+  .peopleGrid,
+  .workshopGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .leadershipGrid {
+  .studentStrip {
     grid-template-columns: 1fr;
+  }
+
+  .studentStripItems {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .ctaPanel {
@@ -415,30 +900,37 @@
     padding: 1rem 0 3rem;
   }
 
-  .heroCopy {
+  .heroFigure {
     min-height: auto;
-    padding: 1.45rem;
   }
 
-  .heroCopy h1 {
-    max-width: none;
-    font-size: 2.55rem;
+  .heroImageFrame {
+    aspect-ratio: 1 / 1;
+    padding: 0.75rem;
   }
 
   .statGrid,
-  .fundingGrid,
   .collaborationGrid,
-  .futureGrid {
+  .peopleGrid,
+  .studentStripItems,
+  .workshopGrid {
     grid-template-columns: 1fr;
   }
 
-  .piPanel,
-  .futurePanel,
-  .ctaPanel {
-    padding: 1rem;
+  .logoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sectionIntro h2 {
+  .personLogoPlate {
+    max-width: 9rem;
+  }
+
+  .ctaPanel {
+    padding: 1rem 0;
+  }
+
+  .sectionIntro h2,
+  .logoIntro h2 {
     font-size: 2rem;
   }
 
@@ -449,4 +941,14 @@
   .themeLogoGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* Nested student, talk, and workshop entries. */
+.leadershipCard li ul {
+  margin-top: 0.55rem;
+  list-style: circle;
+}
+
+.leadershipCard li strong {
+  color: var(--neutral-on-background-strong);
 }

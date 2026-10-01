@@ -13,7 +13,7 @@
 }
 
 .moreTrigger {
-    min-width: 6.5rem;
+    min-width: 5.75rem;
 }
 
 .moreMenu {
@@ -43,5 +43,13 @@
 
     .moreDropdown {
         margin-left: 0;
+    }
+
+    .moreTrigger {
+        min-width: auto;
+    }
+
+    .position :global(.g-8) {
+        gap: var(--static-space-4);
     }
 }
