@@ -1,11 +1,12 @@
-import { Column, Heading, Meta, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
+import { generateSiteMetadata } from "@/utils/metadata";
+import { Column, Heading, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
 
 import { about, baseURL, home, person } from "@/resources";
 
 import { teaching } from "./content";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: teaching.title,
     description: teaching.description,
     baseURL: baseURL,

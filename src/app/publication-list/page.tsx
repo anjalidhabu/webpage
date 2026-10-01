@@ -1,3 +1,4 @@
+import { generateSiteMetadata } from "@/utils/metadata";
 import { publications } from "@/app/publications/content";
 import { about, baseURL, home, person } from "@/resources";
 import type { Publications } from "@/types";
@@ -5,7 +6,6 @@ import {
   Column,
   Heading,
   Line,
-  Meta,
   Row,
   Schema,
   SmartLink,
@@ -63,7 +63,7 @@ const totalPublications = publicationSections.reduce(
 );
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: publicationList.title,
     description: publicationList.description,
     baseURL: baseURL,

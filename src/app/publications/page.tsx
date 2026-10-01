@@ -1,10 +1,12 @@
+import { PublicationStructuredData } from "@/components/ResearchStructuredData";
+import { generateSiteMetadata } from "@/utils/metadata";
 import { about, baseURL, home, person } from "@/resources";
-import { Meta, Schema } from "@once-ui-system/core";
+import { Schema } from "@once-ui-system/core";
 import { PublicationsView } from "./PublicationsView";
 import { publications } from "./content";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: publications.title,
     description: publications.description,
     baseURL: baseURL,
@@ -16,6 +18,7 @@ export async function generateMetadata() {
 export default function PublicationsPage() {
   return (
     <>
+      <PublicationStructuredData />
       <Schema
         as="webPage"
         baseURL={baseURL}

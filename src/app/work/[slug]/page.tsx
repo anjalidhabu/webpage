@@ -1,3 +1,4 @@
+import { generateSiteMetadata } from "@/utils/metadata";
 import { CustomMDX, ProjectBadgeStrip, ProjectThemeReturnLink, ScrollToHash } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { about, baseURL, person, work } from "@/resources";
@@ -10,7 +11,6 @@ import {
   Heading,
   Line,
   Media,
-  Meta,
   Row,
   Schema,
   SmartLink,
@@ -59,7 +59,7 @@ export async function generateMetadata({
   const slugPath = getSlugPath(routeParams.slug);
 
   if (legacyProjectRedirects[slugPath]) {
-    return Meta.generate({
+    return generateSiteMetadata({
       title: "Recent Seismicity in Valles Marineris, Mars",
       description:
         "Planetary seismology project on recent seismicity in Valles Marineris, Mars.",
@@ -80,7 +80,7 @@ export async function generateMetadata({
     post.metadata.images[0] ||
     "/images/og/anjali-research-preview.png";
 
-  return Meta.generate({
+  return generateSiteMetadata({
     title: post.metadata.title,
     description: post.metadata.summary,
     baseURL: baseURL,

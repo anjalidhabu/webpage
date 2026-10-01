@@ -1,7 +1,8 @@
+import { generateSiteMetadata } from "@/utils/metadata";
 import { awards } from "@/app/awards/content";
 import { about, baseURL, home, person } from "@/resources";
 import { withBasePath } from "@/utils/paths";
-import { Meta, Schema } from "@once-ui-system/core";
+import { Schema } from "@once-ui-system/core";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import styles from "./page.module.css";
@@ -271,34 +272,34 @@ const awardMoments: AwardMoment[] = [
     title: "Gold Medal Ceremony",
     context: "SGSITS Indore | B.E. Civil Engineering",
     year: "2011",
-    image: undefined,
+    image:"/images/awards/btech_gold.jpeg",
     alt: "Dr. Anjali Dhabu receiving the SGSITS gold medal",
   },
   {
     title: "Institute Research Award",
     context: "IIT Madras | Doctoral research recognition",
     year: "2020",
-    image: undefined,
+    image: "/images/awards/inst_award.png",
     alt: "Dr. Anjali Dhabu receiving the Institute Research Award at IIT Madras",
   },
   {
     title: "Silver Medal Recognition",
     context: "VNIT Nagpur | M.Tech. Applied Mechanics",
     year: "2014",
-    image: undefined,
+    image: "/images/awards/mtech.png",
     alt: "Dr. Anjali Dhabu receiving the VNIT Nagpur silver medal",
   },
   {
     title: "Research Grant Milestone",
     context: "DFG HERS project | Independent research funding",
     year: "2024",
-    image: undefined,
+    image: "/images/awards/AD.jpg",
     alt: "Dr. Anjali Dhabu at a research grant or project recognition moment",
   },
 ];
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: awards.title,
     description: awards.description,
     baseURL,

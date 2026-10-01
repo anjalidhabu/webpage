@@ -30,6 +30,7 @@ jobs:
       - uses: actions/configure-pages@v5
       - run: npm run build:github
       - run: node scripts/audit-export.mjs
+      - run: node scripts/audit-seo.mjs
       - uses: actions/upload-pages-artifact@v4
         with:
           path: out

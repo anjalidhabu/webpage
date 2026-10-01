@@ -1,3 +1,4 @@
+import { researchThemes } from "@/app/work/data";
 import { baseURL, routes as routesConfig } from "@/resources";
 import { getPosts } from "@/utils/utils";
 
@@ -16,8 +17,7 @@ export default async function sitemap() {
   const works = getPosts(["src", "app", "work", "projects"])
     .filter((post) => post.slug !== hersProjectSlug && !legacyProjectSlugs.has(post.slug))
     .map((post) => ({
-      url: `${baseURL}/work/${post.slug}`,
-      lastModified: post.metadata.publishedAt,
+      url: `${baseURL}/work/${encodeURIComponent(post.slug)}/`,
     }));
 
   const activeRoutes = Object.keys(routesConfig).filter(
@@ -25,9 +25,12 @@ export default async function sitemap() {
   );
 
   const routes = activeRoutes.map((route) => ({
-    url: `${baseURL}${route !== "/" ? route : ""}`,
-    lastModified: new Date().toISOString().split("T")[0],
+    url: `${baseURL}${route !== "/" ? route : ""}/`,
   }));
 
-  return [...routes, ...blogs, ...works];
+  const themes = researchThemes
+    .filter((theme) => theme.id !== "heterogeneities-rotational-seismology")
+    .map((theme) => ({ url: `${baseURL}/work/themes/${theme.id}/` }));
+
+  return [...routes, ...blogs, ...works, ...themes];
 }

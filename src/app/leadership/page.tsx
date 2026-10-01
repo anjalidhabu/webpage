@@ -1,10 +1,11 @@
+import { generateSiteMetadata } from "@/utils/metadata";
 import Image from "next/image";
 import Link from "next/link";
 
 import { leadership } from "@/app/leadership/content";
 import { about, baseURL, home, person } from "@/resources";
 import { withBasePath } from "@/utils/paths";
-import { Meta, Schema } from "@once-ui-system/core";
+import { Schema } from "@once-ui-system/core";
 import styles from "./page.module.css";
 
 const fundingEntries = [
@@ -175,7 +176,7 @@ const stats = [
 ];
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: leadership.title,
     description: leadership.description,
     baseURL,

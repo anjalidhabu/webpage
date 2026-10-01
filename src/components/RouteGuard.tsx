@@ -79,6 +79,20 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     }
   };
 
+  // Public content must be rendered during static generation, before effects run.
+  // Protected routes retain the authentication flow below.
+  const currentPath = pathname?.replace(/\/$/, "") || "/";
+  const matchingRoute = (config: Record<string, boolean>) =>
+    Object.keys(config)
+      .filter((route) => currentPath === route || (route !== "/" && currentPath.startsWith(`${route}/`)))
+      .sort((a, b) => b.length - a.length)[0];
+  const publicRoute = matchingRoute(routes);
+  const protectedRoute = matchingRoute(protectedRoutes);
+  if (publicRoute && routes[publicRoute as keyof typeof routes] &&
+      !(protectedRoute && protectedRoutes[protectedRoute as keyof typeof protectedRoutes])) {
+    return <>{children}</>;
+  }
+
   if (loading) {
     return (
       <Flex fillWidth paddingY="128" horizontal="center">

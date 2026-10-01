@@ -57,8 +57,8 @@ const home: Home = {
   path: "/",
   image: "/images/og/anjali-research-preview.png",
   label: "Home",
-  title: `${person.name} - Research Profile`,
-  description: `Research profile of ${person.name}, ${person.role} at the University of Hamburg`,
+  title: `${person.name} | Rotational Seismology & Earthquake Engineering`,
+  description: "Dr. Anjali Dhabu researches rotational seismology, seismic wave propagation and earthquake engineering at the University of Hamburg. Explore her papers and projects.",
   headline: "Advancing engineering seismology with next-generation computational modeling.",
   featured: {
     display: false,

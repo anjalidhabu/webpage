@@ -166,7 +166,7 @@ const publications: Publications = {
   path: "/publications",
   label: "Publications",
   title: `Publications - ${person.name}`,
-  description: `Journal articles, manuscripts, and conference contributions by ${person.name}`,
+  description: `Papers by ${person.name} on rotational seismology, seismic wave propagation, earthquake engineering and planetary seismology, with journal details and DOI links.`,
   intro: "",
   groups: [
     {

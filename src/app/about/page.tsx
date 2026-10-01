@@ -1,3 +1,5 @@
+import { ResearcherProfileData } from "@/components/ResearchStructuredData";
+import { generateSiteMetadata } from "@/utils/metadata";
 import Image from "next/image";
 import { awards as awardsPage } from "@/app/awards/content";
 import { publications } from "@/app/publications/content";
@@ -15,7 +17,6 @@ import {
   Icon,
   IconButton,
   Media,
-  Meta,
   Row,
   Schema,
   Tag,
@@ -24,7 +25,7 @@ import {
 import React from "react";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: about.title,
     description: about.description,
     baseURL: baseURL,
@@ -80,6 +81,7 @@ export default function About() {
   ];
   return (
     <Column maxWidth="m" className={styles.aboutPage}>
+      <ResearcherProfileData />
       <Schema
         as="webPage"
         baseURL={baseURL}

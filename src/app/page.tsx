@@ -1,7 +1,8 @@
+import { generateSiteMetadata } from "@/utils/metadata";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Column, Meta, RevealFx, Schema } from "@once-ui-system/core";
+import { Column, RevealFx, Schema } from "@once-ui-system/core";
 
 import { publications } from "@/app/publications/content";
 import { VisitorLocationMap } from "@/components/VisitorLocationMap";
@@ -11,7 +12,7 @@ import { withBasePath } from "@/utils/paths";
 import styles from "./page.module.css";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: home.title,
     description: home.description,
     baseURL: baseURL,

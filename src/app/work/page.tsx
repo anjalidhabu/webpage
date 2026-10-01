@@ -1,6 +1,7 @@
+import { generateSiteMetadata } from "@/utils/metadata";
 import { about, baseURL, person, work } from "@/resources";
 import { withBasePath } from "@/utils/paths";
-import { Button, Column, Heading, Meta, Row, Schema, Text } from "@once-ui-system/core";
+import { Button, Column, Heading, Row, Schema, Text } from "@once-ui-system/core";
 import {
   type ResearchTheme,
   associatedWorkSections,
@@ -18,7 +19,7 @@ const researchThemeGroupClassNames: Record<ResearchTheme["group"], string> = {
 };
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: work.title,
     description: work.description,
     baseURL: baseURL,

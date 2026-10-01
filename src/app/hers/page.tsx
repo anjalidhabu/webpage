@@ -1,3 +1,4 @@
+import { generateSiteMetadata } from "@/utils/metadata";
 import { HersFlagshipPage } from "@/components/work/HersFlagshipPage";
 import { baseURL, person } from "@/resources";
 import { withBasePath } from "@/utils/paths";
@@ -25,7 +26,7 @@ export async function generateMetadata() {
     post.metadata.images[0] ||
     "/images/og/anjali-research-preview.png";
 
-  return Meta.generate({
+  return generateSiteMetadata({
     title: "HERS - Heterogeneities and Their Effect on Rotational Seismology",
     description: post.metadata.summary,
     baseURL,

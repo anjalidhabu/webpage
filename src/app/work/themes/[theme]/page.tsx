@@ -1,7 +1,8 @@
+import { generateSiteMetadata } from "@/utils/metadata";
 import { Projects } from "@/components/work/Projects";
 import { about, baseURL, person, work } from "@/resources";
 import { withBasePath } from "@/utils/paths";
-import { Button, Column, Heading, Meta, Schema, SmartLink, Text } from "@once-ui-system/core";
+import { Button, Column, Heading, Schema, SmartLink, Text } from "@once-ui-system/core";
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { associatedWorkSections, researchThemes } from "../../data";
@@ -55,7 +56,7 @@ export async function generateMetadata({
 
   if (!themeData) return {};
 
-  return Meta.generate({
+  return generateSiteMetadata({
     title: `${themeData.section.title} - ${work.title}`,
     description: themeData.section.summary,
     baseURL: baseURL,
