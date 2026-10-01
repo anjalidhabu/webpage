@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"
 
 permissions:
   contents: read
@@ -27,6 +29,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Refresh OpenAlex citations
+        continue-on-error: true
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          OPENALEX_EMAIL: ${{ vars.OPENALEX_EMAIL }}
+        run: npm run fetch:openalex-citations
       - uses: actions/configure-pages@v5
       - run: npm run build:github
       - run: node scripts/audit-export.mjs

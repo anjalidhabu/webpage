@@ -109,6 +109,9 @@ async function fetchJson(url) {
   });
 
   if (!response.ok) {
+    if (response.status !== 404) {
+      throw new Error(`OpenAlex request failed with HTTP ${response.status}`);
+    }
     return {
       ok: false,
       status: response.status,
@@ -339,6 +342,11 @@ async function main() {
 
     process.stdout.write(`${statusLabel}\n`);
     await new Promise((resolve) => setTimeout(resolve, 120));
+  }
+
+  if (Object.values(results).some((result) => result.status === "error") ||
+      !Object.values(results).some((result) => result.status === "ready")) {
+    throw new Error("Incomplete OpenAlex refresh; keeping the previous citation cache and date.");
   }
 
   const generatedData = {

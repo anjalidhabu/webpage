@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Column, RevealFx, Schema } from "@once-ui-system/core";
 
 import { publications } from "@/app/publications/content";
+import citationCache from "@/app/publications/openalex-citations.generated.json";
 import { VisitorLocationMap } from "@/components/VisitorLocationMap";
 import { about, baseURL, home, person } from "@/resources";
 import { withBasePath } from "@/utils/paths";
@@ -22,21 +23,38 @@ export async function generateMetadata() {
 }
 
 const resumeLink = withBasePath("/documents/cv.pdf");
-const publicationTotal = publications.groups.reduce((total, group) => total + group.items.length, 0);
+const listedPublicationIds = new Set(publications.groups.flatMap((group) => group.items.map((item) => item.id)));
+const indexedWorks = new Map(
+  Object.values(citationCache.results)
+    .filter((result) => result.status === "ready" && listedPublicationIds.has(result.publicationId))
+    .map((result) => ["openAlexId" in result ? result.openAlexId : result.publicationId, result.citedByCount]),
+);
+const citationTotal = Array.from(indexedWorks.values()).reduce((total, count) => total + count, 0);
+const citationDate = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+}).format(new Date(citationCache.generatedAt));
+const publicationTotal = publications.groups.reduce(
+  (total, group) =>
+    total + group.items.filter((item) => item.type === "Journal" || item.type === "Conference").length,
+  0,
+);
 
 const researchMetrics = [
   {
     value: String(publicationTotal),
     label: "Publications",
-    detail: "Journal articles, preprints, manuscripts, and conference contributions.",
+    detail: "Journal articles and conference contributions.",
   },
   {
-    value: 157,
+    value: citationTotal,
     label: "Citations",
-    detail: "Citation count from Google Scholar.",
+    detail: `OpenAlex citations to indexed works listed here · as of ${citationDate}.`,
   },
   {
-    value: "€300K",
+    value: "€340K",
     label: "DFG individual grant",
     detail: "HERS project on heterogeneous Earth structure and rotational seismology.",
   },
