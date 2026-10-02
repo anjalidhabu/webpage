@@ -27,7 +27,7 @@ const routes: RoutesConfig = {
   "/publications": true,
   "/publication-list": true,
   "/awards": true,
-  "/teaching": true,
+  "/teaching": false, // Temporarily hidden; retain content for reactivation.
   "/blog": false,
   "/gallery": false,
   "/travel": false,

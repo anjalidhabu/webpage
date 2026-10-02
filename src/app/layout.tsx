@@ -4,6 +4,7 @@ import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
 
 import classNames from "classnames";
+import Script from "next/script";
 
 import { Footer, Header, Providers, RouteGuard } from "@/components";
 import { baseURL, dataStyle, effects, fonts, home, style } from "@/resources";
@@ -49,8 +50,9 @@ export default async function RootLayout({
           name="google-site-verification"
           content="lAJWZOAMLRlM6aMJhhr_b11iXIuBaef9IdrSeL1eZVE"
         />
-        <script
+        <Script
           id="theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {

@@ -287,7 +287,7 @@ const featuredInstitutionNames = [
   "Ludwig Maximilian University of Munich",
   "Federal Institute for Materials Research and Testing",
   cnrsInstitutionName,
-  "Opole University of Technology",
+  "BGR - Federal Institute for Geosciences and Natural Resources",
   "National Geophysical Research Institute",
   csirFourthParadigmInstituteName,
 ] as const;
@@ -1974,6 +1974,9 @@ export function CollaborationMap({ publications, activeGroup }: CollaborationMap
   const readyCitationCount = citationCandidates.filter(
     (publication) => generatedCitationResults[publication.id]?.status === "ready",
   ).length;
+  const publicationTotal = scopedPublications.filter(
+    (publication) => publication.type === "Journal" || publication.type === "Conference",
+  ).length;
   const citationTotal = Object.values(generatedCitationResults)
     .filter((result) =>
       citationCandidates.some((publication) => publication.id === result.publicationId),
@@ -1998,61 +2001,67 @@ export function CollaborationMap({ publications, activeGroup }: CollaborationMap
           </p>
         </div>
         <div className={styles.networkStats} aria-label="Network summary">
+          <span title="Journal articles and conference contributions, matching the home page">
+            <strong>{publicationTotal}</strong>
+            publications
+          </span>
           <span>
             <strong>{themes.length}</strong>
             themes
           </span>
           <span>
-            <strong>{coauthors.length}</strong>
-            coauthors
-          </span>
-          <span>
             <strong>{institutions.length}</strong>
-            institutions
+            Institutions
           </span>
           <span>
             <strong>{citationTotal}</strong>
-            citations loaded
+            citations
           </span>
         </div>
       </div>
 
       {featuredInstitutions.length ? (
-        <div className={styles.featuredCollaborationGrid} aria-label="Featured collaborations">
-          {featuredInstitutions.map((institution) => {
-            const isActive = mode === "institutions" && selectedKey === institution.key;
+        <div>
+          <p className={styles.featuredCollaborationNote}>
+            Featured collaborations · {featuredInstitutions.length} of {institutions.length}{" "}
+            institutions shown below. Explore the full network in the Institutions tab.
+          </p>
+          <div className={styles.featuredCollaborationGrid} aria-label="Featured collaborations">
+            {featuredInstitutions.map((institution) => {
+              const isActive = mode === "institutions" && selectedKey === institution.key;
 
-            return (
-              <button
-                key={institution.key}
-                type="button"
-                className={`${styles.featuredCollaborationCard} ${
-                  isActive ? styles.activeFeaturedCollaborationCard : ""
-                }`}
-                style={institution.primaryTheme ? themeStyle(institution.primaryTheme) : undefined}
-                onClick={() => {
-                  setMode("institutions");
-                  setSelectedKey(institution.key);
-                }}
-                aria-pressed={isActive}
-              >
-                <span className={styles.featuredLogoPlate}>
-                  {institution.logo ? <img src={institution.logo} alt="" /> : null}
-                </span>
-                <span className={styles.featuredCollaborationBody}>
-                  <strong>{institutionLabel(institution.name)}</strong>
-                  <span>{institution.country}</span>
-                </span>
-                <span className={styles.featuredCollaborationMeta}>
-                  <small>
-                    {institution.publicationIds.length} publication
-                    {institution.publicationIds.length === 1 ? "" : "s"}
-                  </small>
-                  <small>{institution.primaryTheme?.shortTitle ?? "Institution"}</small>
-                </span>
-              </button>
-            );
-          })}
+              return (
+                <button
+                  key={institution.key}
+                  type="button"
+                  className={`${styles.featuredCollaborationCard} ${
+                    isActive ? styles.activeFeaturedCollaborationCard : ""
+                  }`}
+                  style={institution.primaryTheme ? themeStyle(institution.primaryTheme) : undefined}
+                  onClick={() => {
+                    setMode("institutions");
+                    setSelectedKey(institution.key);
+                  }}
+                  aria-pressed={isActive}
+                >
+                  <span className={styles.featuredLogoPlate}>
+                    {institution.logo ? <img src={institution.logo} alt="" /> : null}
+                  </span>
+                  <span className={styles.featuredCollaborationBody}>
+                    <strong>{institutionLabel(institution.name)}</strong>
+                    <span>{institution.country}</span>
+                  </span>
+                  <span className={styles.featuredCollaborationMeta}>
+                    <small>
+                      {institution.publicationIds.length} publication
+                      {institution.publicationIds.length === 1 ? "" : "s"}
+                    </small>
+                    <small>{institution.primaryTheme?.shortTitle ?? "Institution"}</small>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       ) : null}
 

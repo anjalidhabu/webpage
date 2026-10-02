@@ -7,7 +7,7 @@ import { teaching } from "@/app/teaching/content";
 import { FooterContact } from "@/components";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
-import { about, baseURL, home, person, social } from "@/resources";
+import { about, baseURL, home, person, routes, social } from "@/resources";
 import { withBasePath } from "@/utils/paths";
 import {
   Avatar,
@@ -376,14 +376,16 @@ export default function About() {
                     )}
                   </Column>
                 ))}
-                <Row>
-                  <Button
-                    href={teaching.path}
-                    variant="secondary"
-                    prefixIcon="book"
-                    label="See Teaching and Mentoring"
-                  />
-                </Row>
+                {routes["/teaching"] && (
+                  <Row>
+                    <Button
+                      href={teaching.path}
+                      variant="secondary"
+                      prefixIcon="book"
+                      label="See Teaching and Mentoring"
+                    />
+                  </Row>
+                )}
               </Column>
             </>
           )}

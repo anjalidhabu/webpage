@@ -276,18 +276,18 @@ const awardMoments: AwardMoment[] = [
     alt: "Dr. Anjali Dhabu receiving the SGSITS gold medal",
   },
   {
+    title: "Silver Medal Recognition",
+    context: "VNIT Nagpur | M.Tech. Applied Mechanics",
+    year: "2014",
+    image: "/images/awards/mtech.jpg",
+    alt: "Dr. Anjali Dhabu receiving the VNIT Nagpur silver medal",
+  },
+  {
     title: "Institute Research Award",
     context: "IIT Madras | Doctoral research recognition",
     year: "2020",
     image: "/images/awards/inst_award.png",
     alt: "Dr. Anjali Dhabu receiving the Institute Research Award at IIT Madras",
-  },
-  {
-    title: "Silver Medal Recognition",
-    context: "VNIT Nagpur | M.Tech. Applied Mechanics",
-    year: "2014",
-    image: "/images/awards/mtech.png",
-    alt: "Dr. Anjali Dhabu receiving the VNIT Nagpur silver medal",
   },
   {
     title: "Research Grant Milestone",

@@ -83,45 +83,38 @@ const ecosystemLinks = [
 const projectPeople = [
   {
     name: "Professor Dr. Céline Hadziioannou",
-    role: "Jointly responsible",
+    role: "Cooperation Partner",
     institution: "University of Hamburg",
     affiliation: "Institute of Geophysics",
     logo: "/images/logos/Seal_of_the_University_of_Hamburg.svg",
   },
   {
     name: "Professor Dr. Heiner Igel",
-    role: "Jointly responsible",
+    role: "Cooperation Partner",
     institution: "LMU Munich",
     affiliation: "Geophysics / Seismology",
     logo: "/images/logos/LMU_Muenchen_Logo.svg",
   },
   {
     name: "Dr. Felix Bernauer",
-    role: "Jointly responsible",
+    role: "Cooperation Partner",
     institution: "LMU Munich",
     affiliation: "Geophysics / Seismology",
     logo: "/images/logos/LMU_Muenchen_Logo.svg",
   },
   {
     name: "Professor Dr. Yann Capdeville",
-    role: "Cooperation partner",
+    role: "Cooperation Partner",
     institution: "CNRS / Nantes Université",
     affiliation: "Laboratoire de Planétologie et Géosciences",
     logo: "/images/logos/LOGO_CNRS_BLEU.png",
-  },
-  {
-    name: "Dr. Stefanie Donner",
-    role: "Cooperation partner / Mentor",
-    institution: "BGR Hannover",
-    affiliation: "Federal Institute for Geosciences and Natural Resources",
-    logo: "/images/logos/BGR_Logo-cropped.svg",
   },
 ];
 
 const guidedStudents = [
   {
     name: "Laurin Müller",
-    level: "B.Sc. thesis co-supervision",
+    level: "M.Sc. thesis co-supervision",
     focus: "Structural health monitoring of wind turbines using 6C ground-motion data.",
   },
   {
@@ -157,7 +150,7 @@ type HersPublicationItem = {
 
 // Edit this array to curate the publication cards shown on the HERS project page.
 const hersPublicationItems: HersPublicationItem[] = [
-  {
+/*   {
     id: "heterogeneities-rotational-ground-motions",
     authors: "Dhabu, A.C., Matthiessen, N., and Hadziioannou, C.",
     title:
@@ -167,8 +160,8 @@ const hersPublicationItems: HersPublicationItem[] = [
     year: "In preparation",
     type: "Manuscript",
     status: "In preparation",
-  },
-  {
+  }, */
+/*   {
     id: "topograpy-rotational-ground-motions",
     authors: "Dhabu, A.C., Nooghabi, A., and Hadziioannou, C.",
     title:
@@ -178,14 +171,14 @@ const hersPublicationItems: HersPublicationItem[] = [
     year: "2026",
     type: "Poster",
     status: "Completed",
-  },
+  }, */
   {
     id: "Propagation Characteristics of Rotational Ground Motions in Layered Earth Media",
     authors: "Dhabu, A.C., Nooghabi, A., and Hadziioannou, C.",
     title:
       "Propagation Characteristics of Rotational Ground Motions in Layered Earth Media",
-    venue: "Extended abstract for EGU 2026.",
-    details: "Planned submission to Bulletin of the Seismological Society of America.",
+    venue: "Extended abstract accepted at EGU 2026.",
+    details: "Manuscript in preparation for submission to Bulletin of the Seismological Society of America.",
     year: "2026",
     type: "Poster",
     status: "Completed",
@@ -195,8 +188,8 @@ const hersPublicationItems: HersPublicationItem[] = [
     authors: "Nooghabi, A., Dhabu, A.C., Monteiller, M., Matthiessen, N., and Hadziioannou, C.",
     title:
       "Coupled Numerical Simulation of Teleseismic Wave Propagation Incorporating Local Structural Features",
-    venue: "Extended abstract for EGU 2026.",
-    details: "Planned submission to Seismological Research Letters.",
+    venue: "Extended abstract accepted at EGU 2026.",
+    details: "",
     year: "2026",
     type: "Poster",
     status: "Completed",
@@ -206,8 +199,8 @@ const hersPublicationItems: HersPublicationItem[] = [
     authors: "Nooghabi, A., Dhabu, A.C., and Hadziioannou, C.",
     title:
       "Developing a High-Resolution Subsurface Model through Teleseismic Wave Simulation in Hamburg",
-    venue: "Extended abstract for EGU 2025.",
-    details: "Planned submission to Seismological Research Letters.",
+    venue: "Extended abstract accepted at EGU 2025.",
+    details: "",
     year: "2025",
     type: "Poster",
     status: "Completed",
@@ -217,8 +210,8 @@ const hersPublicationItems: HersPublicationItem[] = [
     authors: "Müller, L., Dhabu, A., Bernauer, F., Donner, S., Bode, K., & Hadziioannou, C.",
     title:
       "6-Component Operational Modal Analysis of wind turbines for damage detection.",
-    venue: "Presented at the 13th International Conference on Structural Health Monitoring of Intelligent Infrastructure",
-    details: "Planned submission to Wind Engineering.",
+    venue: "Presented at the 13th International Conference on Structural Health Monitoring of Intelligent Infrastructure.",
+    details: "",
     year: "2025",
     type: "Presentation",
     status: "Completed",

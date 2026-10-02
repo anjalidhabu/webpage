@@ -234,9 +234,9 @@
 
 .collaborationHeader {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(15rem, auto);
-  gap: 1rem;
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
 }
 
 .collaborationHeader h2 {
@@ -257,11 +257,12 @@
 
 .networkStats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.5rem;
 }
 
 .networkStats span {
+  grid-column: span 2;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -278,10 +279,21 @@
   text-transform: uppercase;
 }
 
+.networkStats span:nth-last-child(-n + 2) {
+  grid-column: span 3;
+}
+
 .networkStats strong {
   color: color-mix(in srgb, #167d9c 66%, var(--neutral-on-background));
   font-size: 1.75rem;
   line-height: 1;
+}
+
+.featuredCollaborationNote {
+  margin: 0 0 0.75rem;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 .featuredCollaborationGrid {
@@ -1384,7 +1396,6 @@
   }
 
   .themeLegend,
-  .networkStats,
   .featuredCollaborationGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1418,6 +1429,19 @@
 
   .groupHeader h2 {
     font-size: 1.8rem;
+  }
+
+  .networkStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .networkStats span,
+  .networkStats span:nth-last-child(-n + 2) {
+    grid-column: auto;
+  }
+
+  .networkStats span:last-child {
+    grid-column: 1 / -1;
   }
 
   .groupHeader > span {

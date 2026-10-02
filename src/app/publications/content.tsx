@@ -248,7 +248,7 @@ const publications: Publications = {
         "Work on heterogeneous Earth structure, source processes, finite-fault slip, and the strong-motion source regions that control damaging earthquake motion.",
       focus: "Heterogeneity, source processes, strong motion",
       items: [
-        {
+        /* {
           id: "basin-topography-rotational-ground-motions-esc-2026",
           authors: "Dhabu, A.C., Nooghabi, A., and Hadziioannou, C.",
           title: "Effect of basin structure and topography on rotational ground motions",
@@ -258,8 +258,8 @@ const publications: Publications = {
           type: "Conference",
           institutions: ["University of Hamburg"],
           tags: ["Basin structure", "Topography", "Rotational ground motions"],
-        },
-        {
+        }, */
+/*         {
           id: "heterogeneities-rotational-ground-motions",
           authors: "Dhabu, A.C., Matthiessen, N. and Hadziioannou, C.",
           title:
@@ -272,7 +272,7 @@ const publications: Publications = {
           institutions: ["University of Hamburg"],
           tags: ["Heterogeneity", "Rotations", "Strain"],
           insights: publicationInsights["heterogeneities-rotational-ground-motions"],
-        },
+        }, */
         {
           id: "strong-motion-generation-extreme-value",
           authors: "Dhabu, A.C., Sugumar, S. and Raghukanth, S.T.G.",
@@ -321,7 +321,7 @@ const publications: Publications = {
           institutions: ["University of Hamburg"],
           tags: ["Teleseismic simulation", "Local structure", "Coupled modeling"],
         },
-        {
+/*         {
           id: "coupled-teleseismic-ground-motion-simulation",
           authors: "Hejazi Nooghabi, A., Dhabu, A.C., Montellier, V. and Hadziioannou, C.",
           title:
@@ -334,7 +334,7 @@ const publications: Publications = {
           institutions: ["University of Hamburg"],
           tags: ["Teleseismic events", "Coupled simulation", "Wave-fields"],
           insights: publicationInsights["coupled-teleseismic-ground-motion-simulation"],
-        },
+        }, */
         {
           id: "hamburg-subsurface-teleseismic-simulation",
           authors: "Hejazi Nooghabi, A., Dhabu, A. and Hadziioannou, C.",

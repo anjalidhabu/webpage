@@ -58,9 +58,7 @@ export default TimeDisplay;
 export const Header = () => {
   const pathname = usePathname() ?? "";
   const isMoreRoute =
-    pathname.startsWith("/awards") ||
     pathname.startsWith("/teaching") ||
-    pathname.startsWith("/publication-list") ||
     pathname.startsWith("/gallery") ||
     pathname.startsWith("/travel");
   const [isMoreOpen, setIsMoreOpen] = useState(false);
@@ -106,7 +104,7 @@ export const Header = () => {
             horizontal="center"
             zIndex={1}
           >
-            <Row gap="8" vertical="center" textVariant="body-default-m" suppressHydrationWarning>
+            <Row className={styles.navigation} gap="8" vertical="center" textVariant="body-default-m" suppressHydrationWarning>
               {routes["/"] && (
                 <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} size="l" />
               )}
@@ -136,7 +134,7 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="grid"
+                      prefixIcon="research"
                       href="/work"
                       label={work.label}
                       selected={pathname.startsWith("/work")}
@@ -145,7 +143,7 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="grid"
+                      prefixIcon="research"
                       href="/work"
                       selected={pathname.startsWith("/work")}
                       size="l"
@@ -199,26 +197,46 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="document"
+                      prefixIcon="publications"
                       href="/publications"
                       label={publications.label}
-                      selected={pathname.startsWith("/publications")}
+                      selected={pathname.startsWith("/publications") || pathname.startsWith("/publication-list")}
                       size="l"
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="document"
+                      prefixIcon="publications"
                       href="/publications"
-                      selected={pathname.startsWith("/publications")}
+                      selected={pathname.startsWith("/publications") || pathname.startsWith("/publication-list")}
                       size="l"
                     />
                   </Row>
                 </>
               )}
-              {(routes["/awards"] ||
-                routes["/teaching"] ||
-                routes["/publication-list"] ||
+              {routes["/awards"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="trophy"
+                      href="/awards"
+                      label={awards.label}
+                      selected={pathname.startsWith("/awards")}
+                      size="l"
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="trophy"
+                      href="/awards"
+                      aria-label={awards.label}
+                      selected={pathname.startsWith("/awards")}
+                      size="l"
+                    />
+                  </Row>
+                </>
+              )}
+              {(routes["/teaching"] ||
                 routes["/gallery"] ||
                 routes["/travel"]) && (
                 <DropdownWrapper
@@ -240,18 +258,6 @@ export const Header = () => {
                   }
                   dropdown={
                     <Column className={styles.moreMenu} padding="4" gap="4">
-                      {routes["/awards"] && (
-                        <Button
-                          variant={pathname.startsWith("/awards") ? "primary" : "secondary"}
-                          size="s"
-                          prefixIcon="trophy"
-                          href="/awards"
-                          fillWidth
-                          horizontal="start"
-                        >
-                          {awards.label}
-                        </Button>
-                      )}
                       {routes["/teaching"] && (
                         <Button
                           variant={pathname.startsWith("/teaching") ? "primary" : "secondary"}
@@ -262,20 +268,6 @@ export const Header = () => {
                           horizontal="start"
                         >
                           {teaching.label}
-                        </Button>
-                      )}
-                      {routes["/publication-list"] && (
-                        <Button
-                          variant={
-                            pathname.startsWith("/publication-list") ? "primary" : "secondary"
-                          }
-                          size="s"
-                          prefixIcon="document"
-                          href="/publication-list"
-                          fillWidth
-                          horizontal="start"
-                        >
-                          Publication list
                         </Button>
                       )}
                       {routes["/travel"] && (

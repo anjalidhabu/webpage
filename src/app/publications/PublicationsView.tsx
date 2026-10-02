@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@once-ui-system/core";
 import type { Publications } from "@/types";
 import { withBasePath } from "@/utils/paths";
 import { useMemo, useState } from "react";
@@ -80,6 +81,9 @@ export function PublicationsView({ publications }: PublicationsViewProps) {
             Publications are organized using the same five research themes that structure the
             research vision.
           </p>
+          <Button href="/publication-list" variant="secondary" prefixIcon="document">
+            Publication list
+          </Button>
         </div>
         <figure className={styles.publicationThemesFigure}>
           <div className={styles.publicationThemesScroller}>

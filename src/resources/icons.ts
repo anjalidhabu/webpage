@@ -20,6 +20,8 @@ import {
 
 import {
   PiBookBookmarkDuotone,
+  PiBooksDuotone,
+  PiWaveformDuotone,
   PiGridFourDuotone,
   PiHouseDuotone,
   PiImageDuotone,
@@ -60,7 +62,9 @@ export const iconLibrary: Record<string, IconType> = {
   university: HiOutlineBuildingLibrary,
   person: PiUserCircleDuotone,
   grid: PiGridFourDuotone,
+  research: PiWaveformDuotone,
   book: PiBookBookmarkDuotone,
+  publications: PiBooksDuotone,
   openLink: HiOutlineLink,
   calendar: HiCalendarDays,
   home: PiHouseDuotone,

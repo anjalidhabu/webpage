@@ -39,15 +39,15 @@ const teaching: TeachingPage = {
       title: "University of Hamburg Supervision",
       items: [
         {
-          title: "B.Sc. Thesis Co-Supervision — Laurin Müller",
+          title: "M.Sc. Thesis Co-Supervision — Laurin Müller",
           description:
-            "Co-supervising Laurin Müller on structural health monitoring of wind turbines using 6-component ground-motion data at the University of Hamburg.",
-          tags: ["B.Sc. Supervision", "6C Data", "Structural Health Monitoring"],
+            "Supervised Laurin Müller on structural health monitoring of wind turbines using 6-component ground-motion data at the University of Hamburg.",
+          tags: ["M.Sc. Supervision", "6C Data", "Structural Health Monitoring"],
         },
         {
           title: "B.Sc. Thesis Co-Supervision",
           description:
-            "Co-supervised Nicolas Matthießen on numerical simulation of seismic gradients and their response to heterogeneity in the Earth medium.",
+            "Supervised Nicolas Matthießen on numerical simulation of seismic gradients and their response to heterogeneity in the Earth medium.",
           tags: ["B.Sc. Supervision", "Seismic Gradients", "Numerical Simulation"],
         },
       ],

@@ -159,7 +159,7 @@ const stats = [
     detail: "HERS project, 2024-2027.",
   },
   {
-    value: "€300K",
+    value: "€340K",
     label: "Funding secured",
     detail: "Three-year individual research grant.",
   },

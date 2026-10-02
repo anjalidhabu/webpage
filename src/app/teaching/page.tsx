@@ -1,11 +1,13 @@
+import { notFound } from "next/navigation";
 import { generateSiteMetadata } from "@/utils/metadata";
 import { Column, Heading, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
 
-import { about, baseURL, home, person } from "@/resources";
+import { about, baseURL, home, person, routes } from "@/resources";
 
 import { teaching } from "./content";
 
 export async function generateMetadata() {
+  if (!routes["/teaching"]) notFound();
   return generateSiteMetadata({
     title: teaching.title,
     description: teaching.description,
@@ -16,6 +18,8 @@ export async function generateMetadata() {
 }
 
 export default function TeachingPage() {
+  if (!routes["/teaching"]) notFound();
+
   return (
     <Column maxWidth="m" paddingTop="24" gap="40">
       <Schema

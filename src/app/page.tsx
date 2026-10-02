@@ -46,12 +46,12 @@ const researchMetrics = [
   {
     value: String(publicationTotal),
     label: "Publications",
-    detail: "Journal articles and conference contributions.",
+    detail: "Journal articles and Conference contributions.",
   },
   {
     value: citationTotal,
     label: "Citations",
-    detail: `OpenAlex citations to indexed works listed here · as of ${citationDate}.`,
+    detail: `OpenAlex citations to indexed works as of ${citationDate}.`,
   },
   {
     value: "€340K",
@@ -66,8 +66,8 @@ const researchMetrics = [
 ];
 
 const networkHighlights = [
-  { value: "12", label: "partner institutions" },
-  { value: "3", label: "continents represented" },
+  { value: "12", label: "Partner Institutions" },
+  { value: "3", label: "Continents Represented" },
   { value: "5", label: "Research Themes" },
 ];
 const collaborationLogos = [
@@ -141,7 +141,7 @@ const experienceHighlights = about.work.experiences.slice(0, 3).map((experience)
 
 const testimonials = [
   {
-    quote: "Current host / Former postdoctoral supervisor",
+    quote: "Current host & Postdoctoral Supervisor",
     name: "Prof. Dr. Céline Hadziioannou",
     role: "Director of the Institute of Geophysics | University of Hamburg",
     action: "Contact",
@@ -169,7 +169,7 @@ const testimonials = [
     href: "https://www.geo.lmu.de/geoumwelt/de/department/personen/kontaktseite/heiner-igel-186fe287.html",
   },
   {
-    quote: "Postdoctoral colleague",
+    quote: "Postdoctoral Colleague",
     name: "Dr. Aida Hejazi Nooghabi",
     role: "Postdoctoral Researcher | University of Hamburg | Wave Physics and Seismology",
     action: "Profile",
@@ -246,7 +246,7 @@ export default function Home() {
 
               <div className={styles.heroCollaboration}>
                 <p className={styles.cardKicker}>Research Collaborations</p>
-                <h2>Open to scientific exchange across seismology and structural resilience.</h2>
+                <h2>Open to scientific exchange across Seismology and Structural Resilience.</h2>
                 <p>
                   Reach out for research collaboration, invited talks, student supervision
                   discussions, or questions about rotational ground-motion modeling and structural
@@ -356,8 +356,8 @@ export default function Home() {
             <div className={styles.logoIntro}>
               <p className={styles.sectionEyebrow}>Collaboration Network</p>
               <h2>
-                A research network spanning seismology, engineering, monitoring, and planetary
-                science.
+                A research network spanning across Seismology, Engineering, and Planetary
+                Science.
               </h2>
               <p className={styles.logoIntroText}>
                 The work grows through generous scientific exchange, shared datasets, student

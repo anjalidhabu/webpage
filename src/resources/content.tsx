@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Anjali",
   lastName: "Dhabu",
   name: "Dr. Anjali Dhabu",
-  role: "Postdoctoral Researcher and Principal Investigator in Rotational Seismology and Earthquake Engineering",
+  role: "Postdoctoral Researcher and Principal Investigator of the HERS at the University of Hamburg",
   avatar: "/images/AD1.jpg",
   email: "anjali.dhabu@uni-hamburg.de",
   location: "Europe/Berlin",
@@ -143,7 +143,7 @@ const about: About = {
         timeframe: "04/2024 - 03/2027",
         role: "Principal Investigator (PI), DFG Individual Research Grant - HERS",
         achievements: [
-          "Leads the DFG-funded project Heterogeneities and their Effect on Rotational Seismology (HERS), focused on how complex subsurface media influence simulated rotational ground motions and strains.",
+          "Leading the DFG-funded project Heterogeneities and their Effect on Rotational Seismology (HERS), focused on how complex subsurface media influence simulated rotational ground motions and strains.",
           "Develops heterogeneous finite-element and numerical simulation approaches for regional rotational ground-motion modeling, connecting seismology with earthquake engineering design questions.",
           "Builds on more than a decade of civil engineering and engineering seismology research to translate theoretical ground-motion models into practical structural resilience questions.",
         ],
@@ -200,13 +200,13 @@ const about: About = {
       {
         title: "Student Travel Grant, IIT Madras",
         details: [
-          "Received support from Indian Institute of Technology Madras in Sep. 2018 for conference presentations and research dissemination.",
+          "Received Funding from IIT Madras in 2018 for conference presentations and research dissemination.",
         ],
       },
       {
         title: "Merit-based Scholarship, MHRD, Govt. of India (Ph.D.)",
         details: [
-          "Awarded a Government of India merit-based scholarship from Jan. 2014 to July 2019 for academic excellence during Ph.D. studies.",
+          "Awarded a Government of India merit-based scholarship from July. 2014 to July 2019 for academic excellence during Ph.D. studies.",
         ],
       },
       {
@@ -218,7 +218,7 @@ const about: About = {
       {
         title: "Merit-based Scholarship, MHRD, Govt. of India (M.Tech.)",
         details: [
-          "Awarded a Government of India merit-based scholarship from Jan. 2012 to July 2014 for academic excellence during M.Tech. studies.",
+          "Awarded a Government of India merit-based scholarship from July. 2012 to July 2014 for academic excellence during M.Tech. studies.",
         ],
       },
       {
@@ -337,7 +337,7 @@ const about: About = {
         title: "Independent DFG Research Project",
         timeframe: "2024 - 2027",
         points: [
-          "Leads the HERS project funded through an individual research grant from the Deutsche Forschungsgemeinschaft.",
+          "Leading the HERS project funded through an individual research grant from the Deutsche Forschungsgemeinschaft.",
           "Defines research questions, simulation strategy, publication direction, and interdisciplinary links between rotational seismology and civil engineering design.",
         ],
       },
@@ -358,10 +358,10 @@ Earth medium’ — [2025]</li>
           <div key="supervision-iit-madras">
             <strong>IIT Madras</strong>
             <ul>
-              <li>Kandarp Pathak [Dual-degree M.Tech.] — [Co-supervised with Dr. S. T. G. Raghukanth] — [2019]</li>
-              <li>Akhil Manikala [Dual-degree M.Tech.] — [Co-supervised with Dr. S. T. G. Raghukanth] — [2018]</li>
-              <li>Jaifer Muhammed [M.Tech.] — [Co-supervised with Dr. S. T. G. Raghukanth] — [2017]</li>
-              <li>Rakesh Borase [M.Tech.] — [Co-supervised with Dr. S. T. G. Raghukanth] — [2016]</li>
+              <li>Kandarp Pathak [Dual-degree M.Tech.] — Co-supervised with Dr. S. T. G. Raghukanth — [2019]</li>
+              <li>Akhil Manikala [Dual-degree M.Tech.] — Co-supervised with Dr. S. T. G. Raghukanth — [2018]</li>
+              <li>Jaifer Muhammed [M.Tech.] — Co-supervised with Dr. S. T. G. Raghukanth — [2017]</li>
+              <li>Rakesh Borase [M.Tech.] — Co-supervised with Dr. S. T. G. Raghukanth — [2016]</li>
             </ul>
           </div>,
         ],
@@ -374,13 +374,13 @@ Earth medium’ — [2025]</li>
             <strong>Invited Talks</strong>
             <ul>
               <li>
-                ‘Seismic monitoring of infrastructures’ — [15th Munich Earth Skience School] — [2025]
+                ‘Seismic monitoring of infrastructures’ — 15th Munich Earth Skience School — [2025]
               </li>
               <li>
                 ‘Applications of Rotational Sensing in Analyzing Structural Vibrations and
-                their Modal Analyses’ — [Keynote speech at the 18th World Conference in Earthquake
-                Engineering (WCEE), Milan, Italy] — [2024] — Co-authors: F. Bernauer,
-                P. Bonkowski, A. Dhabu, Z. Zembaty.
+                their Modal Analyses’ — Keynote speech at the 18th World Conference in Earthquake
+                Engineering (WCEE), Milan, Italy— Along with: F. Bernauer,
+                P. Bonkowski, A. Dhabu, Z. Zembaty.  — [2024] 
               </li>
               <li>‘Simulation of Translational and Rotational Ground Motions’ — [SPIN-ITN
                 workshop: Physics and Dynamic Processes, Carcans, France] — [2022]</li>
@@ -400,16 +400,22 @@ Earth medium’ — [2025]</li>
         points: [
           // Add or edit a <li> below for each journal, panel, or community activity.
           <div key="journal-reviewing">
-            <strong>Journal Reviewing</strong>
+            <strong>Peer reviewer for Journals</strong>
             <ul>
-              <li>Geophysical Journal International — Peer reviewer.</li>
-              <li>Seismica — Peer reviewer.</li>
+              <li>Geophysical Journal International — [2024-Present]</li>
+              <li>Pure and Applied Geophysics — [2022-Present]</li>
+              <li>Seismica — [2021-Present]</li>
+            </ul>
+            <strong>Peer reviewer for Conferences</strong>
+            <ul>
+              <li>18th World Conference in Earthquake Engineering (WCEE), Milan, Italy — [2024]</li>
+              <li>13th Structural Engineering Convention (SEC-2023), Nagpur, India — [2023]</li>
             </ul>
           </div>,
           <div key="funding-panel-reviewing">
             <strong>Funding Panel Reviewing</strong>
             <ul>
-              <li>University of Hamburg Ideas and Venture Fund — Panel reviewer.</li>
+              <li>University of Hamburg Ideas and Venture Fund — [2023-Present]</li>
             </ul>
           </div>,
           <div key="community-building">
@@ -418,7 +424,7 @@ Earth medium’ — [2025]</li>
               <li>AG-Seismologie 2024 Conference — Co-organizer, University of Hamburg.</li>
               <li>
                 SPIN-ITN short courses and workshops — Contributed to training for Ph.D.
-                researchers and external candidates.
+                researchers and external candidates, [2021-2023]
               </li>
             </ul>
           </div>,
