@@ -55,13 +55,13 @@ const fundingEntries = [
       "Institutional support for conference presentations and dissemination of doctoral research.",
   },
   {
-    category: "Merit Funding",
+    category: "Fellowships & Scholarships",
     title: "MHRD Scholarships and Fellowships",
     institution: "Ministry of Human Resource Development, Govt. of India",
     period: "2012 - 2019",
-    emphasis: "M.Tech. and Ph.D. academic excellence",
+    emphasis: "Five-year doctoral fellowship at IIT Madras",
     description:
-      "Government scholarships awarded for academic excellence during M.Tech. and Ph.D. studies.",
+      "MHRD, Government of India support for five years of Ph.D. study at IIT Madras (2014–2019) and two years of M.Tech. study at VNIT Nagpur (2012–2014).",
   },
 ];
 
@@ -160,7 +160,7 @@ const stats = [
   },
   {
     value: "€340K",
-    label: "Funding secured",
+    label: "Research grant funding",
     detail: "Three-year individual research grant.",
   },
   {

@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Anjali",
   lastName: "Dhabu",
   name: "Dr. Anjali Dhabu",
-  role: "Postdoctoral Researcher and Principal Investigator of the HERS at the University of Hamburg",
+  role: "Postdoctoral Researcher and Principal Investigator of HERS Project at the University of Hamburg",
   avatar: "/images/AD1.jpg",
   email: "anjali.dhabu@uni-hamburg.de",
   location: "Europe/Berlin",
@@ -204,9 +204,9 @@ const about: About = {
         ],
       },
       {
-        title: "Merit-based Scholarship, MHRD, Govt. of India (Ph.D.)",
+        title: "Five-Year Doctoral Fellowship, IIT Madras (MHRD, Govt. of India)",
         details: [
-          "Awarded a Government of India merit-based scholarship from July. 2014 to July 2019 for academic excellence during Ph.D. studies.",
+          "Received MHRD, Government of India fellowship support for five years of Ph.D. study at IIT Madras, from July 2014 to July 2019.",
         ],
       },
       {
@@ -216,9 +216,9 @@ const about: About = {
         ],
       },
       {
-        title: "Merit-based Scholarship, MHRD, Govt. of India (M.Tech.)",
+        title: "M.Tech. Scholarship, VNIT Nagpur (MHRD, Govt. of India)",
         details: [
-          "Awarded a Government of India merit-based scholarship from July. 2012 to July 2014 for academic excellence during M.Tech. studies.",
+          "Received MHRD, Government of India scholarship support for two years of M.Tech. study at VNIT Nagpur, from July 2012 to July 2014.",
         ],
       },
       {
@@ -352,7 +352,7 @@ const about: About = {
               <li> Ann Joseph [M.Sc.] — ‘Development of a 3D model for Europe to simulate rotational ground motion’ — [2026]</li>
               <li> Nicolas Matthießen [B.Sc.] — ‘Numerical simulation of seismic gradients and their response to heterogeneity in the
 Earth medium’ — [2025]</li>
-              <li> Laurin Müller [B.Sc.] — ‘Structural Health Monitoring of wind turbines using 6C ground motion data’ — [2024]</li>
+              <li> Laurin Müller [M.Sc.] — ‘Structural Health Monitoring of wind turbines using 6C ground motion data’ — [2024]</li>
             </ul>
           </div>,
           <div key="supervision-iit-madras">

@@ -326,6 +326,9 @@ export function HersFlagshipPage({
             <Button href="#hers-network" variant="secondary" prefixIcon="person">
               Project Network
             </Button>
+            <Button href="#hers-students" variant="secondary" prefixIcon="person">
+              Guided Students
+            </Button>
             <Button href="#hers-publications" variant="secondary" prefixIcon="document">
               Publications
             </Button>
@@ -356,7 +359,7 @@ export function HersFlagshipPage({
             Project Network
           </Text>
           <Heading as="h2" id="hers-network-title" variant="heading-strong-l">
-            Joint responsibility and cooperation partners for HERS.
+            Research and cooperation partners for HERS.
           </Heading>
         </div>
 
@@ -382,9 +385,16 @@ export function HersFlagshipPage({
           ))}
         </div>
 
-        <div className={styles.studentStrip} aria-label="Guided students">
+      </section>
+
+      <section id="hers-students" className={styles.studentsSection} aria-labelledby="hers-students-title">
+        <div className={styles.sectionIntro}>
+          <Heading as="h2" id="hers-students-title" variant="heading-strong-l">
+            Guided Students
+          </Heading>
+        </div>
+        <div className={styles.studentStrip}>
           <div className={styles.studentStripIntro}>
-            <span>Guided Students</span>
             <strong>Research training connecting Earth heterogeneity and engineering seismology.</strong>
           </div>
           <div className={styles.studentStripItems}>

@@ -60,7 +60,7 @@ export default function Work() {
             variant="display-strong-m"
             className={styles.heroTitle}
           >
-            Seeing earthquake motion beyond translation.
+            Observing earthquake motions beyond translation.
           </Heading>
           <Text variant="body-default-m" onBackground="neutral-weak" className={styles.heroText}>
             I use numerical simulations to reveal how complex Earth structure shapes rotations,

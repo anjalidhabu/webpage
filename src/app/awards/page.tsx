@@ -147,10 +147,10 @@ const awardEntries: AwardEntry[] = [
     group: "scholarships",
     year: "2014 - 2019",
     sortYear: 2019,
-    title: "Doctoral Research Fellowship, MHRD",
+    title: "Five-Year Doctoral Fellowship, IIT Madras",
     institution: "Ministry of Human Resource Development, Government of India",
     description:
-      "Merit-based government fellowship for academic excellence during doctoral studies.",
+      "Received MHRD, Government of India fellowship support for five years of Ph.D. study at IIT Madras, from July 2014 to July 2019.",
     logos: [
       {
         label: "Ministry of Human Resource Development, Government of India",
@@ -169,9 +169,9 @@ const awardEntries: AwardEntry[] = [
     group: "scholarships",
     year: "2012 - 2014",
     sortYear: 2014,
-    title: "Merit-based Scholarship, M.Tech.",
+    title: "M.Tech. Scholarship, VNIT Nagpur",
     institution: "Ministry of Human Resource Development, Government of India",
-    description: "Government scholarship for academic excellence during M.Tech. studies.",
+    description: "Received MHRD, Government of India scholarship support for two years of M.Tech. study at VNIT Nagpur, from July 2012 to July 2014.",
     logos: [
       {
         label: "Ministry of Human Resource Development, Government of India",
@@ -227,24 +227,14 @@ const awardEntries: AwardEntry[] = [
 
 const awardStats = [
   {
-    value: "DFG",
-    label: "Independent grant",
-    detail: "HERS project, 2024-2027",
-  },
-  {
-    value: "€300K",
-    label: "Funding secured",
-    detail: "Three-year individual research grant",
+    value: "€340K",
+    label: "DFG Research grant funding",
+    detail: "Three-year individual DFG research grant",
   },
   {
     value: String(awardEntries.length),
     label: "Listed honours",
     detail: "Grants, fellowships, medals, mentoring and coaching selections, and travel support",
-  },
-  {
-    value: "2010-2027",
-    label: "Recognition timeline",
-    detail: "Academic distinction from B.E. to independent PI funding",
   },
 ];
 
@@ -276,18 +266,18 @@ const awardMoments: AwardMoment[] = [
     alt: "Dr. Anjali Dhabu receiving the SGSITS gold medal",
   },
   {
-    title: "Silver Medal Recognition",
-    context: "VNIT Nagpur | M.Tech. Applied Mechanics",
-    year: "2014",
-    image: "/images/awards/mtech.jpg",
-    alt: "Dr. Anjali Dhabu receiving the VNIT Nagpur silver medal",
-  },
-  {
     title: "Institute Research Award",
     context: "IIT Madras | Doctoral research recognition",
     year: "2020",
     image: "/images/awards/inst_award.png",
     alt: "Dr. Anjali Dhabu receiving the Institute Research Award at IIT Madras",
+  },
+  {
+    title: "Silver Medal Recognition",
+    context: "VNIT Nagpur | M.Tech. Applied Mechanics",
+    year: "2014",
+    image: "/images/awards/mtech.jpg",
+    alt: "Dr. Anjali Dhabu receiving the VNIT Nagpur silver medal",
   },
   {
     title: "Research Grant Milestone",

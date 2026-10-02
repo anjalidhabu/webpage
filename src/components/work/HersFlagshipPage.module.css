@@ -165,6 +165,7 @@
 .workflowSection,
 .ecosystemSection,
 .networkSection,
+.studentsSection,
 .publicationSection,
 .piBand {
   display: grid;
@@ -418,6 +419,10 @@
   color: var(--neutral-on-background-weak);
   font-size: 0.86rem;
   line-height: 1.45;
+}
+
+.studentsSection {
+  scroll-margin-top: 6rem;
 }
 
 .studentStrip {
