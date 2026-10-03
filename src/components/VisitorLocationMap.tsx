@@ -716,6 +716,10 @@ export function VisitorLocationMap() {
           </div>
         )}
       </div>
+      <Text variant="body-default-xs" onBackground="neutral-weak">
+        Datenschutzhinweis: This website does not store personal visitor data. Visitor statistics
+        are limited to anonymized city- and country-level information.
+      </Text>
     </Column>
   );
 }

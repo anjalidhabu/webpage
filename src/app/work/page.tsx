@@ -23,7 +23,7 @@ export async function generateMetadata() {
     title: work.title,
     description: work.description,
     baseURL: baseURL,
-    image: "/images/og/anjali-research-preview.png",
+    image: "/images/og/anjali-research-preview-v2.png",
     path: work.path,
   });
 }
@@ -41,7 +41,7 @@ export default function Work() {
         path={work.path}
         title={work.title}
         description={work.description}
-        image="/images/og/anjali-research-preview.png"
+        image="/images/og/anjali-research-preview-v2.png"
         author={{
           name: person.name,
           url: baseURL + about.path,

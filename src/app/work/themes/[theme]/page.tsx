@@ -60,7 +60,7 @@ export async function generateMetadata({
     title: `${themeData.section.title} - ${work.title}`,
     description: themeData.section.summary,
     baseURL: baseURL,
-    image: themeData.theme.image || "/images/og/anjali-research-preview.png",
+    image: themeData.theme.image || "/images/og/anjali-research-preview-v2.png",
     path: `${work.path}/themes/${themeData.theme.id}`,
   });
 }
@@ -95,7 +95,7 @@ export default async function ResearchThemePage({
         path={`${work.path}/themes/${theme.id}`}
         title={section.title}
         description={section.summary}
-        image={theme.image || "/images/og/anjali-research-preview.png"}
+        image={theme.image || "/images/og/anjali-research-preview-v2.png"}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,

@@ -24,7 +24,7 @@ export async function generateMetadata() {
     post.metadata.image ||
     post.metadata.heroImage ||
     post.metadata.images[0] ||
-    "/images/og/anjali-research-preview.png";
+    "/images/og/anjali-research-preview-v2.png";
 
   return generateSiteMetadata({
     title: "HERS - Heterogeneities and Their Effect on Rotational Seismology",
@@ -58,7 +58,7 @@ export default function HersPage() {
     post.metadata.image ||
     post.metadata.heroImage ||
     post.metadata.images[0] ||
-    "/images/og/anjali-research-preview.png";
+    "/images/og/anjali-research-preview-v2.png";
   const heroImage = post.metadata.heroImage || post.metadata.images[0];
   return (
     <HersFlagshipPage

@@ -78,7 +78,7 @@ export async function generateMetadata({
     post.metadata.image ||
     post.metadata.heroImage ||
     post.metadata.images[0] ||
-    "/images/og/anjali-research-preview.png";
+    "/images/og/anjali-research-preview-v2.png";
 
   return generateSiteMetadata({
     title: post.metadata.title,
@@ -129,7 +129,7 @@ export default async function Project({
     post.metadata.image ||
     post.metadata.heroImage ||
     post.metadata.images[0] ||
-    "/images/og/anjali-research-preview.png";
+    "/images/og/anjali-research-preview-v2.png";
   const heroImage = post.metadata.heroImage || post.metadata.images[0];
   const themeLinks = getResearchThemeLinksForProject(post.slug);
   const relatedThemeIds = themeLinks.map((theme) => theme.id);

@@ -55,7 +55,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/anjali-research-preview.png",
+  image: "/images/og/anjali-research-preview-v2.png",
   label: "Home",
   title: `${person.name} | Rotational Seismology & Earthquake Engineering`,
   description: "Dr. Anjali Dhabu researches rotational seismology, seismic wave propagation and earthquake engineering at the University of Hamburg. Explore her papers and projects.",

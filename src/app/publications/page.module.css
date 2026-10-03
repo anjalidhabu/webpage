@@ -1,4 +1,5 @@
 .publicationsPage {
+  min-width: 0;
   --group-accent: #167d9c;
   --group-accent-deep: #0f5369;
   --group-accent-contrast: #eef9ff;
@@ -59,6 +60,7 @@
 }
 
 .publicationThemesFigure {
+  min-width: 0;
   margin: 0;
 }
 
@@ -1188,6 +1190,8 @@
 
 .publicationInsightSummary::after {
   content: "+";
+  grid-column: 2;
+  grid-row: 1 / 3;
   width: 1.65rem;
   height: 1.65rem;
   display: inline-flex;
@@ -1214,12 +1218,16 @@
 }
 
 .publicationInsightSummary span {
+  grid-column: 1;
+  grid-row: 1;
   color: color-mix(in srgb, var(--group-accent) 76%, var(--neutral-on-background));
   font-size: 0.9rem;
   font-weight: 820;
 }
 
 .publicationInsightSummary small {
+  grid-column: 1;
+  grid-row: 2;
   color: var(--neutral-on-background-weak);
   font-size: 0.82rem;
   line-height: 1.35;
@@ -1403,6 +1411,7 @@
 
 @media (max-width: 760px) {
   .publicationsPage {
+  min-width: 0;
     gap: 1.4rem;
     padding: 1rem 0 3rem;
   }
@@ -1450,6 +1459,21 @@
 
   .publicationIndex {
     justify-content: flex-start;
+  }
+
+  .publicationList {
+    gap: 1.25rem;
+  }
+
+  .publicationCard {
+    min-width: 0;
+    padding: 1rem;
+    border-left: 3px solid var(--group-accent);
+  }
+
+  .publicationInsightSummary {
+    gap: 0.3rem 0.65rem;
+    padding: 0.85rem;
   }
 
   .coverPage {
