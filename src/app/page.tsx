@@ -271,6 +271,26 @@ export default function Home() {
                   More About Anjali
                 </Link>
               </div>
+
+              <aside className={styles.preprintAnnouncement} aria-labelledby="research-updates-heading">
+                <h2 id="research-updates-heading" className={styles.researchUpdatesHeading}>
+                  Research Updates
+                </h2>
+                <p className={styles.preprintMeta}>
+                  <span>New preprint</span>
+                  <time dateTime="2026-10-07">October 2026</time>
+                </p>
+                <p className={styles.preprintTitle}>
+                  Spectral Element Extension for Direct Simulation of Rotational Ground Motions
+                </p>
+                <a
+                  href="https://arxiv.org/abs/2610.09568"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read the preprint on arXiv <span aria-hidden="true">↗</span>
+                </a>
+              </aside>
             </div>
 
             <div className={styles.profilePanel}>

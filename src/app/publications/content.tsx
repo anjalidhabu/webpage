@@ -250,7 +250,7 @@ const publications: Publications = {
       items: [
         /* {
           id: "basin-topography-rotational-ground-motions-esc-2026",
-          authors: "Dhabu, A.C., Nooghabi, A., and Hadziioannou, C.",
+          authors: "Dhabu, A.C., Hejazi Nooghabi, A., and Hadziioannou, C.",
           title: "Effect of basin structure and topography on rotational ground motions",
           venue: "40th General Assembly of the European Seismological Commission.",
           details: "Poster presentation, 2026.",
@@ -300,8 +300,22 @@ const publications: Publications = {
       focus: "Teleseismic simulation, subsurface modeling, numerical workflows",
       items: [
         {
+          id: "spectral-element-rotational-ground-motions",
+          authors: "Dhabu, A.C., Hejazi Nooghabi, A. and Hadziioannou, C.",
+          title: "Spectral Element Extension for Direct Simulation of Rotational Ground Motions.",
+          venue: "arXiv preprint.",
+          details: "arXiv:2610.09568, submitted 7 October 2026.",
+          year: "2026",
+          type: "Preprint",
+          status: "Preprint",
+          institutions: ["University of Hamburg"],
+          tags: ["SPECFEM3D", "Spectral element methods", "Rotational ground motions"],
+          href: "https://arxiv.org/abs/2610.09568",
+          arxivId: "2610.09568",
+        },
+        {
           id: "layered-earth-rotational-ground-motions-egu-2026",
-          authors: "Dhabu, A.C., Nooghabi, A., and Hadziioannou, C.",
+          authors: "Dhabu, A.C., Hejazi Nooghabi, A., and Hadziioannou, C.",
           title: "Propagation Characteristics of Rotational Ground Motions in Layered Earth Media",
           venue: "EGU General Assembly.",
           details: "Extended abstract and poster presentation, 2026.",
@@ -312,7 +326,7 @@ const publications: Publications = {
         },
         {
           id: "coupled-numerical-teleseismic-simulation-egu-2026",
-          authors: "Nooghabi, A., Dhabu, A.C., Monteiller, M., Matthiessen, N., and Hadziioannou, C.",
+          authors: "Hejazi Nooghabi, A., Dhabu, A.C., Monteiller, M., Matthiessen, N., and Hadziioannou, C.",
           title: "Coupled Numerical Simulation of Teleseismic Wave Propagation Incorporating Local Structural Features",
           venue: "EGU General Assembly.",
           details: "Extended abstract and poster presentation, 2026.",

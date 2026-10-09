@@ -52,7 +52,9 @@ export default async function RootLayout({
         />
         <Script
           id="theme-init"
-          strategy="beforeInteractive"
+          // Fast Refresh can remount inline beforeInteractive scripts on the client.
+          // Keep early theme initialization for production, including static exports.
+          strategy={process.env.NODE_ENV === "development" ? "afterInteractive" : "beforeInteractive"}
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
